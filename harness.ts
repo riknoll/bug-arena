@@ -12,6 +12,16 @@ namespace hourOfAi {
         handler: () => void;
     }
 
+    export class Project {
+        constructor(
+            public name: string,
+            public bugDesign: BugDesign,
+            public script: (agent: Agent) => void
+        ) {
+
+        }
+    }
+
     export class Agent {
         bug: hourOfAi.BugPresident;
         protected handlers: IntervalHandler[] = [];
@@ -131,61 +141,80 @@ namespace hourOfAi {
         projects.push(new Project(name, bugDesign, script));
     }
 
-    export function initRunner() {
-        const bracket = new hourOfAi.Bracket(projects);
-        bracket.left = 5;
-        bracket.top = 4;
+    export class Participant extends tourney.Participant {
+        constructor(
+            public project: Project
+        ) {
+            super(project.name, img`2`);
+        }
 
+        drawPreview(left: number, top: number): void {
+            drawBug(
+                left + 8,
+                top + 8,
+                game.currentScene().camera,
+                this.project.bugDesign.bodyRadius,
+                this.isLeft ?  0 : Math.PI,
+                this.project.bugDesign.colorPalette[0],
+                this.project.bugDesign.colorPalette[1],
+                15,
+                this.project.bugDesign.colorPalette[2],
+                this.project.bugDesign.noseRadius,
+                this.project.bugDesign.legLength + this.project.bugDesign.bodyRadius
+            )
+        }
+    }
 
-        const matches = bracket.getMatches();
+    export function initRunner(
+        matchTime: number
+    ) {
+        let arena: Arena;
+        let running = false;
+        game.stats = true;
 
-        while (true) {
-            const nextMatch = matches.find(match => match.canBePlayed());
+        let timeRemaining = matchTime;
+        const timeSlice = 1/30;
+        let timeMult = 20;
 
-            if (!nextMatch) {
-                break;
-            }
-            nextMatch.highlighted = true;
-            pauseUntil(() => controller.A.isPressed() || controller.B.isPressed());
-            nextMatch.highlighted = false;
-
-            const arena = new Arena();
-            const player1 = nextMatch.a instanceof Participant ? nextMatch.a : nextMatch.a.result;
-            const player2 = nextMatch.b instanceof Participant ? nextMatch.b : nextMatch.b.result
-
-            const agent1 = new Agent(arena, player1.project.bugDesign);
-            player1.project.script(agent1);
-            const agent2 = new Agent(arena, player2.project.bugDesign);
-            player2.project.script(agent2);
-            agent2.bug.fillColor = 2;
-
-            bracket.setFlag(SpriteFlag.Invisible, true);
-
-            arena.placeCombatants();
-
-            let timeRemaining = 120;
-            const timeSlice = 1/30;
-            let timeMult = 20;
-            currentTime_ = 0
-            arena.update(timeSlice);
-
-            showIntro(player1.project.name, player2.project.name);
-
-            game.onUpdate(() => {
-                for (let i = 0; i < timeMult; i++) {
-                    if (timeRemaining <= 0) {
-                        return;
-                    }
-                    timeRemaining -= timeSlice
-                    arena.update(timeSlice);
+        game.onUpdate(() => {
+            if (!running) return;
+            for (let i = 0; i < timeMult; i++) {
+                if (timeRemaining <= 0) {
+                    running = false;
+                    return;
                 }
-            });
+                timeRemaining -= timeSlice
+                arena.update(timeSlice);
+            }
+        });
+
+
+        tourney.onMatchSetup((m, player1, player2) => {
+            arena = new Arena();
+            const agent1 = new Agent(arena, (player1 as Participant).project.bugDesign);
+            (player1 as Participant).project.script(agent1);
+            const agent2 = new Agent(arena, (player2 as Participant).project.bugDesign);
+            (player2 as Participant).project.script(agent2);
+            agent2.bug.fillColor = 2;
+            arena.placeCombatants();
+        });
+
+
+        tourney.onMatch(m => {
+            currentTime_ = 0
+            timeRemaining = matchTime;
+            arena.update(timeSlice);
+            running = true;
 
             pauseUntil(() => timeRemaining <= 0);
 
-            nextMatch.setWinner(arena.didPlayer1Win());
+            return arena.didPlayer1Win();
+        });
+
+        tourney.onMatchCleanup(m => {
             arena.dispose();
-            bracket.setFlag(SpriteFlag.Invisible, false);
-        }
+        });
+
+        tourney.runTournament(projects.map(p => new Participant(p)), "Richard");
     }
 }

@@ -310,13 +310,6 @@ namespace hourOfAi {
                 this.position.y + Math.round((this.bodyRadius - 2) * Math.sin(this.heading + 0.5)) - camera.drawOffsetY,
                 this.eyeColor
             )
-
-            // drawRibbon(
-            //     this.position.x - camera.drawOffsetX,
-            //     this.position.y - camera.drawOffsetY,
-            //     this.heading,
-            //     this.bodyRadius,
-            //     this.fillColor)
         }
 
         update(timestep: number) {
@@ -327,8 +320,6 @@ namespace hourOfAi {
                     this.heading = this.targetHeading;
                     this.targetHeading = undefined;
                 }
-
-                // console.log("Heading: " + this.heading + " Target: " + this.targetHeading);
             }
 
 
@@ -338,7 +329,6 @@ namespace hourOfAi {
             if (isMoving) {
                 this.position.x += dx * this.speed * timestep;
                 this.position.y += dy * this.speed * timestep;
-                // containInArena(this.position);
                 this.legsReset = false
             }
             else {
@@ -357,11 +347,6 @@ namespace hourOfAi {
                 this.positionLegs(this.lastStepLeft, false, false)
                 this.legsReset = false
             }
-            // else if (!(controller.left.isPressed() || (controller.up.isPressed() || controller.right.isPressed() || this.movingWithVelocity))) {
-            //     this.lastStepX = this.sprite.x + this.stepDistance / 2 * Math.cos(this.heading + Math.PI)
-            //     this.lastStepY = this.sprite.y + this.stepDistance / 2 * Math.sin(this.heading + Math.PI)
-            //     this.resetLegs()
-            // }
 
             for (const leg of this.legPositions) {
                 leg.update();
@@ -375,53 +360,6 @@ namespace hourOfAi {
             this.positionLegs(true, true, true)
             this.positionLegs(false, true, true)
         }
-
-        // setProperty(prop: Property, value: number) {
-        //     switch (prop) {
-        //         case Property.BodyRadius:
-        //             this.bodyRadius = value;
-        //             break;
-        //         case Property.LegLength:
-        //             this.legLength = value;
-        //             break;
-        //         case Property.TurnRate:
-        //             this.turnRate = value;
-        //             break;
-        //         case Property.Speed:
-        //             this.speed = value;
-        //             break;
-        //         case Property.FootSpeed:
-        //             this.footSpeed = value;
-        //             break;
-        //         case Property.HitboxRadius:
-        //             this.hitboxRadius = value;
-        //             break;
-        //         case Property.BodyColor:
-        //             this.bodyColor = value;
-        //             break;
-        //         case Property.EyeColor:
-        //             this.eyeColor = value;
-        //             break;
-        //         case Property.LegColor:
-        //             this.legColor = value;
-        //             break;
-        //         case Property.NoseColor:
-        //             this.noseColor = value;
-        //             break;
-        //         case Property.Facing:
-        //             this.heading = value;
-        //             break;
-        //         case Property.StepLength:
-        //             this.stepDistance = value;
-        //             break;
-        //     }
-
-        //     // if (prop === Property.HitboxRadius) {
-        //     //     this.sprite.setImage(image.create(this.hitboxRadius, this.hitboxRadius));
-        //     //     this.sprite.image.fill(this.bodyColor)
-        //     // }
-        // }
-
 
         public turnTowards(angle: number) {
             this.targetHeading = angleutil.clampRadians(angle);
@@ -468,7 +406,67 @@ namespace hourOfAi {
         pres.resetLegs();
     }
 
+    export function drawBug(
+        x: number,
+        y: number,
+        camera: scene.Camera,
+        bodyRadius: number,
+        heading: number,
+        bodyColor: number,
+        eyeColor: number,
+        legColor: number,
+        noseColor: number,
+        noseRadius: number,
+        legLength: number
+    ) {
+            const legAngles = [
+                -(Math.PI / 2 - 0.8),
+                Math.PI / 2,
+                -(Math.PI / 2 + 0.8),
+                (Math.PI / 2 - 0.8),
+                -Math.PI / 2,
+                (Math.PI / 2 + 0.8),
+            ]
 
+
+        for (const angle of legAngles) {
+            screen.fillCircle(
+                x + (legLength - 2) * Math.cos(angle) - camera.drawOffsetX,
+                y + (legLength - 2) * Math.sin(angle) - camera.drawOffsetY,
+                2,
+                legColor
+            )
+            screen.drawLine(
+                 x + (legLength - 2) * Math.cos(angle) - camera.drawOffsetX,
+                y + (legLength - 2) * Math.sin(angle) - camera.drawOffsetY,
+                x - camera.drawOffsetX,
+                y - camera.drawOffsetY,
+                legColor
+            )
+        }
+        screen.fillCircle(
+            x + Math.round(bodyRadius * Math.cos(heading)) - camera.drawOffsetX,
+            y + Math.round(bodyRadius * Math.sin(heading)) - camera.drawOffsetY,
+            noseRadius,
+            noseColor
+        )
+        screen.fillCircle(
+            x - camera.drawOffsetX,
+            y - camera.drawOffsetY,
+            bodyRadius,
+            bodyColor
+        )
+        screen.setPixel(
+            (x + Math.round((bodyRadius - 2) * Math.cos(heading - 0.5)) - camera.drawOffsetX),
+            (y + Math.round((bodyRadius - 2) * Math.sin(heading - 0.5)) - camera.drawOffsetY),
+            eyeColor
+        )
+        screen.setPixel(
+            x + Math.round((bodyRadius - 2) * Math.cos(heading + 0.5)) - camera.drawOffsetX,
+            y + Math.round((bodyRadius - 2) * Math.sin(heading + 0.5)) - camera.drawOffsetY,
+            eyeColor
+        )
+    }
 
     function moveLeg(teleport: boolean, leg: Leg, pos: Position, time: number, stepDistance: number) {
         if (teleport) {

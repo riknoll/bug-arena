@@ -2,13 +2,20 @@
     "name": "my-project",
     "version": "0.0.0",
     "files": [
+        "tournament/types.ts",
+        "tournament/util.ts",
+        "tournament/fire.ts",
+        "tournament/draw.ts",
+        "tournament/layout.ts",
+        "tournament/bracketSprite.ts",
+        "tournament/winAnimation.ts",
+        "tournament/tourney.ts",
         "intro.ts",
         "angleutil.ts",
         "president.ts",
         "main.ts",
         "designer.ts",
         "arena.ts",
-        "brackets.ts",
         "harness.ts",
         "api.ts"
     ],
@@ -22,7 +29,8 @@
         "device": "*",
         "arcade-extension-utils": "github:riknoll/arcade-extension-utils#v0.0.1",
         "browser-events": "*",
-        "arcade-fancy-text": "github:riknoll/arcade-fancy-text#v0.2.0"
+        "arcade-fancy-text": "github:riknoll/arcade-fancy-text#v0.2.0",
+        "arcade-screen-transitions": "github:riknoll/arcade-screen-transitions#v0.1.0"
     },
     "testDependencies": {},
     "palette": [

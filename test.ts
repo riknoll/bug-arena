@@ -407,7 +407,7 @@ agent.every(100, function () {
 // URL: https://makecode.com/_A0RUKPPhz4T0
 
     hourOfAi.registerProject(
-        "Jane",
+        "Richard",
         {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":[4,15,2]},
         (agent => {
             let max = 0
@@ -515,5 +515,5 @@ agent.every(100, function () {
 //     );
 
 
-hourOfAi.initRunner();
+hourOfAi.initRunner(300);
 
