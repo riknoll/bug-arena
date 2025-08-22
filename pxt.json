@@ -1,0 +1,46 @@
+{
+    "name": "my-project",
+    "version": "0.0.0",
+    "files": [
+        "intro.ts",
+        "angleutil.ts",
+        "president.ts",
+        "main.ts",
+        "designer.ts",
+        "arena.ts",
+        "brackets.ts",
+        "harness.ts",
+        "api.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "supportedTargets": [
+        "arcade"
+    ],
+    "dependencies": {
+        "device": "*",
+        "arcade-extension-utils": "github:riknoll/arcade-extension-utils#v0.0.1",
+        "browser-events": "*",
+        "arcade-fancy-text": "github:riknoll/arcade-fancy-text#v0.2.0"
+    },
+    "testDependencies": {},
+    "palette": [
+        "#000000",
+        "#FDFFCD",
+        "#FF384E",
+        "#FF7F38",
+        "#FFB838",
+        "#D6FF5D",
+        "#41736E",
+        "#47DF6F",
+        "#4886BE",
+        "#4BB1D3",
+        "#8C1E4E",
+        "#D7DFE2",
+        "#8C9193",
+        "#4E585B",
+        "#2E3948",
+        "#0E1132"
+    ]
+}
