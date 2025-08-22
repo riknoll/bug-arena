@@ -1,4 +1,6 @@
 namespace hourOfAi {
+    export let timeRemaining: number;
+
     export interface BugDesign {
         legLength: number;
         bodyRadius: number;
@@ -25,6 +27,7 @@ namespace hourOfAi {
     export class Agent {
         bug: hourOfAi.BugPresident;
         protected handlers: IntervalHandler[] = [];
+        protected onStartHandler: () => void;
 
         constructor(public arena: Arena, design: BugDesign) {
             this.bug = new hourOfAi.BugPresident();
@@ -36,6 +39,10 @@ namespace hourOfAi {
             this.bug.noseColor = design.colorPalette[2];
 
             arena.combatants.push(this);
+        }
+
+        start() {
+            if (this.onStartHandler) this.onStartHandler();
         }
 
 
@@ -64,6 +71,10 @@ namespace hourOfAi {
                 return angleutil.clampRadians(this.bug.heading) * 180 / Math.PI;
             }
             return 0;
+        }
+
+        onStart(handler: () => void) {
+            this.onStartHandler = handler;
         }
 
         every(millis: number, handler: () => void) {
@@ -172,9 +183,9 @@ namespace hourOfAi {
         let running = false;
         game.stats = true;
 
-        let timeRemaining = matchTime;
+        timeRemaining = matchTime;
         const timeSlice = 1/30;
-        let timeMult = 20;
+        let timeMult = 40;
 
         game.onUpdate(() => {
             if (!running) return;
@@ -203,6 +214,7 @@ namespace hourOfAi {
         tourney.onMatch(m => {
             currentTime_ = 0
             timeRemaining = matchTime;
+            arena.start();
             arena.update(timeSlice);
             running = true;
 

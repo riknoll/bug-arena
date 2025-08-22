@@ -13,6 +13,7 @@ namespace hourOfAi {
         bottom: number;
 
         renderable: scene.Renderable;
+        running = false;
 
         constructor() {
             this.left = 5;
@@ -28,15 +29,11 @@ namespace hourOfAi {
                 screen.fill(12)
                 screen.fillRect(this.left, this.top, this.background.width, this.background.height, 6);
                 screen.drawTransparentImage(this.background, this.left, this.top);
-                fancyText.draw(
-                    Math.floor(currentTime_) + "",
-                    screen,
-                    80,
-                    8,
-                    0,
-                    1,
-                    fancyText.bold_sans_7
-                )
+
+                if (this.running) {
+                    const font = fancyText.bold_sans_7;
+                    drawTime(Math.max(timeRemaining, 0), screen.width >> 1, 12, font, 6);
+                }
             })
         }
 
@@ -121,6 +118,13 @@ namespace hourOfAi {
             player2.bug.positionLegs(false, true, true)
         }
 
+        start() {
+            for (const combatant of this.combatants) {
+                combatant.start();
+            }
+            this.running = true;
+        }
+
         protected scanCore(position: Position, angle: number, found: (pos: Position) => boolean): Position | undefined {
             const dx = Math.cos(angle);
             const dy = Math.sin(angle);
@@ -170,5 +174,30 @@ namespace hourOfAi {
 
             return p1Score > p2Score;
         }
+    }
+
+    function drawTime(seconds: number, x: number, y: number, font: fancyText.BaseFont, charWidth: number) {
+        if (seconds > 60) {
+            const mins = padNumber(Math.floor(seconds / 60));
+            const secs = padNumber(Math.floor(seconds % 60));
+            fancyText.draw(mins.charAt(0), screen, x - charWidth * 2 - 2, y - font.lineHeight >> 1, 0, 1, font);
+            fancyText.draw(mins.charAt(1), screen, x - charWidth - 2, y - font.lineHeight >> 1, 0, 1, font);
+            fancyText.draw(":", screen, x - 1, y - font.lineHeight >> 1, 0, 1, font);
+            fancyText.draw(secs.charAt(0), screen, x + 3, y - font.lineHeight >> 1, 0, 1, font);
+            fancyText.draw(secs.charAt(1), screen, x + 3 + charWidth, y - font.lineHeight >> 1, 0, 1, font);
+        }
+        else {
+            const secs = padNumber(Math.floor(seconds));
+            const hundreths = padNumber(Math.floor((seconds - Math.floor(seconds)) * 100));
+            fancyText.draw(secs.charAt(0), screen, x - charWidth * 2 - 2, y - font.lineHeight >> 1, 0, 1, font);
+            fancyText.draw(secs.charAt(1), screen, x - charWidth - 2, y - font.lineHeight >> 1, 0, 1, font);
+            fancyText.draw(".", screen, x - 1, y - font.lineHeight >> 1, 0, 1, font);
+            fancyText.draw(hundreths.charAt(0), screen, x + 2, y - font.lineHeight >> 1, 0, 1, font);
+            fancyText.draw(hundreths.charAt(1), screen, x + 2 + charWidth, y - font.lineHeight >> 1, 0, 1, font);
+        }
+    }
+
+    function padNumber(num: number) {
+        return (num < 10 ? "0" : "") + num;
     }
 }

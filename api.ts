@@ -27,6 +27,11 @@ namespace hourOfAi {
         return agent.property(property);
     }
 
+    export function onStart(handler: () => void) {
+        init();
+        agent.onStart(handler);
+    }
+
     //% block="every $millis ms"
     //% millis.shadow=timePicker
     //% group="Loop"

@@ -6,6 +6,9 @@ namespace tourney {
         const name = fancyText.create(winner.name, 0, INTRO_TEXT_COLOR, pFont);
         const wins = fancyText.create("Wins!", 0, INTRO_TEXT_COLOR, font);
 
+        name.z = 100;
+        wins.z = 100;
+
         const totalHeight = name.height + wins.height;
 
         name.top = (screen.height >> 1) - (totalHeight >> 1);
