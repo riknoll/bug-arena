@@ -27,6 +27,14 @@ namespace hourOfAi {
         return _agent.property(property);
     }
 
+    //% block="opponent $property"
+    //% group="State"
+    //% weight=80
+    export function opponentProperty(property: Property): number {
+        init();
+        return _agent.opponentProperty(property);
+    }
+
     //% block="on start"
     //% group="Loop"
     //% weight=90
@@ -63,14 +71,14 @@ namespace hourOfAi {
         _agent.turnTowards(degrees);
     }
 
-    //% block="turn by $degrees ° per second"
-    //% group="Turning"
-    //% degrees.shadow=protractorPicker
-    //% weight=80
-    export function setTurnSpeed(degrees: number) {
-        init();
-        _agent.setTurnSpeed(degrees);
-    }
+    // //% block="turn by $degrees ° per second"
+    // //% group="Turning"
+    // //% degrees.shadow=protractorPicker
+    // //% weight=80
+    // export function setTurnSpeed(degrees: number) {
+    //     init();
+    //     _agent.setTurnSpeed(degrees);
+    // }
 
     //% block="distance to wall"
     //% group="Vision"

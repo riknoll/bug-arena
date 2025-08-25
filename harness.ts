@@ -76,6 +76,13 @@ namespace hourOfAi {
             return 0;
         }
 
+        opponentProperty(property: Property): number {
+            const opponent = this.arena.combatants.find(c => c !== this);
+            if (!opponent) return 0;
+
+            return opponent.property(property);
+        }
+
         onStart(handler: () => void) {
             this.onStartHandler = handler;
         }

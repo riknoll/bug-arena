@@ -176,7 +176,7 @@ namespace hourOfAi {
 
     function drawTime(seconds: number, x: number, y: number, font: fancyText.BaseFont, charWidth: number) {
         if (seconds > 60) {
-            const mins = padNumber(Math.floor(seconds / 60));
+            const mins = padNumber(Math.floor(seconds / 60) % 100);
             const secs = padNumber(Math.floor(seconds % 60));
             fancyText.draw(mins.charAt(0), screen, x - charWidth * 2 - 2, y - font.lineHeight >> 1, 0, 1, font);
             fancyText.draw(mins.charAt(1), screen, x - charWidth - 2, y - font.lineHeight >> 1, 0, 1, font);
