@@ -71,15 +71,6 @@ namespace hourOfAi {
         _agent.turnTowards(degrees);
     }
 
-    // //% block="turn by $degrees ° per second"
-    // //% group="Turning"
-    // //% degrees.shadow=protractorPicker
-    // //% weight=80
-    // export function setTurnSpeed(degrees: number) {
-    //     init();
-    //     _agent.setTurnSpeed(degrees);
-    // }
-
     //% block="distance to wall"
     //% group="Vision"
     //% weight=100
@@ -121,23 +112,6 @@ namespace hourOfAi {
         init();
         return _agent.canSeeOpponent();
     }
-
-    // //% block="distance to bomb"
-    // //% group="Vision"
-    // //% weight=70
-    // //% blockGap=8
-    // export function distanceToBomb(): number {
-    //     init();
-    //     return agent.distanceToBomb();
-    // }
-
-    // //% block="can see bomb"
-    // //% group="Vision"
-    // //% weight=60
-    // export function canSeeBomb(): boolean {
-    //     init();
-    //     return agent.canSeeBomb();
-    // }
 
     export let bugDesign: BugDesign = {
         colorPalette: [4, 15, 2],
