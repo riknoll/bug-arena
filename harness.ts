@@ -240,20 +240,6 @@ namespace hourOfAi {
         let mouseY = 0;
 
         const font = fancyText.bold_sans_7;
-        const speedText = "SPEED";
-        const TEXT_LEFT = 10;
-        const SLIDER_LEFT = TEXT_LEFT + fancyText.getTextWidth(font, speedText) + 2;
-        const SLIDER_RIGHT = screen.width - 10;
-        scene.createRenderable(20, () => {
-            if (!running) return;
-
-            const currentValue = (timeMult - MIN_TIME_MULT) / (MAX_TIME_MULT - MIN_TIME_MULT);
-            const sliderX = SLIDER_LEFT + (currentValue * (SLIDER_RIGHT - SLIDER_LEFT) | 0);
-
-            fancyText.draw(speedText, screen, TEXT_LEFT, 111, 0, 1, font);
-            screen.fillRect(SLIDER_LEFT, 114, SLIDER_RIGHT - SLIDER_LEFT, 3, 1);
-            screen.fillRect(sliderX - 1, 112, 2, 7, 15)
-        })
 
         scene.createRenderable(20, () => {
             if (!arena) return;
@@ -270,6 +256,114 @@ namespace hourOfAi {
             screen.fillRect(25, 3, 37 * (scores[0] / (scores[0] + scores[1])), 5, arena.combatants[0].bug.fillColor);
             screen.fillRect(screen.width - 64, 2, 39, 7, 1);
             screen.fillRect(screen.width - 63, 3, 37 * (scores[1] / (scores[0] + scores[1])), 5, arena.combatants[1].bug.fillColor);
+        })
+
+        initTimeMultControls();
+
+        tourney.runTournament(projects.map(p => new Participant(p)), "Richard");
+    }
+
+    let running = false;
+    export function initSinglePlayer(
+    ) {
+        let arena: Arena;
+        game.stats = true;
+
+        const timeSlice = 1/30;
+
+        let scores: number[] = [0, 0];
+
+        game.onUpdate(() => {
+            if (!running) return;
+            for (let i = 0; i < timeMult; i++) {
+                timeRemaining += timeSlice
+                arena.update(timeSlice);
+            }
+
+            scores = countColors(arena.background, arena.combatants[0].bug.fillColor, arena.combatants[1].bug.fillColor);
+        });
+
+
+        arena = new Arena();
+        _agent = new Agent(arena, bugDesign);
+
+        const opponent = new Agent(arena, {
+            colorPalette: [15, 1, 2],
+            legLength: 5,
+            bodyRadius: 5,
+            noseRadius: 2
+        });
+
+        let flip = true;
+        let turning = false;
+        opponent.every(1000, () => {
+            if (turning) {
+                if (opponent.distanceToWall() < 10) {
+                    opponent.turnBy(180)
+                }
+                else {
+                    opponent.turnBy(flip ? -90 : 90)
+                }
+                turning = false;
+                return;
+            }
+            if (opponent.distanceToWall() < 10) {
+                opponent.turnBy(flip ? 90 : -90)
+                flip = !flip;
+                turning = true;
+            }
+        })
+
+        opponent.bug.fillColor = 2
+
+        arena.placeCombatants();
+        timeRemaining = 0;
+
+        control.runInBackground(() => {
+            running = true;
+            arena.start();
+            arena.update(timeSlice);
+        })
+
+        const font = fancyText.bold_sans_7;
+
+        scene.createRenderable(20, () => {
+            if (!arena) return;
+
+            const totalPixels = arena.background.width * arena.background.height;
+
+            const p1 = (scores[0] * 100 / totalPixels) | 0;
+            const p2 = (scores[1] * 100 / totalPixels) | 0;
+
+            fancyText.draw(`${p1}%`, screen, 2, 1, 0, 1, font);
+            fancyText.draw(`${p2}%`, screen, screen.width - 20, 1, 0, 1, font);
+
+            screen.fillRect(24, 2, 39, 7, 1);
+            screen.fillRect(25, 3, 37 * (scores[0] / (scores[0] + scores[1])), 5, arena.combatants[0].bug.fillColor);
+            screen.fillRect(screen.width - 64, 2, 39, 7, 1);
+            screen.fillRect(screen.width - 63, 3, 37 * (scores[1] / (scores[0] + scores[1])), 5, arena.combatants[1].bug.fillColor);
+        })
+
+        initTimeMultControls();
+    }
+
+    function initTimeMultControls() {
+        let mouseX = 0;
+        let mouseY = 0;
+        const font = fancyText.bold_sans_7;
+        const speedText = "SPEED";
+        const TEXT_LEFT = 10;
+        const SLIDER_LEFT = TEXT_LEFT + fancyText.getTextWidth(font, speedText) + 2;
+        const SLIDER_RIGHT = screen.width - 10;
+        scene.createRenderable(20, () => {
+            if (!running) return;
+
+            const currentValue = (timeMult - MIN_TIME_MULT) / (MAX_TIME_MULT - MIN_TIME_MULT);
+            const sliderX = SLIDER_LEFT + (currentValue * (SLIDER_RIGHT - SLIDER_LEFT) | 0);
+
+            fancyText.draw(speedText, screen, TEXT_LEFT, 111, 0, 1, font);
+            screen.fillRect(SLIDER_LEFT, 114, SLIDER_RIGHT - SLIDER_LEFT, 3, 1);
+            screen.fillRect(sliderX - 1, 112, 2, 7, 15)
         })
 
         const updateTimeMult = () => {
@@ -312,8 +406,6 @@ namespace hourOfAi {
             updateTimeMult();
         })
 
-
-        tourney.runTournament(projects.map(p => new Participant(p)), "Richard");
     }
 
     export function countColors(image: Image, color1: number, color2: number) {

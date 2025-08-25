@@ -24,12 +24,15 @@ namespace hourOfAi {
     //% weight=90
     export function property(property: Property): number {
         init();
-        return agent.property(property);
+        return _agent.property(property);
     }
 
+    //% block="on start"
+    //% group="Loop"
+    //% weight=90
     export function onStart(handler: () => void) {
         init();
-        agent.onStart(handler);
+        _agent.onStart(handler);
     }
 
     //% block="every $millis ms"
@@ -38,7 +41,7 @@ namespace hourOfAi {
     //% weight=100
     export function every(millis: number, handler: () => void) {
         init();
-        agent.every(millis, handler);
+        _agent.every(millis, handler);
     }
 
     //% block="turn $degrees °"
@@ -48,7 +51,7 @@ namespace hourOfAi {
     //% weight=100
     export function turnBy(degrees: number) {
         init();
-        agent.turnBy(degrees);
+        _agent.turnBy(degrees);
     }
 
     //% block="face towards $degrees °"
@@ -57,7 +60,7 @@ namespace hourOfAi {
     //% weight=90
     export function turnTowards(degrees: number) {
         init();
-        agent.turnTowards(degrees);
+        _agent.turnTowards(degrees);
     }
 
     //% block="turn by $degrees ° per second"
@@ -66,7 +69,7 @@ namespace hourOfAi {
     //% weight=80
     export function setTurnSpeed(degrees: number) {
         init();
-        agent.setTurnSpeed(degrees);
+        _agent.setTurnSpeed(degrees);
     }
 
     //% block="distance to wall"
@@ -74,7 +77,7 @@ namespace hourOfAi {
     //% weight=100
     export function distanceToWall(): number {
         init();
-        return agent.distanceToWall();
+        return _agent.distanceToWall();
     }
 
     //% block="distance to $type color"
@@ -83,7 +86,7 @@ namespace hourOfAi {
     //% blockGap=8
     export function distanceToColor(type: ColorType): number {
         init();
-        return agent.distanceToColor(type);
+        return _agent.distanceToColor(type);
     }
 
     //% block="can see $type color"
@@ -91,7 +94,7 @@ namespace hourOfAi {
     //% weight=80
     export function canSeeColor(type: ColorType): boolean {
         init();
-        return agent.canSeeColor(type);
+        return _agent.canSeeColor(type);
     }
 
     //% block="distance to opponent"
@@ -100,7 +103,7 @@ namespace hourOfAi {
     //% blockGap=8
     export function distanceToOpponent(): number {
         init();
-        return agent.distanceToOpponent();
+        return _agent.distanceToOpponent();
     }
 
     //% block="can see opponent"
@@ -108,25 +111,25 @@ namespace hourOfAi {
     //% weight=40
     export function canSeeOpponent(): boolean {
         init();
-        return agent.canSeeOpponent();
+        return _agent.canSeeOpponent();
     }
 
-    //% block="distance to bomb"
-    //% group="Vision"
-    //% weight=70
-    //% blockGap=8
-    export function distanceToBomb(): number {
-        init();
-        return agent.distanceToBomb();
-    }
+    // //% block="distance to bomb"
+    // //% group="Vision"
+    // //% weight=70
+    // //% blockGap=8
+    // export function distanceToBomb(): number {
+    //     init();
+    //     return agent.distanceToBomb();
+    // }
 
-    //% block="can see bomb"
-    //% group="Vision"
-    //% weight=60
-    export function canSeeBomb(): boolean {
-        init();
-        return agent.canSeeBomb();
-    }
+    // //% block="can see bomb"
+    // //% group="Vision"
+    // //% weight=60
+    // export function canSeeBomb(): boolean {
+    //     init();
+    //     return agent.canSeeBomb();
+    // }
 
     export let bugDesign: BugDesign = {
         colorPalette: [4, 15, 2],
@@ -155,60 +158,11 @@ namespace hourOfAi {
         bugDesign.noseRadius = radius;
     }
 
-    let agent: Agent;
+    export let _agent: Agent;
 
     function init() {
-        if (agent) return;
+        if (_agent) return;
 
-        const arena = new Arena();
-        agent = new Agent(arena, bugDesign);
-
-        const opponent = new Agent(arena, {
-            colorPalette: [15, 1, 2],
-            legLength: 5,
-            bodyRadius: 5,
-            noseRadius: 2
-        });
-
-        // opponent.every(100, () => {
-        //     if (Math.percentChance(50)) {
-        //         opponent.turnBy(10)
-        //     }
-        //     else {
-        //         opponent.turnBy(-10);
-        //     }
-        // })
-
-        let flip = true;
-        let turning = false;
-        opponent.every(1000, () => {
-            // console.log(hourOfAi.distanceToWall())
-            if (turning) {
-                if (opponent.distanceToWall() < 10) {
-                    opponent.turnBy(180)
-                }
-                else {
-                    opponent.turnBy(flip ? -90 : 90)
-                }
-                turning = false;
-                return;
-            }
-            if (opponent.distanceToWall() < 10) {
-                opponent.turnBy(flip ? 90 : -90)
-                flip = !flip;
-                turning = true;
-            }
-            // hourOfAi.turnBy(Math.percentChance(50) ? 90 : -90);
-        })
-
-        opponent.bug.fillColor = 2
-
-        arena.placeCombatants();
-
-        game.onUpdate(() => {
-            for (let i = 0; i < 2; i++) {
-                arena.update(1 / 30);
-            }
-        })
+        initSinglePlayer();
     }
 }
