@@ -5,104 +5,13 @@ namespace SpriteKind {
 //% color="#e88b00"
 //% block="BUG PRESIDENT"
 namespace hourOfAi {
-    let all: BugPresident[];
-    let bombs: Position[] = []
-
     const MOVE_SPEED = 10;
     export const AGENT_RADIUS = 5;
-    export let timeMult = 1;
-
-    // export enum Property {
-    //     BodyRadius,
-    //     LegLength,
-    //     TurnRate,
-    //     Speed,
-    //     FootSpeed,
-    //     HitboxRadius,
-    //     BodyColor,
-    //     EyeColor,
-    //     LegColor,
-    //     NoseColor,
-    //     Facing,
-    //     StepLength,
-    // }
 
     export let currentTime_ = 0;
-    let timestep = 1 / 30;
 
     export function advanceTime(timeStep: number) {
         currentTime_ += timeStep;
-    }
-
-    function init() {
-        if (all) return;
-
-        all = [];
-
-        // bombs.push(new Position(80, 60));
-
-        game.currentScene().eventContext.registerFrameHandler(scene.UPDATE_PRIORITY - 1, () => {
-            for (let i = 0; i < timeMult; i++) {
-                currentTime_ += timestep;
-                for (const bug of all) {
-                    bug.update(timestep);
-                    // scene.backgroundImage().fillCircle(
-                    //     bug.position.x - game.currentScene().camera.drawOffsetX,
-                    //     bug.position.y - game.currentScene().camera.drawOffsetY,
-                    //     AGENT_RADIUS,
-                    //     bug.fillColor
-                    // );
-
-                    // for (const bomb of bombs) {
-                    //     if (distanceBetween(bug.position, bomb) < AGENT_RADIUS + 8) {
-                    //         scene.backgroundImage().fillCircle(
-                    //             bomb.x,
-                    //             bomb.y,
-                    //             30,
-                    //             bug.fillColor
-                    //         );
-                    //         bombs.removeElement(bomb);
-                    //         break;
-                    //     }
-                    // }
-
-                }
-            }
-        })
-
-        game.currentScene().eventContext.registerFrameHandler(scene.UPDATE_PRIORITY + 1, () => {
-            for (const bug of all) {
-                bug.postUpdate()
-            }
-        })
-
-        scene.createRenderable(10, () => {
-            for (const bomb of bombs) {
-                screen.drawTransparentImage(
-                    img`
-                    . . . . . . . . f f 5 . . . . .
-                    . . . . . . . f d d 2 5 . . . .
-                    . . . . . . f d f f 5 . . . . .
-                    . . . . . . f d f . . . . . . .
-                    . . . . . f c c c f . . . . . .
-                    . . . . f f a a a f f . . . . .
-                    . . . f a a a a a a a f . . . .
-                    . . f a a a a a a a a a f . . .
-                    . . f a a 1 a a a a a a f . . .
-                    . f a a 1 a a a a a a a a f . .
-                    . f a a a a a a a a a a a f . .
-                    . f a a a a a a a a a a a f . .
-                    . . f a a a a a a a a a f . . .
-                    . . f a a a a a a a a a f . . .
-                    . . . f a a a a a a a f . . . .
-                    . . . . f f a a a f f . . . . .
-                    . . . . . . f f f . . . . . . .
-                    `,
-                    bomb.x - 8,
-                    bomb.y - 8
-                )
-            }
-        })
     }
 
     export function containInArena(position: Position) {

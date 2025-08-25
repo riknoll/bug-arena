@@ -2,7 +2,7 @@ namespace tourney {
     export const BRACKET_COLOR = 1;
     export const VICTORY_COLOR = 7;
     export const VICTORY_COLOR_2 = 6
-    export const DEFEATED_COLOR = 11;
+    export const DEFEATED_COLOR = 10;
     export const LINE_THICKNESS = 3;
     export const NAME_COLOR = 12;
     export const NAME_BACKGROUND = 11;
@@ -387,6 +387,8 @@ namespace tourney {
         if (turtle) {
             turtle.moveHorizontal(bracket.x - turtle.x)
             turtle.moveVertical(bracket.y - turtle.y)
+            turtle.x = bracket.x;
+            turtle.y = bracket.y;
         }
 
         if (bracket.result) {

@@ -16,13 +16,13 @@ namespace hourOfAi {
         running = false;
 
         constructor() {
+            this.background = image.create(screen.width - 10, screen.height - 20);
             this.left = 5;
-            this.right = screen.width - 5;
-            this.top = 5;
-            this.bottom = screen.height - 5;
+            this.right = this.left + this.background.width;
+            this.top = 11;
+            this.bottom = this.top + this.background.height;
             this.combatants = [];
             this.bombs = [];
-            this.background = image.create(screen.width - 10, screen.height - 10);
             this.background.fill(0);
 
             this.renderable = scene.createRenderable(-1, () => {
@@ -30,10 +30,8 @@ namespace hourOfAi {
                 screen.fillRect(this.left, this.top, this.background.width, this.background.height, 6);
                 screen.drawTransparentImage(this.background, this.left, this.top);
 
-                if (this.running) {
-                    const font = fancyText.bold_sans_7;
-                    drawTime(Math.max(timeRemaining, 0), screen.width >> 1, 12, font, 6);
-                }
+                const font = fancyText.bold_sans_7;
+                drawTime(Math.max(timeRemaining, 0), screen.width >> 1, 12, font, 7);
             })
         }
 
@@ -104,15 +102,15 @@ namespace hourOfAi {
             const player1 = this.combatants[0];
             const player2 = this.combatants[1];
 
-            player1.bug.position.x = 10;
-            player1.bug.position.y = 10;
+            player1.bug.position.x = this.left + AGENT_RADIUS;
+            player1.bug.position.y = this.top + AGENT_RADIUS;
             player1.bug.heading = 0;
             player1.bug.positionLegs(true, true, true)
             player1.bug.positionLegs(false, true, true)
 
 
-            player2.bug.position.x = screen.width - 10;
-            player2.bug.position.y = screen.height - 10;
+            player2.bug.position.x = this.left + this.background.width - AGENT_RADIUS;
+            player2.bug.position.y = this.top + this.background.height - AGENT_RADIUS;
             player2.bug.heading = Math.PI;
             player2.bug.positionLegs(true, true, true)
             player2.bug.positionLegs(false, true, true)

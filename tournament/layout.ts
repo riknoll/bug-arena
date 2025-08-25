@@ -6,9 +6,6 @@ namespace tourney {
         const allMatches: Match[] = [];
         collectMatches(bracket, allMatches);
 
-        const leftMatches = collectMatches(bracket.a as Match).filter(isLeafMatch);
-        const rightMatches = collectMatches(bracket.b as Match).filter(isLeafMatch);
-
         const leftCount = countParticipants(bracket.a as Match);
         const rightCount = countParticipants(bracket.b as Match);
 
@@ -45,6 +42,7 @@ namespace tourney {
 
         bracket.x = bracket.a.x + ((bracket.b.x - bracket.a.x) >> 1);
         bracket.y = bracket.a.y;
+        bracket.b.y = bracket.a.y;
     }
 
     export function layoutRecursive(
