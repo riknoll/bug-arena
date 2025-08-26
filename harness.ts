@@ -186,11 +186,13 @@ namespace hourOfAi {
         }
     }
 
+    let running = false;
+
     export function initRunner(
         matchTime: number
     ) {
         let arena: Arena;
-        let running = false;
+        running = false;
         game.stats = true;
 
         timeRemaining = matchTime;
@@ -270,7 +272,6 @@ namespace hourOfAi {
         tourney.runTournament(projects.map(p => new Participant(p)), "Richard");
     }
 
-    let running = false;
     export function initSinglePlayer(
     ) {
         let arena: Arena;

@@ -113,7 +113,7 @@ async function main() {
         out += project.script + "\n\n";
     }
 
-    out += `hourOfAi.initRunner();\n`;
+    out += `hourOfAi.initRunner(300);\n`;
 
     console.log(out);
 }

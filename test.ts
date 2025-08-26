@@ -225,7 +225,7 @@
 
     hourOfAi.registerProject(
         "Susie",
-        {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":[4,15,2]},
+        {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":colorPalettes[0]},
         (agent => {
             agent.every(1000, function () {
 
@@ -244,13 +244,13 @@
 // URL: https://makecode.com/_Yvj7WrU7WEev
 
     hourOfAi.registerProject(
-        "Billy",
+        "Richard",
         {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":[4,15,2]},
         (agent => {
-            agent.every(10, function () {
+            agent.every(0, function () {
 
     if (!(agent.canSeeColor(ColorType.OpponentColor))) {
-        agent.turnBy(5)
+        agent.turnBy(37)
     }
 })
 
@@ -263,7 +263,7 @@
 
     hourOfAi.registerProject(
         "Joe",
-        {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":[4,15,2]},
+        {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":colorPalettes[1]},
         (agent => {
             agent.every(100, function () {
 
@@ -281,7 +281,7 @@
 
     hourOfAi.registerProject(
         "Erica",
-        {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":[4,15,2]},
+        {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":colorPalettes[2]},
         (agent => {
             let turning = false
 let flip = false
@@ -318,7 +318,7 @@ agent.every(1000, function () {
 
     hourOfAi.registerProject(
         "Amy",
-        {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":[4,15,2]},
+        {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":colorPalettes[3]},
         (agent => {
             agent.every(100, function () {
 
@@ -336,7 +336,7 @@ agent.every(1000, function () {
 
     hourOfAi.registerProject(
         "Cal",
-        {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":[4,15,2]},
+        {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":colorPalettes[4]},
         (agent => {
             agent.every(100, function () {
 
@@ -359,7 +359,7 @@ agent.every(1000, function () {
 
     hourOfAi.registerProject(
         "Vera",
-        {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":[4,15,2]},
+        {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":colorPalettes[5]},
         (agent => {
             agent.every(100, function () {
 
@@ -407,7 +407,7 @@ agent.every(100, function () {
 // URL: https://makecode.com/_A0RUKPPhz4T0
 
     hourOfAi.registerProject(
-        "Richard",
+        "Jane",
         {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":[4,15,2]},
         (agent => {
             let max = 0
@@ -432,87 +432,6 @@ agent.every(100, function () {
 
         })
     );
-
-//         hourOfAi.registerProject(
-//         "Jane2",
-//         {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":[4,15,2]},
-//         (agent => {
-//             let max = 0
-// let count = 0
-// agent.every(100, function () {
-
-//     if (max <= 0) {
-//         max = 100
-//     }
-//     if (agent.distanceToWall() < 5) {
-//         agent.turnBy(-90)
-//         max = max - count - 5
-//         count = max
-//     }
-//     if (count == 0) {
-//         agent.turnBy(-90)
-//         count = max
-//         max += -5
-//     }
-//     count += -1
-// })
-
-//         })
-//     );
-
-//         hourOfAi.registerProject(
-//         "Jane3",
-//         {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":[4,15,2]},
-//         (agent => {
-//             let max = 0
-// let count = 0
-// agent.every(100, function () {
-
-//     if (max <= 0) {
-//         max = 100
-//     }
-//     if (agent.distanceToWall() < 5) {
-//         agent.turnBy(-90)
-//         max = max - count - 5
-//         count = max
-//     }
-//     if (count == 0) {
-//         agent.turnBy(-90)
-//         count = max
-//         max += -5
-//     }
-//     count += -1
-// })
-
-//         })
-//     );
-
-//         hourOfAi.registerProject(
-//         "Jane4",
-//         {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":[4,15,2]},
-//         (agent => {
-//             let max = 0
-// let count = 0
-// agent.every(100, function () {
-
-//     if (max <= 0) {
-//         max = 100
-//     }
-//     if (agent.distanceToWall() < 5) {
-//         agent.turnBy(-90)
-//         max = max - count - 5
-//         count = max
-//     }
-//     if (count == 0) {
-//         agent.turnBy(-90)
-//         count = max
-//         max += -5
-//     }
-//     count += -1
-// })
-
-//         })
-//     );
 
 
 hourOfAi.initRunner(300);
