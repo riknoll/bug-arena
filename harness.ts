@@ -163,7 +163,13 @@ namespace hourOfAi {
 
         distanceToOpponent(): number {
             const pos = this.arena.scanForOpponent(this.bug.position, this.bug.heading, this);
-            return pos ? Math.max(0, distanceBetween(this.bug.position, pos) - AGENT_RADIUS) : -1;
+
+            if (!pos) {
+                return -1;
+            }
+            const opponent = this.arena.combatants.find(c => c !== this);
+
+            return Math.max(distanceBetween(this.bug.position, opponent.bug.position) - AGENT_RADIUS * 2, 0);
         }
 
         canSeeOpponent(): boolean {

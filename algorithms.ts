@@ -112,38 +112,13 @@ namespace hourOfAi.algorithms {
     }
 
     export function followOpponent(agent: Agent) {
-        let turnDirection = false;
-        let hasLock = false;
-
-        agent.onStart(() => {
-            if (agent.property(Property.X) < 40) {
-                agent.turnTowardsPosition(
-                    agent.arenaProperty(ArenaProperty.Width),
-                    agent.arenaProperty(ArenaProperty.Height)
-                )
-            }
-            else {
-                agent.turnTowardsPosition(
-                    0, 0
-                )
-            }
-            hasLock = true;
+        agent.onStart(function () {
+            agent.turnTowardsPosition(agent.arenaProperty(ArenaProperty.Width) / 2, agent.arenaProperty(ArenaProperty.Height) / 2)
         })
-
-        agent.every(5000, () => {
-            hasLock = agent.canSeeOpponent();
-        })
-
-        agent.every(50, () => {
-            if (!hasLock) {
-                hasLock = agent.canSeeOpponent();
-                agent.turnBy(turnDirection ? 2 : -2)
+        agent.every(0, function () {
+            if (!(agent.canSeeOpponent())) {
+                agent.turnBy(5)
             }
-        })
-
-        agent.onBumpWall(() => {
-            agent.turnBy(180)
-            turnDirection = !turnDirection
         })
     }
 
