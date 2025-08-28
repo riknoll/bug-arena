@@ -31,6 +31,7 @@ namespace hourOfAi {
         bug: hourOfAi.BugPresident;
         protected handlers: IntervalHandler[] = [];
         protected onStartHandler: () => void;
+        protected onBumpWallHandler: () => void;
 
         constructor(public arena: Arena, design: BugDesign) {
             this.bug = new hourOfAi.BugPresident();
@@ -62,16 +63,34 @@ namespace hourOfAi {
                 }
             }
 
+            if (this.bug.targetHeading === undefined) {
+                const dx = Math.cos(this.bug.heading);
+                const dy = Math.sin(this.bug.heading);
+
+                if (this.bug.position.x - this.bug.bodyRadius < this.arena.left && dx < 0 ||
+                    this.bug.position.x + this.bug.bodyRadius > this.arena.right && dx > 0 ||
+                    this.bug.position.y - this.bug.bodyRadius < this.arena.top && dy < 0 ||
+                    this.bug.position.y + this.bug.bodyRadius > this.arena.bottom && dy > 0
+                ) {
+                    if (this.onBumpWallHandler) this.onBumpWallHandler();
+                }
+            }
+
             this.arena.constrainPosition(this.bug.position, AGENT_RADIUS);
         }
 
         property(property: Property): number {
             if (property === Property.X) {
                 return this.bug.position.x;
-            } else if (property === Property.Y) {
+            }
+            else if (property === Property.Y) {
                 return this.bug.position.y;
-            } else if (property === Property.Angle) {
+            }
+            else if (property === Property.Angle) {
                 return angleutil.clampRadians(this.bug.heading) * 180 / Math.PI;
+            }
+            else if (property === Property.AngleRadians) {
+                return angleutil.clampRadians(this.bug.heading);
             }
             return 0;
         }
@@ -87,6 +106,10 @@ namespace hourOfAi {
             this.onStartHandler = handler;
         }
 
+        onBumpWall(handler: () => void) {
+            this.onBumpWallHandler = handler;
+        }
+
         every(millis: number, handler: () => void) {
             this.handlers.push({ millis, timer: millis, handler });
         }
@@ -99,7 +122,18 @@ namespace hourOfAi {
             this.bug.targetHeading = degreesToRadians(degrees);
         }
 
-        setTurnSpeed(degrees: number) {
+        turnTowardsPosition(x: number, y: number) {
+            this.turnTowards(Math.atan2(y - this.property(Property.Y), x - this.property(Property.X)) * 180 / Math.PI);
+        }
+
+        arenaProperty(property: ArenaProperty): number {
+            if (property === ArenaProperty.Width) {
+                return this.arena.background.width
+            }
+            else if (property === ArenaProperty.Height) {
+                return this.arena.background.height
+            }
+            return 0;
         }
 
         distanceToWall(): number {
@@ -244,9 +278,6 @@ namespace hourOfAi {
         tourney.onMatchCleanup(m => {
             arena.dispose();
         });
-
-        let mouseX = 0;
-        let mouseY = 0;
 
         const font = fancyText.bold_sans_7;
 

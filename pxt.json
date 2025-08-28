@@ -1,7 +1,20 @@
 {
-    "name": "my-project",
+    "name": "arcade-bug-arena",
     "version": "0.0.0",
     "files": [
+        "docs/arenaProperty.md",
+        "docs/canSeeColor.md",
+        "docs/canSeeOpponent.md",
+        "docs/distanceToColor.md",
+        "docs/distanceToOpponent.md",
+        "docs/distanceToWall.md",
+        "docs/every.md",
+        "docs/onBumpWall.md",
+        "docs/onStart.md",
+        "docs/property.md",
+        "docs/turnBy.md",
+        "docs/turnTowards.md",
+        "docs/turnTowardsPosition.md",
         "tournament/types.ts",
         "tournament/util.ts",
         "tournament/fire.ts",
@@ -17,7 +30,8 @@
         "designer.ts",
         "arena.ts",
         "harness.ts",
-        "api.ts"
+        "api.ts",
+        "algorithms.ts"
     ],
     "testFiles": [
         "test.ts"

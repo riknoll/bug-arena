@@ -246,15 +246,7 @@
     hourOfAi.registerProject(
         "Richard",
         {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":[4,15,2]},
-        (agent => {
-            agent.every(0, function () {
-
-    if (!(agent.canSeeColor(ColorType.OpponentColor))) {
-        agent.turnBy(37)
-    }
-})
-
-        })
+        hourOfAi.algorithms.spiral
     );
 
 
@@ -264,16 +256,7 @@
     hourOfAi.registerProject(
         "Joe",
         {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":colorPalettes[1]},
-        (agent => {
-            agent.every(100, function () {
-
-    if (!(agent.canSeeOpponent())) {
-        agent.turnBy(5)
-    }
-})
-
-        })
-    );
+        hourOfAi.algorithms.followOpponentColor);
 
 
 // Project: Erica
@@ -282,35 +265,7 @@
     hourOfAi.registerProject(
         "Erica",
         {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":colorPalettes[2]},
-        (agent => {
-            let turning = false
-let flip = false
-agent.every(1000, function () {
-
-    if (turning) {
-        if (agent.distanceToWall() < 10) {
-            agent.turnBy(180)
-        } else {
-            if (flip) {
-                agent.turnBy(-90)
-            } else {
-                agent.turnBy(90)
-            }
-        }
-        turning = false
-    } else if (agent.distanceToWall() < 10) {
-        if (flip) {
-            agent.turnBy(90)
-        } else {
-            agent.turnBy(-90)
-        }
-        flip = !(flip)
-        turning = true
-    }
-})
-
-        })
-    );
+        hourOfAi.algorithms.followOpponent );
 
 
 // Project: Amy
@@ -319,15 +274,7 @@ agent.every(1000, function () {
     hourOfAi.registerProject(
         "Amy",
         {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":colorPalettes[3]},
-        (agent => {
-            agent.every(100, function () {
-
-    if (agent.distanceToWall() < 10) {
-        agent.turnTowards(randint(0, 360))
-    }
-})
-
-        })
+        hourOfAi.algorithms.zigzag
     );
 
 
@@ -337,21 +284,8 @@ agent.every(1000, function () {
     hourOfAi.registerProject(
         "Cal",
         {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":colorPalettes[4]},
-        (agent => {
-            agent.every(100, function () {
-
-    if (Math.percentChance(50)) {
-        agent.turnBy(5)
-    } else {
-        agent.turnBy(-5)
-    }
-    if (agent.distanceToWall() < 10) {
-        agent.turnBy(randint(150, 230))
-    }
-})
-
-        })
-    );
+        hourOfAi.algorithms.diagonals
+);
 
 
 // Project: Vera
@@ -360,17 +294,8 @@ agent.every(1000, function () {
     hourOfAi.registerProject(
         "Vera",
         {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":colorPalettes[5]},
-        (agent => {
-            agent.every(100, function () {
-
-    agent.turnBy(randint(-10, 10))
-    if (agent.distanceToWall() < 5) {
-        agent.turnBy(180)
-    }
-})
-
-        })
-    );
+        hourOfAi.algorithms.curveAndBounce
+);
 
 
 // Project: Cody
@@ -379,27 +304,7 @@ agent.every(1000, function () {
     hourOfAi.registerProject(
         "Cody",
         {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":[4,15,2]},
-        (agent => {
-            let flip = false
-let count = 0
-agent.every(100, function () {
-
-    if (flip) {
-        agent.turnBy(2)
-    } else {
-        agent.turnBy(-2)
-    }
-    if (agent.distanceToWall() < 5) {
-        agent.turnBy(90)
-    }
-    if (count == 0) {
-        flip = !(flip)
-        count = 50
-    }
-    count += -1
-})
-
-        })
+        hourOfAi.algorithms.squiggles
     );
 
 
@@ -409,28 +314,7 @@ agent.every(100, function () {
     hourOfAi.registerProject(
         "Jane",
         {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":[4,15,2]},
-        (agent => {
-            let max = 0
-let count = 0
-agent.every(100, function () {
-
-    if (max <= 0) {
-        max = 100
-    }
-    if (agent.distanceToWall() < 5) {
-        agent.turnBy(-90)
-        max = max - count - 5
-        count = max
-    }
-    if (count == 0) {
-        agent.turnBy(-90)
-        count = max
-        max += -5
-    }
-    count += -1
-})
-
-        })
+        hourOfAi.algorithms.randomWalk
     );
 
 
