@@ -78,7 +78,7 @@ namespace hourOfAi {
             if (!toFind) return undefined;
 
             return this.scanCore(position, angle, pos => {
-                if (distanceBetween(pos, toFind.bug.position) < toFind.bug.bodyRadius + 1) {
+                if (distanceBetween(pos, toFind.bug.position) < AGENT_RADIUS + 10) {
                     return true;
                 }
                 return false;

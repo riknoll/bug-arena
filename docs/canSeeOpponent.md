@@ -16,11 +16,15 @@ In this example, we program our bug's AI so that it turns whenever it can't see 
 As a result, our bug focuses on following the opponent's bug!
 
 ```blocks
-hourOfAi.every(50, () => {
-    if (!hourOfAi.canSeeOpponent()) {
-        hourOfAi.turnBy(1)
+hourOfAi.onStart(function () {
+    hourOfAi.turnTowardsPosition(hourOfAi.arenaProperty(ArenaProperty.Width) / 2, hourOfAi.arenaProperty(ArenaProperty.Height) / 2)
+})
+hourOfAi.every(0, function () {
+    if (!(hourOfAi.canSeeOpponent())) {
+        hourOfAi.turnBy(5)
     }
 })
+
 ```
 
 ```package

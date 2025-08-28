@@ -67,10 +67,10 @@ namespace hourOfAi {
                 const dx = Math.cos(this.bug.heading);
                 const dy = Math.sin(this.bug.heading);
 
-                if (this.bug.position.x - this.bug.bodyRadius < this.arena.left && dx < 0 ||
-                    this.bug.position.x + this.bug.bodyRadius > this.arena.right && dx > 0 ||
-                    this.bug.position.y - this.bug.bodyRadius < this.arena.top && dy < 0 ||
-                    this.bug.position.y + this.bug.bodyRadius > this.arena.bottom && dy > 0
+                if (this.bug.position.x - AGENT_RADIUS < this.arena.left && dx < 0 ||
+                    this.bug.position.x + AGENT_RADIUS > this.arena.right && dx > 0 ||
+                    this.bug.position.y - AGENT_RADIUS < this.arena.top && dy < 0 ||
+                    this.bug.position.y + AGENT_RADIUS > this.arena.bottom && dy > 0
                 ) {
                     if (this.onBumpWallHandler) this.onBumpWallHandler();
                 }

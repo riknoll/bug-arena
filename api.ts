@@ -242,7 +242,6 @@ namespace hourOfAi {
         noseRadius: 2
     }
 
-    //% block="set name to $name"
     export function _setName(name: string) {
     }
 
