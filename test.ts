@@ -223,100 +223,101 @@
 // Project: Susie
 // URL: https://makecode.com/_4j5JUpPA6Kig
 
-    hourOfAi.registerProject(
-        "Susie",
-        {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":colorPalettes[0]},
-        (agent => {
-            agent.every(1000, function () {
+//     hourOfAi.registerProject(
+//         "Susie",
+//         {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":colorPalettes[0]},
+//         (agent => {
+//             agent.every(1000, function () {
 
-    if (Math.percentChance(50)) {
-        agent.turnBy(45)
-    } else {
-        agent.turnBy(-45)
-    }
-})
+//     if (Math.percentChance(50)) {
+//         agent.turnBy(45)
+//     } else {
+//         agent.turnBy(-45)
+//     }
+// })
 
-        })
-    );
-
-
-// Project: Billy
-// URL: https://makecode.com/_Yvj7WrU7WEev
-
-    hourOfAi.registerProject(
-        "Richard",
-        {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":[4,15,2]},
-        hourOfAi.algorithms.spiral
-    );
+//         })
+//     );
 
 
-// Project: Joe
-// URL: https://makecode.com/_gRYd7sPUsA5m
+// // Project: Billy
+// // URL: https://makecode.com/_Yvj7WrU7WEev
 
-    hourOfAi.registerProject(
-        "Joe",
-        {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":colorPalettes[1]},
-        hourOfAi.algorithms.followOpponentColor);
-
-
-// Project: Erica
-// URL: https://makecode.com/_M196fjKbtgHs
-
-    hourOfAi.registerProject(
-        "Erica",
-        {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":colorPalettes[2]},
-        hourOfAi.algorithms.followOpponent );
+//     hourOfAi.registerProject(
+//         "Richard",
+//         {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":[4,15,2]},
+//         hourOfAi.algorithms.spiral
+//     );
 
 
-// Project: Amy
-// URL: https://makecode.com/_g8JT26YRbHUC
+// // Project: Joe
+// // URL: https://makecode.com/_gRYd7sPUsA5m
 
-    hourOfAi.registerProject(
-        "Amy",
-        {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":colorPalettes[3]},
-        hourOfAi.algorithms.zigzag
-    );
-
-
-// Project: Cal
-// URL: https://makecode.com/_erbTiLPTcKcv
-
-    hourOfAi.registerProject(
-        "Cal",
-        {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":colorPalettes[4]},
-        hourOfAi.algorithms.diagonals
-);
+//     hourOfAi.registerProject(
+//         "Joe",
+//         {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":colorPalettes[1]},
+//         hourOfAi.algorithms.followOpponentColor);
 
 
-// Project: Vera
-// URL: https://makecode.com/_17bAekJ52R7b
+// // Project: Erica
+// // URL: https://makecode.com/_M196fjKbtgHs
 
-    hourOfAi.registerProject(
-        "Vera",
-        {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":colorPalettes[5]},
-        hourOfAi.algorithms.curveAndBounce
-);
-
-
-// Project: Cody
-// URL: https://makecode.com/_ayrCekdTaKWb
-
-    hourOfAi.registerProject(
-        "Cody",
-        {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":[4,15,2]},
-        hourOfAi.algorithms.squiggles
-    );
+//     hourOfAi.registerProject(
+//         "Erica",
+//         {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":colorPalettes[2]},
+//         hourOfAi.algorithms.followOpponent );
 
 
-// Project: Jane
-// URL: https://makecode.com/_A0RUKPPhz4T0
+// // Project: Amy
+// // URL: https://makecode.com/_g8JT26YRbHUC
 
-    hourOfAi.registerProject(
-        "Jane",
-        {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":[4,15,2]},
-        hourOfAi.algorithms.randomWalk
-    );
+//     hourOfAi.registerProject(
+//         "Amy",
+//         {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":colorPalettes[3]},
+//         hourOfAi.algorithms.zigzag
+//     );
 
 
-hourOfAi.initRunner(300);
+// // Project: Cal
+// // URL: https://makecode.com/_erbTiLPTcKcv
 
+//     hourOfAi.registerProject(
+//         "Cal",
+//         {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":colorPalettes[4]},
+//         hourOfAi.algorithms.diagonals
+// );
+
+
+// // Project: Vera
+// // URL: https://makecode.com/_17bAekJ52R7b
+
+//     hourOfAi.registerProject(
+//         "Vera",
+//         {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":colorPalettes[5]},
+//         hourOfAi.algorithms.curveAndBounce
+// );
+
+
+// // Project: Cody
+// // URL: https://makecode.com/_ayrCekdTaKWb
+
+//     hourOfAi.registerProject(
+//         "Cody",
+//         {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":[4,15,2]},
+//         hourOfAi.algorithms.squiggles
+//     );
+
+
+// // Project: Jane
+// // URL: https://makecode.com/_A0RUKPPhz4T0
+
+//     hourOfAi.registerProject(
+//         "Jane",
+//         {"legLength":5,"bodyRadius":5,"noseRadius":2,"colorPalette":[4,15,2]},
+//         hourOfAi.algorithms.randomWalk
+//     );
+
+
+// hourOfAi.initRunner(300);
+
+hourOfAi.initTower();

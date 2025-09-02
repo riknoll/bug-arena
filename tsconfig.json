@@ -7,7 +7,7 @@
     },
     "include": [
         "**/*.ts"
-    ],
+, "scripts/build-assets.js"    ],
     "exclude": [
         "built/**",
         "pxt_modules/**/*test.ts"

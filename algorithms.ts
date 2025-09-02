@@ -7,6 +7,7 @@ namespace hourOfAi.algorithms {
 
         let facing = 0;
         let returnToStart = false;
+        const bandWidth = 8;
 
         agent.onStart(() => {
             if (agent.property(Property.Angle) === 0) {
@@ -23,28 +24,28 @@ namespace hourOfAi.algorithms {
             if (facing === 0) {
                 if (agent.distanceToWall() < right + 1) {
                     facing = 1;
-                    right += 5;
+                    right += bandWidth;
                     agent.turnBy(90);
                 }
             }
             else if (facing === 1) {
                 if (agent.distanceToWall() < bottom + 1) {
                     facing = 2;
-                    bottom += 5;
+                    bottom += bandWidth;
                     agent.turnBy(90);
                 }
             }
             else if (facing === 2) {
                 if (agent.distanceToWall() < left + 1) {
                     facing = 3;
-                    left += 5;
+                    left += bandWidth;
                     agent.turnBy(90);
                 }
             }
             else {
                 if (agent.distanceToWall() < top + 1) {
                     facing = 0;
-                    top += 5;
+                    top += bandWidth;
                     agent.turnBy(90);
                 }
             }

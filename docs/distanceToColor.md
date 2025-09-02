@@ -21,7 +21,7 @@ When your bug is looking for things, it can only see what is directly in front o
 
 ## Example #example
 
-In this example, we program our bug's AI so that it turns whenever it bumps into pixels it has already painted
+In this example, we program our bug's AI so that it turns whenever it bumps into pixels it has already painted.
 
 ```blocks
 hourOfAi.every(50, () => {

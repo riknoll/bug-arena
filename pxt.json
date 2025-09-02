@@ -15,6 +15,7 @@
         "docs/turnBy.md",
         "docs/turnTowards.md",
         "docs/turnTowardsPosition.md",
+        "assets/built.ts",
         "tournament/types.ts",
         "tournament/util.ts",
         "tournament/fire.ts",
@@ -31,7 +32,9 @@
         "arena.ts",
         "harness.ts",
         "api.ts",
-        "algorithms.ts"
+        "algorithms.ts",
+        "challengers.ts",
+        "tower.ts"
     ],
     "testFiles": [
         "test.ts"
