@@ -71,12 +71,12 @@ namespace hourOfAi.tower {
         controller.B.addEventListener(ControllerButtonEvent.Pressed, buttonHandler);
         browserEvents.MouseLeft.addEventListener(browserEvents.MouseButtonEvent.Pressed, buttonHandler);
 
-        const introRenderable = scene.createRenderable(-2, () => {
+        const introRenderable = scene.createRenderable(-2, (_, camera) => {
             fancyText.drawFrame(
                 screen,
                 frame,
-                DIALOG_LEFT + (xOffset >> 1),
-                DIALOG_TOP + (yOffset >> 1),
+                DIALOG_LEFT + (xOffset >> 1) - camera.drawOffsetX,
+                DIALOG_TOP + (yOffset >> 1) - camera.drawOffsetY,
                 DIALOG_WIDTH - xOffset,
                 PORTRAIT_FRAME_WIDTH - yOffset
             )
@@ -85,8 +85,8 @@ namespace hourOfAi.tower {
                 fancyText.drawFrame(
                     screen,
                     frame,
-                    PORTRAIT_FRAME_LEFT + (xOffset >> 1),
-                    DIALOG_TOP + (yOffset >> 1),
+                    PORTRAIT_FRAME_LEFT + (xOffset >> 1) - camera.drawOffsetX,
+                    DIALOG_TOP + (yOffset >> 1) - camera.drawOffsetY,
                     PORTRAIT_FRAME_WIDTH - xOffset,
                     PORTRAIT_FRAME_WIDTH - yOffset
                 )
@@ -206,7 +206,7 @@ namespace hourOfAi.tower {
         }
 
         isFinished() {
-            return this.isFinished;
+            return this._isFinished;
         }
     }
 
