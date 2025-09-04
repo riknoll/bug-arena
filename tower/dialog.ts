@@ -29,7 +29,7 @@ namespace hourOfAi.tower {
         . 1 2 3 4 5 6 7 8 9 a b c d e f
         . b a 2 3 4 e 6 d 8 e c d e f f
     `
-    const mapBuffers: Buffer[] = [];
+    export const mapBuffers: Buffer[] = [];
 
     function initColorRamps() {
         if (mapBuffers.length) return;

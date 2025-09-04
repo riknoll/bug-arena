@@ -4,7 +4,7 @@ namespace SpriteKind {
 
 namespace hourOfAi.tower {
     export function initTower() {
-        let challengerIndex = 1;
+        let challengerIndex = 7;
         let offset = -40;
         let zoom = 1;
 

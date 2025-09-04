@@ -79,10 +79,11 @@ namespace tourney {
 
         constructor(
             width: number,
-            height: number
+            height: number,
+            public roundBottom?: boolean
         ) {
             super(img`.`);
-            this.fireData = new Data(40, 30, [0, 1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5].map(index => fireRamp.getPixel(index, 0)));
+            this.fireData = new Data(Math.min(width, 40), Math.min(height, 30), [0, 1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5].map(index => fireRamp.getPixel(index, 0)));
             this.setDimensions(width, height);
         }
 
@@ -108,7 +109,11 @@ namespace tourney {
             const loopStart = 5;
             const loopLength = this.fireData.width - (loopStart << 1);
 
-            let flip = false;
+            if (this.roundBottom) {
+                this.fireData.rendered.setPixel(0, this.fireData.rendered.height - 1, 0);
+                this.fireData.rendered.setPixel(this.fireData.rendered.width - 1, this.fireData.rendered.height - 1, 0);
+            }
+
             // left edge of fire
             screen.blit(
                 left,
@@ -179,6 +184,10 @@ namespace tourney {
                     );
                 }
             }
+        }
+
+        setStrength(strength: number) {
+            this.strength = Math.max(0, strength);
         }
 
         extinguish() {

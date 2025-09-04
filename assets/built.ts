@@ -1031,6 +1031,43 @@ namespace hourOfAi.imgs {
         . . . F E E E F A A E 2 2 2 2 2 2 2 2 2 2 E A A F E E E F . . .
     `;
 
+    // shadow_silhouette.png
+    //% whenUsed
+    export const shadow_silhouette = img`
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . E E E E . . . . . . . . E E E E . . . . . . . .
+        . . . . . . . E E E E E E . . . . . . E E E E E E . . . . . . .
+        . . . . . . E E E E E E E E . . . . E E E E E E E E . . . . . .
+        . . . . . . . E E . . E E E . . . . E E E . . E E . . . . . . .
+        . . . . . . . . . . . E E E . . . . E E E . . . . . . . . . . .
+        . . . . . . . . . . . E E E E E E E E E E . . . . . . . . . . .
+        . . . . . . . . . . E E E E E E E E E E E E . . . . . . . . . .
+        . . . . . . . . . E E E E E E E E E E E E E E . . . . . . . . .
+        . . . . . . . . E E E E E E E E E E E E E E E E . . . . . . . .
+        . . . . . . . . E E E E E E E E E E E E E E E E . . . . . . . .
+        . . . . . . . E E E E E E E E E E E E E E E E E E . . . . . . .
+        . . . . . . E E E E E E E E E E E E E E E E E E E E . . . . . .
+        . . . . . . E E E E E E E E E E E E E E E E E E E E . . . . . .
+        . . . . . . E E E E E E E E E E E E E E E E E E E E . . . . . .
+        . . . . . . E E E E E E E E E E E E E E E E E E E E . . . . . .
+        . . . . . . E E E E E E E E E E E E E E E E E E E E . . . . . .
+        . . . . . . . E E E E E E E E E E E E E E E E E E . . . . . . .
+        . . . . . . . . E E E E E E E E E E E E E E E E . . . . . . . .
+        . . . . . . . . . E E E E E E E E E E E E E E . . . . . . . . .
+        . . . . . . . . E E E E E E E E E E E E E E E E . . . . . . . .
+        . . . . . . . E E E E E E E E E E E E E E E E E E . . . . . . .
+        . . . . . . E E E E E E E E E E E E E E E E E E E E . . . . . .
+        . . . . . E E E E E E E E E E E E E E E E E E E E E E . . . . .
+        . . . . E E E E E E E E E E E E E E E E E E E E E E E E . . . .
+        . . . . E E E E E E E E E E E E E E E E E E E E E E E E . . . .
+        . . . E E E E E E E E E E E E E E E E E E E E E E E E E E . . .
+        . . . E E E E E E E E E E E E E E E E E E E E E E E E E E . . .
+    `;
+
     // snot_bubble-15-11.png
     //% whenUsed
     export const snot_bubble = [
