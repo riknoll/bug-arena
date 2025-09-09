@@ -74,7 +74,7 @@ namespace hourOfAi {
             );
 
             fancyText.draw(
-                this.isUnlocked() ? challenger.description : "?????????",
+                this.isUnlocked() ? challenger.description : "Unlock in Tower Mode",
                 screen,
                 drawLeft + 5 + challenger.portrait.width + 2,
                 drawTop + 16,
@@ -88,6 +88,9 @@ namespace hourOfAi {
             }
             else {
                 drawSilhouette(drawLeft + 5, drawTop + 5, challenger.portrait);
+                if (this.hover) {
+                    screen.drawTransparentImage(imgs.padlock, drawLeft + 5 + ((challenger.portrait.width - imgs.padlock.width) >> 1), drawTop + 5 + ((challenger.portrait.height - imgs.padlock.height) >> 1));
+                }
             }
         }
 

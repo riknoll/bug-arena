@@ -168,6 +168,6 @@ namespace hourOfAi.tower {
     }
 
     export function startMatch(challenger: Challenger) {
-        return initSinglePlayer(challenger);
+        return initSingleMatch(challenger);
     }
 }

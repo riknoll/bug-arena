@@ -265,4 +265,62 @@ namespace hourOfAi.imgs {
         f d d d d d d d f
         f f f f f f f f f
     `;
+
+    export const homeIcon = img`
+        . . . . . a a . a . . .
+        . . . . a 2 2 a c a . .
+        . . . a 2 2 2 2 c a . .
+        . . a 2 2 2 2 2 2 a . .
+        . a 2 2 2 2 2 2 2 2 a .
+        a 2 2 2 2 2 2 2 2 2 2 a
+        . d b b b b b b b b d .
+        . d b 9 b b b b 9 b d .
+        . d b 9 b a a b 9 b d .
+        . d b b b a 4 b b b d .
+        . d b b b a a b b b d .
+        . . d d d d d d d d . .
+    `;
+
+    export const homeIconHover = img`
+        . . . . . . 4 4 . 4 . . . .
+        . . . . . 4 a a 4 a 4 . . .
+        . . . . 4 a 2 2 a c a 4 . .
+        . . . 4 a 2 2 2 2 c a 4 . .
+        . . 4 a 2 2 2 2 2 2 a 4 . .
+        . 4 a 2 2 2 2 2 2 2 2 a 4 .
+        4 a 2 2 2 2 2 2 2 2 2 2 a 4
+        . 4 d b b b b b b b b d 4 .
+        . 4 d b 9 b b b b 9 b d 4 .
+        . 4 d b 9 b a a b 9 b d 4 .
+        . 4 d b b b a 4 b b b d 4 .
+        . 4 d b b b a a b b b d 4 .
+        . . 4 d d d d d d d d 4 . .
+        . . . 4 4 4 4 4 4 4 4 . . .
+    `;
+
+    export const padlock = img`
+        .....fffffff.....
+        ...ffdccccccff...
+        ..fdccccccccccf..
+        .fdccccfffdccccf.
+        .fdcccf...fdcccf.
+        .fdccf.....fdccf.
+        .fdccf.....fdccf.
+        .fdccf.....fdccf.
+        .fdccf.....fdccf.
+        .fdccf.....fdccf.
+        .fdccf.....fdccf.
+        fffffffffffffffff
+        fedcccccccccccdef
+        fedcccccccccccdef
+        fedccccfffccccdef
+        fedcccfffffcccdef
+        fedcccfffffcccdef
+        fedcccfffffcccdef
+        fedccccfffccccdef
+        fedccccfffccccdef
+        fedcccccccccccdef
+        fedcccccccccccdef
+        fffffffffffffffff
+    `;
 }

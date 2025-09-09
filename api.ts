@@ -28,6 +28,101 @@ enum ArenaProperty {
 //% block="Hour of AI"
 //% color="#e88b00"
 namespace hourOfAi {
+    class AsyncAgent {
+        agent: Agent;
+
+        onStartHandlers: (() => void)[] = [];
+        everyHandlers: { millis: number, handler: () => void }[] = []
+        onBumpWallHandlers: (() => void)[] = [];
+
+        constructor() {
+
+        }
+
+        property(property: Property): number {
+            if (this.agent) {
+                return this.agent.property(property);
+            }
+            return 0;
+        }
+        arenaProperty(property: ArenaProperty): number {
+            if (this.agent) {
+                return this.agent.arenaProperty(property);
+            }
+
+            return 0;
+        }
+        onStart(handler: () => void) {
+            if (this.agent) {
+                this.agent.onStart(handler);
+            }
+            else {
+                this.onStartHandlers.push(handler);
+            }
+        }
+        every(millis: number, handler: () => void) {
+            if (this.agent) {
+                this.agent.every(millis, handler);
+            }
+            else {
+                this.everyHandlers.push({ millis, handler });
+            }
+        }
+        onBumpWall(handler: () => void) {
+            if (this.agent) {
+                this.agent.onBumpWall(handler);
+            }
+            else {
+                this.onBumpWallHandlers.push(handler);
+            }
+        }
+        turnBy(degrees: number) {
+            if (this.agent) {
+                this.agent.turnBy(degrees);
+            }
+        }
+        turnTowards(degrees: number) {
+            if (this.agent) {
+                this.agent.turnTowards(degrees);
+            }
+        }
+        turnTowardsPosition(x: number, y: number) {
+            if (this.agent) {
+                this.agent.turnTowardsPosition(x, y);
+            }
+        }
+        distanceToWall(): number {
+            if (this.agent) {
+                return this.agent.distanceToWall();
+            }
+            return -1;
+        }
+        distanceToColor(type: ColorType): number {
+            if (this.agent) {
+                return this.agent.distanceToColor(type);
+            }
+            return -1;
+        }
+        canSeeColor(type: ColorType): boolean {
+            if (this.agent) {
+                return this.agent.canSeeColor(type);
+            }
+            return false;
+        }
+        distanceToOpponent(): number {
+            if (this.agent) {
+                return this.agent.distanceToOpponent();
+            }
+            return -1;
+        }
+        canSeeOpponent(): boolean {
+            if (this.agent) {
+                return this.agent.canSeeOpponent();
+            }
+            return false;
+        }
+    }
+
     /**
      * Returns the value of a property for your bug.
      *
@@ -40,7 +135,7 @@ namespace hourOfAi {
     //% weight=90
     //% help=github:arcade-bug-arena/docs/property
     export function property(property: Property): number {
-        init();
+        initAPI();
         return _agent.property(property);
     }
 
@@ -56,7 +151,7 @@ namespace hourOfAi {
     //% weight=80
     //% help=github:arcade-bug-arena/docs/arenaProperty
     export function arenaProperty(property: ArenaProperty): number {
-        init();
+        initAPI();
         return _agent.arenaProperty(property);
     }
 
@@ -71,7 +166,7 @@ namespace hourOfAi {
     //% weight=100
     //% help=github:arcade-bug-arena/docs/onStart
     export function onStart(handler: () => void) {
-        init();
+        initAPI();
         _agent.onStart(handler);
     }
 
@@ -88,7 +183,7 @@ namespace hourOfAi {
     //% weight=90
     //% help=github:arcade-bug-arena/docs/every
     export function every(millis: number, handler: () => void) {
-        init();
+        initAPI();
         _agent.every(millis, handler);
     }
 
@@ -103,7 +198,7 @@ namespace hourOfAi {
     //% weight=80
     //% help=github:arcade-bug-arena/docs/onBumpWall
     export function onBumpWall(handler: () => void) {
-        init();
+        initAPI();
         _agent.onBumpWall(handler);
     }
 
@@ -120,7 +215,7 @@ namespace hourOfAi {
     //% weight=100
     //% help=github:arcade-bug-arena/docs/turnBy
     export function turnBy(degrees: number) {
-        init();
+        initAPI();
         _agent.turnBy(degrees);
     }
 
@@ -136,7 +231,7 @@ namespace hourOfAi {
     //% weight=90
     //% help=github:arcade-bug-arena/docs/turnTowards
     export function turnTowards(degrees: number) {
-        init();
+        initAPI();
         _agent.turnTowards(degrees);
     }
 
@@ -152,7 +247,7 @@ namespace hourOfAi {
     //% weight=80
     //% help=github:arcade-bug-arena/docs/turnTowardsPosition
     export function turnTowardsPosition(x: number, y: number) {
-        init();
+        initAPI();
         _agent.turnTowardsPosition(x, y);
     }
 
@@ -167,7 +262,7 @@ namespace hourOfAi {
     //% weight=100
     //% help=github:arcade-bug-arena/docs/distanceToWall
     export function distanceToWall(): number {
-        init();
+        initAPI();
         return _agent.distanceToWall();
     }
 
@@ -184,7 +279,7 @@ namespace hourOfAi {
     //% blockGap=8
     //% help=github:arcade-bug-arena/docs/distanceToColor
     export function distanceToColor(type: ColorType): number {
-        init();
+        initAPI();
         return _agent.distanceToColor(type);
     }
 
@@ -200,7 +295,7 @@ namespace hourOfAi {
     //% weight=80
     //% help=github:arcade-bug-arena/docs/canSeeColor
     export function canSeeColor(type: ColorType): boolean {
-        init();
+        initAPI();
         return _agent.canSeeColor(type);
     }
 
@@ -216,7 +311,7 @@ namespace hourOfAi {
     //% blockGap=8
     //% help=github:arcade-bug-arena/docs/distanceToOpponent
     export function distanceToOpponent(): number {
-        init();
+        initAPI();
         return _agent.distanceToOpponent();
     }
 
@@ -231,7 +326,7 @@ namespace hourOfAi {
     //% weight=40
     //% help=github:arcade-bug-arena/docs/canSeeOpponent
     export function canSeeOpponent(): boolean {
-        init();
+        initAPI();
         return _agent.canSeeOpponent();
     }
 
@@ -261,11 +356,11 @@ namespace hourOfAi {
         bugDesign.noseRadius = radius;
     }
 
-    export let _agent: Agent;
+    export let _agent: AsyncAgent;
 
-    function init() {
-        if (_agent) return;
-
-        initSinglePlayer();
+    export function initAPI() {
+        if (!_agent) {
+            _agent = new AsyncAgent();
+        }
     }
 }

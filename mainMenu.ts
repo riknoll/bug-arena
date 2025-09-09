@@ -1,10 +1,4 @@
 namespace hourOfAi {
-    export enum GameMode {
-        MainMenu,
-        Practice,
-        Tower
-    }
-
     export function initMainMenu() {
         // const practice = new TextButtonSprite("Practice", () => {});
         // const towerButton = new TextButtonSprite("Tower", () => {});
@@ -49,11 +43,8 @@ namespace hourOfAi {
         return x >= sprite.left && x < sprite.right && y >= sprite.top && y < sprite.bottom;
     }
 
-    function setGameMode(mode: GameMode) {
-    }
-
     export function initPracticeMenu() {
-        const TITLE_HEIGHT = 14;
+        const TITLE_HEIGHT = 15;
 
         const VISIBLE_HEIGHT = screen.height - TITLE_HEIGHT;
         const SCROLL_BAR_WIDTH = imgs.scrollbarDown.width;
@@ -61,6 +52,14 @@ namespace hourOfAi {
 
         let scroll = 0;
         let totalHeight = TITLE_HEIGHT + 1;
+        let homeButtonHover = false;
+
+        const getClickHandler = (challengerIndex: number) => {
+            return () => {
+                setPracticeChallenger(challengerIndex);
+                startGameMode(GameMode.Practice);
+            };
+        };
 
         scene.createRenderable(-1, () => {
             screen.fill(6);
@@ -71,19 +70,24 @@ namespace hourOfAi {
             screen.fillRect(
                 0, 0, screen.width, TITLE_HEIGHT, 12
             )
-            // screen.fillRect(
-            //     0, TITLE_HEIGHT - 1, screen.width, 1, 15
-            // )
+
             screen.fillRect(
                 0, TITLE_HEIGHT - 1, screen.width, 1, 13
             )
-            fancyText.draw("Choose Opponent", screen, 2, 1, 0, 15, fancyText.bold_sans_7)
+            fancyText.draw("Choose Opponent", screen, 2, 2, 0, 15, fancyText.bold_sans_7)
+
+            if (homeButtonHover) {
+                screen.drawTransparentImage(imgs.homeIconHover, screen.width - imgs.homeIcon.width - 3, 0);
+            }
+            else {
+                screen.drawTransparentImage(imgs.homeIcon, screen.width - imgs.homeIcon.width - 2, 1);
+            }
         })
 
         let cards: ChallengerCardButtonSprite[] = [];
 
         for (let i = 0; i < challengers.length; i++) {
-            const button = new ChallengerCardButtonSprite(i, () => {});
+            const button = new ChallengerCardButtonSprite(i, getClickHandler(i));
             button.left = 1;
             button.top = totalHeight;
 
@@ -107,18 +111,81 @@ namespace hourOfAi {
             setScroll(scroll + dy / 3);
         })
 
-        let mouseX = 0;
-        let mouseY = 0;
-
         let draggingScrollBar = false;
         let upPressedTime = 0;
         let downPressedTime = 0;
 
+        let keyboardNavIndex = -1;
+        let isKeyboardNav = false;
+
+        controller.down.onEvent(ControllerButtonEvent.Pressed, () => {
+            isKeyboardNav = true;
+
+            keyboardNavIndex = Math.min(keyboardNavIndex + 1, cards.length - 1);
+
+            const card = cards[keyboardNavIndex];
+            if (card.top > screen.height - card.height) {
+                setScroll(keyboardNavIndex * (card.height + 1) - (VISIBLE_HEIGHT - card.height) + 1);
+            }
+
+            for (const button of cards) {
+                button.hover = false
+            }
+            card.hover = true;
+            homeButtonHover = false;
+        });
+
+        controller.up.onEvent(ControllerButtonEvent.Pressed, () => {
+            isKeyboardNav = true;
+
+            keyboardNavIndex = Math.max(keyboardNavIndex - 1, -1);
+
+            for (const button of cards) {
+                button.hover = false
+            }
+
+            if (keyboardNavIndex === -1) {
+                homeButtonHover = true;
+            }
+            else {
+                const card = cards[keyboardNavIndex];
+                if (card.top < TITLE_HEIGHT) {
+                    setScroll(keyboardNavIndex * (card.height + 1));
+                }
+
+                card.hover = true;
+            }
+        });
+
+        const onEnter = () => {
+            if (isKeyboardNav) {
+                if (keyboardNavIndex === -1) {
+                    startGameMode(GameMode.MainMenu);
+                }
+                else {
+                    const card = cards[keyboardNavIndex];
+                    if (card.isUnlocked()) {
+                        card.onClick();
+                    }
+                }
+            }
+        };
+
+        controller.A.onEvent(ControllerButtonEvent.Pressed, onEnter);
+        controller.B.onEvent(ControllerButtonEvent.Pressed, onEnter);
+
         browserEvents.MouseLeft.onEvent(browserEvents.MouseButtonEvent.Pressed, (x, y) => {
+            isKeyboardNav = false;
             draggingScrollBar = false;
             upPressedTime = 0;
             downPressedTime = 0;
-            if (x > screen.width - SCROLL_BAR_WIDTH && y > TITLE_HEIGHT) {
+
+            if (y <= TITLE_HEIGHT) {
+                if (x > screen.width - imgs.homeIcon.width - 2) {
+                    startGameMode(GameMode.MainMenu);
+                }
+            }
+            else if (x > screen.width - SCROLL_BAR_WIDTH) {
                 if (y < TITLE_HEIGHT + imgs.scrollbarUp.height) {
                     setScroll(scroll - 4);
                     upPressedTime = game.runtime();
@@ -129,6 +196,13 @@ namespace hourOfAi {
                 }
                 else {
                     draggingScrollBar = true;
+                }
+            }
+            else {
+                for (const card of cards) {
+                    if (card.isUnlocked() && overlapsPoint(card, x, y)) {
+                        card.onClick();
+                    }
                 }
             }
         });
@@ -156,8 +230,11 @@ namespace hourOfAi {
         });
 
         browserEvents.onMouseMove((x, y) => {
-            mouseX = x;
-            mouseY = y;
+            homeButtonHover = false;
+
+            for (const button of getButtonSprites()) {
+                button.hover = false
+            }
 
             if (draggingScrollBar) {
                 const position = y - TITLE_HEIGHT - imgs.scrollbarUp.height - (HANDLE_HEIGHT >> 1);
@@ -165,9 +242,18 @@ namespace hourOfAi {
                 const barHeight = VISIBLE_HEIGHT - imgs.scrollbarUp.height - imgs.scrollbarDown.height + 2;
                 setScroll((position / barHeight) * totalHeight);
             }
-            else {
+            else if (y > TITLE_HEIGHT) {
                 for (const button of getButtonSprites()) {
-                    button.hover = overlapsPoint(button, x, y);
+                    if (overlapsPoint(button, x, y)) {
+                        isKeyboardNav = false;
+                        button.hover = true;
+                        break;
+                    }
+                }
+            }
+            else {
+                if (x > screen.width - imgs.homeIcon.width - 2) {
+                    homeButtonHover = true;
                 }
             }
         });

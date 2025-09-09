@@ -28,6 +28,7 @@
         "tower/util.ts",
         "tower/draw.ts",
         "tower/dialog.ts",
+        "settings.ts",
         "intro.ts",
         "angleutil.ts",
         "president.ts",

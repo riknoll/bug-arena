@@ -229,7 +229,7 @@ namespace hourOfAi {
 
     let running = false;
 
-    export function initRunner(
+    export function initTournament(
         matchTime: number
     ) {
         let arena: Arena;
@@ -310,7 +310,7 @@ namespace hourOfAi {
         tourney.runTournament(projects.map(p => new Participant(p)), "Richard");
     }
 
-    export function initSinglePlayer(
+    export function initSingleMatch(
         opponentDef?: Challenger
     ) {
         let arena: Arena;
@@ -337,7 +337,22 @@ namespace hourOfAi {
 
 
         arena = new Arena();
-        _agent = new Agent(arena, bugDesign);
+
+        initAPI();
+
+        _agent.agent = new Agent(arena, bugDesign);
+
+        for (const handler of _agent.onStartHandlers) {
+            _agent.agent.onStart(handler);
+        }
+
+        for (const handler of _agent.everyHandlers) {
+            _agent.agent.every(handler.millis, handler.handler);
+        }
+
+        for (const handler of _agent.onBumpWallHandlers) {
+            _agent.agent.onBumpWall(handler);
+        }
 
         let opponent: Agent;
 
@@ -351,34 +366,11 @@ namespace hourOfAi {
             opponent.bug.fillColor = opponentDef.design.fillColor || 2
         }
         else {
-            opponent = new Agent(arena, {
-                colorPalette: [15, 1, 2],
-                legLength: 5,
-                bodyRadius: 5,
-                noseRadius: 2
-            });
+            const challenger = challengers[getPracticeChallenger() || 0];
 
-            let flip = true;
-            let turning = false;
-            opponent.every(1000, () => {
-                if (turning) {
-                    if (opponent.distanceToWall() < 10) {
-                        opponent.turnBy(180)
-                    }
-                    else {
-                        opponent.turnBy(flip ? -90 : 90)
-                    }
-                    turning = false;
-                    return;
-                }
-                if (opponent.distanceToWall() < 10) {
-                    opponent.turnBy(flip ? 90 : -90)
-                    flip = !flip;
-                    turning = true;
-                }
-            })
-
-            opponent.bug.fillColor = 2
+            opponent = new Agent(arena, challenger.design);
+            challenger.algorithm(opponent);
+            opponent.bug.fillColor = challenger.design.fillColor || 2;
         }
 
 
@@ -443,6 +435,9 @@ namespace hourOfAi {
         const TEXT_LEFT = 10;
         const SLIDER_LEFT = TEXT_LEFT + fancyText.getTextWidth(font, speedText) + 2;
         const SLIDER_RIGHT = screen.width - 10;
+
+        timeMult = getSpeedSetting();
+
         scene.createRenderable(20, () => {
             if (!running) return;
 
@@ -467,16 +462,19 @@ namespace hourOfAi {
                 MAX_TIME_MULT
             );
             timeMult = newMult | 0;
+            setSpeedSetting(timeMult);
         };
 
         for (const event of [ControllerButtonEvent.Pressed, ControllerButtonEvent.Repeated]) {
             controller.right.onEvent(event, () => {
                 if (!running) return;
                 timeMult = Math.min(MAX_TIME_MULT, timeMult + 2);
+                setSpeedSetting(timeMult);
             });
             controller.left.onEvent(event, () => {
                 if (!running) return;
                 timeMult = Math.max(MIN_TIME_MULT, timeMult - 2);
+                setSpeedSetting(timeMult);
             });
         }
 
