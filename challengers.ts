@@ -56,7 +56,7 @@ namespace hourOfAi {
                 tower.dialog("The only thing stronger than my odor is my code!"),
                 tower.dialog("Let's battle!")
             ],
-            "His AI specializes in randomly wandering around the arena.",
+            "Randomly wanders around the arena",
             [ tower.dialog("Bwahaha! Smell ya later!") ],
             [ tower.dialog("Awwwww... Fine!") ],
             imgs.stinky,
@@ -153,7 +153,7 @@ namespace hourOfAi {
                 tower.dialog("But maybe you'll make a better sparring partner!"),
                 tower.dialog("C'mon young'n, let's see what you've got!")
             ],
-            "His AI spirals around the arena from the outside in.",
+            "Spirals from the outside in.",
             [ tower.dialog("That's how the pros do it!") ],
             [ tower.dialog("What....? Well you got me fair and square.") ],
             imgs.bugsly,
@@ -168,7 +168,7 @@ namespace hourOfAi {
             },
             "Bugsly Jr.",
             [ tower.dialog("You think my dad was tough? Wait till you see me!") ],
-            "His AI tries to zigzag across the arena and paint every inch!",
+            "Zigzags across the arena.",
             [ tower.dialog("You'll always remember the Bugsly name!") ],
             [ tower.dialog("*sniffle* Waaah! Daddy...!") ],
             imgs.bugslyJr,
@@ -184,9 +184,11 @@ namespace hourOfAi {
             "Bumble",
             [
                 tower.dialog("Bzzzz.... Bzzzz.... Bzzzz....", context => {
+                    const bg = sprites.create(imgs.honeycomb, SpriteKind.DialogSprite);
+                    bg.z = -4
                     const bumble = sprites.create(imgs.bumble_small, SpriteKind.DialogSprite);
 
-                    bumble.x = 120;
+                    bumble.x = 130;
                     bumble.y = 40;
 
                     const snotBubble = sprites.create(imgs.snot_bubble[0], SpriteKind.DialogSprite);
@@ -232,7 +234,7 @@ namespace hourOfAi {
                 tower.dialog("Hello! Did you need something?"),
                 tower.dialog("What? A battle!?")
             ],
-            "Her AI bounces around the edges of the arena.",
+            "Bounces around the edge of the arena",
             [ tower.dialog("Thanks for the bzzzzz-bzzzzz-battle!") ],
             [ tower.dialog("Awwww... Well, at least I can go back to my nap!") ],
             imgs.bumble,
@@ -274,7 +276,7 @@ namespace hourOfAi {
                 tower.dialog("I am Legs-olas, defender of the Bug Kingdom!"),
                 tower.dialog("I will best thee in honorable combat!")
             ],
-            "His AI moves turns randomly and moves in diagonal lines.",
+            "Turns randomly and moves in diagonal lines.",
             [ tower.dialog("Well fought! You show promise, but you have much to learn!") ],
             [ tower.dialog("Your sword was true! I shall train harder for our next encounter!") ],
             imgs.legsolas,
@@ -290,19 +292,33 @@ namespace hourOfAi {
             "Crick",
             [
                 tower.dialog("Oh? Why hello there!", context => {
+                    let bgRenderable: scene.Renderable;
 
-                    const tea = sprites.create(imgs.tea_set, SpriteKind.DialogSprite);
-                    tea.bottom = 60;
-                    tea.x = 80;
+                    bgRenderable = scene.createRenderable(-4, () => {
+                        if (context.isFinished()) {
+                            bgRenderable.destroy();
+                            return;
+                        }
+
+                        screen.fill(6);
+                        screen.drawImage(imgs.apartment, 0, 0)
+                    })
+
                     const crick = sprites.create(imgs.tiny_crick, SpriteKind.DialogSprite);
                     crick.z = 1;
-                    crick.bottom = tea.top + 5;
-                    crick.right = tea.right - 14;
+                    crick.bottom = 52;
+                    crick.x = 114;
 
                     const steam = sprites.create(imgs.steam[0], SpriteKind.DialogSprite);
-                    steam.bottom = tea.top + 1;
-                    steam.right = tea.right - 25;
+                    steam.bottom = 48;
+                    steam.x = 104;
+
                     animation.runImageAnimation(steam, imgs.steam, 150, true);
+
+                    const catClock = sprites.create(imgs.cat_clock[0], SpriteKind.DialogSprite);
+                    catClock.x = 78;
+                    catClock.y = 24;
+                    animation.runImageAnimation(catClock, imgs.cat_clock, 130, true);
 
                     control.runInBackground(() => {
                         let flip = false;
@@ -432,7 +448,7 @@ namespace hourOfAi {
 
                     let candles: tourney.FireSprite[] = [];
 
-                    shadeImage = image.create(screen.width, screen.height);
+                    shadeImage = image.create(screen.width, 80);
                     shadeImage.fill(4);
 
 
@@ -526,6 +542,7 @@ namespace hourOfAi {
                         }
                         pause(50);
                     }
+                    candleHalos = [];
                 })
         ],
             "Her AI tries to follow the opponent's bug.",

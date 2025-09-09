@@ -38,7 +38,9 @@
         "api.ts",
         "algorithms.ts",
         "challengers.ts",
-        "tower.ts"
+        "tower.ts",
+        "buttonSprite.ts",
+        "mainMenu.ts"
     ],
     "testFiles": [
         "test.ts"

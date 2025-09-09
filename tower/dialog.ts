@@ -1,22 +1,4 @@
 namespace hourOfAi.tower {
-    const frame = img`
-        . . e e e e e e e e e e e . .
-        . e e b b b b b b b b b e e .
-        e e b b c c c c c c c b b e e
-        e b b c e e e e e e e c b c e
-        e b c e f f f f f f f e b c e
-        e b c e f f f f f f f e b c e
-        e b c e f f f f f f f e b c e
-        e b c e f f f f f f f e b c e
-        e b c e f f f f f f f e b c e
-        e b c e f f f f f f f e b c e
-        e b c e f f f f f f f e b c e
-        e b b c e e e e e e e b b c e
-        e e b b b b b b b b b b c e e
-        . e e c c c c c c c c c e e .
-        . . e e e e e e e e e e e . .
-    `
-
     const PORTRAIT_WIDTH = 32;
     const FRAME_EDGE_WIDTH = 4;
     const PORTRAIT_FRAME_WIDTH = PORTRAIT_WIDTH + (FRAME_EDGE_WIDTH << 1)
@@ -74,7 +56,7 @@ namespace hourOfAi.tower {
         const introRenderable = scene.createRenderable(-2, (_, camera) => {
             fancyText.drawFrame(
                 screen,
-                frame,
+                imgs.textFrame,
                 DIALOG_LEFT + (xOffset >> 1) - camera.drawOffsetX,
                 DIALOG_TOP + (yOffset >> 1) - camera.drawOffsetY,
                 DIALOG_WIDTH - xOffset,
@@ -84,7 +66,7 @@ namespace hourOfAi.tower {
             if (xOffset < PORTRAIT_WIDTH) {
                 fancyText.drawFrame(
                     screen,
-                    frame,
+                    imgs.textFrame,
                     PORTRAIT_FRAME_LEFT + (xOffset >> 1) - camera.drawOffsetX,
                     DIALOG_TOP + (yOffset >> 1) - camera.drawOffsetY,
                     PORTRAIT_FRAME_WIDTH - xOffset,
@@ -107,7 +89,7 @@ namespace hourOfAi.tower {
         }
 
         let name = fancyText.create(characterName, 0, 11, fancyText.geometric_sans_6)
-        fancyText.setFrame(name, frame)
+        fancyText.setFrame(name, imgs.textFrame)
         name.left = 3
         name.z = -3
 
@@ -159,7 +141,7 @@ namespace hourOfAi.tower {
 
         let dialog = fancyText.create(text, 117, 11, font || fancyText.geometric_sans_6)
         dialog.setAnimationSound(music.createSoundEffect(WaveShape.Square, 7, 446, 133, 0, 20, SoundExpressionEffect.None, InterpolationCurve.Linear))
-        fancyText.setFrame(dialog, frame)
+        fancyText.setFrame(dialog, imgs.textFrame)
         fancyText.setLineHeight(dialog, 10)
         fancyText.setMinLines(dialog, 3)
         dialog.setTextFlag(fancyText.Flag.ChangeHeightWhileAnimating, false)

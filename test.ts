@@ -320,4 +320,6 @@
 
 // hourOfAi.initRunner(300);
 
-hourOfAi.tower.initTower();
+// hourOfAi.tower.initTower();
+
+hourOfAi.initMainMenu();

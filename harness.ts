@@ -9,6 +9,7 @@ namespace hourOfAi {
         bodyRadius: number;
         noseRadius: number;
         colorPalette: number[];
+        fillColor?: number;
     }
 
     interface IntervalHandler {
@@ -310,6 +311,7 @@ namespace hourOfAi {
     }
 
     export function initSinglePlayer(
+        opponentDef?: Challenger
     ) {
         let arena: Arena;
         game.stats = true;
@@ -321,7 +323,12 @@ namespace hourOfAi {
         game.onUpdate(() => {
             if (!running) return;
             for (let i = 0; i < timeMult; i++) {
-                timeRemaining += timeSlice
+                if (!opponentDef) {
+                    timeRemaining += timeSlice
+                }
+                else {
+                    timeRemaining -= timeSlice
+                }
                 arena.update(timeSlice);
             }
 
@@ -332,47 +339,55 @@ namespace hourOfAi {
         arena = new Arena();
         _agent = new Agent(arena, bugDesign);
 
-        const opponent = new Agent(arena, {
-            colorPalette: [15, 1, 2],
-            legLength: 5,
-            bodyRadius: 5,
-            noseRadius: 2
-        });
+        let opponent: Agent;
 
-        let flip = true;
-        let turning = false;
-        opponent.every(1000, () => {
-            if (turning) {
+        if (opponentDef) {
+            opponent = new Agent(
+                arena,
+                opponentDef.design
+            );
+            opponentDef.algorithm(opponent);
+
+            opponent.bug.fillColor = opponentDef.design.fillColor || 2
+        }
+        else {
+            opponent = new Agent(arena, {
+                colorPalette: [15, 1, 2],
+                legLength: 5,
+                bodyRadius: 5,
+                noseRadius: 2
+            });
+
+            let flip = true;
+            let turning = false;
+            opponent.every(1000, () => {
+                if (turning) {
+                    if (opponent.distanceToWall() < 10) {
+                        opponent.turnBy(180)
+                    }
+                    else {
+                        opponent.turnBy(flip ? -90 : 90)
+                    }
+                    turning = false;
+                    return;
+                }
                 if (opponent.distanceToWall() < 10) {
-                    opponent.turnBy(180)
+                    opponent.turnBy(flip ? 90 : -90)
+                    flip = !flip;
+                    turning = true;
                 }
-                else {
-                    opponent.turnBy(flip ? -90 : 90)
-                }
-                turning = false;
-                return;
-            }
-            if (opponent.distanceToWall() < 10) {
-                opponent.turnBy(flip ? 90 : -90)
-                flip = !flip;
-                turning = true;
-            }
-        })
+            })
 
-        opponent.bug.fillColor = 2
+            opponent.bug.fillColor = 2
+        }
+
 
         arena.placeCombatants();
-        timeRemaining = 0;
-
-        control.runInBackground(() => {
-            running = true;
-            arena.start();
-            arena.update(timeSlice);
-        })
+        timeRemaining = opponentDef ? 300 : 0;
 
         const font = fancyText.bold_sans_7;
 
-        scene.createRenderable(20, () => {
+        const scoreRenderable = scene.createRenderable(20, () => {
             if (!arena) return;
 
             const totalPixels = arena.background.width * arena.background.height;
@@ -390,6 +405,34 @@ namespace hourOfAi {
         })
 
         initTimeMultControls();
+
+        if (opponentDef) {
+            tourney.showIntro("Player", opponentDef.name, 10)
+        }
+
+        control.runInBackground(() => {
+            running = true;
+            arena.start();
+            arena.update(timeSlice);
+        });
+
+        if (opponentDef) {
+            pauseUntil(() => timeRemaining <= 0);
+            const player1Won = scores[0] > scores[1];
+            running = false;
+
+            const cleanup = tourney.showWinAnimation(arena.didPlayer1Win() ? "Player" : opponentDef.name);
+
+            pause(500);
+            cleanup();
+            scoreRenderable.destroy();
+            arena.dispose();
+            _agent = undefined;
+
+            return player1Won;
+        }
+
+        return undefined;
     }
 
     function initTimeMultControls() {

@@ -1,9 +1,13 @@
 namespace tourney {
     export function doWinAnimation(winner: Participant) {
-        const font = fancyText.gothic_large;
-        const pFont = image.getFontForText(winner.name) === image.font12 ? fancyText.unicodeArcade : font;
+        return showWinAnimation(winner.name);
+    }
 
-        const name = fancyText.create(winner.name, 0, INTRO_TEXT_COLOR, pFont);
+    export function showWinAnimation(winnerName: string) {
+        const font = fancyText.gothic_large;
+        const pFont = image.getFontForText(winnerName) === image.font12 ? fancyText.unicodeArcade : font;
+
+        const name = fancyText.create(winnerName, 0, INTRO_TEXT_COLOR, pFont);
         const wins = fancyText.create("Wins!", 0, INTRO_TEXT_COLOR, font);
 
         name.z = 100;

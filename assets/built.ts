@@ -2,6 +2,90 @@
 
 
 namespace hourOfAi.imgs {
+    // apartment.png
+    //% whenUsed
+    export const apartment = img`
+        9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9
+        9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9
+        9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9
+        9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9
+        8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8
+        9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9
+        9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9
+        8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8
+        8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8
+        9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9
+        9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9
+        8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8
+        9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9
+        9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9
+        9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9
+        9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9
+        9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9
+        9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A 3 A 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9
+        9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A 3 3 A 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9
+        9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 3 3 A 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9
+        8 9 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 9 9 A 3 A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A 3 A 3 3 A 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8
+        9 9 A A 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 3 3 9 9 A 3 A A D D 4 4 A A 6 6 8 E E 8 6 E E 3 3 A A 6 6 8 2 2 8 6 D D A 3 A 3 3 A 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9
+        9 8 A 3 A 4 4 4 4 4 4 4 4 4 4 4 4 4 4 3 4 3 9 9 A 3 A C C 5 5 2 2 7 7 9 C C 9 7 C C 4 4 2 2 7 7 9 3 3 9 7 C C 4 A 3 A 3 3 A 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9
+        8 9 A 3 3 A 3 3 3 3 3 3 3 3 3 3 3 3 3 4 4 3 9 9 A 3 A C C 4 4 2 2 7 7 9 C C 9 7 C C 5 5 2 2 7 7 9 3 3 9 7 C C 5 A 3 A 3 3 A 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8
+        8 9 A 3 3 A 6 6 6 6 6 6 6 6 6 6 6 6 3 4 4 3 9 9 A 3 A E E 5 5 A A 7 7 9 C C 9 7 E E 5 5 A A 7 7 9 3 3 9 7 E E 5 A 3 A 3 3 A 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8
+        9 8 A 3 3 A 6 6 6 F F F F 6 6 6 6 6 3 4 4 3 9 9 A 3 A E E 4 4 2 2 7 7 9 C C 9 7 E E 4 4 2 2 7 7 9 3 3 9 7 E E 4 A 3 A 3 3 A 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9
+        9 9 A 3 3 A 6 6 6 F F F F 6 6 6 6 6 3 4 4 3 9 9 A 3 A C C 5 5 2 2 7 7 9 C C 9 7 C C 5 5 2 2 7 7 9 3 3 9 7 C C 5 A 3 A 3 3 A 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9
+        8 9 A 3 3 A 6 6 6 F F F F 6 6 2 2 6 3 4 4 3 9 9 A 3 E A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A 3 A 3 3 A 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8
+        9 8 A 3 3 A 6 6 F F F F F F 6 F F 6 3 4 4 3 9 9 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 3 3 A 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9
+        9 8 A 3 3 A 6 6 6 E 3 3 E 6 6 F F 6 3 4 4 3 9 9 A 3 A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A 3 A 3 3 A 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 5 4 5 9 8 9 9 9 8 9
+        9 9 A 3 3 A 6 6 6 3 A A 3 6 6 F F 6 3 4 4 3 8 9 A 3 A A E E C C 5 C 5 4 A A 6 8 8 2 2 7 C C 5 4 A A 6 8 8 2 2 7 A 3 A 3 3 A 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 4 3 4 8 9 9 8 8 9 9
+        9 9 A 3 3 A 6 6 6 A A A A C C C C C 3 4 4 3 9 8 A 3 A D D D C C 4 C 4 2 2 7 7 9 3 3 9 7 C C 4 2 2 7 7 9 3 3 9 7 A 3 A 3 3 A 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 6 9 6 4 5 9 9 8 9 9 9 9
+        9 9 A 3 3 A 6 6 E F F F F E D D D D 3 4 4 3 9 8 A 3 A E E E C C 5 C 5 2 2 B B 9 3 3 9 7 C C 5 2 2 7 7 9 3 3 9 7 A 3 A 3 3 A 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 6 6 8 8 9 9 8 9 9 9 9
+        9 9 A 3 3 A 6 F E E B B E E F D D D 3 4 4 3 8 9 A 3 A D D D E E 5 E 5 A A 7 7 9 3 3 9 7 E E 5 A A 7 7 9 3 3 9 7 A 3 A 3 3 A 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 6 8 9 9 8 9 9 8 8 9 9
+        9 8 A 3 3 A 6 F E E B B C C F F 3 D 3 4 4 3 9 9 A 3 A D D D E E 4 E 4 2 2 B B 9 3 3 9 7 E E 4 2 2 7 7 9 3 3 9 7 A 3 A 3 3 A 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 2 2 2 2 2 9 9 9 8 9 9 9 8 9
+        9 8 A 3 3 A 6 F E E B B E E D D A D 3 4 4 3 9 9 A 3 A E E E C C 5 C 5 2 2 7 7 9 3 3 9 7 C C 5 2 2 7 7 9 3 3 9 7 A 3 A 3 3 A 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 A A A 9 9 9 9 8 9 9 9 8 9
+        8 9 A 3 3 A 8 F E E B B E E 8 8 A 8 3 4 4 3 9 9 A 3 E A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A 3 A 3 3 A 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 2 2 2 9 9 9 9 9 8 9 9 9 8
+        9 9 A 3 3 A 9 3 E E B B E E 9 9 A 9 3 4 4 3 9 9 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 3 3 A 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 2 2 2 2 2 9 9 9 9 9 8 8 9 9
+        9 8 A 3 3 A 9 9 F F F F F F 9 9 A 9 3 4 4 3 9 9 A 3 A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A 3 A 3 3 A 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 2 2 2 2 2 9 9 9 9 9 9 9 8 9
+        8 9 A 3 3 A A A A A A A A A A A A A A 4 4 3 9 9 A 3 A A A E E E E E E E E E E E E E E E E E E E 5 4 A A 6 8 8 2 A 3 A 3 3 A 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 E E E E 2 2 2 2 2 E E E E E E E 9 8
+        8 9 A 3 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 4 3 9 9 A 3 A A A E E E E E E E E E E E E E E E E E E D 4 2 2 7 7 9 3 3 A 3 A 3 3 A 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 8 8 9 9 9 9 9 9 9 9 9 9 9 9 E A A A A 2 2 2 2 2 A A A A A A E E 8
+        9 8 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 3 9 9 A 3 A A A E E E E E E E E E E E E E E E E E D D 5 2 2 B B 9 3 3 A 3 A 3 3 A 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 9 9 8 9 9 8 9 9 9 9 9 9 9 9 9 9 E A A A A A A 2 2 2 A A A A A A E A E 9
+        9 9 A A A A A A A A A A A A A A A A A A A A 9 9 A 3 A A A E E E E E E E E E E E E E E E E D D D 5 A A 7 7 9 3 3 A 3 A 3 3 A 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 9 8 8 9 9 9 9 8 8 9 9 9 9 9 9 9 E A A A A A A A A A A A A A A A E A A E 9
+        8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 A 3 A A E A A A A A A A A A A A A A A A D D D D 4 2 2 B B 9 3 3 A 3 A 3 3 A 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 9 9 9 E E E E E E E E E E E E E E E E A A A E 8
+        9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 A 3 A E A A A A A A A A A A A A A A A A A A A A 5 2 2 7 7 9 3 3 A 3 A 3 3 A 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 E A A A A A A A A A A A A A A E A A A E 9
+        9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 A 3 E A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A 3 A 3 3 A 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 9 9 8 E A E E E E E E E E E E E E A E A A A E 9
+        9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 3 3 A 9 9 9 9 8 8 9 9 8 9 A A A 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 C 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 A A A 8 8 9 9 8 9 9 8 9 E A E A A A A A A A A A A E A E A A A E 9
+        9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 A 3 A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A 3 A 3 3 A 9 9 9 9 9 9 8 9 9 8 A A A 8 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 A B B B A A A A A A A A A A 9 9 9 9 9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 A A A 9 9 8 9 9 8 8 9 9 E A E A A A E E E E E A A E A E A A A E 9
+        9 9 9 9 8 9 9 8 8 9 9 8 9 9 9 9 9 9 9 9 8 9 9 8 A 3 A A E E C C 5 4 A A 6 8 8 2 2 8 E E C C 5 4 A A 6 8 8 2 2 7 A 3 A 3 3 A 9 9 9 9 9 9 8 9 9 8 A A A 8 9 9 9 9 9 9 9 9 8 9 9 8 8 A A A C C B 1 1 1 B 3 B 3 3 B B 3 3 3 A A A A A 9 9 9 8 9 9 8 8 9 9 8 9 9 9 A A A 9 9 8 9 9 8 8 9 9 E A E A A E E E E E A A A E A E A A A E 9
+        9 9 8 8 9 9 8 9 9 8 9 9 8 8 9 9 9 9 8 8 9 9 8 9 A 3 A D D D C C 4 2 2 7 7 9 3 3 9 D D D C C 4 2 2 7 7 9 3 3 9 7 A 3 A 3 3 A 9 9 9 9 8 8 9 9 8 9 A A A 9 8 8 9 9 9 9 8 8 9 9 8 A A 3 3 3 C 3 B B B B B B 3 3 B D D B B 3 3 3 3 3 3 A A 8 9 9 8 9 9 8 9 9 8 8 9 A A A 8 8 9 9 8 9 9 8 9 E A E A A A A A A A A A A E A E A A A E 9
+        9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 A 3 A E E E C C 5 2 2 6 6 9 3 3 9 E E E C C 5 2 2 6 6 9 3 3 9 7 A 3 A 3 3 A 8 9 9 8 9 9 9 8 9 9 9 A A 9 9 9 8 9 9 8 9 9 9 8 A 3 3 3 3 3 C C B B B B B 3 3 3 B B B B 3 3 3 3 3 3 3 3 3 A 9 8 9 9 9 9 8 9 9 9 8 A A 8 9 9 9 8 9 9 9 9 8 E A E E E E E E E E E E E E A E A A A E 9
+        9 8 9 9 9 8 9 9 9 9 8 9 9 9 8 9 9 8 9 9 9 8 9 9 A 3 A D D D E E 5 2 2 6 6 9 3 3 9 D D D E E 5 2 2 6 6 9 3 3 9 7 A 3 A 3 3 A 8 9 9 8 9 9 9 8 9 9 9 A A 9 9 9 8 9 9 8 9 9 9 8 A 3 3 3 3 3 3 3 3 B B B 3 3 3 2 2 B B 2 2 3 3 3 3 3 3 3 3 A 9 8 9 9 9 9 8 9 9 9 8 A A 8 9 9 9 8 9 9 9 9 8 E A A A A A A A A A A A A A A E A A A E 9
+        8 9 9 9 8 9 9 9 9 9 9 8 9 9 9 8 8 9 9 9 8 9 9 9 A 3 A D D D E E 4 2 2 7 7 9 3 3 9 D D D E E 4 2 2 7 7 9 3 3 9 7 A 3 A 3 3 A 9 8 8 9 9 9 8 9 9 9 9 A A 8 9 9 9 8 8 9 9 9 8 9 A A A 3 3 3 3 3 3 3 3 3 3 3 3 3 2 2 2 2 3 3 3 3 3 3 3 A A A 8 9 9 9 9 9 9 8 9 9 9 A A 9 9 9 8 9 9 9 9 9 9 E A E E E E E E E E E E E E A E A A A E 8
+        E E E E E E E E E E E E E E E E E E E E E E E E A 3 A E E E C C 5 2 2 7 7 9 3 3 9 E E E C C 5 2 2 7 7 9 3 3 9 7 A 3 A 3 3 A E E E E E E E E E E E A A E E E E E E E E E E E A 3 3 A A A A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A A A A 3 3 A E E E E E E E E E E E A A E E E E E E E E E E E A E A A F F F F F F F F E A E A A A E E
+        E E E E E E E E E E E E E E E E E E E E E E E E A 3 E A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A 3 A 3 3 A E E E E E E E E E E E A A E E E E E E E E E E E E A A 3 3 3 3 3 A A A A A A A A A A A A A A 3 3 3 3 3 A A E E E E E E E E E E E E A A E E E E E E E E E E E A E A A F F F F F F F F E A E A A A E E
+        E E E E E E E E E E E E E E E E E E E E E E E E A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 3 A A E E E E E E E E E E E A A E E E E E E E E E E E E E E A A A A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A A A A E E E E E E E E E E E E E E A A E E E E E E E E E E E A E A E A A A A A A A A E A E A A A E E
+        6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A 6 6 6 6 E 6 6 6 6 6 6 A A A A A A A A A A A A 6 6 6 6 6 6 6 6 6 A A A A A A A A A A A A A A 6 6 6 6 6 6 6 6 6 A A A A A A A A A A A A 6 E 6 6 6 6 6 6 6 6 E A E E A A A A A A A A A E A E A A A E 6
+        6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 A 3 A A A 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 A 3 A A A A 6 6 6 6 6 E 6 6 6 6 6 6 A A 2 2 2 2 2 2 2 2 2 2 A 6 6 6 6 6 6 6 6 6 6 6 6 E 6 A A 6 6 6 6 6 6 6 6 6 6 6 6 6 6 A 2 2 2 2 2 2 2 2 2 2 A A 6 E 6 6 6 6 6 6 6 6 E A E E E E E E E E E E E E A E A A A E 6
+        6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 A 3 3 A A 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 A 3 3 A A 6 6 6 6 6 6 E 6 6 6 6 6 6 A A 2 2 2 2 2 2 2 2 2 2 2 A 6 6 6 6 6 6 6 6 6 6 6 E 6 A A 6 6 6 6 6 6 6 6 6 6 6 6 6 A 2 2 2 2 2 2 2 2 2 2 2 A A 6 E 6 6 6 6 6 6 6 6 E A A A A A A A A A A A A A A E A A A E 6
+        E E E E E E E E E E E E E E E E E E E E E E E E A A A A E E E E E E E E E E E E E E E E E E E E E E E E E E E A A A A E E E E E E E E E E E E E E A A 2 2 2 2 2 2 2 2 2 2 2 A E E E E E E E E E E E E E A A E E E E E E E E E E E E E A 2 2 2 2 2 2 2 2 2 2 2 A A E E E E E E E E E E E A A E E E E E E E E E E A A E A A E E E
+        6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 A A A A A A A A A A A A 6 6 6 6 6 6 6 6 6 6 6 6 6 6 A A 6 6 6 6 6 E 6 6 6 6 6 6 6 6 A A A A A A A A A A A A 6 6 6 6 6 6 6 6 6 6 6 E A A E F 6 6 6 6 6 6 6 E A A E A E 6 6 6
+        6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E A A 6 6 6 6 6 E A A 6 6 6 6 6 6 6 6 6 6 6 6 6 A A A A A A 6 6 6 E 6 6 6 6 6 6 6 6 6 A A E 6 6 6 6 6 A A E 6 6 6 6 6 6 6 6 6 6 6 E E E E 6 6 6 6 6 6 6 6 E E E E E 6 6 6 6
+        6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E A A A 6 6 6 6 E A A A 6 6 6 6 6 6 6 6 6 6 6 A A A A A A A A 6 6 E 6 6 6 6 6 6 6 6 A A A E 6 6 6 6 A A A E 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
+        E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E A A E E E E E E A A E E E E E E E E E E E A A E E E E A A E E E E E E E E E E E A A E E E E E E A A E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E
+        6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E A A 6 6 6 6 6 E A A E 6 6 6 6 6 6 6 6 6 6 A A 6 E E 6 A A 6 6 6 6 6 6 6 6 6 6 6 A A E 6 6 6 6 6 A A E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6
+        6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E A A 6 6 6 6 6 E A A E 6 6 6 6 A A 6 6 6 A A A 6 E E 6 A A A 6 6 6 A A 6 6 6 6 6 A A E 6 6 6 6 6 A A E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6
+        6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E A A 6 6 6 6 6 E A A 6 E 6 6 6 A A A A 6 A A A 6 6 E E 6 6 A A A 6 A A A A 6 6 6 6 6 A A E 6 6 6 6 6 A A E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6
+        E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E A A A E E E E E A A A E E E E A A A A A A A E E E E E E E E A A A A A A A E E E E A A A E E E E E A A A E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E
+        6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 A A A 6 E 6 6 6 A A A 6 6 6 6 6 A A A A A 6 6 6 6 6 6 6 6 6 6 A A A A A E 6 6 6 6 A A A 6 6 6 6 6 A A A 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
+        6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
+        6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
+        E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E
+        6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6
+        6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6
+        6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6
+        E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E
+        6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
+        6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
+        6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
+    `;
+
     // bugsly.png
     //% whenUsed
     export const bugsly = img`
@@ -169,6 +253,291 @@ namespace hourOfAi.imgs {
         . . . . . A . . . . . . . . . .
     `;
 
+    // cat_clock-15-33.png
+    //% whenUsed
+    export const cat_clock = [
+        img`
+            . . . . F . . . . . F . . . .
+            . . . F B F . . . F B F . . .
+            . . F F F F F F F F F F F . .
+            . F F B B B F F F B B B F F .
+            . F B B E B B F B B E B B F .
+            F F B B E B B F B B E B B F F
+            F F B B E B B F B B E B B F F
+            F F B B E B B F B B E B B F F
+            . F F B B B F F F B B B F F .
+            . F F F F F F F F F F F F F .
+            . . F B B B B F B B B B F . .
+            . . F F B B F F F B B F F . .
+            . . . F F B B B B B F F . . .
+            . . . . F F F F F F F . . . .
+            . . . F F F F F F F F F . . .
+            . . F F F B B B B B F F F . .
+            . . F F B F F F F F B F F . .
+            . . F F B F F F F F B F F . .
+            . . F F B F F B F F B F F . .
+            . . F F B F F B B F B F F . .
+            . . F F B F F F F F B F F . .
+            . . F F B F F F F F B F F . .
+            . . F F F B B B B B F F F . .
+            . . F F F F F F F F F F F . .
+            . . F B F B F F F B F B F . .
+            . . . . . . F F F . . . . . .
+            . . . . . . F F F . . . . . .
+            . . . . . . F F F . . . . . .
+            . . . . . . F F F . . . . . .
+            . . . . . . F F F . . . . . .
+            . . . . . . F F F . . . . . .
+            . . . . . . F F F . . . . . .
+            . . . . . . . F . . . . . . .
+        `,
+        img`
+            . . . . F . . . . . F . . . .
+            . . . F B F . . . F B F . . .
+            . . F F F F F F F F F F F . .
+            . F F B B B F F F B B B F F .
+            . F B E B B B F B E B B B F .
+            F F B E B B B F B E B B B F F
+            F F B E B B B F B E B B B F F
+            F F B E B B B F B E B B B F F
+            . F F B B B F F F B B B F F .
+            . F F F F F F F F F F F F F .
+            . . F B B B B F B B B B F . .
+            . . F F B B F F F B B F F . .
+            . . . F F B B B B B F F . . .
+            . . . . F F F F F F F . . . .
+            . . . F F F F F F F F F . . .
+            . . F F F B B B B B F F F . .
+            . . F F B F F F F F B F F . .
+            . . F F B F F F F F B F F . .
+            . . F F B F F B F F B F F . .
+            . . F F B F F B B F B F F . .
+            . . F F B F F F F F B F F . .
+            . . F F B F F F F F B F F . .
+            . . F F F B B B B B F F F . .
+            . . F F F F F F F F F F F . .
+            . . F B F B F F F B F B F . .
+            . . . . . F F F . . . . . . .
+            . . . . . F F F . . . . . . .
+            . . . . F F F . . . . . . . .
+            . . . . F F F . . . . . . . .
+            . . . . F F F . . . . . . . .
+            . . . F F F . . . . . . . . .
+            . . . F F F . . . . . . . . .
+            . . . . F . . . . . . . . . .
+        `,
+        img`
+            . . . . F . . . . . F . . . .
+            . . . F B F . . . F B F . . .
+            . . F F F F F F F F F F F . .
+            . F F B B B F F F B B B F F .
+            . F E B B B B F E B B B B F .
+            F F E B B B B F E B B B B F F
+            F F E B B B B F E B B B B F F
+            F F E B B B B F E B B B B F F
+            . F F B B B F F F B B B F F .
+            . F F F F F F F F F F F F F .
+            . . F B B B B F B B B B F . .
+            . . F F B B F F F B B F F . .
+            . . . F F B B B B B F F . . .
+            . . . . F F F F F F F . . . .
+            . . . F F F F F F F F F . . .
+            . . F F F B B B B B F F F . .
+            . . F F B F F F F F B F F . .
+            . . F F B F F F F F B F F . .
+            . . F F B F F B F F B F F . .
+            . . F F B F F B B F B F F . .
+            . . F F B F F F F F B F F . .
+            . . F F B F F F F F B F F . .
+            . . F F F B B B B B F F F . .
+            . . F F F F F F F F F F F . .
+            . . F B F B F F F B F B F . .
+            . . . . F F F . . . . . . . .
+            . . . F F F F . . . . . . . .
+            . . . F F F . . . . . . . . .
+            . . F F F F . . . . . . . . .
+            . F F F F . . . . . . . . . .
+            . F F F . . . . . . . . . . .
+            . . F . . . . . . . . . . . .
+            . . . . . . . . . . . . . . .
+        `,
+        img`
+            . . . . F . . . . . F . . . .
+            . . . F B F . . . F B F . . .
+            . . F F F F F F F F F F F . .
+            . F F B B B F F F B B B F F .
+            . F B E B B B F B E B B B F .
+            F F B E B B B F B E B B B F F
+            F F B E B B B F B E B B B F F
+            F F B E B B B F B E B B B F F
+            . F F B B B F F F B B B F F .
+            . F F F F F F F F F F F F F .
+            . . F B B B B F B B B B F . .
+            . . F F B B F F F B B F F . .
+            . . . F F B B B B B F F . . .
+            . . . . F F F F F F F . . . .
+            . . . F F F F F F F F F . . .
+            . . F F F B B B B B F F F . .
+            . . F F B F F F F F B F F . .
+            . . F F B F F F F F B F F . .
+            . . F F B F F B F F B F F . .
+            . . F F B F F B B F B F F . .
+            . . F F B F F F F F B F F . .
+            . . F F B F F F F F B F F . .
+            . . F F F B B B B B F F F . .
+            . . F F F F F F F F F F F . .
+            . . F B F B F F F B F B F . .
+            . . . . . F F F . . . . . . .
+            . . . . . F F F . . . . . . .
+            . . . . F F F . . . . . . . .
+            . . . . F F F . . . . . . . .
+            . . . . F F F . . . . . . . .
+            . . . F F F . . . . . . . . .
+            . . . F F F . . . . . . . . .
+            . . . . F . . . . . . . . . .
+        `,
+        img`
+            . . . . F . . . . . F . . . .
+            . . . F B F . . . F B F . . .
+            . . F F F F F F F F F F F . .
+            . F F B B B F F F B B B F F .
+            . F B B E B B F B B E B B F .
+            F F B B E B B F B B E B B F F
+            F F B B E B B F B B E B B F F
+            F F B B E B B F B B E B B F F
+            . F F B B B F F F B B B F F .
+            . F F F F F F F F F F F F F .
+            . . F B B B B F B B B B F . .
+            . . F F B B F F F B B F F . .
+            . . . F F B B B B B F F . . .
+            . . . . F F F F F F F . . . .
+            . . . F F F F F F F F F . . .
+            . . F F F B B B B B F F F . .
+            . . F F B F F F F F B F F . .
+            . . F F B F F F F F B F F . .
+            . . F F B F F B F F B F F . .
+            . . F F B F F B B F B F F . .
+            . . F F B F F F F F B F F . .
+            . . F F B F F F F F B F F . .
+            . . F F F B B B B B F F F . .
+            . . F F F F F F F F F F F . .
+            . . F B F B F F F B F B F . .
+            . . . . . . F F F . . . . . .
+            . . . . . . F F F . . . . . .
+            . . . . . . F F F . . . . . .
+            . . . . . . F F F . . . . . .
+            . . . . . . F F F . . . . . .
+            . . . . . . F F F . . . . . .
+            . . . . . . F F F . . . . . .
+            . . . . . . . F . . . . . . .
+        `,
+        img`
+            . . . . F . . . . . F . . . .
+            . . . F B F . . . F B F . . .
+            . . F F F F F F F F F F F . .
+            . F F B B B F F F B B B F F .
+            . F B B B E B F B B B E B F .
+            F F B B B E B F B B B E B F F
+            F F B B B E B F B B B E B F F
+            F F B B B E B F B B B E B F F
+            . F F B B B F F F B B B F F .
+            . F F F F F F F F F F F F F .
+            . . F B B B B F B B B B F . .
+            . . F F B B F F F B B F F . .
+            . . . F F B B B B B F F . . .
+            . . . . F F F F F F F . . . .
+            . . . F F F F F F F F F . . .
+            . . F F F B B B B B F F F . .
+            . . F F B F F F F F B F F . .
+            . . F F B F F F F F B F F . .
+            . . F F B F F B F F B F F . .
+            . . F F B F F B B F B F F . .
+            . . F F B F F F F F B F F . .
+            . . F F B F F F F F B F F . .
+            . . F F F B B B B B F F F . .
+            . . F F F F F F F F F F F . .
+            . . F B F B F F F B F B F . .
+            . . . . . . . F F F . . . . .
+            . . . . . . . F F F . . . . .
+            . . . . . . . . F F F . . . .
+            . . . . . . . . F F F . . . .
+            . . . . . . . . F F F . . . .
+            . . . . . . . . . F F F . . .
+            . . . . . . . . . F F F . . .
+            . . . . . . . . . . F . . . .
+        `,
+        img`
+            . . . . F . . . . . F . . . .
+            . . . F B F . . . F B F . . .
+            . . F F F F F F F F F F F . .
+            . F F B B B F F F B B B F F .
+            . F B B B B E F B B B B E F .
+            F F B B B B E F B B B B E F F
+            F F B B B B E F B B B B E F F
+            F F B B B B E F B B B B E F F
+            . F F B B B F F F B B B F F .
+            . F F F F F F F F F F F F F .
+            . . F B B B B F B B B B F . .
+            . . F F B B F F F B B F F . .
+            . . . F F B B B B B F F . . .
+            . . . . F F F F F F F . . . .
+            . . . F F F F F F F F F . . .
+            . . F F F B B B B B F F F . .
+            . . F F B F F F F F B F F . .
+            . . F F B F F F F F B F F . .
+            . . F F B F F B F F B F F . .
+            . . F F B F F B B F B F F . .
+            . . F F B F F F F F B F F . .
+            . . F F B F F F F F B F F . .
+            . . F F F B B B B B F F F . .
+            . . F F F F F F F F F F F . .
+            . . F B F B F F F B F B F . .
+            . . . . . . . . F F F . . . .
+            . . . . . . . . F F F F . . .
+            . . . . . . . . . F F F . . .
+            . . . . . . . . . F F F F . .
+            . . . . . . . . . . F F F F .
+            . . . . . . . . . . . F F F .
+            . . . . . . . . . . . . F . .
+            . . . . . . . . . . . . . . .
+        `,
+        img`
+            . . . . F . . . . . F . . . .
+            . . . F B F . . . F B F . . .
+            . . F F F F F F F F F F F . .
+            . F F B B B F F F B B B F F .
+            . F B B B E B F B B B E B F .
+            F F B B B E B F B B B E B F F
+            F F B B B E B F B B B E B F F
+            F F B B B E B F B B B E B F F
+            . F F B B B F F F B B B F F .
+            . F F F F F F F F F F F F F .
+            . . F B B B B F B B B B F . .
+            . . F F B B F F F B B F F . .
+            . . . F F B B B B B F F . . .
+            . . . . F F F F F F F . . . .
+            . . . F F F F F F F F F . . .
+            . . F F F B B B B B F F F . .
+            . . F F B F F F F F B F F . .
+            . . F F B F F F F F B F F . .
+            . . F F B F F B F F B F F . .
+            . . F F B F F B B F B F F . .
+            . . F F B F F F F F B F F . .
+            . . F F B F F F F F B F F . .
+            . . F F F B B B B B F F F . .
+            . . F F F F F F F F F F F . .
+            . . F B F B F F F B F B F . .
+            . . . . . . . F F F . . . . .
+            . . . . . . . F F F . . . . .
+            . . . . . . . . F F F . . . .
+            . . . . . . . . F F F . . . .
+            . . . . . . . . F F F . . . .
+            . . . . . . . . . F F F . . .
+            . . . . . . . . . F F F . . .
+            . . . . . . . . . . F . . . .
+        `
+    ];
+
     // crick.png
     //% whenUsed
     export const crick = img`
@@ -288,6 +657,131 @@ namespace hourOfAi.imgs {
         6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
         6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
         6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
+    `;
+
+    // honeycomb.png
+    //% whenUsed
+    export const honeycomb = img`
+        4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4
+        4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4
+        4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4
+        4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 A A 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A
+        4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 3 3 3 3 3 A A 5 5 5 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5
+        4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 3 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5
+        4 4 A A 5 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5
+        A A 5 5 5 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A
+        5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4
+        5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4
+        5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4
+        A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4
+        3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4
+        3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4
+        3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4
+        3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4
+        3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A
+        3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5
+        3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5 5 5 5 5 5 5 5 5 A A 3 3 3 3 3 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5
+        3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 3 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 3 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5
+        3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5 5 5 5 5 5 5 5 5 A A 3 3 3 3 3 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A
+        3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4
+        3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4
+        3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4
+        3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4
+        3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4
+        3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4
+        3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4
+        3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4
+        3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4
+        A A 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 5 A A 4 4 4 4 4 4 4 4
+        5 5 A A 3 3 3 3 3 3 3 3 3 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 A A 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 5 5 5 A A 4 4 4 4 4 A
+        5 5 5 5 A A 3 3 3 3 3 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 3 3 3 3 3 A A 5 5 5 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5 5 5 5 5 5 A A 4 A A 5
+        5 5 5 5 5 5 A A 3 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 3 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5 5 5 5 5 5 A 5 5 5
+        A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5 5 5 5 5 5 5 5
+        4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5 5 5 5 5 A
+        4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4
+        4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4
+        4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4
+        4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4
+        4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4
+        4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4
+        4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4
+        4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 A 4
+        4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 5 A
+        4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A 5 5 5 5 5
+        4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5 5 5
+        A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A A 5
+        5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A
+        5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 4 4 4 4 4 4 4 4 4 4 4 4 4 A 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 5 A A 4 4 4 4 4 4 4 4 4 A A 5 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 4 A A 5 5 5 5 5 5 A 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+        4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 4 4 4 4 4 A A 5 5 5 5 5 5 5 5 5 A A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     `;
 
     // hopper.png
