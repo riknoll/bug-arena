@@ -1,30 +1,51 @@
 namespace hourOfAi {
     export function initMainMenu() {
-        // const practice = new TextButtonSprite("Practice", () => {});
-        // const towerButton = new TextButtonSprite("Tower", () => {});
+        let currentBG: scene.Renderable = createPracticeMenuBackground();
 
-        // practice.top = 2;
-        // towerButton.top = practice.bottom + 4;
+        const practice = new TextButtonSprite("Practice", () => {
+            getButtonSprites().forEach(b => b.destroy());
+            if (currentBG) currentBG.destroy();
+            initPracticeMenu();
+        });
+        const towerButton = new TextButtonSprite("Tower", () => {});
+        const help = new TextButtonSprite("Help", () => {});
 
-        // const testChallenger1 = new ChallengerCardButtonSprite(0, () => {})
+        const buttons = [practice, towerButton, help];
 
-        // testChallenger1.left = 5;
-        // testChallenger1.top = towerButton.bottom + 2
-
-        // const testChallenger2 = new ChallengerCardButtonSprite(1, () => {})
-
-        // testChallenger2.left = 5;
-        // testChallenger2.top = testChallenger1.bottom + 1;
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].top = 30 + i * (buttons[i].height + 2);
+            buttons[i].left = 5;
+            buttons[i].z = 30;
+        }
 
         let mouseX = 0;
         let mouseY = 0;
+        let currentlyActive: ButtonSprite;
 
         browserEvents.onMouseMove((x, y) => {
             mouseX = x;
             mouseY = y;
 
             for (const button of getButtonSprites()) {
-                button.hover = overlapsPoint(button, x, y);
+                if (overlapsPoint(button, x, y)) {
+                    if (button !== currentlyActive) {
+                        currentlyActive = button;
+                        if (currentBG) {
+                            currentBG.destroy();
+                        }
+
+                        if (button === towerButton) {
+                            currentBG = tower.createMenuBackground();
+                        }
+                        else {
+                            currentBG = createPracticeMenuBackground();
+                        }
+                    }
+                    button.hover = true;
+                }
+                else {
+                    button.hover = false;
+                }
             }
         });
 
@@ -36,7 +57,7 @@ namespace hourOfAi {
             }
         });
 
-        initPracticeMenu();
+        // initPracticeMenu();
     }
 
     function overlapsPoint(sprite: Sprite, x: number, y: number): boolean {
@@ -314,5 +335,184 @@ namespace hourOfAi {
             1,
             13
         );
+    }
+
+    function createPracticeMenuBackground(): scene.Renderable {
+        let bgState: number[] = [];
+        let bgOffset: number[] = [];
+        let bgWobble: number[] = [];
+
+        const bgColumns = 12;
+        const bgRows = 9;
+
+        for (let i = 0; i < bgColumns * 2 + bgRows * 2; i++) {
+            bgState.push(0);
+            bgOffset.push(Math.sin(0.3 + Math.PI * i / 2) * 4)
+            bgWobble.push(0)
+        }
+
+        const getOffset = (index: number) => {
+            return bgState[index] + bgOffset[index] + bgWobble[index];
+        }
+
+
+        const activeBugs: hourOfAi.BugPresident[] = [];
+
+
+        const spawnNewBug = (onScreen: boolean) => {
+            const newBug = new hourOfAi.BugPresident();
+
+            if (onScreen) {
+                newBug.position = new Position(randint(20, 140), randint(20, 100));
+                newBug.heading = randint(0, 360) * Math.PI / 180;
+            }
+            else {
+                if (Math.percentChance(50)) {
+                    // Left or right
+                    if (Math.percentChance(50)) {
+                        newBug.position = new Position(-10, randint(0, 120));
+                    }
+                    else {
+                        newBug.position = new Position(170, randint(0, 120));
+                    }
+                }
+                else {
+                    // Top or bottom
+                    if (Math.percentChance(50)) {
+                        newBug.position = new Position(randint(0, 160), -10);
+                    }
+                    else {
+                        newBug.position = new Position(randint(0, 160), 130);
+                    }
+                }
+
+                newBug.heading = angleutil.clampRadians(Math.atan2(60 - newBug.position.y, 80 - newBug.position.x));
+            }
+
+            newBug.bodyRadius = randint(4, 8);
+            newBug.legLength =  Math.round(newBug.bodyRadius * 1.6);
+
+            const colorPalettes = getColorPalettes();
+            const palette = colorPalettes[randint(0, colorPalettes.length - 1)];
+            newBug.bodyColor = palette[0];
+            newBug.eyeColor = palette[1];
+            newBug.noseColor = palette[2];
+
+            newBug.positionLegs(true, true, true)
+            newBug.positionLegs(false, true, true)
+            newBug.renderable.destroy();
+            activeBugs.push(newBug);
+        }
+
+        const numBugs = 6;
+        for (let i = 0; i < numBugs; i++) {
+            spawnNewBug(Math.percentChance(50));
+        }
+
+
+        return scene.createRenderable(0, () => {
+            screen.fill(6);
+            advanceTime(1/30)
+            for (const activeBug of activeBugs) {
+                activeBug.update(1/30);
+                activeBug.draw();
+
+                if (activeBug.position.x < -20 || activeBug.position.x > 180 || activeBug.position.y < -20 || activeBug.position.y > 140) {
+                    if (activeBug.data["onScreen"]) {
+                        activeBugs.removeElement(activeBug);
+                        spawnNewBug(false);
+                    }
+                }
+                else {
+                    activeBug.data["onScreen"] = true;
+                }
+
+                if (activeBug.data["onScreen"]) {
+                    if (Math.percentChance(10)) {
+                        activeBug.data["turning"] = true;
+                        activeBug.data["targetHeading"] = activeBug.heading + randint(-50, 50) * Math.PI / 180;
+                    }
+                    else if (activeBug.data["turning"]) {
+                        activeBug.heading = angleutil.turnAngleTowards(activeBug.heading, activeBug.data["targetHeading"], 0.05);
+                    }
+                }
+            }
+
+            const allEnemeies = activeBugs;
+            const xMult = 15
+            const yMult = 15
+
+            for (const sprite of allEnemeies) {
+                if (sprite.position.y >= 0 && sprite.position.y < screen.height && sprite.position.x >= 0 && sprite.position.y < screen.width) {
+                    if (sprite.position.x < 10) {
+                        const row = (sprite.position.y / yMult) | 0;
+                        if (angleutil.clampRadians(sprite.heading) > Math.PI / 2 && angleutil.clampRadians(sprite.heading) < 3 * Math.PI / 2) {
+                            bgState[row] -= 1;
+                        }
+                        else {
+                            bgState[row] += 1;
+                        }
+                    }
+                    else if (sprite.position.x > 150) {
+                        const row = (sprite.position.y / yMult) | 0;
+                        if (angleutil.clampRadians(sprite.heading) > Math.PI / 2 && angleutil.clampRadians(sprite.heading) < 3 * Math.PI / 2) {
+                            bgState[row + bgRows + bgColumns] += 1;
+                        }
+                        else {
+                            bgState[row + bgRows + bgColumns] -= 1;
+                        }
+                    }
+                    else if (sprite.position.y < 10) {
+                        const column = (sprite.position.x / xMult) | 0;
+                        if (angleutil.clampRadians(sprite.heading) > Math.PI) {
+                            bgState[column + bgRows] -= 1;
+                        }
+                        else {
+                            bgState[column + bgRows] += 1;
+                        }
+
+                    }
+                    else if (sprite.position.y > 110) {
+                        const column = (sprite.position.x / xMult) | 0;
+                        if (angleutil.clampRadians(sprite.heading) > Math.PI) {
+                            bgState[column + bgRows + bgColumns + bgRows] += 1;
+                        }
+                        else {
+                            bgState[column + bgRows + bgColumns + bgRows] -= 1;
+                        }
+                    }
+                }
+            }
+
+            for (let i = 0; i < bgState.length; i++) {
+                bgWobble[i] = (Math.sin(game.runtime() / (200 + 300 * Math.abs(bgOffset[i]))) + 1) / 2
+                if (bgState[i] < 0) {
+                    bgState[i] = Math.min(0, Math.max(bgState[i] + 0.5, -4))
+                }
+                else {
+                    bgState[i] = Math.max(0, Math.min(bgState[i] - 0.5, 4))
+                }
+            }
+
+            const radius = 10;
+
+            for (let x = 0; x < bgColumns; x += 1) {
+                screen.fillCircle(
+                    x * xMult, getOffset(bgRows + x), radius, 7
+                )
+                screen.fillCircle(
+                    x * xMult, 120 - getOffset(bgRows + x + bgRows + bgColumns), radius, 7
+                )
+            }
+
+            for (let y = 0; y < bgRows; y += 1) {
+                screen.fillCircle(
+                    getOffset(y), y * yMult, radius, 7
+                )
+                screen.fillCircle(
+                    160 - getOffset(y + bgRows + bgColumns), y * yMult, radius, 7
+                )
+            }
+        });
     }
 }

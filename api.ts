@@ -45,6 +45,7 @@ namespace hourOfAi {
             }
             return 0;
         }
+
         arenaProperty(property: ArenaProperty): number {
             if (this.agent) {
                 return this.agent.arenaProperty(property);
@@ -52,6 +53,7 @@ namespace hourOfAi {
 
             return 0;
         }
+
         onStart(handler: () => void) {
             if (this.agent) {
                 this.agent.onStart(handler);
@@ -60,6 +62,7 @@ namespace hourOfAi {
                 this.onStartHandlers.push(handler);
             }
         }
+
         every(millis: number, handler: () => void) {
             if (this.agent) {
                 this.agent.every(millis, handler);
@@ -68,6 +71,7 @@ namespace hourOfAi {
                 this.everyHandlers.push({ millis, handler });
             }
         }
+
         onBumpWall(handler: () => void) {
             if (this.agent) {
                 this.agent.onBumpWall(handler);
@@ -76,45 +80,59 @@ namespace hourOfAi {
                 this.onBumpWallHandlers.push(handler);
             }
         }
+
+        doAfter(millis: number, handler: () => void) {
+            if (this.agent) {
+                this.agent.doAfter(millis, handler);
+            }
+        }
+
         turnBy(degrees: number) {
             if (this.agent) {
                 this.agent.turnBy(degrees);
             }
         }
+
         turnTowards(degrees: number) {
             if (this.agent) {
                 this.agent.turnTowards(degrees);
             }
         }
+
         turnTowardsPosition(x: number, y: number) {
             if (this.agent) {
                 this.agent.turnTowardsPosition(x, y);
             }
         }
+
         distanceToWall(): number {
             if (this.agent) {
                 return this.agent.distanceToWall();
             }
             return -1;
         }
+
         distanceToColor(type: ColorType): number {
             if (this.agent) {
                 return this.agent.distanceToColor(type);
             }
             return -1;
         }
+
         canSeeColor(type: ColorType): boolean {
             if (this.agent) {
                 return this.agent.canSeeColor(type);
             }
             return false;
         }
+
         distanceToOpponent(): number {
             if (this.agent) {
                 return this.agent.distanceToOpponent();
             }
             return -1;
         }
+
         canSeeOpponent(): boolean {
             if (this.agent) {
                 return this.agent.canSeeOpponent();
@@ -185,6 +203,24 @@ namespace hourOfAi {
     export function every(millis: number, handler: () => void) {
         initAPI();
         _agent.every(millis, handler);
+    }
+
+    /**
+     * Runs code after a certain number of milliseconds has passed
+     *
+     * @param millis The number of milliseconds to wait before running the code.
+     * @param handler The code to run.
+     */
+    //% blockId=hourofai_doAfter
+    //% block="run after $millis ms"
+    //% millis.shadow=timePicker
+    //% group="Events"
+    //% weight=70
+    //% handlerStatement=1
+    //% help=github:arcade-bug-arena/docs/every
+    export function doAfter(millis: number, handler: () => void) {
+        initAPI();
+        _agent.doAfter(millis, handler);
     }
 
     /**

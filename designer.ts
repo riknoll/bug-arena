@@ -1,11 +1,13 @@
-const colorPalettes = [
-    [4, 15, 2],
-    [7, 15, 8],
-    [2, 15, 4],
-    [9, 15, 8],
-    [10, 15, 2],
-    [5, 15, 4]
-];
+function getColorPalettes(): number[][] {
+    return [
+        [4, 15, 2],
+        [7, 15, 8],
+        [2, 15, 4],
+        [9, 15, 8],
+        [10, 15, 2],
+        [5, 15, 4]
+    ];
+}
 
 class Slider extends sprites.ExtendableSprite {
     label: Sprite;
@@ -156,6 +158,7 @@ function showDesigner() {
         agent.noseRadius = newValue;
     });
 
+    const colorPalettes = getColorPalettes();
     for (let i = 0; i < colorPalettes.length; i++) {
         const swatch = new Swatch(colorPalettes[i]);
         swatch.left = 80 + (i % 5) * 12;

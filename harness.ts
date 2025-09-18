@@ -18,6 +18,14 @@ namespace hourOfAi {
         handler: () => void;
     }
 
+    class ScheduledHandler {
+        constructor(
+            public timer: number,
+            public handler: () => void
+        ) {
+        }
+    }
+
     export class Project {
         constructor(
             public name: string,
@@ -33,6 +41,7 @@ namespace hourOfAi {
         protected handlers: IntervalHandler[] = [];
         protected onStartHandler: () => void;
         protected onBumpWallHandler: () => void;
+        protected scheduled: ScheduledHandler[] = [];
 
         constructor(public arena: Arena, design: BugDesign) {
             this.bug = new hourOfAi.BugPresident();
@@ -62,6 +71,16 @@ namespace hourOfAi {
                         h.timer += h.millis;
                     }
                 }
+
+                for (const h of this.scheduled) {
+                    h.timer -= dt * 1000;
+
+                    if (h.timer <= 0) {
+                        h.handler();
+                    }
+                }
+
+                this.scheduled = this.scheduled.filter(h => h.timer > 0);
             }
 
             if (this.bug.targetHeading === undefined) {
@@ -115,6 +134,10 @@ namespace hourOfAi {
             this.handlers.push({ millis, timer: millis, handler });
         }
 
+        doAfter(millis: number, handler: () => void) {
+            this.scheduled.push(new ScheduledHandler(millis, handler));
+        }
+
         turnBy(degrees: number) {
             this.bug.targetHeading = this.bug.heading + degreesToRadians(degrees);
         }
@@ -154,8 +177,9 @@ namespace hourOfAi {
                 color = this.arena.combatants.find(c => c !== this).bug.fillColor || 0;
             }
 
-            const pos = this.arena.scanForColor(this.bug.position, this.bug.heading, color);
-            return pos ? Math.max(0, distanceBetween(this.bug.position, pos) - AGENT_RADIUS) : -1;
+            const edge = this.bug.position.project(this.bug.heading, AGENT_RADIUS + 1);
+            const pos = this.arena.scanForColor(edge, this.bug.heading, color);
+            return pos ? Math.max(0, distanceBetween(edge, pos) - 1) : Infinity;
         }
 
         canSeeColor(type: ColorType): boolean {

@@ -43,7 +43,11 @@ namespace hourOfAi {
     let shadeImage: Image;
 
 
-    export const challengers: Challenger[] = [
+    export let challengers: Challenger[];
+
+    export function initChallengers() {
+        if (challengers) return;
+        challengers = [
         new Challenger(
             {
                 colorPalette: [4, 15, 2],
@@ -567,6 +571,7 @@ namespace hourOfAi {
             hourOfAi.algorithms.zigzag
         ),
     ];
+    }
 
     let candleHalos: Image[] = [];
 

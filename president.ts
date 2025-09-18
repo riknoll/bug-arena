@@ -38,6 +38,8 @@ namespace hourOfAi {
         score = 0;
         noseRadius = 2;
 
+        data: any;
+
         userUpdate: () => void;
 
         renderable: scene.Renderable;
@@ -53,6 +55,7 @@ namespace hourOfAi {
 
         constructor() {
             // init();
+            this.data = {};
 
             this.position = new Position(80, 60);
 
@@ -183,7 +186,7 @@ namespace hourOfAi {
             const camera = game.currentScene().camera;
 
             for (let leg of this.legPositions) {
-                screen.fillCircle(
+                fillCircle(
                     leg.position.x - camera.drawOffsetX,
                     leg.position.y - camera.drawOffsetY,
                     2,
@@ -197,13 +200,13 @@ namespace hourOfAi {
                     this.legColor
                 )
             }
-            screen.fillCircle(
+            fillCircle(
                 this.position.x + Math.round(this.bodyRadius * Math.cos(this.heading)) - camera.drawOffsetX,
                 this.position.y + Math.round(this.bodyRadius * Math.sin(this.heading)) - camera.drawOffsetY,
                 this.noseRadius,
                 this.noseColor
             )
-            screen.fillCircle(
+            fillCircle(
                 this.position.x - camera.drawOffsetX,
                 this.position.y - camera.drawOffsetY,
                 this.bodyRadius,
@@ -339,7 +342,7 @@ namespace hourOfAi {
 
 
         for (const angle of legAngles) {
-            screen.fillCircle(
+            fillCircle(
                 x + (legLength - 2) * Math.cos(angle) - camera.drawOffsetX,
                 y + (legLength - 2) * Math.sin(angle) - camera.drawOffsetY,
                 2,
@@ -353,13 +356,13 @@ namespace hourOfAi {
                 legColor
             )
         }
-        screen.fillCircle(
+        fillCircle(
             x + Math.round(bodyRadius * Math.cos(heading)) - camera.drawOffsetX,
             y + Math.round(bodyRadius * Math.sin(heading)) - camera.drawOffsetY,
             noseRadius,
             noseColor
         )
-        screen.fillCircle(
+        fillCircle(
             x - camera.drawOffsetX,
             y - camera.drawOffsetY,
             bodyRadius,
@@ -466,6 +469,10 @@ namespace hourOfAi {
     function isWall(x: number, y: number): boolean {
         return x < 0 || x >= screen.width || y < 0 || y >= screen.height;
     }
+}
+
+function fillCircle(x: number, y: number, radius: number, color: number) {
+    screen.fillCircle(x | 0, y | 0, radius | 0, color | 0);
 }
 
 function drawRibbon(x: number, y: number, angle: number, size: number, color: number) {
