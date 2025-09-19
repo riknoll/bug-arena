@@ -95,7 +95,7 @@ namespace hourOfAi {
         }
 
         isUnlocked(): boolean {
-            return this.challengerIndex < 3;
+            return this.challengerIndex < 99;
         }
     }
 

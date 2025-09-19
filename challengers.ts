@@ -280,7 +280,7 @@ namespace hourOfAi {
                 tower.dialog("I am Legs-olas, defender of the Bug Kingdom!"),
                 tower.dialog("I will best thee in honorable combat!")
             ],
-            "Turns randomly and moves in diagonal lines.",
+            "Moves in random diagonal lines.",
             [ tower.dialog("Well fought! You show promise, but you have much to learn!") ],
             [ tower.dialog("Your sword was true! I shall train harder for our next encounter!") ],
             imgs.legsolas,
@@ -349,7 +349,7 @@ namespace hourOfAi {
                 tower.dialog("Well, I'm afraid I cannot allow that."),
                 tower.dialog("Let's have a quick battle, shall we?")
             ],
-            "Their AI tries to paint over the opponent's color.",
+            "Targets the opponent's color.",
             [ tower.dialog("Jolly good! Better luck next time, eh?") ],
             [ tower.dialog("Well, I say! Smashing!") ],
             imgs.crick,
@@ -424,7 +424,7 @@ namespace hourOfAi {
                 tower.dialog("Bwahahaha! <shaky>Tremble</shaky> before my might!"),
                 tower.dialog("To battle!")
             ],
-            "Their AI makes squiggly lines all over the arena.",
+            "Draws squiggly lines all over.",
             [ tower.dialog("Hahaha! Too easy!") ],
             [ tower.dialog("Now I'm hopping mad!") ],
             imgs.hopper,
@@ -549,7 +549,7 @@ namespace hourOfAi {
                     candleHalos = [];
                 })
         ],
-            "Her AI tries to follow the opponent's bug.",
+            "Follows the opponent's bug.",
             [ tower.dialog("Ha! A waste of time!") ],
             [ tower.dialog("Curses! But I'll have the last laugh, I swear it!") ],
             imgs.shadow,
@@ -564,7 +564,7 @@ namespace hourOfAi {
             },
             "Bug President",
             [ tower.dialog("You've come a long way, but I'm afraid I can't let my constituents down! Let's see what you've got!") ],
-            "Description",
+            "TBD",
             [ tower.dialog("Better luck next time! Now I've got a nation to run!") ],
             [ tower.dialog("Well, you won fair and square. I hope I can still count on your vote!") ],
             imgs.president,

@@ -7,10 +7,12 @@ namespace hourOfAi {
             if (currentBG) currentBG.destroy();
             initPracticeMenu();
         });
-        const towerButton = new TextButtonSprite("Tower", () => {});
-        const help = new TextButtonSprite("Help", () => {});
+        const towerButton = new TextButtonSprite("Tower", () => {
+            startGameMode(GameMode.Tower);
+        });
+        // const help = new TextButtonSprite("Help", () => {});
 
-        const buttons = [practice, towerButton, help];
+        const buttons = [practice, towerButton];
 
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].top = 30 + i * (buttons[i].height + 2);
@@ -35,7 +37,7 @@ namespace hourOfAi {
                         }
 
                         if (button === towerButton) {
-                            currentBG = tower.createMenuBackground();
+                            currentBG = tower.createMenuBackground().renderable;
                         }
                         else {
                             currentBG = createPracticeMenuBackground();

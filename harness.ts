@@ -183,14 +183,14 @@ namespace hourOfAi {
         }
 
         canSeeColor(type: ColorType): boolean {
-            return this.distanceToColor(type) !== -1;
+            return this.distanceToColor(type) !== Infinity;
         }
 
         distanceToOpponent(): number {
             const pos = this.arena.scanForOpponent(this.bug.position, this.bug.heading, this);
 
             if (!pos) {
-                return -1;
+                return Infinity;
             }
             const opponent = this.arena.combatants.find(c => c !== this);
 
@@ -198,7 +198,7 @@ namespace hourOfAi {
         }
 
         canSeeOpponent(): boolean {
-            return this.distanceToOpponent() !== -1;
+            return this.distanceToOpponent() !== Infinity;
         }
 
         distanceToBomb(): number {

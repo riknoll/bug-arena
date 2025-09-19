@@ -9,7 +9,12 @@ namespace hourOfAi.tower {
                 const offsetY = bottom - y + offset - imgs.tower_section.height;
                 if (offsetY < -imgs.tower_section.height) break;
                 if (offsetY > screen.height) continue;
-                screen.drawTransparentImage(imgs.tower_section, left, offsetY);
+                if (i % 2) {
+                    screen.drawTransparentImage(imgs.tower_section, left, offsetY);
+                }
+                else {
+                    screen.drawTransparentImage(imgs.tower_section_no_window, left, offsetY);
+                }
             }
 
             screen.drawTransparentImage(
@@ -37,19 +42,37 @@ namespace hourOfAi.tower {
                     if (offsetY > screen.height) continue;
                 }
 
-                screen.blit(
-                    adjustedLeft,
-                    offsetY,
-                    imageWidth,
-                    imageHeight,
-                    imgs.tower_section,
-                    0,
-                    0,
-                    imgs.tower_section.width,
-                    imgs.tower_section.height,
-                    true,
-                    false
-                )
+                if (i % 2) {
+                    screen.blit(
+                        adjustedLeft,
+                        offsetY,
+                        imageWidth,
+                        imageHeight,
+                        imgs.tower_section,
+                        0,
+                        0,
+                        imgs.tower_section.width,
+                        imgs.tower_section.height,
+                        true,
+                        false
+                    )
+                }
+                else {
+                    screen.blit(
+                        adjustedLeft,
+                        offsetY,
+                        imageWidth,
+                        imageHeight,
+                        imgs.tower_section_no_window,
+                        0,
+                        0,
+                        imgs.tower_section.width,
+                        imgs.tower_section.height,
+                        true,
+                        false
+                    )
+                }
+
             }
 
             screen.blit(

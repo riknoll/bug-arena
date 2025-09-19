@@ -1,83 +1,253 @@
 namespace hourOfAi.tower {
-    export function createMenuBackground(): scene.Renderable {
-        let backgroundLayers = [
-            imgs.cloudLayer0, imgs.cloudLayer1, imgs.cloudLayer2, imgs.cloudLayer3
-        ];
+    const MAX_ZOOM = 14;
+    const blitBG = image.create(screen.width, screen.height);
 
-        let backgroundOffsets = [0, 0, 0, 0]
-        scene.setBackgroundColor(15)
-        let frameTimer = randint(30, 90);
-        let lightningX = randint(10, 100);
+    export class TowerScene {
+        scroll: number = 0;
+        xOffset: number = 92;
+        zoom: number = 1;
 
-        const colorRamp = img`
-            . 1 2 3 4 5 6 7 8 9 a b c d e f
-            . 1 2 3 4 1 7 1 9 b 2 1 b c d e
-        `
-        const buf = control.createBuffer(16);
+        renderable: scene.Renderable;
+        currentAnimation: Animation;
 
-        for (let i = 0; i < 16; i++) {
-            buf[i] = colorRamp.getPixel(i, 1);
+        visible: boolean = true;
+
+        constructor() {
+            this.createRenderable();
         }
 
-        const lightningAnim = imgs.lightningFrames;
+        protected createRenderable() {
+            let currentIndex = 0;
 
-        return scene.createRenderable(0, () => {
-            frameTimer--;
-            screen.fillRect(0, 90, 160, 30, 6)
-            const frame = lightningAnim.length - (frameTimer >> 1) - 1
+            // controller.A.onEvent(ControllerButtonEvent.Pressed, () => {
+            //     this.scrollTo(currentIndex);
+            //     this.zoomIn();
+            //     pause(500);
+            //     this.zoomOut();
+            //     currentIndex++;
+            // });
 
-            for (let i = backgroundLayers.length - 1; i >= 0; i--) {
-                backgroundOffsets[i] += (i + 1);
-                screen.drawTransparentImage(
-                    backgroundLayers[i],
-                    -(backgroundOffsets[i] % screen.width),
-                    0
-                )
-                screen.drawTransparentImage(
-                    backgroundLayers[i],
-                    screen.width - (backgroundOffsets[i] % screen.width),
-                    0
-                )
+            const bgColors = [
+                15, 10, 2, 3, 4, 9
+            ]
 
-                if (i === 1) {
-                    if (frameTimer < lightningAnim.length << 1) {
-                        screen.drawTransparentImage(lightningAnim[frame], lightningX, lightningX % 5)
-                    }
+            const bgHeights = [
+                200,
+                80,
+                100,
+                120,
+                200,
+                240
+            ]
 
-                    for (let x = 0; x < 160 + 60; x += 7) {
-                        const time = game.runtime() + Math.sin(x * Math.PI / 16) * 400;
-                        const iteration = Math.idiv(time, 300);
-                        drawPartialLine(x, 0, x - 60, 90 + (1 + Math.sin(iteration)) * 30, (time / 300) % 1, 0.05, 8)
-                        // screen.drawLine(x, 0, x - 60, 90, 1)
-                    }
+            let backgroundLayers = [
+                imgs.cloudLayer0, imgs.cloudLayer1, imgs.cloudLayer2, imgs.cloudLayer3
+            ];
 
-                    drawTower(92, 115, 0, 10, 0, 1);
+            const wave = image.create(160, 5);
 
-                    for (let x = 7; x < 160 + 60; x += 13) {
-                        const time = game.runtime() + Math.sin(x * Math.PI / 16) * 400;
-                        const iteration = Math.idiv(time, 300);
-                        drawPartialLine(x, 0, x - 60, 90 + (1 + Math.sin(iteration)) * 30, (time / 300) % 1, 0.05, 8)
-                        // screen.drawLine(x, 0, x - 60, 90, 1)
-                    }
+            const numRipples = 8;
+            for (let x = 0; x < wave.width; x++) {
+                const v = 1 + (wave.height / 2) * (Math.sin((x / wave.width) * Math.PI * numRipples) + 1);
+                wave.fillRect(x, 0, 1, v, 1);
+            }
+
+            let backgroundOffsets = [0, 0, 0, 0]
+            scene.setBackgroundColor(15)
+            let frameTimer = randint(30, 90);
+            let lightningX = randint(10, 100);
+
+            const colorRamp = img`
+                . 1 2 3 4 5 6 7 8 9 a b c d e f
+                . 1 2 3 4 1 7 1 9 b 2 1 b c d e
+            `
+            const buf = control.createBuffer(16);
+
+            for (let i = 0; i < 16; i++) {
+                buf[i] = colorRamp.getPixel(i, 1);
+            }
+
+            const lightningAnim = imgs.lightningFrames;
+
+            const CLOUD_TOP = -30
+            const flippedCloud = imgs.cloudLayer0.clone();
+            flippedCloud.flipY();
+
+            this.renderable = scene.createRenderable(0, () => {
+                if (!this.visible) return;
+
+                frameTimer--;
+                const scroll = this.scroll | 0;
+                screen.fillRect(0, 90 + scroll, 160, 30, 6)
+
+                let top = 0;
+
+                for (let i = bgColors.length - 1; i >= 0; i--) {
+                    top -= bgHeights[i];
+                    screen.fillRect(0, top + scroll, 160, bgHeights[i], bgColors[i]);
+                    wave.replace(1, bgColors[i]);
+                    screen.drawTransparentImage(wave, 0, top + scroll + bgHeights[i]);
+                    wave.replace(bgColors[i], 1);
                 }
-            }
 
+                const frame = lightningAnim.length - (frameTimer >> 1) - 1
+                if (scroll < 150) {
+                    // screen.fillRect(0, -160 + scroll, 160, 120, 9)
 
-            if (frame === 5 || frame === 8 || frame === 7) {
-                screen.mapRect(0, 0, screen.width, screen.height, buf)
-            }
+                    for (let i = backgroundLayers.length - 1; i >= 0; i--) {
+                        backgroundOffsets[i] += (i + 1);
+                        const y = Math.max(CLOUD_TOP + scroll, scroll * (i / 2 + 1))
 
+                        this.fillRectCore(0, CLOUD_TOP + scroll, screen.width, y - CLOUD_TOP - scroll, backgroundLayers[i].getPixel(0, 0))
 
-            if (frameTimer === 0) {
-                if (Math.percentChance(5)) {
-                    frameTimer = 20;
+                        this.drawImageCore(
+                            backgroundLayers[i],
+                            -(backgroundOffsets[i] % screen.width),
+                            y
+                        )
+                        this.drawImageCore(
+                            backgroundLayers[i],
+                            screen.width - (backgroundOffsets[i] % screen.width),
+                            y
+                        )
+
+                        if (i === 1) {
+                            if (frameTimer < lightningAnim.length << 1) {
+                                this.drawImageCore(lightningAnim[frame], lightningX, scroll + (lightningX % 5))
+                            }
+
+                            for (let x = 0; x < 160 + 60; x += 7) {
+                                const time = game.runtime() + Math.sin(x * Math.PI / 16) * 400;
+                                const iteration = Math.idiv(time, 300);
+                                drawPartialLine(x, scroll, x - 60, scroll + 90 + (1 + Math.sin(iteration)) * 30, (time / 300) % 1, 0.05, 8)
+                                // screen.drawLine(x, 0, x - 60, 90, 1)
+                            }
+
+                            this.drawTower();
+
+                            for (let x = 7; x < 160 + 60; x += 13) {
+                                const time = game.runtime() + Math.sin(x * Math.PI / 16) * 400;
+                                const iteration = Math.idiv(time, 300);
+                                drawPartialLine(x, scroll, x - 60, scroll + 90 + (1 + Math.sin(iteration)) * 30, (time / 300) % 1, 0.05, 8)
+                                // screen.drawLine(x, 0, x - 60, 90, 1)
+                            }
+                        }
+                    }
+
+                    if (frame === 5 || frame === 8 || frame === 7) {
+                        screen.mapRect(0, 0, screen.width, screen.height, buf)
+                    }
+
+                    if (frameTimer === 0) {
+                        if (Math.percentChance(5)) {
+                            frameTimer = 20;
+                        }
+                        else {
+                            frameTimer = randint(90, 300)
+                        }
+                        lightningX = randint(10, 100);
+                    }
                 }
                 else {
-                    frameTimer = randint(90, 300)
+                    backgroundOffsets[0] ++
+                    this.drawTower();
                 }
-                lightningX = randint(10, 100);
+
+                this.drawImageCore(flippedCloud, -(backgroundOffsets[0] % screen.width), CLOUD_TOP + scroll - flippedCloud.height - 10);
+                this.drawImageCore(flippedCloud, screen.width - (backgroundOffsets[0] % screen.width), CLOUD_TOP + scroll - flippedCloud.height - 10);
+                this.fillRectCore(0, CLOUD_TOP + scroll - 10, screen.width, 10, flippedCloud.getPixel(0, flippedCloud.height - 1))
+
+
+                if (this.zoom !== 1) {
+                    blitBG.drawImage(screen, 0, 0);
+
+
+                    screen.blit(
+                        (screen.width >> 1) - ((blitBG.width * this.zoom) >> 1),
+                        (screen.height >> 1) - ((blitBG.height * this.zoom) >> 1),
+                        blitBG.width * this.zoom,
+                        blitBG.height * this.zoom,
+                        blitBG,
+                        0,
+                        0,
+                        blitBG.width,
+                        blitBG.height,
+                        false,
+                        false
+                    )
+                }
+            });
+        }
+
+        protected drawTower() {
+            drawTower(this.xOffset, 115, this.scroll, challengers.length * 2, 60, 1);
+        }
+
+        zoomIn(instant?: boolean) {
+            if (instant) {
+                this.zoom = MAX_ZOOM;
+                return;
             }
-        });
+            this.currentAnimation = new Animation(
+                500,
+                easeInExpo,
+                t => this.zoom = 1 + t * (MAX_ZOOM - 1)
+            );
+            this.currentAnimation.start();
+            this.currentAnimation.pauseUntilDone();
+            this.zoom = MAX_ZOOM;
+        }
+
+        zoomOut(instant?: boolean) {
+            if (instant) {
+                this.zoom = 1;
+                return;
+            }
+
+            this.currentAnimation = new Animation(
+                500,
+                easeOutCirc,
+                t => this.zoom = MAX_ZOOM - t * (MAX_ZOOM - 1)
+            );
+            this.currentAnimation.start();
+            this.currentAnimation.pauseUntilDone();
+            this.zoom = 1;
+        }
+
+        scrollTo(challengerIndex: number, instant?: boolean) {
+            const targetScroll = -35 + ((challengerIndex << 1) + 1) * (imgs.tower_section.height - 10);
+            const startOffset = this.scroll;
+
+            if (instant) {
+                this.scroll = targetScroll;
+                return;
+            }
+
+            this.currentAnimation = new Animation(
+                Math.abs(targetScroll - startOffset) * 10,
+                easeOutCirc,
+                t => this.scroll = startOffset + (targetScroll - startOffset) * t
+            );
+            this.currentAnimation.start();
+            this.currentAnimation.pauseUntilDone();
+            this.scroll = targetScroll;
+        }
+
+        protected drawImageCore(img: Image, x: number, y: number) {
+            if (y > 120) return;
+
+            screen.drawTransparentImage(img, x, y);
+        }
+
+        protected fillRectCore(x: number, y: number, w: number, h: number, color: number) {
+            if (y > 120) return;
+
+            screen.fillRect(x, y, w, h, color);
+        }
+    }
+
+    export function createMenuBackground(): TowerScene {
+        return new TowerScene();
     }
 
     function drawPartialLine(

@@ -321,29 +321,29 @@
 // hourOfAi.initRunner(300);
 
 // hourOfAi.tower.initTower();
-// let turnCount = 0;
-// let flip = false;
+let turnCount = 0;
+let flip = false;
 
-// hourOfAi.every(100, () => {
-//     if (!hourOfAi.canSeeColor(ColorType.OpponentColor)) {
-//         if (turnCount >= 30) {
-//             turnCount = 0;
-//             flip = !flip;
-//         }
+hourOfAi.every(100, () => {
+    if (!hourOfAi.canSeeColor(ColorType.OpponentColor)) {
+        // if (turnCount >= 30) {
+        //     turnCount = 0;
+        //     flip = !flip;
+        // }
 
-//         hourOfAi.turnBy(flip ? 37 : -37);
-//         turnCount++;
-//         // hourOfAi.turnBy(45);
-//     }
+        hourOfAi.turnBy(flip ? 37 : -37);
+        turnCount++;
+        // hourOfAi.turnBy(45);
+    }
+})
+
+// hourOfAi.every(5000, () => {
+//     hourOfAi.turnBy(90);
+//     hourOfAi.doAfter(2000, () => {
+//         hourOfAi.turnBy(90);
+//     })
 // })
 
-hourOfAi.every(5000, () => {
-    hourOfAi.turnBy(90);
-    hourOfAi.doAfter(2000, () => {
-        hourOfAi.turnBy(90);
-    })
-})
-
-hourOfAi.onBumpWall(() => {
-    hourOfAi.turnBy(90);
-})
+// hourOfAi.onBumpWall(() => {
+//     hourOfAi.turnBy(90);
+// })

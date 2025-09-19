@@ -6,8 +6,8 @@ namespace hourOfAi.tower {
     const TOWER_INDEX_KEY = "_INDEX";
     const TOWER_STATE_KEY = "_STATE";
 
-    const SOFT_RESET = true;
-    export const DEBUG = true;
+    const SOFT_RESET = false;
+    export const DEBUG = false;
 
     enum TowerState {
         NotStarted,
@@ -18,8 +18,7 @@ namespace hourOfAi.tower {
     }
 
     export function initTower() {
-        const MAX_ZOOM = 14;
-        let challengerIndex = 3;
+        let challengerIndex = 0;
         let state: TowerState = TowerState.NotStarted;
 
         if (!DEBUG) {
@@ -31,78 +30,54 @@ namespace hourOfAi.tower {
             }
         }
 
-        settings.clear();
+        const bg = new TowerScene();
+        bg.xOffset = (screen.width >> 1) - (imgs.tower_section.width >> 1);
 
-        let scroll = -40 + challengerIndex * (imgs.tower_section.height - 10);
-        let zoom: number
+        settings.remove(TOWER_STATE_KEY);
+        settings.remove(TOWER_INDEX_KEY);
+
+        if (state === TowerState.NotStarted) {
+            pause(500);
+        }
+        bg.scrollTo(challengerIndex, challengerIndex !== 0 || state !== TowerState.NotStarted);
+
 
         if (state === TowerState.NotStarted || state === TowerState.InProgress) {
-            zoom = 1;
-        }
-        else {
-            zoom = MAX_ZOOM;
-        }
-
-        let currentAnimation: Animation;
-
-        scene.createRenderable(-5, () => {
-            drawTower((screen.width >> 1) - (imgs.tower_section.width >> 1), 120, scroll, challengers.length, 60, zoom);
-        });
-
-        if (state === TowerState.NotStarted || TowerState.InProgress) {
-            currentAnimation = new Animation(
-                500,
-                easeInExpo,
-                t => zoom = 1 + t * (MAX_ZOOM - 1)
-            );
-            currentAnimation.start();
-            currentAnimation.pauseUntilDone();
+            bg.zoomIn();
         }
 
         if (state === TowerState.Won) {
             settings.writeNumber(TOWER_INDEX_KEY, challengerIndex + 1);
             settings.writeNumber(TOWER_STATE_KEY, TowerState.InProgress);
 
+            bg.visible = false;
             showWinCutscene(challengers[challengerIndex]);
+            bg.visible = true;
 
-            currentAnimation = new Animation(
-                500,
-                easeOutCirc,
-                t => zoom = MAX_ZOOM - t * (MAX_ZOOM - 1)
-            );
-            currentAnimation.start();
-            currentAnimation.pauseUntilDone();
-            zoom = 1;
-
-            const startOffset = scroll;
-
-            currentAnimation = new Animation(
-                1000,
-                easeInOutCubic,
-                t => scroll = startOffset + t * (imgs.tower_section.height - 10)
-            );
-            currentAnimation.start();
-            currentAnimation.pauseUntilDone();
+            bg.zoomOut();
+            bg.scrollTo(challengerIndex + 1);
 
             reset();
         }
         else if (state === TowerState.Lost) {
+            bg.visible = false;
             showLoseCutscene(challengers[challengerIndex]);
 
             settings.writeNumber(TOWER_STATE_KEY, TowerState.InProgress);
             settings.writeNumber(TOWER_INDEX_KEY, challengerIndex);
             state = TowerState.NotStarted;
-            reset();
+            startGameMode(GameMode.MainMenu)
         }
         else {
             const challenger = challengers[challengerIndex];
+            bg.visible = false;
             showIntroScene(challenger);
 
             if (!DEBUG) {
-                const player1Won = startMatch(challenger) || true;
+                const player1Won = startMatch(challenger);
                 settings.writeNumber(TOWER_STATE_KEY, player1Won ? TowerState.Won : TowerState.Lost);
                 settings.writeNumber(TOWER_INDEX_KEY, challengerIndex);
-                reset();
+                reset(true);
             }
             else {
                 settings.writeNumber(TOWER_STATE_KEY, TowerState.Won);
@@ -112,8 +87,8 @@ namespace hourOfAi.tower {
         }
     }
 
-    function reset() {
-        if (SOFT_RESET) {
+    function reset(soft = false) {
+        if (SOFT_RESET || soft) {
             for (const sprite of (game.currentScene().physicsEngine as any).sprites as Sprite[]) {
                 sprite.destroy();
             }
