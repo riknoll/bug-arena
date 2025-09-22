@@ -1,6 +1,70 @@
 namespace hourOfAi.tower {
     const MAX_ZOOM = 14;
     const blitBG = image.create(screen.width, screen.height);
+    let miniSprites: MiniSprite[] = [];
+
+    class MiniSprite {
+        protected frame: number = 0;
+        protected frameTimer: number = 0;
+
+        done = false;
+
+        constructor(public animation: Image[], public x: number, public y: number, public frameTime: number) {
+            this.frameTimer = frameTime;
+            miniSprites.push(this);
+        }
+
+        update() {
+            this.frameTimer -= game.eventContext().deltaTimeMillis;
+            while (this.frameTimer <= 0) {
+                this.frameTimer += this.frameTime;
+                this.frame = (this.frame + 1) % this.animation.length;
+            }
+        }
+
+        draw(scroll: number) {
+            const y = this.y + scroll;
+
+            const image = this.animation[this.frame];
+            if (y > 120  || y + image.height < 0) return;
+
+            screen.drawTransparentImage(image, this.x, y);
+        }
+    }
+
+    class DriftingSprite extends MiniSprite {
+        endX: number;
+        speed: number;
+
+        constructor(public animation: Image[], public x: number, public startY: number, public frameTime: number, public startSpeed: number) {
+            super(animation, x, startY, frameTime);
+
+            this.speed = startSpeed;
+
+            if (this.speed > 0) {
+                this.endX = screen.width
+            }
+            else {
+                this.endX = -animation[0].width;
+            }
+        }
+
+        update(): void {
+            this.x += this.speed * game.eventContext().deltaTime;
+
+            if ((this.speed > 0 && this.x > this.endX) || (this.speed < 0 && this.x < this.endX)) {
+                if (this.x < 0) {
+                    this.x += screen.width + randint(20, 100);
+                }
+                else {
+                    this.x -= screen.width + randint(20, 100) + this.animation[0].width;
+                }
+
+                this.y = this.startY + randint(-20, 20);
+                this.speed = this.startSpeed + randint(-this.startSpeed / 4, this.startSpeed / 4);
+            }
+        }
+    }
 
     export class TowerScene {
         scroll: number = 0;
@@ -17,18 +81,27 @@ namespace hourOfAi.tower {
         }
 
         protected createRenderable() {
-            let currentIndex = 0;
+            // let currentIndex = 0;
 
-            controller.A.onEvent(ControllerButtonEvent.Pressed, () => {
-                this.scrollTo(currentIndex);
-                this.zoomIn();
-                pause(500);
-                this.zoomOut();
-                currentIndex++;
-            });
+            // controller.A.onEvent(ControllerButtonEvent.Pressed, () => {
+            //     this.scrollTo(currentIndex);
+            //     this.zoomIn();
+            //     pause(500);
+            //     this.zoomOut();
+            //     currentIndex++;
+            // });
 
             const bgColors = [
                 15, 10, 2, 3, 4, 9
+            ]
+
+            const cloudColors = [
+                0,
+                0,
+                10,
+                2,
+                3,
+                1
             ]
 
             const bgHeights = [
@@ -40,13 +113,40 @@ namespace hourOfAi.tower {
                 240
             ]
 
+            const CLOUD_TOP = -30
+
+            let top = CLOUD_TOP;
+            for (let bgLayer = bgHeights.length - 1; bgLayer > 0; bgLayer--) {
+                if (cloudColors[bgLayer]) {
+                    let y = randint(top - bgHeights[bgLayer] + 20, top - 10);
+                    let x = randint(0, screen.width + 30);
+
+                    for (let i = 0; i < bgHeights[bgLayer] / 30; i++) {
+                        const cloud = imgs.clouds[randint(0, imgs.clouds.length - 1)].clone();
+                        cloud.replace(1, cloudColors[bgLayer]);
+                        new DriftingSprite([cloud], x, y, 1000, -randint(5, 10));
+                        y += randint(10, 30);
+                        if (y > top - 10) {
+                            y -= bgHeights[bgLayer] - 30
+                        }
+
+                        x += randint(20, 60);
+                        if (x > screen.width + 30) {
+                            x -= screen.width + 30
+                        }
+                    }
+                }
+
+                top -= bgHeights[bgLayer];
+            }
+
             let backgroundLayers = [
                 imgs.cloudLayer0, imgs.cloudLayer1, imgs.cloudLayer2, imgs.cloudLayer3
             ];
 
             const wave = image.create(160, 5);
 
-            const numRipples = 8;
+            const numRipples = 4;
             for (let x = 0; x < wave.width; x++) {
                 const v = 1 + (wave.height / 2) * (Math.sin((x / wave.width) * Math.PI * numRipples) + 1);
                 wave.fillRect(x, 0, 1, v, 1);
@@ -68,13 +168,37 @@ namespace hourOfAi.tower {
             }
 
             const lightningAnim = imgs.lightningFrames;
-
-            const CLOUD_TOP = -30
             const flippedCloud = imgs.cloudLayer0.clone();
             flippedCloud.flipY();
 
+            // let y = randint(-220, CLOUD_TOP);
+
+            // for (let i = 0; i < imgs.clouds.length << 1; i++) {
+            //     new DriftingSprite([imgs.clouds[i % imgs.clouds.length]], randint(0, screen.width), y, 1000, -randint(5, 20));
+            //     y = (y + randint(20, 60));
+            //     if (y > CLOUD_TOP) {
+            //         y -= 190
+            //     }
+            // }
+
+            // y = randint(-400, -230)
+            // for (let i = 0; i < imgs.clouds.length << 1; i++) {
+            //     const darkerCloud = imgs.clouds[i % imgs.clouds.length].clone();
+            //     darkerCloud.replace(1, 3);
+
+            //     new DriftingSprite([darkerCloud], randint(0, screen.width), y, 1000, -randint(5, 20));
+            //     y = (y + randint(20, 60));
+            //     if (y > -230) {
+            //         y -= 170
+            //     }
+            // }
+
             this.renderable = scene.createRenderable(0, () => {
                 if (!this.visible) return;
+
+                if (controller.A.isPressed()) {
+                    this.scroll++
+                }
 
                 frameTimer--;
                 const scroll = this.scroll | 0;
@@ -90,9 +214,15 @@ namespace hourOfAi.tower {
                     wave.replace(bgColors[i], 1);
                 }
 
+                for (const mini of miniSprites) {
+                    mini.update();
+                    mini.draw(scroll);
+                }
+
                 const frame = lightningAnim.length - (frameTimer >> 1) - 1
                 if (scroll < 150) {
                     // screen.fillRect(0, -160 + scroll, 160, 120, 9)
+
 
                     for (let i = backgroundLayers.length - 1; i >= 0; i--) {
                         backgroundOffsets[i] += (i + 1);
@@ -179,6 +309,8 @@ namespace hourOfAi.tower {
                         false
                     )
                 }
+
+                miniSprites = miniSprites.filter(s => !s.done);
             });
         }
 
@@ -234,6 +366,11 @@ namespace hourOfAi.tower {
             this.currentAnimation.start();
             this.currentAnimation.pauseUntilDone();
             this.scroll = targetScroll;
+        }
+
+        dispose() {
+            this.renderable.destroy();
+            miniSprites = [];
         }
 
         protected drawImageCore(img: Image, x: number, y: number) {

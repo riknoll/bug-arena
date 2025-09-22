@@ -4,7 +4,7 @@ namespace SpriteKind {
 
 namespace hourOfAi {
     export function initMainMenu() {
-        let currentBG: scene.Renderable = createPracticeMenuBackground();
+        let destroyBg: () => void = createPracticeMenuBackground();
 
         const line1 = "BUG";
         const line2 = "ARENA";
@@ -59,12 +59,12 @@ namespace hourOfAi {
 
         const practice = new TextButtonSprite("Practice", () => {
             getButtonSprites().forEach(b => b.destroy());
-            if (currentBG) currentBG.destroy();
+            if (destroyBg) destroyBg()
             initPracticeMenu();
         });
         const towerButton = new TextButtonSprite("Tower", () => {
             getButtonSprites().forEach(b => b.destroy());
-            if (currentBG) currentBG.destroy();
+            if (destroyBg) destroyBg()
 
             if (getCurrentTowerLevel() <= 0) {
                 clearTowerProgress();
@@ -96,15 +96,17 @@ namespace hourOfAi {
                 if (overlapsPoint(button, x, y)) {
                     if (button !== currentlyActive) {
                         currentlyActive = button;
-                        if (currentBG) {
-                            currentBG.destroy();
+                        if (destroyBg) {
+                            destroyBg();
                         }
 
                         if (button === towerButton) {
-                            currentBG = tower.createMenuBackground().renderable;
+                            const bg = tower.createMenuBackground();
+
+                            destroyBg = () => bg.dispose();
                         }
                         else {
-                            currentBG = createPracticeMenuBackground();
+                            destroyBg = createPracticeMenuBackground();
                         }
                     }
                     button.hover = true;
@@ -513,7 +515,7 @@ namespace hourOfAi {
         );
     }
 
-    function createPracticeMenuBackground(): scene.Renderable {
+    function createPracticeMenuBackground() {
         let bgState: number[] = [];
         let bgOffset: number[] = [];
         let bgWobble: number[] = [];
@@ -586,7 +588,7 @@ namespace hourOfAi {
         }
 
 
-        return scene.createRenderable(0, () => {
+        const r = scene.createRenderable(0, () => {
             screen.fill(6);
             advanceTime(1/30)
             for (const activeBug of activeBugs) {
@@ -690,5 +692,7 @@ namespace hourOfAi {
                 )
             }
         });
+
+        return () => r.destroy();
     }
 }
