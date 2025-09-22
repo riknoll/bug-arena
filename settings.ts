@@ -1,7 +1,11 @@
 namespace hourOfAi {
     const GAME_MODE_KEY = "gameMode";
     const PRACTICE_CHALLENGER_KEY = "practiceChallenger";
+    const PRACTICE_TIMER_SETTING_KEY = "practiceTimer";
     const SPEED_SETTING_KEY = "speed";
+    const TOWER_LEVEL_KEY = "towerLevel";
+    const TOWER_STATE_KEY = "towerState";
+    const TOWER_USED_CONTINUE_KEY = "towerUsedContinue";
 
 
     export enum GameMode {
@@ -11,6 +15,14 @@ namespace hourOfAi {
         Tournament
     }
 
+    export enum TowerState {
+        NotStarted,
+        ChallengerIntroCutscene,
+        StartMatch,
+        InMatch,
+        WinCutscene,
+        LoseCutscene
+    }
 
     export function startGameMode(mode: GameMode) {
         settings.writeNumber(GAME_MODE_KEY, mode);
@@ -22,7 +34,67 @@ namespace hourOfAi {
     }
 
     export function getPracticeChallenger(): number {
+        if (!settings.exists(PRACTICE_CHALLENGER_KEY)) {
+            return -1;
+        }
         return settings.readNumber(PRACTICE_CHALLENGER_KEY);
+    }
+
+    export function setPracticeTimerSetting(enabled: boolean) {
+        settings.writeNumber(PRACTICE_TIMER_SETTING_KEY, enabled ? 1 : 0);
+    }
+
+    export function getPracticeTimerSetting() {
+        return !!(settings.readNumber(PRACTICE_TIMER_SETTING_KEY));
+    }
+
+    export function setCurrentTowerLevel(level: number) {
+        settings.writeNumber(TOWER_LEVEL_KEY, level);
+    }
+
+    export function getCurrentTowerLevel(): number {
+        if (!settings.exists(TOWER_LEVEL_KEY)) {
+            return -1;
+        }
+        return settings.readNumber(TOWER_LEVEL_KEY);
+    }
+
+    export function clearTowerProgress() {
+        settings.remove(TOWER_LEVEL_KEY);
+        settings.remove(TOWER_STATE_KEY);
+        settings.remove(TOWER_USED_CONTINUE_KEY);
+    }
+
+    export function setTowerState(state: TowerState) {
+        settings.writeNumber(TOWER_STATE_KEY, state);
+    }
+
+    export function getTowerState(): TowerState {
+        if (!settings.exists(TOWER_STATE_KEY)) {
+            return TowerState.NotStarted;
+        }
+        return settings.readNumber(TOWER_STATE_KEY);
+    }
+
+    export function shouldInitTower(): boolean {
+        switch (getTowerState()) {
+            case TowerState.NotStarted:
+            case TowerState.ChallengerIntroCutscene:
+            case TowerState.StartMatch:
+                return true;
+        }
+        return false;
+    }
+
+    export function setTowerUsedContinue(used: boolean) {
+        settings.writeNumber(TOWER_USED_CONTINUE_KEY, used ? 1 : 0);
+    }
+
+    export function getTowerUsedContinue(): boolean {
+        if (!settings.exists(TOWER_USED_CONTINUE_KEY)) {
+            return false;
+        }
+        return !!(settings.readNumber(TOWER_USED_CONTINUE_KEY));
     }
 
     export function getCurrentGameMode(): GameMode {

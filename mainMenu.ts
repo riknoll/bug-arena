@@ -8,7 +8,16 @@ namespace hourOfAi {
             initPracticeMenu();
         });
         const towerButton = new TextButtonSprite("Tower", () => {
-            startGameMode(GameMode.Tower);
+            getButtonSprites().forEach(b => b.destroy());
+            if (currentBG) currentBG.destroy();
+
+            if (getCurrentTowerLevel() <= 0) {
+                clearTowerProgress();
+                startGameMode(GameMode.Tower);
+            }
+            else {
+                initTowerOptionsMenu();
+            }
         });
         // const help = new TextButtonSprite("Help", () => {});
 
@@ -67,8 +76,103 @@ namespace hourOfAi {
     }
 
     export function initPracticeMenu() {
-        const TITLE_HEIGHT = 15;
+        destroyPreviousMenu();
 
+        const getClickHandler = (challengerIndex: number) => {
+            return () => {
+                setPracticeChallenger(challengerIndex);
+                initPracticeOptionsMenu();
+            };
+        };
+
+        let cards: CardButtonSprite[] = [];
+
+        cards.push(
+            new CardButtonSprite(
+                getClickHandler(-1),
+                "No Opponent",
+                "Practice without an opponent",
+                imgs.shadow_silhouette
+            )
+        );
+
+        for (let i = 0; i < challengers.length; i++) {
+            const button = new ChallengerCardButtonSprite(i, getClickHandler(i));
+            cards.push(button);
+        }
+
+        initSimpleMenu("Choose Opponent", cards);
+    }
+
+    export function initPracticeOptionsMenu() {
+        destroyPreviousMenu();
+
+        const cards: CardButtonSprite[] = [];
+
+        cards.push(
+            new CardButtonSprite(
+                () => {
+                    setPracticeTimerSetting(true);
+                    startGameMode(GameMode.Practice);
+                },
+                "Timed Match",
+                "Play a timed practice match",
+                imgs.stopwatch_icon
+            ),
+        );
+
+        cards.push(
+            new CardButtonSprite(
+                () => {
+                    setPracticeTimerSetting(false);
+                    startGameMode(GameMode.Practice);
+                },
+                "Infinite",
+                "Run your code without a timer",
+                imgs.infinity_icon
+            ),
+        );
+
+        initSimpleMenu("Match Type", cards);
+    }
+
+    export function initTowerOptionsMenu() {
+        destroyPreviousMenu();
+
+        const cards: CardButtonSprite[] = [];
+
+        cards.push(
+            new CardButtonSprite(
+                () => {
+                    setTowerUsedContinue(true);
+                    setTowerState(TowerState.ChallengerIntroCutscene);
+                    startGameMode(GameMode.Tower);
+                },
+                "Continue",
+                "Start from your last completed level",
+                imgs.continue_icon
+            ),
+        );
+
+        cards.push(
+            new CardButtonSprite(
+                () => {
+                    clearTowerProgress();
+                    startGameMode(GameMode.Tower);
+                },
+                "New Game",
+                "Start fresh from the bottom floor",
+                imgs.restart_icon
+            ),
+        );
+
+        initSimpleMenu("Start Tower", cards);
+    }
+
+    let destroyPreviousMenu = () => {};
+
+    export function initSimpleMenu(title: string, cards: CardButtonSprite[]) {
+        const TITLE_HEIGHT = 15;
         const VISIBLE_HEIGHT = screen.height - TITLE_HEIGHT;
         const SCROLL_BAR_WIDTH = imgs.scrollbarDown.width;
         const BAR_HEIGHT = VISIBLE_HEIGHT - imgs.scrollbarUp.height - imgs.scrollbarDown.height + 2;
@@ -77,18 +181,11 @@ namespace hourOfAi {
         let totalHeight = TITLE_HEIGHT + 1;
         let homeButtonHover = false;
 
-        const getClickHandler = (challengerIndex: number) => {
-            return () => {
-                setPracticeChallenger(challengerIndex);
-                startGameMode(GameMode.Practice);
-            };
-        };
-
-        scene.createRenderable(-1, () => {
+        const bgRenderable = scene.createRenderable(-1, () => {
             screen.fill(6);
         })
 
-        scene.createRenderable(10, () => {
+        const chromeRenderable = scene.createRenderable(10, () => {
             drawScrollBar(screen.width - imgs.scrollbarUp.width, TITLE_HEIGHT, VISIBLE_HEIGHT, totalHeight, scroll);
             screen.fillRect(
                 0, 0, screen.width, TITLE_HEIGHT, 12
@@ -97,7 +194,7 @@ namespace hourOfAi {
             screen.fillRect(
                 0, TITLE_HEIGHT - 1, screen.width, 1, 13
             )
-            fancyText.draw("Choose Opponent", screen, 2, 2, 0, 15, fancyText.bold_sans_7)
+            fancyText.draw(title, screen, 2, 2, 0, 15, fancyText.bold_sans_7)
 
             if (homeButtonHover) {
                 screen.drawTransparentImage(imgs.homeIconHover, screen.width - imgs.homeIcon.width - 3, 0);
@@ -107,28 +204,21 @@ namespace hourOfAi {
             }
         })
 
-        let cards: ChallengerCardButtonSprite[] = [];
+        totalHeight = cards.length * (cards[0].height + 1) + 1;
 
-        for (let i = 0; i < challengers.length; i++) {
-            const button = new ChallengerCardButtonSprite(i, getClickHandler(i));
-            button.left = 1;
-            button.top = totalHeight;
-
-            totalHeight = button.bottom + 1;
-            cards.push(button);
-        }
-        totalHeight -= TITLE_HEIGHT;
-
-        const MAX_SCROLL = totalHeight - VISIBLE_HEIGHT;
-        const HANDLE_HEIGHT = Math.max(8, (VISIBLE_HEIGHT / totalHeight) * BAR_HEIGHT) | 0;
+        const MAX_SCROLL = Math.max(totalHeight - VISIBLE_HEIGHT, 0);
+        const HANDLE_HEIGHT = Math.min(BAR_HEIGHT, Math.max(8, (VISIBLE_HEIGHT / totalHeight) * BAR_HEIGHT)) | 0;
 
         const setScroll = (newScroll: number) => {
             scroll = Math.min(MAX_SCROLL, Math.max(0, newScroll));
-            for (const card of cards) {
-                card.top = card.challengerIndex * (card.height + 1) + TITLE_HEIGHT - scroll + 1;
+            for (let i = 0; i < cards.length; i++) {
+                const card = cards[i];
+                card.top = i * (card.height + 1) + TITLE_HEIGHT - scroll + 1;
+                card.left = 1;
             }
         }
 
+        setScroll(0);
 
         browserEvents.onWheel((dx, dy, dz) => {
             setScroll(scroll + dy / 3);
@@ -237,7 +327,7 @@ namespace hourOfAi {
             downPressedTime = 0;
         });
 
-        game.currentScene().eventContext.registerFrameHandler(scene.UPDATE_PRIORITY, () => {
+        const updateHandler = game.currentScene().eventContext.registerFrameHandler(scene.UPDATE_PRIORITY, () => {
             if (upPressedTime) {
                 const elapsed = game.runtime() - upPressedTime;
                 if (elapsed > 500) {
@@ -280,6 +370,21 @@ namespace hourOfAi {
                 }
             }
         });
+
+        destroyPreviousMenu = () => {
+            chromeRenderable.destroy();
+            bgRenderable.destroy();
+            getButtonSprites().forEach(b => b.destroy());
+            browserEvents.onMouseMove(() => { });
+            browserEvents.onWheel(() => { });
+            browserEvents.MouseLeft.onEvent(browserEvents.MouseButtonEvent.Pressed, () => { });
+            browserEvents.MouseLeft.onEvent(browserEvents.MouseButtonEvent.Released, () => { });
+            controller.up.onEvent(ControllerButtonEvent.Pressed, () => { });
+            controller.down.onEvent(ControllerButtonEvent.Pressed, () => { });
+            controller.A.onEvent(ControllerButtonEvent.Pressed, () => { });
+            controller.B.onEvent(ControllerButtonEvent.Pressed, () => { });
+            game.eventContext().unregisterFrameHandler(updateHandler);
+        }
     }
 
     export function drawScrollBar(left: number, top: number, scrollBarHeight: number, contentHeight: number, scroll: number) {
@@ -297,7 +402,7 @@ namespace hourOfAi {
             top + scrollBarHeight - imgs.scrollbarDown.height
         );
 
-        const handleHeight = Math.max(8, (scrollBarHeight / contentHeight) * BAR_HEIGHT) | 0;
+        const handleHeight = Math.min(BAR_HEIGHT, Math.max(8, (scrollBarHeight / contentHeight) * BAR_HEIGHT)) | 0;
         const handleTop = (top + imgs.scrollbarUp.height - 1 + BAR_HEIGHT * (scroll / contentHeight)) | 0;
 
         screen.drawRect(

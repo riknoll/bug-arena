@@ -19,13 +19,13 @@ namespace hourOfAi.tower {
         protected createRenderable() {
             let currentIndex = 0;
 
-            // controller.A.onEvent(ControllerButtonEvent.Pressed, () => {
-            //     this.scrollTo(currentIndex);
-            //     this.zoomIn();
-            //     pause(500);
-            //     this.zoomOut();
-            //     currentIndex++;
-            // });
+            controller.A.onEvent(ControllerButtonEvent.Pressed, () => {
+                this.scrollTo(currentIndex);
+                this.zoomIn();
+                pause(500);
+                this.zoomOut();
+                currentIndex++;
+            });
 
             const bgColors = [
                 15, 10, 2, 3, 4, 9

@@ -324,14 +324,14 @@
 let turnCount = 0;
 let flip = false;
 
-hourOfAi.every(100, () => {
+hourOfAi.every(1000, () => {
     if (!hourOfAi.canSeeColor(ColorType.OpponentColor)) {
         // if (turnCount >= 30) {
         //     turnCount = 0;
         //     flip = !flip;
         // }
 
-        hourOfAi.turnBy(flip ? 37 : -37);
+        hourOfAi.turnBy(Math.percentChance(50) ? 37 : -37);
         turnCount++;
         // hourOfAi.turnBy(45);
     }

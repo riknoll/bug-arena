@@ -2,8 +2,7 @@ function init() {
     hourOfAi.initChallengers();
 
     controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
-        settings.clear();
-        game.reset();
+        hourOfAi.startGameMode(hourOfAi.GameMode.MainMenu);
     });
 
 
@@ -12,10 +11,21 @@ function init() {
             hourOfAi.initMainMenu();
             break;
         case hourOfAi.GameMode.Practice:
-            hourOfAi.initSingleMatch();
+            const challengerIndex = hourOfAi.getPracticeChallenger();
+            const timerSetting = hourOfAi.getPracticeTimerSetting();
+
+            hourOfAi.initSingleMatch(timerSetting, false, timerSetting, (challengerIndex === -1) ? undefined : hourOfAi.challengers[challengerIndex]);
+            if (timerSetting) {
+                game.reset();
+            }
             break;
         case hourOfAi.GameMode.Tower:
-            hourOfAi.tower.initTower();
+            if (hourOfAi.shouldInitTower()) {
+                hourOfAi.tower.initTower();
+            }
+            else {
+                hourOfAi.initMainMenu();
+            }
             break;
         case hourOfAi.GameMode.Tournament:
             hourOfAi.initTournament(300);

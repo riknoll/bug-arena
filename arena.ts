@@ -14,6 +14,7 @@ namespace hourOfAi {
 
         renderable: scene.Renderable;
         running = false;
+        drawTimer = true;
 
         constructor() {
             this.background = image.create(screen.width - 10, screen.height - 20);
@@ -31,7 +32,9 @@ namespace hourOfAi {
                 screen.drawTransparentImage(this.background, this.left, this.top);
 
                 const font = fancyText.bold_sans_7;
-                drawTime(Math.max(timeRemaining, 0), screen.width >> 1, 12, font, 7);
+                if (this.drawTimer) {
+                    drawTime(Math.max(timeRemaining, 0), screen.width >> 1, 12, font, 7);
+                }
             })
         }
 
@@ -108,12 +111,13 @@ namespace hourOfAi {
             player1.bug.positionLegs(true, true, true)
             player1.bug.positionLegs(false, true, true)
 
-
-            player2.bug.position.x = this.left + this.background.width - AGENT_RADIUS;
-            player2.bug.position.y = this.top + this.background.height - AGENT_RADIUS;
-            player2.bug.heading = Math.PI;
-            player2.bug.positionLegs(true, true, true)
-            player2.bug.positionLegs(false, true, true)
+            if (player2) {
+                player2.bug.position.x = this.left + this.background.width - AGENT_RADIUS;
+                player2.bug.position.y = this.top + this.background.height - AGENT_RADIUS;
+                player2.bug.heading = Math.PI;
+                player2.bug.positionLegs(true, true, true)
+                player2.bug.positionLegs(false, true, true)
+            }
         }
 
         start() {
@@ -158,6 +162,10 @@ namespace hourOfAi {
         didPlayer1Win(): boolean {
             let p1Score = 0;
             let p2Score = 0;
+
+            if (this.combatants.length < 2) {
+                return true;
+            }
 
             for (let x = 0; x < this.background.width; x++) {
                 for (let y = 0; y < this.background.height; y++) {

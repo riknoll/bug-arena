@@ -174,6 +174,8 @@ namespace hourOfAi {
                 color = 0;
             }
             else if (type === ColorType.OpponentColor) {
+                if (this.arena.combatants.length < 2) return Infinity;
+
                 color = this.arena.combatants.find(c => c !== this).bug.fillColor || 0;
             }
 
@@ -335,6 +337,9 @@ namespace hourOfAi {
     }
 
     export function initSingleMatch(
+        timedMatch: boolean,
+        showIntro: boolean,
+        showOutro: boolean,
         opponentDef?: Challenger
     ) {
         let arena: Arena;
@@ -347,20 +352,26 @@ namespace hourOfAi {
         game.onUpdate(() => {
             if (!running) return;
             for (let i = 0; i < timeMult; i++) {
-                if (!opponentDef) {
-                    timeRemaining += timeSlice
+                if (timedMatch) {
+                    timeRemaining -= timeSlice
                 }
                 else {
-                    timeRemaining -= timeSlice
+                    timeRemaining += timeSlice
                 }
                 arena.update(timeSlice);
             }
 
-            scores = countColors(arena.background, arena.combatants[0].bug.fillColor, arena.combatants[1].bug.fillColor);
+            if (opponentDef) {
+                scores = countColors(arena.background, arena.combatants[0].bug.fillColor, arena.combatants[1].bug.fillColor);
+            }
+            else {
+                scores[0] = countColors(arena.background, _agent.agent.bug.fillColor, 0)[0];
+            }
         });
 
 
         arena = new Arena();
+        arena.drawTimer = timedMatch;
 
         initAPI();
 
@@ -389,13 +400,6 @@ namespace hourOfAi {
 
             opponent.bug.fillColor = opponentDef.design.fillColor || 2
         }
-        else {
-            const challenger = challengers[getPracticeChallenger() || 0];
-
-            opponent = new Agent(arena, challenger.design);
-            challenger.algorithm(opponent);
-            opponent.bug.fillColor = challenger.design.fillColor || 2;
-        }
 
 
         arena.placeCombatants();
@@ -403,26 +407,41 @@ namespace hourOfAi {
 
         const font = fancyText.bold_sans_7;
 
-        const scoreRenderable = scene.createRenderable(20, () => {
-            if (!arena) return;
+        let scoreRenderable: scene.Renderable;
 
-            const totalPixels = arena.background.width * arena.background.height;
+        const totalPixels = arena.background.width * arena.background.height - arena.background.width - arena.background.height - 3;
+        if (!opponentDef) {
+            scoreRenderable = scene.createRenderable(20, () => {
+                if (!arena) return;
 
-            const p1 = (scores[0] * 100 / totalPixels) | 0;
-            const p2 = (scores[1] * 100 / totalPixels) | 0;
+                const p1 = (scores[0] * 100 / totalPixels) | 0;
 
-            fancyText.draw(`${p1}%`, screen, 2, 1, 0, 1, font);
-            fancyText.draw(`${p2}%`, screen, screen.width - 20, 1, 0, 1, font);
+                fancyText.draw(`${p1}%`, screen, 2, 1, 0, 1, font);
 
-            screen.fillRect(24, 2, 39, 7, 1);
-            screen.fillRect(25, 3, 37 * (scores[0] / (scores[0] + scores[1])), 5, arena.combatants[0].bug.fillColor);
-            screen.fillRect(screen.width - 64, 2, 39, 7, 1);
-            screen.fillRect(screen.width - 63, 3, 37 * (scores[1] / (scores[0] + scores[1])), 5, arena.combatants[1].bug.fillColor);
-        })
+                screen.fillRect(26, 2, 130, 7, 1);
+                screen.fillRect(27, 3, 128 * (scores[0] / totalPixels), 5, arena.combatants[0].bug.fillColor);
+            })
+        }
+        else {
+            scoreRenderable = scene.createRenderable(20, () => {
+                if (!arena) return;
+
+                const p1 = (scores[0] * 100 / totalPixels) | 0;
+                const p2 = (scores[1] * 100 / totalPixels) | 0;
+
+                fancyText.draw(`${p1}%`, screen, 2, 1, 0, 1, font);
+                fancyText.draw(`${p2}%`, screen, screen.width - 20, 1, 0, 1, font);
+
+                screen.fillRect(24, 2, 39, 7, 1);
+                screen.fillRect(25, 3, 37 * (scores[0] / (scores[0] + scores[1])), 5, arena.combatants[0].bug.fillColor);
+                screen.fillRect(screen.width - 64, 2, 39, 7, 1);
+                screen.fillRect(screen.width - 63, 3, 37 * (scores[1] / (scores[0] + scores[1])), 5, arena.combatants[1].bug.fillColor);
+            })
+        }
 
         initTimeMultControls();
 
-        if (opponentDef) {
+        if (showIntro && opponentDef) {
             tourney.showIntro("Player", opponentDef.name, 10)
         }
 
@@ -432,21 +451,24 @@ namespace hourOfAi {
             arena.update(timeSlice);
         });
 
-        if (opponentDef) {
+        if (timedMatch) {
             pauseUntil(() => timeRemaining <= 0);
-            const player1Won = scores[0] > scores[1];
             running = false;
 
-            const cleanup = tourney.showWinAnimation(arena.didPlayer1Win() ? "Player" : opponentDef.name);
+            if (showOutro && opponentDef) {
+                const player1Won = scores[0] > scores[1];
+                const cleanup = tourney.showWinAnimation(arena.didPlayer1Win() ? "Player" : opponentDef.name);
 
-            pause(500);
-            cleanup();
-            scoreRenderable.destroy();
-            arena.dispose();
-            _agent = undefined;
+                pause(500);
+                cleanup();
+                scoreRenderable.destroy();
+                arena.dispose();
+                _agent = undefined;
 
-            return player1Won;
+                return player1Won;
+            }
         }
+
 
         return undefined;
     }

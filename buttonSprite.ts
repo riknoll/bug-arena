@@ -46,14 +46,18 @@ namespace hourOfAi {
         }
     }
 
-    export class ChallengerCardButtonSprite extends ButtonSprite {
-        constructor(public challengerIndex: number, onClick: () => void) {
+    export class CardButtonSprite extends ButtonSprite {
+        constructor(
+            onClick: () => void,
+            public name: string,
+            public description: string,
+            public portrait: Image
+        ) {
             super(onClick);
             this.setDimensions(149, 42);
         }
 
         draw(drawLeft: number, drawTop: number): void {
-            const challenger = challengers[this.challengerIndex];
             fancyText.drawFrame(
                 screen,
                 this.hover ? imgs.textFrameHover : imgs.textFrame,
@@ -64,9 +68,9 @@ namespace hourOfAi {
             );
 
             fancyText.draw(
-                this.isUnlocked() ? challenger.name : "??????",
+                this.isUnlocked() ? this.name : "??????",
                 screen,
-                drawLeft + 5 + challenger.portrait.width + 2,
+                drawLeft + 5 + this.portrait.width + 2,
                 drawTop + 5,
                 0,
                 11,
@@ -74,24 +78,35 @@ namespace hourOfAi {
             );
 
             fancyText.draw(
-                this.isUnlocked() ? challenger.description : "Unlock in Tower Mode",
+                this.isUnlocked() ? this.description : "Unlock in Tower Mode",
                 screen,
-                drawLeft + 5 + challenger.portrait.width + 2,
+                drawLeft + 5 + this.portrait.width + 2,
                 drawTop + 16,
-                this.width - (5 + challenger.portrait.width + 2) - 5,
+                this.width - (5 + this.portrait.width + 2) - 5,
                 11,
                 fancyText.geometric_sans_6
             );
 
             if (this.isUnlocked()) {
-                screen.drawTransparentImage(challenger.portrait, drawLeft + 5, drawTop + 5);
+                screen.drawTransparentImage(this.portrait, drawLeft + 5, drawTop + 5);
             }
             else {
-                drawSilhouette(drawLeft + 5, drawTop + 5, challenger.portrait);
+                drawSilhouette(drawLeft + 5, drawTop + 5, this.portrait);
                 if (this.hover) {
-                    screen.drawTransparentImage(imgs.padlock, drawLeft + 5 + ((challenger.portrait.width - imgs.padlock.width) >> 1), drawTop + 5 + ((challenger.portrait.height - imgs.padlock.height) >> 1));
+                    screen.drawTransparentImage(imgs.padlock, drawLeft + 5 + ((this.portrait.width - imgs.padlock.width) >> 1), drawTop + 5 + ((this.portrait.height - imgs.padlock.height) >> 1));
                 }
             }
+        }
+
+        isUnlocked(): boolean {
+            return true;
+        }
+    }
+
+    export class ChallengerCardButtonSprite extends CardButtonSprite {
+        constructor(public challengerIndex: number, onClick: () => void) {
+            super(onClick, challengers[challengerIndex].name, challengers[challengerIndex].description, challengers[challengerIndex].portrait);
+            this.setDimensions(149, 42);
         }
 
         isUnlocked(): boolean {

@@ -3,87 +3,89 @@ namespace SpriteKind {
 }
 
 namespace hourOfAi.tower {
-    const TOWER_INDEX_KEY = "_INDEX";
-    const TOWER_STATE_KEY = "_STATE";
-
     const SOFT_RESET = false;
     export const DEBUG = false;
 
-    enum TowerState {
-        NotStarted,
-        InProgress,
-        InMatch,
-        Won,
-        Lost
-    }
-
     export function initTower() {
-        let challengerIndex = 0;
-        let state: TowerState = TowerState.NotStarted;
+        const state = getTowerState();
+        const challengerIndex = getCurrentTowerLevel() === -1 ? 0 : getCurrentTowerLevel();
 
-        if (!DEBUG) {
-            if (settings.exists(TOWER_STATE_KEY)) {
-                state = settings.readNumber(TOWER_STATE_KEY);
-            }
-            if (settings.exists(TOWER_INDEX_KEY)) {
-                challengerIndex = settings.readNumber(TOWER_INDEX_KEY);
-            }
-        }
+        // if (!DEBUG) {
+        //     if (settings.exists(TOWER_STATE_KEY)) {
+        //         state = settings.readNumber(TOWER_STATE_KEY);
+        //     }
+        //     if (settings.exists(TOWER_INDEX_KEY)) {
+        //         challengerIndex = settings.readNumber(TOWER_INDEX_KEY);
+        //     }
+        // }
+
+        const isIntroCutscene = state === TowerState.ChallengerIntroCutscene || state === TowerState.NotStarted;
 
         const bg = new TowerScene();
         bg.xOffset = (screen.width >> 1) - (imgs.tower_section.width >> 1);
 
-        settings.remove(TOWER_STATE_KEY);
-        settings.remove(TOWER_INDEX_KEY);
-
+        // Pause on the tower scene for a moment before zooming in
         if (state === TowerState.NotStarted) {
-            pause(500);
+            pause(2000);
         }
-        bg.scrollTo(challengerIndex, challengerIndex !== 0 || state !== TowerState.NotStarted);
 
+        if (isIntroCutscene) {
+            // Check if we are continuing from a previous match
+            if (challengerIndex !== 0) {
+                bg.scrollTo(challengerIndex - 1, true);
+                bg.zoomOut();
+                pause(1000);
+            }
 
-        if (state === TowerState.NotStarted || state === TowerState.InProgress) {
+            bg.scrollTo(challengerIndex, false);
             bg.zoomIn();
         }
-
-        if (state === TowerState.Won) {
-            settings.writeNumber(TOWER_INDEX_KEY, challengerIndex + 1);
-            settings.writeNumber(TOWER_STATE_KEY, TowerState.InProgress);
-
-            bg.visible = false;
-            showWinCutscene(challengers[challengerIndex]);
-            bg.visible = true;
-
-            bg.zoomOut();
-            bg.scrollTo(challengerIndex + 1);
-
-            reset();
-        }
-        else if (state === TowerState.Lost) {
-            bg.visible = false;
-            showLoseCutscene(challengers[challengerIndex]);
-
-            settings.writeNumber(TOWER_STATE_KEY, TowerState.InProgress);
-            settings.writeNumber(TOWER_INDEX_KEY, challengerIndex);
-            state = TowerState.NotStarted;
-            startGameMode(GameMode.MainMenu)
-        }
         else {
-            const challenger = challengers[challengerIndex];
+            // Jump to the current challenger if we're resuming a game
+            bg.scrollTo(challengerIndex, true);
+        }
+
+        const challenger = challengers[challengerIndex];
+
+        if (isIntroCutscene) {
             bg.visible = false;
             showIntroScene(challenger);
 
-            if (!DEBUG) {
-                const player1Won = startMatch(challenger);
-                settings.writeNumber(TOWER_STATE_KEY, player1Won ? TowerState.Won : TowerState.Lost);
-                settings.writeNumber(TOWER_INDEX_KEY, challengerIndex);
-                reset(true);
+            setTowerState(TowerState.StartMatch);
+            reset();
+        }
+        else if (state === TowerState.WinCutscene) {
+            bg.visible = false;
+            bg.zoomIn(true);
+            showWinCutscene(challenger);
+
+            setCurrentTowerLevel(challengerIndex + 1);
+            setTowerState(TowerState.ChallengerIntroCutscene);
+
+            reset(true);
+        }
+        else if (state === TowerState.LoseCutscene) {
+            bg.visible = false;
+            bg.zoomIn(true);
+            showLoseCutscene(challenger);
+            bg.visible = true;
+            bg.zoomOut();
+
+            startGameMode(GameMode.MainMenu);
+        }
+        else if (state === TowerState.StartMatch) {
+            setTowerState(TowerState.InMatch);
+            bg.visible = false;
+            const player1Won = startMatch(challenger);
+
+            if (player1Won) {
+                setTowerState(TowerState.WinCutscene);
             }
             else {
-                settings.writeNumber(TOWER_STATE_KEY, TowerState.Won);
-                settings.writeNumber(TOWER_INDEX_KEY, challengerIndex);
-                reset();
+                setTowerState(TowerState.LoseCutscene);
             }
+
+            reset(true);
         }
     }
 
@@ -143,6 +145,6 @@ namespace hourOfAi.tower {
     }
 
     export function startMatch(challenger: Challenger) {
-        return initSingleMatch(challenger);
+        return initSingleMatch(true, true, true, challenger);
     }
 }
