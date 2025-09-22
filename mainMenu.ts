@@ -1,6 +1,61 @@
+namespace SpriteKind {
+    export const TitleText = SpriteKind.create();
+}
+
 namespace hourOfAi {
     export function initMainMenu() {
         let currentBG: scene.Renderable = createPracticeMenuBackground();
+
+        const line1 = "BUG";
+        const line2 = "ARENA";
+
+        const frame = img`
+        . 1 1 1 1 1 1 1 .
+        1 1 1 1 1 1 1 1 1
+        1 1 1 1 1 1 1 1 1
+        1 1 1 1 1 1 1 1 1
+        1 1 1 1 1 1 1 1 1
+        1 1 1 1 1 1 1 1 1
+        . 1 1 1 1 1 1 1 .
+        . . . . . . . . .
+        . . . . . . . . .
+        `
+
+        const line1Sprites: fancyText.TextSprite[] = [];
+        let line1Width = 0;
+        for (let i = 0; i < line1.length; i++) {
+            line1Sprites.push(fancyText.create(line1.charAt(i), 0, 3, fancyText.rounded_large));
+            line1Sprites[i].setFrame(frame);
+            line1Sprites[i].setKind(SpriteKind.TitleText);
+            line1Width += line1Sprites[i].width - 3;
+        }
+
+        const line2Sprites: fancyText.TextSprite[] = [];
+        let line2Width = 0;
+        for (let i = 0; i < line2.length; i++) {
+            line2Sprites.push(fancyText.create(line2.charAt(i), 0, 2, fancyText.rounded_large));
+            line2Sprites[i].setFrame(frame);
+            line2Sprites[i].setKind(SpriteKind.TitleText);
+            line2Width += line2Sprites[i].width - 3;
+        }
+
+        let left = (((screen.width) - line1Width) >> 1)
+        for (let i = 0; i < line1.length; i++) {
+            line1Sprites[i].left = left;
+            line1Sprites[i].top = 5;
+            line1Sprites[i].z = 200;
+            line1Sprites[i].data["baseY"] = line1Sprites[i].top;
+            left += line1Sprites[i].width - 3;
+        }
+
+        left = (((screen.width) - line2Width) >> 1)
+        for (let i = 0; i < line2.length; i++) {
+            line2Sprites[i].left = left;
+            line2Sprites[i].top = 28;
+            line2Sprites[i].z = 200;
+            line2Sprites[i].data["baseY"] = line2Sprites[i].top;
+            left += line2Sprites[i].width - 3;
+        }
 
         const practice = new TextButtonSprite("Practice", () => {
             getButtonSprites().forEach(b => b.destroy());
@@ -24,7 +79,7 @@ namespace hourOfAi {
         const buttons = [practice, towerButton];
 
         for (let i = 0; i < buttons.length; i++) {
-            buttons[i].top = 30 + i * (buttons[i].height + 2);
+            buttons[i].top = 80 + i * (buttons[i].height + 2);
             buttons[i].left = 5;
             buttons[i].z = 30;
         }
@@ -67,6 +122,20 @@ namespace hourOfAi {
                 }
             }
         });
+
+        const updateHandler = game.currentScene().eventContext.registerFrameHandler(scene.UPDATE_PRIORITY, () => {
+            for (const sprite of sprites.allOfKind(SpriteKind.TitleText)) {
+                sprite.top = (sprite.data["baseY"] as number) + ((1 + Math.sin((game.runtime() + (sprite.left << 3)) / 200)) / 2) * 7;
+            }
+        });
+
+        destroyPreviousMenu = () => {
+            sprites.destroyAllSpritesOfKind(SpriteKind.TitleText);
+            getButtonSprites().forEach(b => b.destroy());
+            browserEvents.onMouseMove(() => { });
+            browserEvents.MouseLeft.onEvent(browserEvents.MouseButtonEvent.Pressed, () => { });
+            game.eventContext().unregisterFrameHandler(updateHandler);
+        };
 
         // initPracticeMenu();
     }
@@ -511,7 +580,7 @@ namespace hourOfAi {
             activeBugs.push(newBug);
         }
 
-        const numBugs = 6;
+        const numBugs = 10;
         for (let i = 0; i < numBugs; i++) {
             spawnNewBug(Math.percentChance(50));
         }
