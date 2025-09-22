@@ -214,7 +214,7 @@ namespace hourOfAi {
             new CardButtonSprite(
                 () => {
                     setTowerUsedContinue(true);
-                    setTowerState(TowerState.ChallengerIntroCutscene);
+                    setTowerState(TowerState.StartIntroCutscene);
                     startGameMode(GameMode.Tower);
                 },
                 "Continue",

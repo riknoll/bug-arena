@@ -493,7 +493,7 @@ namespace hourOfAi {
                     for (let i = 0; i < 30; i++) {
                         shadeImage.fill(4);
                         const halo = candleHalos[Math.min(i >> 1, candleHalos.length - 1)];
-                        console.log(halo.height)
+                        // console.log(halo.height)
                         for (const candle of candles) {
                             candle.setStrength(i + 4);
                             helpers.mergeImage(

@@ -17,7 +17,8 @@ namespace hourOfAi {
 
     export enum TowerState {
         NotStarted,
-        ChallengerIntroCutscene,
+        StartIntroCutscene,
+        IntroCutscene,
         StartMatch,
         InMatch,
         WinCutscene,
@@ -79,7 +80,7 @@ namespace hourOfAi {
     export function shouldInitTower(): boolean {
         switch (getTowerState()) {
             case TowerState.NotStarted:
-            case TowerState.ChallengerIntroCutscene:
+            case TowerState.StartIntroCutscene:
             case TowerState.StartMatch:
                 return true;
         }

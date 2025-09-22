@@ -324,7 +324,7 @@
 let turnCount = 0;
 let flip = false;
 
-hourOfAi.every(1000, () => {
+hourOfAi.every(100, () => {
     if (!hourOfAi.canSeeColor(ColorType.OpponentColor)) {
         // if (turnCount >= 30) {
         //     turnCount = 0;

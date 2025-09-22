@@ -134,6 +134,10 @@ namespace hourOfAi.tower {
                         }
                     }
 
+                    this.drawImageCore(flippedCloud, -(backgroundOffsets[0] % screen.width), CLOUD_TOP + scroll - flippedCloud.height - 10);
+                    this.drawImageCore(flippedCloud, screen.width - (backgroundOffsets[0] % screen.width), CLOUD_TOP + scroll - flippedCloud.height - 10);
+                    this.fillRectCore(0, CLOUD_TOP + scroll - 10, screen.width, 10, flippedCloud.getPixel(0, flippedCloud.height - 1))
+
                     if (frame === 5 || frame === 8 || frame === 7) {
                         screen.mapRect(0, 0, screen.width, screen.height, buf)
                     }
@@ -151,11 +155,10 @@ namespace hourOfAi.tower {
                 else {
                     backgroundOffsets[0] ++
                     this.drawTower();
+                    this.drawImageCore(flippedCloud, -(backgroundOffsets[0] % screen.width), CLOUD_TOP + scroll - flippedCloud.height - 10);
+                    this.drawImageCore(flippedCloud, screen.width - (backgroundOffsets[0] % screen.width), CLOUD_TOP + scroll - flippedCloud.height - 10);
+                    this.fillRectCore(0, CLOUD_TOP + scroll - 10, screen.width, 10, flippedCloud.getPixel(0, flippedCloud.height - 1))
                 }
-
-                this.drawImageCore(flippedCloud, -(backgroundOffsets[0] % screen.width), CLOUD_TOP + scroll - flippedCloud.height - 10);
-                this.drawImageCore(flippedCloud, screen.width - (backgroundOffsets[0] % screen.width), CLOUD_TOP + scroll - flippedCloud.height - 10);
-                this.fillRectCore(0, CLOUD_TOP + scroll - 10, screen.width, 10, flippedCloud.getPixel(0, flippedCloud.height - 1))
 
 
                 if (this.zoom !== 1) {

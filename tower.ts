@@ -19,7 +19,11 @@ namespace hourOfAi.tower {
         //     }
         // }
 
-        const isIntroCutscene = state === TowerState.ChallengerIntroCutscene || state === TowerState.NotStarted;
+        const isIntroCutscene = state === TowerState.StartIntroCutscene || state === TowerState.NotStarted;
+
+        if (isIntroCutscene) {
+            setTowerState(TowerState.IntroCutscene);
+        }
 
         const bg = new TowerScene();
         bg.xOffset = (screen.width >> 1) - (imgs.tower_section.width >> 1);
@@ -60,7 +64,7 @@ namespace hourOfAi.tower {
             showWinCutscene(challenger);
 
             setCurrentTowerLevel(challengerIndex + 1);
-            setTowerState(TowerState.ChallengerIntroCutscene);
+            setTowerState(TowerState.StartIntroCutscene);
 
             reset(true);
         }
