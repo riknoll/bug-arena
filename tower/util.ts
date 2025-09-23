@@ -60,7 +60,7 @@ namespace hourOfAi.tower {
         }
     }
 
-    export function moveSprite(sprite: Sprite, x: number, y: number, speed: number) {
+    export function moveSprite(sprite: Sprite, x: number, y: number, speed: number, pauseUntilDone = true) {
         const startX = sprite.x;
         const startY = sprite.y;
         const deltaX = x - startX;
@@ -79,6 +79,8 @@ namespace hourOfAi.tower {
             }
         );
         animation.start();
-        animation.pauseUntilDone();
+        if (pauseUntilDone) {
+            animation.pauseUntilDone();
+        }
     }
 }

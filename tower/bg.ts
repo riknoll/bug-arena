@@ -66,6 +66,58 @@ namespace hourOfAi.tower {
         }
     }
 
+    class HotAirBalloon extends MiniSprite {
+        movingUp = false;
+
+        constructor(public animation: Image[], public x: number, public startY: number, public frameTime: number) {
+            super(animation, x, startY, frameTime);
+        }
+
+        // draw(scroll: number) {
+        //     const y = this.y + scroll;
+
+        //     const image = this.animation[this.frame];
+        //     if (y > 120  || y + image.height < 0) return;
+
+        //     screen.blit(
+        //         this.x,
+        //         y,
+        //         this.animation[0].width >> 2,
+        //         this.animation[0].height >> 2,
+        //         this.animation[this.frame],
+        //         0,
+        //         0,
+        //         this.animation[0].width,
+        //         this.animation[0].height,
+        //         true,
+        //         false
+        //     )
+        // }
+
+        update(): void {
+            if (this.movingUp) {
+                this.y -= 0.25;
+
+                if (this.y < this.startY) {
+                    this.movingUp = false;
+                }
+            }
+            else {
+                this.y += 0.01;
+
+                if (this.y > this.startY + 5) {
+                    this.movingUp = true;
+                }
+            }
+
+            this.x -= game.eventContext().deltaTime;
+
+            if (this.x < -this.animation[0].width) {
+                this.x = screen.width + randint(5, 10)
+            }
+        }
+    }
+
     export class TowerScene {
         scroll: number = 0;
         xOffset: number = 92;
@@ -160,7 +212,7 @@ namespace hourOfAi.tower {
             const colorRamp = img`
                 . 1 2 3 4 5 6 7 8 9 a b c d e f
                 . 1 2 3 4 1 7 1 9 b 2 1 b c d e
-            `
+            `;
             const buf = control.createBuffer(16);
 
             for (let i = 0; i < 16; i++) {
@@ -170,6 +222,8 @@ namespace hourOfAi.tower {
             const lightningAnim = imgs.lightningFrames;
             const flippedCloud = imgs.cloudLayer0.clone();
             flippedCloud.flipY();
+
+            const balloon = new HotAirBalloon([imgs.hot_air_balloon], 110, -200, 200);
 
             // let y = randint(-220, CLOUD_TOP);
 
@@ -293,7 +347,6 @@ namespace hourOfAi.tower {
 
                 if (this.zoom !== 1) {
                     blitBG.drawImage(screen, 0, 0);
-
 
                     screen.blit(
                         (screen.width >> 1) - ((blitBG.width * this.zoom) >> 1),

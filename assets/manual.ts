@@ -17,6 +17,34 @@ namespace hourOfAi.imgs {
         `
     ];
 
+    export const tiny_stinky = [
+        img`
+        . e e e . .
+        e c c c e .
+        e d d d d e
+        . e e e e .
+        `,
+        img`
+        . . . . . .
+        . e e e e .
+        e c c c d e
+        . e e e e .
+        `
+    ]
+
+    export const exclamation_point = img`
+        . f f f f .
+        f 2 2 2 2 f
+        f 2 2 2 2 f
+        f 2 2 2 2 f
+        f 2 2 2 2 f
+        . f 2 2 f .
+        . . f f . .
+        . f 2 2 f .
+        . f 2 2 f .
+        . . f f . .
+    `;
+
     export const steam = [
         img`
             c .

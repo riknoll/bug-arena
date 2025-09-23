@@ -57,12 +57,163 @@ namespace hourOfAi {
             },
             "Stinky",
             [
-                tower.dialog("The only thing stronger than my odor is my code!"),
-                tower.dialog("Let's battle!")
+                tower.dialog("Let's see... Let's see... Need trash... Need trash...", context => {
+                    const bg = sprites.create(imgs.alleyway, SpriteKind.DialogSprite);
+                    bg.top = 0;
+                    bg.z = -4
+                    scene.setBackgroundColor(14);
+
+
+                    const dumpster = sprites.create(imgs.dumpster, SpriteKind.DialogSprite);
+                    dumpster.bottom = 70;
+                    dumpster.left = 17
+
+                    dumpster.z = -3;
+
+                    const cat = sprites.create(imgs.cat[0], SpriteKind.DialogSprite);
+
+                    cat.x = 104;
+                    cat.y = 30;
+
+                    const wall = sprites.create(imgs.wall, SpriteKind.DialogSprite);
+                    wall.top = 0;
+                    wall.right = 160;
+                    wall.z = 2;
+
+                    const stinky = sprites.create(imgs.tiny_stinky[0], SpriteKind.DialogSprite);
+                    animation.runImageAnimation(stinky, imgs.tiny_stinky, 50, true);
+                    stinky.z = 3
+
+                    const exclamation_point = sprites.create(imgs.exclamation_point, SpriteKind.DialogSprite);
+                    exclamation_point.setFlag(SpriteFlag.Invisible, true);
+                    exclamation_point.z = 4;
+
+                    control.runInBackground(() => {
+                        while (context.currentStep < 1) {
+                            tower.moveSprite(stinky, dumpster.x + 50 + randint(0, 30), dumpster.y + randint(-10, 10), 100)
+                            pause(100)
+                        }
+
+                        exclamation_point.setFlag(SpriteFlag.Invisible, false);
+                        exclamation_point.x = stinky.x;
+                        exclamation_point.bottom = stinky.top - 2;
+
+                        animation.runMovementAnimation(exclamation_point, "v -2 v 2", 100);
+                        pause(500);
+                        exclamation_point.setFlag(SpriteFlag.Invisible, true);
+                        tower.moveSprite(stinky, dumpster.x + 8, dumpster.top - 5, 100);
+
+                         pauseUntil(() => context.currentStep === 2);
+
+                        animation.runMovementAnimation(stinky, "q 0 -20 0 16", 500);
+                        pause(500);
+                        stinky.setFlag(SpriteFlag.Invisible, true);
+
+                        cat.setImage(imgs.cat[1]);
+                        while (context.currentStep < 3) {
+                            animation.runMovementAnimation(dumpster, "v 1 h 1 v -1 h -1", 100, true);
+                            pause(200);
+                            animation.stopAnimation(animation.AnimationTypes.MovementAnimation, dumpster);
+                            dumpster.bottom = 70;
+                            dumpster.left = 17;
+                            pause(1000);
+                        }
+
+                        animation.runMovementAnimation(dumpster, "v 1 h 1 v -1 h -1", 100, true);
+                        stinky.setFlag(SpriteFlag.Invisible, false);
+                        animation.runMovementAnimation(stinky, "q 0 -40 0 -16", 500);
+                        cat.setImage(imgs.cat[2]);
+                        animation.runMovementAnimation(cat, "q 30 -40 60 -10", 1300)
+                        pause(200);
+                        animation.stopAnimation(animation.AnimationTypes.MovementAnimation, dumpster);
+                        dumpster.bottom = 70;
+                        dumpster.left = 17;
+                        pause(500)
+
+                        pauseUntil(() => context.currentStep === 4);
+                        tower.moveSprite(stinky, 80, 60, 100);
+
+                        exclamation_point.setFlag(SpriteFlag.Invisible, false);
+                        exclamation_point.x = stinky.x;
+                        exclamation_point.bottom = stinky.top - 2;
+
+                        animation.runMovementAnimation(exclamation_point, "v -2 v 2", 100);
+                        pause(1200);
+                        exclamation_point.setFlag(SpriteFlag.Invisible, true);
+
+                        pauseUntil((() => context.currentStep >= 5));
+
+                        const startTime = game.runtime();
+                        while (!context.isFinished()) {
+                            stinky.y = 60 + Math.sin((game.runtime() - startTime) / 200) * 8;
+                            pause(1);
+                        }
+
+                    });
+                }),
+                tower.dialog("Ooohh! <wavy><slow>Oooooohh!</slow></wavy> Maybe in here!?"),
+                tower.dialog("*rummage* *rummage* *rummage*"),
+                tower.dialog("Boring! Boring! Don't want pizza crusts and coffee grounds!"),
+                tower.dialog("Oh, wait... What's this? Are you climbing the tower?"),
+                tower.dialog("That means you have to fight me, right? <wavy><slow>Right...?"),
+                tower.dialog("If I win, give me all your trash! Give me!"),
+                tower.dialog("No choice! Have to! Gotta win! Gotta win!")
             ],
             "Randomly wanders around the arena",
-            [ tower.dialog("Bwahaha! Smell ya later!") ],
-            [ tower.dialog("Awwwww... Fine!") ],
+            [
+                tower.dialog("Bwahaha! Smell ya later! Later!", context => {
+                    const bg = sprites.create(imgs.alleyway, SpriteKind.DialogSprite);
+                    bg.top = 0;
+                    bg.z = -4
+                    scene.setBackgroundColor(14);
+
+
+                    const dumpster = sprites.create(imgs.dumpster, SpriteKind.DialogSprite);
+                    dumpster.bottom = 70;
+                    dumpster.left = 17
+
+                    dumpster.z = -3;
+
+                    const stinky = sprites.create(imgs.tiny_stinky[0], SpriteKind.DialogSprite);
+                    animation.runImageAnimation(stinky, imgs.tiny_stinky, 50, true);
+                    stinky.z = 3
+                    stinky.y = 60;
+
+                    control.runInBackground(() => {
+                        const startTime = game.runtime();
+                        while (!context.isFinished()) {
+                            stinky.y = 60 + Math.sin((game.runtime() - startTime) / 200) * 8;
+                            pause(1);
+                        }
+                    })
+                }),
+                tower.dialog("Precious trash! All mine! <wavy>All mine!<wavy>")
+            ],
+            [ tower.dialog("Awwwww... Fine! Fine! I didn't want your trash anyway!", context => {
+                    const bg = sprites.create(imgs.alleyway, SpriteKind.DialogSprite);
+                    bg.top = 0;
+                    bg.z = -4
+                    scene.setBackgroundColor(14);
+
+                    const dumpster = sprites.create(imgs.dumpster, SpriteKind.DialogSprite);
+                    dumpster.bottom = 70;
+                    dumpster.left = 17
+
+                    dumpster.z = -3;
+
+                    const stinky = sprites.create(imgs.tiny_stinky[0], SpriteKind.DialogSprite);
+                    animation.runImageAnimation(stinky, imgs.tiny_stinky, 50, true);
+                    stinky.z = 3
+                    stinky.y = 60;
+
+                    control.runInBackground(() => {
+                        const startTime = game.runtime();
+                        while (!context.isFinished()) {
+                            stinky.y = 60 + Math.sin((game.runtime() - startTime) / 200) * 8;
+                            pause(1);
+                        }
+                    })
+            }) ],
             imgs.stinky,
             hourOfAi.algorithms.randomWalk
         ),
@@ -171,7 +322,100 @@ namespace hourOfAi {
                 noseRadius: 2
             },
             "Bugsly Jr.",
-            [ tower.dialog("You think my dad was tough? Wait till you see me!") ],
+            [
+                tower.dialog("Finally! Now I just need to dodge these spikes and...", context => {
+                    scene.setBackgroundColor(6)
+                    const bg = sprites.create(imgs.bedroom, SpriteKind.DialogSprite);
+                    bg.z = -4
+                    bg.top = 0;
+
+                    const tv = sprites.create(imgs.tv[0], SpriteKind.DialogSprite);
+                    animation.runImageAnimation(tv, imgs.tv.slice(1), 200, true);
+                    tv.left = 74;
+                    tv.top = 30;
+
+                    const bugslyJr = sprites.create(imgs.tiny_bugsly[0], SpriteKind.DialogSprite);
+                    bugslyJr.x = tv.x + 1;
+                    bugslyJr.top = tv.bottom + 8;
+
+                    control.runInBackground(() => {
+                        while (context.currentStep < 1) {
+                            let sound = randint(0, 3)
+                            if (sound == 0) {
+                                music.play(music.createSoundEffect(WaveShape.Square, 324, 1027, 120, 0, 100, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+                                pause(randint(180, 210))
+                            } else if (sound == 1) {
+                                music.play(music.createSoundEffect(WaveShape.Noise, 452, 1, 120, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+                                pause(randint(180, 210))
+                            } else {
+                                music.play(music.createSoundEffect(WaveShape.Sawtooth, 2120, 452, 120, 0, 100, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+                                pause(50)
+                            }
+                        }
+                    })
+
+                    control.runInBackground(() => {
+                        let flip = false;
+                        while (context.currentStep < 1) {
+                            const height = randint(4, 6);
+                            const duration = height * 400 / 10;
+                            if (flip) {
+                                animation.runMovementAnimation(bugslyJr, `q 2.5 -${height} 4 0`, duration)
+                            }
+                            else {
+                                animation.runMovementAnimation(bugslyJr, `q -2.5 -${height} -4 0`, duration)
+                            }
+                            flip = !flip
+                            pause(duration);
+                        }
+
+                        while (context.currentStep < 2) {
+                            pause(10);
+                        }
+                        tv.destroy();
+                        animation.runImageAnimation(bugslyJr, imgs.tiny_bugsly, 50, true);
+                        animation.runMovementAnimation(bugslyJr, `q 0 -30 0 -20`, 500);
+
+                        while (context.currentStep < 3) {
+                            pause(10);
+                        }
+
+                        while (!(bugslyJr.flags & sprites.Flag.Destroyed)) {
+                            tower.moveSprite(
+                                bugslyJr,
+                                tv.x - 16,
+                                tv.y - 10,
+                                200
+                            );
+                            pause(300);
+                            tower.moveSprite(
+                                bugslyJr,
+                                tv.x + 14,
+                                tv.y - 6,
+                                200
+                            );
+                            pause(300);
+                            tower.moveSprite(
+                                bugslyJr,
+                                tv.x - 1,
+                                tv.y + 4,
+                                200
+                            );
+                            pause(300);
+                        }
+                    })
+                }),
+                tower.dialog("Huh?", context => {
+                    music.play(music.createSoundEffect(WaveShape.Sine, 5000, 0, 255, 0, 2000, SoundExpressionEffect.Warble, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+                    pause(100)
+                    music.play(music.createSoundEffect(WaveShape.Sine, 101, 1550, 255, 0, 120, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+                    pause(50)
+                    music.play(music.createSoundEffect(WaveShape.Sine, 1, 1342, 255, 0, 120, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+                }),
+                tower.dialog("Hey! What's the big idea!? You made me game over!"),
+                tower.dialog("I've never made it to level 8 before! You're gonna pay!"),
+                tower.dialog("You think my dad was tough? Wait till you see me!")
+            ],
             "Zigzags across the arena.",
             [ tower.dialog("You'll always remember the Bugsly name!") ],
             [ tower.dialog("*sniffle* Waaah! Daddy...!") ],
@@ -199,8 +443,38 @@ namespace hourOfAi {
                     snotBubble.y = bumble.y + 3;
                     snotBubble.right = bumble.left - 1;
 
+                    scene.setBackgroundColor(4);
+
                     const bubble1 = [imgs.snot_bubble[3], imgs.snot_bubble[2], imgs.snot_bubble[1], imgs.snot_bubble[0]];
                     const bubble2 = [imgs.snot_bubble[0], imgs.snot_bubble[1], imgs.snot_bubble[2], imgs.snot_bubble[3]];
+                    game.stats = true;
+
+                    control.runInBackground(() => {
+                        const flippedLilBee = imgs.lil_bee.clone();
+                        flippedLilBee.flipX();
+                        while (!context.isFinished()) {
+                            const lilBee = sprites.create(imgs.lil_bee, SpriteKind.DialogSprite);
+
+                            lilBee.z = -5
+
+                            lilBee.lifespan = 1500;
+
+                            lilBee.y = randint(0, 80);
+
+                            const speed = randint(150, 200);
+                            if (Math.percentChance(50)) {
+                                lilBee.x = -10;
+                                tower.moveSprite(lilBee, 170, randint(0, 80), speed, false);
+                            }
+                            else {
+                                lilBee.x = 170;
+                                lilBee.setImage(flippedLilBee);
+                                tower.moveSprite(lilBee, -10, randint(0, 80), speed, false);
+                            }
+
+                            pause(100)
+                        }
+                    })
 
                     control.runInBackground(() => {
                         while (context.currentStep < 1) {
@@ -254,31 +528,36 @@ namespace hourOfAi {
             "Legs-olas",
             [
                 tower.dialog("Hail and well met!", context => {
-                    const web = sprites.create(imgs.spiderweb, SpriteKind.DialogSprite);
-                    web.left = 160 - web.width;
-                    web.top = 0;
+                    const bg = sprites.create(imgs.dungeon, SpriteKind.DialogSprite);
+                    bg.z = -4
+                    bg.top = 0;
+                    scene.setBackgroundColor(14);
 
                     const legsolas = sprites.create(imgs.legsolas_small[0], SpriteKind.DialogSprite);
-                    legsolas.x = web.x;
-                    legsolas.y = web.y;
+                    legsolas.x = 130;
+                    legsolas.y = 30
 
                     control.runInBackground(() => {
                         while (!(legsolas.flags & sprites.Flag.Destroyed)) {
                             animation.runImageAnimation(legsolas, imgs.legsolas_small, 50, true);
                             tower.moveSprite(
                                 legsolas,
-                                web.x + (Math.random() - 0.5) * (web.width >> 1),
-                                web.y + (Math.random() - 0.5) * (web.width >> 1),
+                                130 + randint(-20, 20),
+                                30 + randint(-20, 20),
                                 50
                             )
                             animation.stopAnimation(animation.AnimationTypes.ImageAnimation, legsolas);
                             legsolas.setImage(imgs.legsolas_small[0]);
-                            pause(200 + Math.random() * 800);
+                            pause(400 + Math.random() * 800);
                         }
                     })
                 }),
                 tower.dialog("I am Legs-olas, defender of the Bug Kingdom!"),
-                tower.dialog("I will best thee in honorable combat!")
+                tower.dialog("You must be the challenger who seeks to climb the tower!"),
+                tower.dialog("A noble quest! You have the bearing of a true knight!"),
+                tower.dialog("But I'm afraid it is my duty to stop you here."),
+                tower.dialog("I will best thee in honorable combat! Ready thy AI!"),
+                tower.dialog("En garde!")
             ],
             "Moves in random diagonal lines.",
             [ tower.dialog("Well fought! You show promise, but you have much to learn!") ],
@@ -365,6 +644,21 @@ namespace hourOfAi {
             "Hopper",
             [
                 tower.dialog("You beat that old fool Crick, eh?", context => {
+                    const bg = sprites.create(imgs.apartment2, SpriteKind.DialogSprite);
+                    bg.z = -4
+                    bg.top = 0;
+
+                    const flippedCatImages = imgs.cat.map(img => {
+                        const copy = img.clone();
+                        copy.flipX();
+                        return copy;
+                    });
+
+                    const cat = sprites.create(flippedCatImages[0], SpriteKind.DialogSprite);
+                    cat.left = 118;
+                    cat.top = 8;
+
+                    scene.setBackgroundColor(2);
                     const lilHopper = sprites.create(imgs.tiny_hopper, SpriteKind.DialogSprite);
 
                     control.runInBackground(() => {
@@ -386,6 +680,8 @@ namespace hourOfAi {
                             flip = !flip;
                         }
 
+                        cat.setImage(flippedCatImages[1]);
+
                         music.play(music.createSoundEffect(WaveShape.Noise, 1, 500, 104, 0, 200, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
                         music.play(music.createSoundEffect(WaveShape.Noise, 1, 800, 104, 0, 400, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
                         music.play(music.createSoundEffect(WaveShape.Noise, 1, 2500, 104, 0, 2000, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
@@ -401,6 +697,8 @@ namespace hourOfAi {
                         lilHopper.destroy();
 
                         flip = true;
+                        let catJumped = false;
+
                         while (!(bigHopper.flags & sprites.Flag.Destroyed)) {
                             music.play(music.createSoundEffect(WaveShape.Square, 1, 534, 104, 0, 200, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
                             if (flip) {
@@ -412,6 +710,13 @@ namespace hourOfAi {
                             pause(800);
                             music.thump.play();
                             scene.cameraShake(4, 500);
+
+                            if (!catJumped) {
+                                cat.setImage(flippedCatImages[2]);
+                                pause(400);
+                                animation.runMovementAnimation(cat, "q -15 -30 -30 -30", 500);
+                                catJumped = true;
+                            }
                             pause(1500);
                             flip = !flip;
                         }
@@ -550,7 +855,10 @@ namespace hourOfAi {
                 })
         ],
             "Follows the opponent's bug.",
-            [ tower.dialog("Ha! A waste of time!") ],
+            [
+                tower.dialog("Ha! A waste of time!"),
+                tower.dialog("You cannot defeat true darkness!")
+            ],
             [ tower.dialog("Curses! But I'll have the last laugh, I swear it!") ],
             imgs.shadow,
             hourOfAi.algorithms.followOpponent
