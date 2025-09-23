@@ -123,9 +123,10 @@ namespace hourOfAi {
                         stinky.setFlag(SpriteFlag.Invisible, false);
                         animation.runMovementAnimation(stinky, "q 0 -40 0 -16", 500);
                         cat.setImage(imgs.cat[2]);
-                        animation.runMovementAnimation(cat, "q 30 -40 60 -10", 1300)
                         pause(200);
                         animation.stopAnimation(animation.AnimationTypes.MovementAnimation, dumpster);
+                        pause(300);
+                        animation.runMovementAnimation(cat, "q 30 -40 60 -10", 1300)
                         dumpster.bottom = 70;
                         dumpster.left = 17;
                         pause(500)
