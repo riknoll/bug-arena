@@ -43,6 +43,8 @@
         "buttonSprite.ts",
         "mainMenu.ts",
         "init.ts",
+        "paths.ts",
+        "goodJob.ts",
         "main.ts"
     ],
     "testFiles": [

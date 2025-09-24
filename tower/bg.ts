@@ -463,7 +463,9 @@ namespace hourOfAi.tower {
                 let y = lastY;
                 let i = lastI;
 
-                while (y + this.scroll > 0) {
+                const scroll = this.scroll >> 1;
+
+                while (y + scroll > 0) {
                     x += i * 66
                     while (x > 160) {
                         x -= 160;
@@ -471,25 +473,25 @@ namespace hourOfAi.tower {
                     }
                     i = (i + 1) % 15
 
-                    if (y + this.scroll > screen.height) {
+                    if (y + scroll > screen.height) {
                         lastX = x;
                         lastY = y;
                         lastI = i;
                         continue;
                     }
-                    drawStar(x, y + this.scroll);
+                    drawStar(x, y + scroll);
                 }
 
                 if (frameTimer < 0) {
                     frameTimer = randint(100, 400);
                     starX = randint(0, screen.width);
-                    starY = randint(0, screen.height) - this.scroll;
+                    starY = randint(0, screen.height) - scroll;
                     starX2 = starX - randint(20, 30);
                     starY2 = starY + randint(20, 30);
                 }
                 else if (frameTimer < 10) {
                     drawPartialLine(
-                        starX, starY + this.scroll, starX2, starY2 + this.scroll, 1 - (frameTimer / 10), 0.1, 1
+                        starX, starY + scroll, starX2, starY2 + scroll, 1 - (frameTimer / 10), 0.1, 1
                     )
                 }
             })

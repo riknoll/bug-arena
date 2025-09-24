@@ -34,3 +34,5 @@ function init() {
 }
 
 setTimeout(init, 1)
+
+// hourOfAi.goodJob();

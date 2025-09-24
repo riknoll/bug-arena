@@ -7,11 +7,11 @@ namespace hourOfAi.tower {
     export const DEBUG = false;
 
     export function initTower() {
-        // const state = getTowerState();
-        // const challengerIndex = getCurrentTowerLevel() === -1 ? 0 : getCurrentTowerLevel();
+        const state = getTowerState();
+        const challengerIndex = getCurrentTowerLevel() === -1 ? 0 : getCurrentTowerLevel();
 
-        const state = TowerState.StartIntroCutscene as number;
-        const challengerIndex = 8 as number;
+        // const state = TowerState.StartIntroCutscene as number;
+        // const challengerIndex = 8 as number;
 
         // if (!DEBUG) {
         //     if (settings.exists(TOWER_STATE_KEY)) {
@@ -25,7 +25,7 @@ namespace hourOfAi.tower {
         const isIntroCutscene = state === TowerState.StartIntroCutscene || state === TowerState.NotStarted;
 
         if (isIntroCutscene) {
-            // setTowerState(TowerState.IntroCutscene);
+            setTowerState(TowerState.IntroCutscene);
         }
 
         const bg = new TowerScene();
