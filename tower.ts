@@ -11,7 +11,7 @@ namespace hourOfAi.tower {
         // const challengerIndex = getCurrentTowerLevel() === -1 ? 0 : getCurrentTowerLevel();
 
         const state = TowerState.StartIntroCutscene as number;
-        const challengerIndex = 6 as number;
+        const challengerIndex = 8 as number;
 
         // if (!DEBUG) {
         //     if (settings.exists(TOWER_STATE_KEY)) {

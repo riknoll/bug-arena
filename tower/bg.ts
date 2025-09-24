@@ -124,6 +124,8 @@ namespace hourOfAi.tower {
         zoom: number = 1;
 
         renderable: scene.Renderable;
+        starFieldRenderable: scene.Renderable;
+
         currentAnimation: Animation;
 
         visible: boolean = true;
@@ -262,7 +264,9 @@ namespace hourOfAi.tower {
 
                 for (let i = bgColors.length - 1; i >= 0; i--) {
                     top -= bgHeights[i];
-                    screen.fillRect(0, top + scroll, 160, bgHeights[i], bgColors[i]);
+                    if (bgColors[i] !== 15) {
+                        screen.fillRect(0, top + scroll, 160, bgHeights[i], bgColors[i]);
+                    }
                     wave.replace(1, bgColors[i]);
                     screen.drawTransparentImage(wave, 0, top + scroll + bgHeights[i]);
                     wave.replace(bgColors[i], 1);
@@ -365,6 +369,8 @@ namespace hourOfAi.tower {
 
                 miniSprites = miniSprites.filter(s => !s.done);
             });
+
+            this.starFieldRenderable = this.createStarFieldRenderable();
         }
 
         protected drawTower() {
@@ -423,6 +429,7 @@ namespace hourOfAi.tower {
 
         dispose() {
             this.renderable.destroy();
+            this.starFieldRenderable.destroy();
             miniSprites = [];
         }
 
@@ -436,6 +443,56 @@ namespace hourOfAi.tower {
             if (y > 120) return;
 
             screen.fillRect(x, y, w, h, color);
+        }
+
+        protected createStarFieldRenderable() {
+            let frameTimer = 0;
+            let starX = 0;
+            let starY = 0;
+            let starX2 = 0;
+            let starY2 = 0;
+
+            let lastX = 0;
+            let lastY = 120;
+            let lastI = 0;
+
+            return scene.createRenderable(-0.1, () => {
+                if (!this.visible) return;
+                frameTimer --;
+                let x = lastX;
+                let y = lastY;
+                let i = lastI;
+
+                while (y + this.scroll > 0) {
+                    x += i * 66
+                    while (x > 160) {
+                        x -= 160;
+                        y--;
+                    }
+                    i = (i + 1) % 15
+
+                    if (y + this.scroll > screen.height) {
+                        lastX = x;
+                        lastY = y;
+                        lastI = i;
+                        continue;
+                    }
+                    drawStar(x, y + this.scroll);
+                }
+
+                if (frameTimer < 0) {
+                    frameTimer = randint(100, 400);
+                    starX = randint(0, screen.width);
+                    starY = randint(0, screen.height) - this.scroll;
+                    starX2 = starX - randint(20, 30);
+                    starY2 = starY + randint(20, 30);
+                }
+                else if (frameTimer < 10) {
+                    drawPartialLine(
+                        starX, starY + this.scroll, starX2, starY2 + this.scroll, 1 - (frameTimer / 10), 0.1, 1
+                    )
+                }
+            })
         }
     }
 
@@ -453,5 +510,15 @@ namespace hourOfAi.tower {
             startY + (endY - startY) * (offset + length),
             color
         )
+    }
+
+    function drawStar(x: number, y: number) {
+        const i = ((game.runtime() + x * 37 + y * 108) / 500) | 0
+        if (i % 13 !== 0) {
+            screen.setPixel(x, y, 1)
+        }
+        else {
+            screen.setPixel(x, y, 5)
+        }
     }
 }

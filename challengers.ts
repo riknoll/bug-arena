@@ -674,7 +674,7 @@ namespace hourOfAi {
                                 animation.runMovementAnimation(lilHopper, `q -2.5 -${height} -5 0`, duration)
                             }
                             const freq = randint(500, 600);
-                            music.play(music.createSoundEffect(WaveShape.Square, freq, freq * freq / 100, 104, 0, randint(80, 100), SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
+                            music.play(music.createSoundEffect(WaveShape.Square, freq, freq * freq / 100, 80, 0, randint(80, 100), SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
 
                             pause(duration + randint(0, 500));
 
