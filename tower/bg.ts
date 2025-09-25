@@ -281,6 +281,8 @@ namespace hourOfAi.tower {
                 if (scroll < 150) {
                     // screen.fillRect(0, -160 + scroll, 160, 120, 9)
 
+                    screen.fillRect(0, CLOUD_TOP + scroll, 160, 120, 15)
+
 
                     for (let i = backgroundLayers.length - 1; i >= 0; i--) {
                         backgroundOffsets[i] += (i + 1);

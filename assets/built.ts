@@ -429,6 +429,179 @@ namespace hourOfAi.imgs {
         6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 F F 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
     `;
 
+    // bug_president-40-40.png
+    //% whenUsed
+    export const bug_president = [
+        img`
+            . . . . . . . . . . . . . . . . E E E E E E E E . . . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . . E E B B B B B B B B E E . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . E B B B B B B B B B B B B E . . . . . . . . . . . . .
+            . . . . . . . . . . . . . E E E B B B B B B B B E E E . . . . . . . . . . . . .
+            . . . . . . . . . . . . . E B B E E E E E E E E B B E . . . . . . . . . . . . .
+            . . . . . . . . . . . E E E 9 9 B B B B B B B B 9 9 E E E . . . . . . . . . . .
+            . . . . . . . . . E E B B E 2 2 9 9 9 9 9 9 9 9 2 2 E B B E E . . . . . . . . .
+            . . . . . . . . E B B B B B E E 2 2 2 2 2 2 2 2 E E B B B B B E . . . . . . . .
+            . . . . . . . . . E E B B B B B E E E E E E E E B B B B B E E . . . . . . . . .
+            . . . . . . . . . . . E E E B B B B B B B B B B B B E E E . . . . . . . . . . .
+            . . . . . . . . . . . A 3 3 E E E E E E E E E E E E 3 3 A . . . . . . . . . . .
+            . . . . . . . . . . . A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A . . . . . . . . . . .
+            . . . . . . . . . . . F E E E 3 3 3 A 3 3 A 3 3 3 E E E F . . . . . . . . . . .
+            . . . . . . . . . . F E E B E E 3 3 A 3 3 A 3 3 E E B E E F . . . . . . . . . .
+            . . . . . . . . . . F E B E E E 3 3 A 3 3 A 3 3 E B E E E F . . . . . . . . . .
+            . . . . . . . . . . F E E E E E 3 3 A 3 3 A 3 3 E E E E E F . . . . . . . . . .
+            . . . . . . . . . . . F E E E 3 3 A 3 3 3 3 A 3 3 E E E F . . . . . . . . . . .
+            . . . . . . . . . . . . F 3 3 3 3 3 3 3 3 3 3 3 3 3 3 F . . . . . . . . . . . .
+            . . . . . . . . . . F F 8 F 3 3 3 3 3 3 3 3 3 3 3 3 F 8 F F . . . . . . . . . .
+            . . . . . . . . F F E 8 8 8 F E E E 3 3 3 3 E E E F 8 8 8 E F F . . . . . . . .
+            . . . . . . . F 8 8 8 E 8 8 F E E E E 3 3 E E E E F 8 8 E 8 8 8 F . . . . . . .
+            . . . . . . F 8 8 8 E 8 8 8 8 F E E E F F E E E F 8 8 8 8 E 8 8 8 F . . . . . .
+            . . . . . F 8 8 8 E 8 8 8 8 8 E F F F 2 2 F F F E 8 8 8 8 8 E 8 8 8 F . . . . .
+            . . . . F 8 8 8 8 E 8 8 8 8 8 E B B 2 2 2 2 B B E 8 8 8 8 8 E 8 8 8 8 F . . . .
+            . . . F 8 8 8 8 8 8 E 8 8 8 8 8 E B 2 2 2 2 B E 8 8 3 2 8 E 8 8 8 8 8 8 F . . .
+            . . . F 8 8 8 8 8 8 E 8 8 8 8 8 E B 2 2 2 2 B E 8 8 3 8 8 E 8 8 8 8 8 8 F . . .
+            . . F 8 8 8 8 8 8 8 8 E 8 8 8 8 8 E 2 2 2 2 E 8 8 8 8 8 E 8 8 8 8 8 8 8 8 F . .
+            . . F 8 8 8 8 8 8 8 8 E 8 8 8 8 8 E 2 2 2 2 E 8 8 8 8 8 E 8 8 8 8 8 8 8 8 F . .
+            . F 8 8 8 8 8 F 8 8 8 8 E 8 8 8 8 8 E 2 2 E 8 8 8 8 8 E 8 8 8 8 8 8 8 8 8 8 F .
+            . F 8 8 8 8 F 8 8 8 8 8 8 E 8 8 8 8 8 E E 8 8 8 8 8 E 8 B B B 8 8 F 8 8 8 8 F .
+            . F 8 8 8 8 F 8 8 8 8 8 8 8 E 8 8 8 8 E 8 8 8 8 8 E 8 8 E E E 8 8 8 F 8 8 8 F .
+            . F 8 8 8 8 F 8 8 8 8 8 8 8 8 E 8 8 8 E 8 8 8 8 E 8 8 8 8 8 8 8 8 8 F 8 8 8 F .
+            . F 8 8 8 8 F 8 8 8 8 8 8 8 8 8 E 8 8 E 8 8 8 E 8 8 8 8 8 8 8 8 8 8 F 8 8 8 F .
+            . F 8 8 8 8 F 8 8 8 8 8 8 8 8 8 8 E 8 E 8 8 E 8 8 8 8 8 8 8 8 8 8 8 F 8 8 8 F .
+            . F 8 8 8 8 F 8 8 8 8 8 8 8 8 8 8 8 E E E E 8 8 8 8 8 8 8 8 8 8 8 8 F 8 8 8 F .
+            . F 8 8 8 8 F 8 8 8 8 8 8 8 8 8 8 8 8 8 E 8 8 8 8 8 8 8 8 8 8 8 8 8 F 8 8 8 F .
+            . F F F F F F 8 8 8 8 8 8 8 8 8 8 8 8 8 E 8 E 8 8 8 8 8 8 8 8 8 8 8 F F F F F .
+            A 3 3 3 3 3 A 8 8 8 8 8 8 8 8 8 8 8 8 8 E 8 8 8 8 8 8 8 8 8 8 8 8 A 3 3 3 3 3 A
+            A 3 3 3 3 3 A 8 8 8 8 8 8 8 8 8 8 8 8 8 E 8 8 8 8 8 8 8 8 8 8 8 8 A 3 3 3 3 3 A
+            . A A A A A 8 8 8 8 8 8 8 8 8 8 8 8 8 8 E 8 8 8 8 8 8 8 8 8 8 8 8 8 A A A A A .
+        `,
+        img`
+            . . . . . . . . . . . . . . . . E E E E E E E E . . . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . . E E B B B B B B B B E E . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . E B B B B B B B B B B B B E . . . . . . . . . . . . .
+            . . . . . . . . . . . . . E E E B B B B B B B B E E E . . . . . . . . . . . . .
+            . . . . . . . . . . . . . E B B E E E E E E E E B B E . . . . . . . . . . . . .
+            . . . . . . . . . . . E E E 9 9 B B B B B B B B 9 9 E E E . . . . . . . . . . .
+            . . . . . . . . . E E B B E 2 2 9 9 9 9 9 9 9 9 2 2 E B B E E . . . . . . . . .
+            . . . . . . . . E B B B B B E E 2 2 2 2 2 2 2 2 E E B B B B B E . . . . . . . .
+            . . . . . . . . . E E B B B B B E E E E E E E E B B B B B E E . . . . . . . . .
+            . . . . . . . . . . . E E E B B B B B B B B B B B B E E E . . . . . . . . . . .
+            . . . . . . . . . . . A 3 3 E E E E E E E E E E E E 3 3 A . . . . . . . . . . .
+            . . . . . . . . . . . A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A . . . . . . . . . . .
+            . . . . . . . . . . . F E E E 3 3 3 A 3 3 A 3 3 3 E E E F . . . . . . . . . . .
+            . . . . . . . . . . F E E B E E 3 3 A 3 3 A 3 3 E E B E E F . . . . . . . . . .
+            . . . . . . . . . . F E B E E E 3 3 A 3 3 A 3 3 E B E E E F . . . . . . . . . .
+            . . . . . . . . . . F E E E E E 3 3 A 3 3 A 3 3 E E E E E F . . . . . . . . . .
+            . . . . . . . . . . . F E E E 3 3 A 3 3 3 3 A 3 3 E E E F . . . . . . . . . . .
+            . . . . . . . . . . . . F 3 3 3 3 3 3 3 3 3 3 3 3 3 3 F . . . . . . . . . . . .
+            . . . . . . . . . . F F 8 F 3 3 3 3 3 3 3 3 3 3 3 3 F 8 F F . . . . . . . . . .
+            . . . . . . . . F F E 8 8 8 F F E E E 3 3 E E E F F 8 8 8 E F F . . . . . . . .
+            . . . . . . . F 8 8 8 E 8 8 8 F E E E E E E E E F 8 8 8 E 8 8 8 F . . . . . . .
+            . . . . . . F 8 8 8 E 8 8 8 8 8 F E E E E E E F 8 8 8 8 8 E 8 8 8 F . . . . . .
+            . . . . . F 8 8 8 E 8 8 8 8 8 E B F F F F F F B E 8 8 8 8 8 E 8 8 8 F . . . . .
+            . . . . F 8 8 8 8 E 8 8 8 8 8 E B B 2 2 2 2 B B E 8 8 8 8 8 E 8 8 8 8 F . . . .
+            . . . F 8 8 8 8 8 8 E 8 8 8 8 8 E B 2 2 2 2 B E 8 8 3 2 8 E 8 8 8 8 8 8 F . . .
+            . . . F 8 8 8 8 8 8 E 8 8 8 8 8 E B 2 2 2 2 B E 8 8 3 8 8 E 8 8 8 8 8 8 F . . .
+            . . F 8 8 8 8 8 8 8 8 E 8 8 8 8 8 E 2 2 2 2 E 8 8 8 8 8 E 8 8 8 8 8 8 8 8 F . .
+            . . F 8 8 8 8 8 8 8 8 E 8 8 8 8 8 E 2 2 2 2 E 8 8 8 8 8 E 8 8 8 8 8 8 8 8 F . .
+            . F 8 8 8 8 8 F 8 8 8 8 E 8 8 8 8 8 E 2 2 E 8 8 8 8 8 E 8 8 8 8 8 8 8 8 8 8 F .
+            . F 8 8 8 8 F 8 8 8 8 8 8 E 8 8 8 8 8 E E 8 8 8 8 8 E 8 B B B 8 8 F 8 8 8 8 F .
+            . F 8 8 8 8 F 8 8 8 8 8 8 8 E 8 8 8 8 E 8 8 8 8 8 E 8 8 E E E 8 8 8 F 8 8 8 F .
+            . F 8 8 8 8 F 8 8 8 8 8 8 8 8 E 8 8 8 E 8 8 8 8 E 8 8 8 8 8 8 8 8 8 F 8 8 8 F .
+            . F 8 8 8 8 F 8 8 8 8 8 8 8 8 8 E 8 8 E 8 8 8 E 8 8 8 8 8 8 8 8 8 8 F 8 8 8 F .
+            . F 8 8 8 8 F 8 8 8 8 8 8 8 8 8 8 E 8 E 8 8 E 8 8 8 8 8 8 8 8 8 8 8 F 8 8 8 F .
+            . F 8 8 8 8 F 8 8 8 8 8 8 8 8 8 8 8 E E E E 8 8 8 8 8 8 8 8 8 8 8 8 F 8 8 8 F .
+            . F 8 8 8 8 F 8 8 8 8 8 8 8 8 8 8 8 8 8 E 8 8 8 8 8 8 8 8 8 8 8 8 8 F 8 8 8 F .
+            . F F F F F F 8 8 8 8 8 8 8 8 8 8 8 8 8 E 8 E 8 8 8 8 8 8 8 8 8 8 8 F F F F F .
+            A 3 3 3 3 3 A 8 8 8 8 8 8 8 8 8 8 8 8 8 E 8 8 8 8 8 8 8 8 8 8 8 8 A 3 3 3 3 3 A
+            A 3 3 3 3 3 A 8 8 8 8 8 8 8 8 8 8 8 8 8 E 8 8 8 8 8 8 8 8 8 8 8 8 A 3 3 3 3 3 A
+            . A A A A A 8 8 8 8 8 8 8 8 8 8 8 8 8 8 E 8 8 8 8 8 8 8 8 8 8 8 8 8 A A A A A .
+        `,
+        img`
+            . . . . . . . . . . . . . . . . E E E E E E E E . . . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . . E E B B B B B B B B E E . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . E B B B B B B B B B B B B E . . . . . . . . . . . . .
+            . . . . . . . . . . . . . E E E B B B B B B B B E E E . . . . . . . . . . . . .
+            . . . . . . . . . . . . . E B B E E E E E E E E B B E . . . . . . . . . . . . .
+            . . . . . . . . . . . E E E 9 9 B B B B B B B B 9 9 E E E . . . . . . . . . . .
+            . . . . . . . . . E E B B E 2 2 9 9 9 9 9 9 9 9 2 2 E B B E E . . A . . . . . .
+            . . . . . . . . E B B B B B E E 2 2 2 2 2 2 2 2 E E B B B B B E A 3 A . . . . .
+            . . . . . . . . . E E B B B B B E E E E E E E E B B B B B E E . A 3 A A A A . .
+            . . . . . . . . . . . E E E B B B B B B B B B B B B E E E . . . A 3 A 3 A 3 A .
+            . . . . . . . . . . . A 3 3 E E E E E E E E E E E E 3 3 A . . . A A A A A A A .
+            . . . . . . . . . . . A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A . . . A 3 3 3 3 3 A .
+            . . . . . . . . . . . F E E E 3 3 3 A 3 3 A 3 3 3 E E E F . . . . F F F F F . .
+            . . . . . . . . . . F E E B E E 3 3 A 3 3 A 3 3 E E B E E F . . . F 8 8 8 F . .
+            . . . . . . . . . . F E B E E E 3 3 A 3 3 A 3 3 E B E E E F . . . F 8 8 8 F . .
+            . . . . . . . . . . F E E E E E 3 3 A 3 3 A 3 3 E E E E E F . . . F 8 8 8 F . .
+            . . . . . . . . . . . F E E E 3 3 A 3 3 3 3 A 3 3 E E E F . . . . F 8 8 8 F . .
+            . . . . . . . . . . . . F 3 3 3 3 3 3 3 3 3 3 3 3 3 3 F . . . . . F 8 8 8 F . .
+            . . . . . . . . . . F F 8 F 3 3 3 3 3 3 3 3 3 3 3 3 F 8 F F . . F 8 8 8 8 F . .
+            . . . . . . . . F F E 8 8 8 F E E E 3 3 3 3 E E E F 8 8 8 E F F 8 8 8 8 8 F . .
+            . . . . . . . F 8 8 8 E 8 8 F E E E E 3 3 E E E E F 8 8 E 8 8 8 8 8 8 8 8 F . .
+            . . . . . . F 8 8 8 E 8 8 8 8 F E E E F F E E E F 8 8 8 8 E 8 8 8 8 8 8 8 F . .
+            . . . . . F 8 8 8 E 8 8 8 8 8 E F F F 2 2 F F F E 8 8 8 8 8 E 8 8 8 8 8 8 F . .
+            . . . . F 8 8 8 8 E 8 8 8 8 8 E B B 2 2 2 2 B B E 8 8 8 8 8 E 8 8 8 8 8 F . . .
+            . . . F 8 8 8 8 8 8 E 8 8 8 8 8 E B 2 2 2 2 B E 8 8 3 2 8 E 8 8 8 8 8 F . . . .
+            . . . F 8 8 8 8 8 8 E 8 8 8 8 8 E B 2 2 2 2 B E 8 8 3 8 8 E 8 8 8 8 F . . . . .
+            . . F 8 8 8 8 8 8 8 8 E 8 8 8 8 8 E 2 2 2 2 E 8 8 8 8 8 E 8 8 8 8 F . . . . . .
+            . . F 8 8 8 8 8 8 8 8 E 8 8 8 8 8 E 2 2 2 2 E 8 8 8 8 8 E 8 8 8 8 F . . . . . .
+            . F 8 8 8 8 8 F 8 8 8 8 E 8 8 8 8 8 E 2 2 E 8 8 8 8 8 E 8 8 8 8 8 F . . . . . .
+            . F 8 8 8 8 F 8 8 8 8 8 8 E 8 8 8 8 8 E E 8 8 8 8 8 E 8 B B B 8 8 F . . . . . .
+            . F 8 8 8 8 F 8 8 8 8 8 8 8 E 8 8 8 8 E 8 8 8 8 8 E 8 8 E E E 8 8 F . . . . . .
+            . F 8 8 8 8 F 8 8 8 8 8 8 8 8 E 8 8 8 E 8 8 8 8 E 8 8 8 8 8 8 8 8 F . . . . . .
+            . F 8 8 8 8 F 8 8 8 8 8 8 8 8 8 E 8 8 E 8 8 8 E 8 8 8 8 8 8 8 8 8 F . . . . . .
+            . F 8 8 8 8 F 8 8 8 8 8 8 8 8 8 8 E 8 E 8 8 E 8 8 8 8 8 8 8 8 8 8 F . . . . . .
+            . F 8 8 8 8 F 8 8 8 8 8 8 8 8 8 8 8 E E E E 8 8 8 8 8 8 8 8 8 8 8 F . . . . . .
+            . F 8 8 8 8 F 8 8 8 8 8 8 8 8 8 8 8 8 8 E 8 8 8 8 8 8 8 8 8 8 8 8 F . . . . . .
+            . F F F F F F 8 8 8 8 8 8 8 8 8 8 8 8 8 E 8 E 8 8 8 8 8 8 8 8 8 8 F . . . . . .
+            A 3 3 3 3 3 A 8 8 8 8 8 8 8 8 8 8 8 8 8 E 8 8 8 8 8 8 8 8 8 8 8 8 F . . . . . .
+            A 3 3 3 3 3 A 8 8 8 8 8 8 8 8 8 8 8 8 8 E 8 8 8 8 8 8 8 8 8 8 8 8 F . . . . . .
+            . A A A A A 8 8 8 8 8 8 8 8 8 8 8 8 8 8 E 8 8 8 8 8 8 8 8 8 8 8 8 F . . . . . .
+        `,
+        img`
+            . . . . . . . . . . . . . . . . E E E E E E E E . . . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . . E E B B B B B B B B E E . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . E B B B B B B B B B B B B E . . . . . . . . . . . . .
+            . . . . . . . . . . . . . E E E B B B B B B B B E E E . . . . . . . . . . . . .
+            . . . . . . . . . . . . . E B B E E E E E E E E B B E . . . . . . . . . . . . .
+            . . . . . . . . . . . E E E 9 9 B B B B B B B B 9 9 E E E . . . . . . . . . . .
+            . . . . . . . . . E E B B E 2 2 9 9 9 9 9 9 9 9 2 2 E B B E E . . A . . . . . .
+            . . . . . . . . E B B B B B E E 2 2 2 2 2 2 2 2 E E B B B B B E A 3 A . . . . .
+            . . . . . . . . . E E B B B B B E E E E E E E E B B B B B E E . A 3 A A A A . .
+            . . . . . . . . . . . E E E B B B B B B B B B B B B E E E . . . A 3 A 3 A 3 A .
+            . . . . . . . . . . . A 3 3 E E E E E E E E E E E E 3 3 A . . . A A A A A A A .
+            . . . . . . . . . . . A 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 A . . . A 3 3 3 3 3 A .
+            . . . . . . . . . . . F E E E 3 3 3 A 3 3 A 3 3 3 E E E F . . . . F F F F F . .
+            . . . . . . . . . . F E E B E E 3 3 A 3 3 A 3 3 E E B E E F . . . F 8 8 8 F . .
+            . . . . . . . . . . F E B E E E 3 3 A 3 3 A 3 3 E B E E E F . . . F 8 8 8 F . .
+            . . . . . . . . . . F E E E E E 3 3 A 3 3 A 3 3 E E E E E F . . . F 8 8 8 F . .
+            . . . . . . . . . . . F E E E 3 3 A 3 3 3 3 A 3 3 E E E F . . . . F 8 8 8 F . .
+            . . . . . . . . . . . . F 3 3 3 3 3 3 3 3 3 3 3 3 3 3 F . . . . . F 8 8 8 F . .
+            . . . . . . . . . . F F 8 F 3 3 3 3 3 3 3 3 3 3 3 3 F 8 F F . . F 8 8 8 8 F . .
+            . . . . . . . . F F E 8 8 8 F F E E E 3 3 E E E F F 8 8 8 E F F 8 8 8 8 8 F . .
+            . . . . . . . F 8 8 8 E 8 8 8 F E E E E E E E E F 8 8 8 E 8 8 8 8 8 8 8 8 F . .
+            . . . . . . F 8 8 8 E 8 8 8 8 8 F E E E E E E F 8 8 8 8 8 E 8 8 8 8 8 8 8 F . .
+            . . . . . F 8 8 8 E 8 8 8 8 8 E B F F F F F F B E 8 8 8 8 8 E 8 8 8 8 8 8 F . .
+            . . . . F 8 8 8 8 E 8 8 8 8 8 E B B 2 2 2 2 B B E 8 8 8 8 8 E 8 8 8 8 8 F . . .
+            . . . F 8 8 8 8 8 8 E 8 8 8 8 8 E B 2 2 2 2 B E 8 8 3 2 8 E 8 8 8 8 8 F . . . .
+            . . . F 8 8 8 8 8 8 E 8 8 8 8 8 E B 2 2 2 2 B E 8 8 3 8 8 E 8 8 8 8 F . . . . .
+            . . F 8 8 8 8 8 8 8 8 E 8 8 8 8 8 E 2 2 2 2 E 8 8 8 8 8 E 8 8 8 8 F . . . . . .
+            . . F 8 8 8 8 8 8 8 8 E 8 8 8 8 8 E 2 2 2 2 E 8 8 8 8 8 E 8 8 8 8 F . . . . . .
+            . F 8 8 8 8 8 F 8 8 8 8 E 8 8 8 8 8 E 2 2 E 8 8 8 8 8 E 8 8 8 8 8 F . . . . . .
+            . F 8 8 8 8 F 8 8 8 8 8 8 E 8 8 8 8 8 E E 8 8 8 8 8 E 8 B B B 8 8 F . . . . . .
+            . F 8 8 8 8 F 8 8 8 8 8 8 8 E 8 8 8 8 E 8 8 8 8 8 E 8 8 E E E 8 8 F . . . . . .
+            . F 8 8 8 8 F 8 8 8 8 8 8 8 8 E 8 8 8 E 8 8 8 8 E 8 8 8 8 8 8 8 8 F . . . . . .
+            . F 8 8 8 8 F 8 8 8 8 8 8 8 8 8 E 8 8 E 8 8 8 E 8 8 8 8 8 8 8 8 8 F . . . . . .
+            . F 8 8 8 8 F 8 8 8 8 8 8 8 8 8 8 E 8 E 8 8 E 8 8 8 8 8 8 8 8 8 8 F . . . . . .
+            . F 8 8 8 8 F 8 8 8 8 8 8 8 8 8 8 8 E E E E 8 8 8 8 8 8 8 8 8 8 8 F . . . . . .
+            . F 8 8 8 8 F 8 8 8 8 8 8 8 8 8 8 8 8 8 E 8 8 8 8 8 8 8 8 8 8 8 8 F . . . . . .
+            . F F F F F F 8 8 8 8 8 8 8 8 8 8 8 8 8 E 8 E 8 8 8 8 8 8 8 8 8 8 F . . . . . .
+            A 3 3 3 3 3 A 8 8 8 8 8 8 8 8 8 8 8 8 8 E 8 8 8 8 8 8 8 8 8 8 8 8 F . . . . . .
+            A 3 3 3 3 3 A 8 8 8 8 8 8 8 8 8 8 8 8 8 E 8 8 8 8 8 8 8 8 8 8 8 8 F . . . . . .
+            . A A A A A 8 8 8 8 8 8 8 8 8 8 8 8 8 8 E 8 8 8 8 8 8 8 8 8 8 8 8 F . . . . . .
+        `
+    ];
+
     // bugsly.png
     //% whenUsed
     export const bugsly = img`
@@ -1454,6 +1627,54 @@ namespace hourOfAi.imgs {
         . . . F F F F F .
     `;
 
+    // podium.png
+    //% whenUsed
+    export const podium = img`
+        . . . . . . . . . . . . . . F F . . . . . . . . . . . . . F F . . . . . . . . . . . . .
+        . . . . . . . . . . . . . F F F F . . . . F F F . . . . F F F F . . . . . . . . . . . .
+        . . . . . . . . . . . . . F F F F . . . F F F F F . . . F F F F . . . . . . . . . . . .
+        . . . . . . . . . . . . F F F F F . . . F F F F F . . . F F F F F . . . . . . . . . . .
+        . . . . . . . . . . . F E E F F . . . . F F F F F . . . . F F E E F . . . . . . . . . .
+        . . . . . . . . . . F E E F F . . . . . . F E F . . . . . . F F E E F . . . . . . . . .
+        . . . . . . . . . F E E F E F . . . . . . F E F . . . . . . F E F E E F . . . . . . . .
+        . . . . . . . . . F E F F E F . . . . . . F F F . . . . . . F E F F E F . . . . . . . .
+        . . . . . . . . F F F . F E F . . . . . . F E F . . . . . . F E F . F F F . . . . . . .
+        . . . F F F F F F F F F F E F F F F F F F F E F F F F F F F F E F F F F F F F F F F F .
+        . . F A A A A F F A F F F E F F F A A A F F E F F A A A F F F E F F F A A F A A A A F F
+        . F A A A A A F A F E E E E E E E F A F E E E E E F A F E E E E E E E F A F A A A F E F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F E E F
+        F A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A F E E F
+        F A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A F E E F
+        F A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A F E E F
+        F A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A F E E F
+        F A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A F E F .
+        F A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A F F . .
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F . . . .
+        . . . . . . . F E E E E E E E E E E E E E E E E E E E E E E E E E F E E E F . . . . . .
+        . . . . . . . F A A A A A A A A A A A A A A A A A A A A A A A A A F E E E F . . . . . .
+        . . . . . . . F A A A A A A A A A A A A A A A A A A A A A A A A A F E E E F . . . . . .
+        . . . . . . . F A A A A A A A A A A A A A A A A A A A A A A A A A F E E E F . . . . . .
+        . . . . . . . F A A A A A A A A A A 8 8 8 8 8 E A A A A A A A A A F E E E F . . . . . .
+        . . . . . . . F A A A A A A A A 8 8 8 8 8 8 8 8 8 E A A A A A A A F E E E F . . . . . .
+        . . . . . . . F A A A A A A A 8 8 8 4 4 4 4 4 8 8 8 E A A A A A A F E E E F . . . . . .
+        . . . . . . . F A A A A A A A 8 8 4 B B B B B 4 8 8 E A A A A A A F E E E F . . . . . .
+        . . . . . . . F A A A A A A 8 8 4 B B B A B B B 4 8 8 E A A A A A F E E E F . . . . . .
+        . . . . . . . F A A A A A A 8 8 4 B E A A A E B 4 8 8 E A A A A A F E E E F . . . . . .
+        . . . . . . . F A A A A A A 8 8 4 B B 2 2 2 B B 4 8 8 E A A A A A F E E E F . . . . . .
+        . . . . . . . F A A A A A A 8 8 4 B E A A A E B 4 8 8 E A A A A A F E E E F . . . . . .
+        . . . . . . . F A A A A A A 8 8 4 B B E B E B B 4 8 8 E A A A A A F E E E F . . . . . .
+        . . . . . . . F A A A A A A A 8 8 4 B B B B B 4 8 8 E A A A A A A F E E E F . . . . . .
+        . . . . . . . F A A A A A A A 8 8 8 4 4 4 4 4 8 8 8 E A A A A A A F E E E F . . . . . .
+        . . . . . . . F A A A A A A A A 8 8 8 8 8 8 8 8 8 E A A A A A A A F E E E F . . . . . .
+        . . . . . . . F A A A A A A A A A A 8 8 8 8 8 E A A A A A A A A A F E E E F . . . . . .
+        . . . . . . . F A A A A A A A A A A A A A A A A A A A A A A A A A F E E E F . . . . . .
+        . . . . . . . F A A A A A A A A A A A A A A A A A A A A A A A A A F E E E F . . . . . .
+        . . . . . . . F A A A A A A A A A A A A A A A A A A A A A A A A A F E E F . . . . . . .
+        . . . . . . . F A A A A A A A A A A A A A A A A A A A A A A A A A F E F . . . . . . . .
+        . . . . . . . F A A A A A A A A A A A A A A A A A A A A A A A A A F F . . . . . . . . .
+        . . . . . . . F F F F F F F F F F F F F F F F F F F F F F F F F F F . . . . . . . . . .
+    `;
+
     // president.png
     //% whenUsed
     export const president = img`
@@ -1489,6 +1710,176 @@ namespace hourOfAi.imgs {
         8 8 F 8 8 8 8 8 8 E 8 8 8 8 8 E E 8 8 8 8 8 E 8 B B B 8 8 F 8 8
         8 F 8 8 8 8 8 8 8 8 E 8 8 8 8 E 8 8 8 8 8 E 8 8 E E E 8 8 8 F 8
         F 8 8 8 8 8 8 8 8 8 8 E 8 8 8 E 8 8 8 8 E 8 8 8 8 8 8 8 8 8 8 F
+    `;
+
+    // press_office_bg.png
+    //% whenUsed
+    export const press_office_bg = img`
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F C D C D C D C F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F C D C D C D C F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E D D D D E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E D D D D E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E C C C C C C C C C C E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E C C C E E E E E E E E E E C C C E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E C C C E E E 9 9 9 9 9 9 9 9 9 9 E E E C C C E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E D D D D E 6 6 6 6 6 E E C E E E 9 9 9 9 9 9 E E E E 9 9 9 9 9 9 E E E C E E 6 6 6 6 6 E D D D D E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 E C C E 9 9 9 9 9 9 9 9 E C C C C E 9 9 9 9 9 9 9 9 E C C E 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 E C E E 9 9 9 9 9 9 9 9 E C C C C C C E 9 9 9 9 9 9 9 9 E E C E 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 E C E 9 9 9 9 9 E E E E E C C C C C C E E E E E 9 9 9 9 9 E C E 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E D D D D E 6 6 E C E 9 9 9 9 9 E C C C C C C C C C C C C C C C C E 9 9 9 9 9 E C E 6 6 E D D D D E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 E C E 9 9 9 9 E C C E C E C E C E E C E C E C E C C E 9 9 9 9 E C E 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 E C E 9 9 9 9 E C C C C C C C C C C C C C C C C C C E 9 9 9 9 E C E 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 E C E 9 9 9 9 E C C E C E C E C E E C E C E C E C C E 9 9 9 9 E C E 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E D D D D E 6 6 E C E 9 9 9 9 E C C E C E C E C E E C E C E C E C C E 9 9 9 9 E C E 6 6 E D D D D E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 E C E 9 9 9 9 E C C C C C C C C C C C C C C C C C C E 9 9 9 9 E C E 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 E C E 9 9 9 9 E E E E E E E E E E E E E E E E E E 9 9 9 9 E C E 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 E C E E 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 E E C E 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E D D D D E 6 6 6 6 E C C E 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 E C C E 6 6 6 6 E D D D D E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 E E C E E E 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 E E E C E E 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E C C C E E E 9 9 9 9 9 9 9 9 9 9 E E E C C C E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E C C C E E E E E E E E E E C C C E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E D D D D E 6 6 6 6 6 6 E E E E E E E E C C C C C C C C C C E E E E E E E E 6 6 6 6 6 6 E D D D D E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E D D D D E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E D D D D E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E D D D D E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E D D D D E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E D D D D E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E D D D D E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E D D D D E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E D D D D E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E D D D D E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E D D D D E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E D D D D E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E D D D D E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F B C B C B C B F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F B C B C B C B F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F B C B C B C B F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F B C B C B C B F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F B C B C B C B F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F B C B C B C B F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F F B C B C B C B F F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F F B C B C B C B F F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F B F B C B C B C B F B F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F B F B C B C B C B F B F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F B B F F B C B F F B B F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F B B F F B C B F F B B F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F F B B B F F F B B B F F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F F B B B F F F B B B F F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F B F B B B B B B B F B F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F B F B B B B B B B F B F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F B F F F F F F F B F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F B F F F F F F F B F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F B B B B B B B F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F B B B B B B B F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F F F F F F F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F F F F F F F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+    `;
+
+    // press_office_bg_spotlight.png
+    //% whenUsed
+    export const press_office_bg_spotlight = img`
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F C D C D C D C F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F C D C D C D C F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E D D D D E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E D D D D E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E C C C C C C C C C C E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E C C C E E E E E E E E E E C C C E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E C C C E E E 9 9 9 9 9 9 9 9 9 9 E E E C C C E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E D D D D E 6 6 6 6 6 E E C E E E 9 9 9 9 9 9 E E E E 9 9 9 9 9 9 E E E C E E 6 6 6 6 6 E D D D D E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 E C C E 9 9 9 9 9 9 9 9 E C C C C E 9 9 9 9 9 9 9 9 E C C E 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 E C E E 9 9 9 9 9 9 9 9 E C C C C C C E 9 9 9 9 9 9 9 9 E E C E 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 E C E 9 9 9 9 9 E E E E E C C C C C C E E E E E 9 9 9 9 9 E C E 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E D D D D E 6 6 E C E 9 9 9 9 9 E C C C C C C C C C C C C C C C C E 9 9 9 9 9 E C E 6 6 E D D D D E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 E C E 9 9 9 9 E C C E C E C E C E E C E C E C E C C E 9 9 9 9 E C E 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 E C E 9 9 9 9 E C C C C C C C C C C C C C C C C C C E 9 9 9 9 E C E 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 E C E 9 9 9 9 E C C E C E C E C E E C E C E C E C C E 9 9 9 9 E C E 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E D D D D E 6 6 E C E 9 9 9 9 E C C E C E C E C E E C E C E C E C C E 9 9 9 9 E C E 6 6 E D D D D E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 E C E 9 9 9 9 E C C C C C C C C C C C C C C C C C C E 9 9 9 9 E C E 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 E C E 9 9 9 9 E E E E E E E E E E E E E E E E E E 9 9 9 9 E C E 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 E C E E 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 E E C E 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E D D D D E 6 6 6 6 E C C E 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 E C C E 6 6 6 6 E D D D D E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 E E C E E E 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 E E E C E E 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E C C C E E E 9 9 9 9 9 9 9 9 9 9 E E E C C C E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E C C C E E E E E E E E E E C C C E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E D D D D E 6 6 6 6 6 6 E E E E E E E E C C C C C C C C C C E E E E E E E E 6 6 6 6 6 6 E D D D D E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E D D D D E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E D D D D E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E D D D D E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E D D D D E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E D D D D E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E D D D D E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E D D D D E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E D D D D E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E D D D D E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E D D D D E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E D D D D E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E D D D D E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 F B C B C B C B F 8 8 E 6 6 6 6 E 6 6 6 6 6 6 E E E E E E E E E E E E E E E E E E E E E E E E E E 6 6 6 6 6 6 E 6 6 6 6 E 8 8 F B C B C B C B F 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F B C B C B C B F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F B C B C B C B F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F B C B C B C B F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F B C B C B C B F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F B C B C B C B F D D D D D D D D 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 D D D D D D D D D F B C B C B C B F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F F B C B C B C B F F 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 F F B C B C B C B F F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F B F B C B C B C B F B F 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 F B F B C B C B C B F B F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D F B B F F B C B F F B B F 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 F B B F F B C B F F B B F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D 5 F F B B B F F F B B B F F 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 F F B B B F F F B B B F F D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D 5 5 5 5 F B F B B B B B B B F B F 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 F B F B B B B B B B F B F 5 5 5 D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D 5 5 5 5 5 5 5 F B F F F F F F F B F 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 F B F F F F F F F B F 5 5 5 5 5 5 D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D 5 5 5 5 5 5 5 5 5 F B B B B B B B F 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 F B B B B B B B F 5 5 5 5 5 5 5 5 D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D 5 5 5 5 5 5 5 5 5 5 5 5 F F F F F F F 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 F F F F F F F 5 5 5 5 5 5 5 5 5 5 5 D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
+        D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D
     `;
 
     // punching_bag-63-36.png
@@ -2252,6 +2643,91 @@ namespace hourOfAi.imgs {
         . . . . . . . . . . . . . . . . . . . . . . C C C C . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
         . . . . . . . . . . . . . . . . . . . . . . C C . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
         . . . . . . . . . . . . . . . . . . . . . . C . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    `;
+
+    // spotlight.png
+    //% whenUsed
+    export const spotlight = img`
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 3 3 3 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 3 3 3 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 3 3 3 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 3 3 3 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 3 3 3 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 3 3 3 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 3 3 3 3 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 3 3 3 3 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 3 3 3 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 3 3 3 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 3 3 3 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 3 3 3 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 3 3 3 3 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 3 3 3 3 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 3 3 3 3 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 3 3 3 3 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 3 3 3 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 3 3 3 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 3 3 3 3 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 3 3 3 3 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 3 3 3 3 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 3 3 3 3 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 3 3 3 3 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 3 3 3 3 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 3 3 3 3 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 3 3 3 3 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 3 3 3 3 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 3 3 3 3 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 3 3 3 3 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 3 3 3 3 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 3 3 3 3 3 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 3 3 3 3 3 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 3 3 3 3 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 3 3 3 3 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 3 3 3 3 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 3 3 3 3 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 3 3 3 3 3 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 3 3 3 3 3 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 3 3 3 3 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 3 3 3 3 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 3 3 3 3 3 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 3 3 3 3 3 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 3 3 3 3 3 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 3 3 3 3 3 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 3 3 3 3 3 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 3 3 3 3 3 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 3 3 3 3 3 3 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 3 3 3 3 3 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 3 3 3 3 3 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 3 3 3 3 3 3 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 3 3 3 3 3 3 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 3 3 3 3 3 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 3 3 3 3 3 3 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 3 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 3 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 3 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 3 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 3 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 3 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 3 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 3 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 3 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 3 3 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 4 3 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 3 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 3 3 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 3 3 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 4 3 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 4 3 3 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 3 3 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 3 3 3 3 3 3 3 3 3 2 2 2 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 4 3 3 3 3 3 3 3 3 3 2 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 4 3 3 3 3 3 3 3 3 3 2 2 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 2 2 2 2 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 4 3 3 3 3 3 3 3 3 3 2 2 2 2 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 3 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 3 3 3 3 3 3 3 3 3 3 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 3 3 3 3 3 3 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 4 3 3 3 3 3 3 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 3 3 3 3 3 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 3 3 3 3 3 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 3 3 3 3 3 3 3 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 3 3 3 3 3 3 3 3 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+        F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
     `;
 
     // stinky.png

@@ -136,6 +136,7 @@ namespace hourOfAi.tower {
             }
 
             showDialog(
+                context,
                 dialog.characterName || challenger.name,
                 dialog.text,
                 dialog.characterPortrait || challenger.portrait,
@@ -153,5 +154,30 @@ namespace hourOfAi.tower {
 
     export function startMatch(challenger: Challenger) {
         return initSingleMatch(true, true, true, challenger);
+    }
+
+    export function runImageAnimationWhileTrue(sprite: Sprite, images: Image[], interval: number, condition: () => boolean) {
+        let frameHandler: control.FrameCallback;
+        let frameTimer = interval;
+        let frame = 0;
+
+        sprite.setImage(images[0]);
+
+
+        frameHandler = game.eventContext().registerFrameHandler(scene.UPDATE_PRIORITY, () => {
+            if (!condition()) {
+                game.eventContext().unregisterFrameHandler(frameHandler);
+                sprite.setImage(images[0]);
+                return;
+            }
+
+            frameTimer -= game.eventContext().deltaTimeMillis;
+
+            while (frameTimer <= 0) {
+                frameTimer += interval;
+                frame = (frame + 1) % images.length;
+                sprite.setImage(images[frame]);
+            }
+        });
     }
 }

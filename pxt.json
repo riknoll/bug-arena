@@ -58,7 +58,8 @@
         "arcade-extension-utils": "github:riknoll/arcade-extension-utils#v0.0.1",
         "browser-events": "*",
         "arcade-fancy-text": "github:riknoll/arcade-fancy-text#v0.2.0",
-        "arcade-screen-transitions": "github:riknoll/arcade-screen-transitions#v0.1.0"
+        "arcade-screen-transitions": "github:riknoll/arcade-screen-transitions#v0.1.0",
+        "arcade-sound-instructions": "github:riknoll/arcade-sound-instructions"
     },
     "testDependencies": {},
     "palette": [

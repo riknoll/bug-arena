@@ -33,7 +33,7 @@ namespace hourOfAi.tower {
         }
     }
 
-    export function showDialog(characterName: string, text: string, portrait: Image, showIntro: boolean, font?: fancyText.BaseFont) {
+    export function showDialog(context: DialogContext, characterName: string, text: string, portrait: Image, showIntro: boolean, font?: fancyText.BaseFont) {
         initColorRamps();
         let yOffset = showIntro ? PORTRAIT_WIDTH : 0
         let xOffset = showIntro ? DIALOG_WIDTH - (FRAME_EDGE_WIDTH << 1) : 0;
@@ -148,9 +148,12 @@ namespace hourOfAi.tower {
         dialog.setMaxLines(3)
         dialog.left = 1
         dialog.top = DIALOG_TOP
+        context.isPrinting = true;
         dialog.animateAtSpeed(30)
 
         pauseUntil(() => dialog.remainingAnimationTime() <= 0 || cancelledIntro);
+        context.isPrinting = false;
+
         dialog.cancelAnimation();
         cancelledIntro = true;
 
@@ -169,6 +172,7 @@ namespace hourOfAi.tower {
 
     export class DialogContext {
         protected _isFinished = false;
+        isPrinting = false;
         currentStep = 0;
 
         constructor() {
