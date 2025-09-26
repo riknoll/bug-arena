@@ -24,7 +24,12 @@ const palette = [
     "#0E1132"
 ].map(parseColor);
 
-let outTs = "";
+// let outTs = "";
+
+fs.rmSync(path.resolve(__dirname, "..", "assets", "generated"), { recursive: true, force: true });
+fs.mkdirSync(path.resolve(__dirname, "..", "assets", "generated"));
+
+const fileEntries = [];
 
 for (const file of fs.readdirSync(assetsDir)) {
     const ext = path.extname(file);
@@ -84,8 +89,10 @@ for (const file of fs.readdirSync(assetsDir)) {
 
         const frameImages = []
         for (let frame = 0; frame < frames; frame++) {
-            frameImages.push(readImage(colorData, width, height, frame, frames));
+            frameImages.push(encodeData(colorData, width, height, frame, frames));
         }
+
+        let outTs = `namespace hourOfAi.imgs {\n`;
 
         outTs += `    // ${file}\n`;
         outTs += `    //% whenUsed\n`;
@@ -95,18 +102,22 @@ for (const file of fs.readdirSync(assetsDir)) {
         else {
             outTs += `    export const ${spriteName} = [\n${indent(frameImages.join(",\n"), 8)}\n    ];\n\n`;
         }
+        outTs += `}\n\n`;
+
+        const outFile = path.resolve(__dirname, "..", "assets", "generated", spriteName + ".ts");
+        fs.writeFileSync(outFile, outTs);
+
+        fileEntries.push(`assets/generated/${spriteName}.ts`)
     }
 }
 
-outTs = `// Auto-generated file. Do not edit.\n\n
-namespace hourOfAi.imgs {
-${outTs}
+const config = fs.readFileSync(path.resolve(__dirname, "..", "pxt.json"), "utf8");
+const configJson = JSON.parse(config);
+configJson.files = configJson.files.filter(f => !f.startsWith("assets/generated/"));
+for (const entry of fileEntries) {
+    configJson.files.push(entry);
 }
-`;
-
-const outPath = path.resolve(__dirname, "..", "assets", "built.ts");
-
-fs.writeFileSync(outPath, outTs);
+fs.writeFileSync(path.resolve(__dirname, "..", "pxt.json"), JSON.stringify(configJson, null, 4));
 
 console.log("done");
 
@@ -144,4 +155,57 @@ function indentAfterFirstLine(text, spaces) {
     const lines = text.split("\n");
 
     return lines[0] + "\n" + indent(lines.slice(1).join("\n"), spaces);
+}
+
+function encodeData(colorData, width, height, frame, frames) {
+    const encoded = f4EncodeImg(width, height, 4, (x, y) => {
+        const absX = frame * width + x;
+        const idx = y * width * frames + absX;
+        const color = colorData[idx];
+        return color;
+    });
+
+    return `image.ofBuffer(hex\`${encoded}\`)`;
+}
+
+function f4EncodeImg(w, h, bpp, getPix) {
+    const header = [
+        0x87, bpp,
+        w & 0xff, w >> 8,
+        h & 0xff, h >> 8,
+        0, 0
+    ]
+    let r = header.map(hex2).join("")
+    let ptr = 4
+    let curr = 0
+    let shift = 0
+
+    let pushBits = (n) => {
+        curr |= n << shift
+        if (shift == 8 - bpp) {
+            r += hex2(curr)
+            ptr++
+            curr = 0
+            shift = 0
+        } else {
+            shift += bpp
+        }
+    }
+
+    for (let i = 0; i < w; ++i) {
+        for (let j = 0; j < h; ++j)
+            pushBits(getPix(i, j))
+        while (shift != 0)
+            pushBits(0)
+        if (bpp > 1) {
+            while (ptr & 3)
+                pushBits(0)
+        }
+    }
+
+    return r
+
+    function hex2(n) {
+        return ("0" + n.toString(16)).slice(-2)
+    }
 }

@@ -1,0 +1,8 @@
+namespace hourOfAi.imgs {
+    // bumble_small.png
+    //% whenUsed
+    export const bumble_small = image.ofBuffer(hex`870412000f00000000000ff0ff00000090f9faef3e0f0000b99baa3333f30f00b9bbe9eeeeaefa0090bbe9eeeeee0f0000b944444444f400009044444444aa0f0090eeeeeeeefe0000b9eeeeeeeefe0090bb494444440f00b9bb494444a4fa00b99befeeeeee0f009009f0eeeefe00000000004f440f0000000000f0fe000000000000f0fe000000000000f0fe000000000000000f000000`)
+    ;
+
+}
+

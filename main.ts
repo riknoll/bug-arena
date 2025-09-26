@@ -5,7 +5,6 @@ function init() {
         hourOfAi.startGameMode(hourOfAi.GameMode.MainMenu);
     });
 
-
     switch (hourOfAi.getCurrentGameMode()) {
         case hourOfAi.GameMode.MainMenu:
             hourOfAi.initMainMenu();
