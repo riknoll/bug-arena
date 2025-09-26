@@ -10,6 +10,16 @@ namespace hourOfAi.tower {
         const state = getTowerState();
         const challengerIndex = getCurrentTowerLevel() === -1 ? 0 : getCurrentTowerLevel();
 
+        // 0 stinky
+        // 1 bugsly
+        // 2 bugsly jr
+        // 3 bumble
+        // 4 legsolas
+        // 5 crick
+        // 6 hopper
+        // 7 shadow
+        // 8 president
+
         // const state = TowerState.StartIntroCutscene as number;
         // const challengerIndex = 8 as number;
 
@@ -38,6 +48,11 @@ namespace hourOfAi.tower {
 
         if (isIntroCutscene) {
             // Check if we are continuing from a previous match
+            if (challengerIndex === challengers.length) {
+                bg.scrollTo(challengerIndex - 1, true);
+                bg.doOutroAnimation();
+                return;
+            }
             if (challengerIndex !== 0) {
                 bg.scrollTo(challengerIndex - 1, true);
                 bg.zoomOut();

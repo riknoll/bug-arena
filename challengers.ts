@@ -73,10 +73,11 @@ namespace hourOfAi {
         challengers = [
         new Challenger(
             {
-                colorPalette: [4, 15, 2],
+                colorPalette: [13, 15, 12],
                 legLength: 5,
                 bodyRadius: 5,
-                noseRadius: 2
+                noseRadius: 2,
+                fillColor: 7
             },
             "Stinky",
             [
@@ -243,10 +244,328 @@ namespace hourOfAi {
         ),
         new Challenger(
             {
-                colorPalette: [4, 15, 2],
+                colorPalette: [5, 15, 4],
+                legLength: 6,
+                bodyRadius: 6,
+                noseRadius: 2,
+                fillColor: 1
+            },
+            "Bumble",
+            [
+                tower.dialog("Bzzzz.... Bzzzz.... Bzzzz....", context => {
+                    const bg = sprites.create(imgs.honeycomb, SpriteKind.DialogSprite);
+                    bg.z = -4
+                    const bumble = sprites.create(imgs.bumble_small, SpriteKind.DialogSprite);
+
+                    bumble.x = 130;
+                    bumble.y = 40;
+
+                    const snotBubble = sprites.create(imgs.snot_bubble[0], SpriteKind.DialogSprite);
+                    snotBubble.y = bumble.y + 3;
+                    snotBubble.right = bumble.left - 1;
+
+                    scene.setBackgroundColor(4);
+
+                    const bubble1 = [imgs.snot_bubble[3], imgs.snot_bubble[2], imgs.snot_bubble[1], imgs.snot_bubble[0]];
+                    const bubble2 = [imgs.snot_bubble[0], imgs.snot_bubble[1], imgs.snot_bubble[2], imgs.snot_bubble[3]];
+                    game.stats = true;
+
+                    control.runInBackground(() => {
+                        const flippedLilBee = imgs.lil_bee.clone();
+                        flippedLilBee.flipX();
+                        while (!context.isFinished()) {
+                            const lilBee = sprites.create(imgs.lil_bee, SpriteKind.DialogSprite);
+
+                            lilBee.z = -5
+
+                            lilBee.lifespan = 1500;
+
+                            lilBee.y = randint(0, 80);
+
+                            const speed = randint(150, 200);
+                            if (Math.percentChance(50)) {
+                                lilBee.x = -10;
+                                tower.moveSprite(lilBee, 170, randint(0, 80), speed, false);
+                            }
+                            else {
+                                lilBee.x = 170;
+                                lilBee.setImage(flippedLilBee);
+                                tower.moveSprite(lilBee, -10, randint(0, 80), speed, false);
+                            }
+
+                            pause(100)
+                        }
+                    })
+
+                    control.runInBackground(() => {
+                        while (context.currentStep < 1) {
+                            animation.runImageAnimation(snotBubble, bubble1, 100, false);
+                            music.play(music.createSoundEffect(WaveShape.Sine, 675, 2520, 255, 0, 400, SoundExpressionEffect.Vibrato, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
+                            for (let i = 0; i < 5; i++) {
+                                if (context.currentStep < 1) {
+                                    pause(100);
+                                }
+                            }
+
+                            if (context.currentStep < 1) {
+                                animation.runImageAnimation(snotBubble, bubble2, 100, false);
+                                music.play(music.createSoundEffect(WaveShape.Sine, 2520, 675, 255, 0, 500, SoundExpressionEffect.Vibrato, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
+                            }
+
+                            for (let i = 0; i < 10; i++) {
+                                if (context.currentStep < 1) {
+                                    pause(100);
+                                }
+                            }
+                        }
+                        music.play(music.createSoundEffect(WaveShape.Square, 798, 2071, 255, 0, 100, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
+                        snotBubble.destroy();
+                        animation.runMovementAnimation(bumble, "q 0 -30 0 0", 200);
+                        context.pauseUntilNextStep();
+                        const startTime = game.runtime();
+                        while (!context.isFinished()) {
+                            bumble.y = 40 + Math.sin((game.runtime() - startTime) / 200) * 8;
+                            pause(1);
+                        }
+                    })
+                }, imgs.bumble_asleep),
+                tower.dialog("Oh!"),
+                tower.dialog("Hello! Did you need something?"),
+                tower.dialog("What? A battle!?")
+            ],
+            "Bounces around the edge of the arena",
+            [ tower.dialog("Thanks for the bzzzzz-bzzzzz-battle!") ],
+            [ tower.dialog("Awwww... Well, at least I can go back to my nap!") ],
+            imgs.bumble,
+            hourOfAi.algorithms.curveAndBounce
+        ),
+        new Challenger(
+            {
+                colorPalette: [7, 15, 8],
                 legLength: 5,
                 bodyRadius: 5,
-                noseRadius: 2
+                noseRadius: 2,
+                fillColor: 10
+            },
+            "Legs-olas",
+            [
+                tower.dialog("Hail and well met!", context => {
+                    const bg = sprites.create(imgs.dungeon, SpriteKind.DialogSprite);
+                    bg.z = -4
+                    bg.top = 0;
+                    scene.setBackgroundColor(14);
+
+                    const legsolas = sprites.create(imgs.legsolas_small[0], SpriteKind.DialogSprite);
+                    legsolas.x = 130;
+                    legsolas.y = 30
+
+                    control.runInBackground(() => {
+                        while (!(legsolas.flags & sprites.Flag.Destroyed)) {
+                            animation.runImageAnimation(legsolas, imgs.legsolas_small, 50, true);
+                            tower.moveSprite(
+                                legsolas,
+                                130 + randint(-20, 20),
+                                30 + randint(-20, 20),
+                                50
+                            )
+                            animation.stopAnimation(animation.AnimationTypes.ImageAnimation, legsolas);
+                            legsolas.setImage(imgs.legsolas_small[0]);
+                            pause(400 + Math.random() * 800);
+                        }
+                    })
+                }),
+                tower.dialog("I am Legs-olas, defender of the Bug Kingdom!"),
+                tower.dialog("You must be the challenger who seeks to climb the tower!"),
+                tower.dialog("A noble quest! You have the bearing of a true knight!"),
+                tower.dialog("But I'm afraid it is my duty to stop you here."),
+                tower.dialog("I will best thee in honorable combat! Ready thy AI!"),
+                tower.dialog("En garde!")
+            ],
+            "Moves in random diagonal lines.",
+            [ tower.dialog("Well fought! You show promise, but you have much to learn!") ],
+            [ tower.dialog("Your sword was true! I shall train harder for our next encounter!") ],
+            imgs.legsolas,
+            hourOfAi.algorithms.diagonals
+        ),
+        new Challenger(
+            {
+                colorPalette: [10, 15, 2],
+                legLength: 5,
+                bodyRadius: 5,
+                noseRadius: 2,
+                fillColor: 13
+            },
+            "Crick",
+            [
+                tower.dialog("Oh? Why hello there!", context => {
+                    let bgRenderable: scene.Renderable;
+
+                    bgRenderable = scene.createRenderable(-4, () => {
+                        if (context.isFinished()) {
+                            bgRenderable.destroy();
+                            return;
+                        }
+
+                        screen.fill(6);
+                        screen.drawImage(imgs.apartment, 0, 0)
+                    })
+
+                    const crick = sprites.create(imgs.tiny_crick, SpriteKind.DialogSprite);
+                    crick.z = 1;
+                    crick.bottom = 52;
+                    crick.x = 114;
+
+                    const steam = sprites.create(imgs.steam[0], SpriteKind.DialogSprite);
+                    steam.bottom = 48;
+                    steam.x = 104;
+
+                    animation.runImageAnimation(steam, imgs.steam, 150, true);
+
+                    const catClock = sprites.create(imgs.cat_clock[0], SpriteKind.DialogSprite);
+                    catClock.x = 78;
+                    catClock.y = 24;
+                    animation.runImageAnimation(catClock, imgs.cat_clock, 130, true);
+
+                    control.runInBackground(() => {
+                        let flip = false;
+                        while (!(crick.flags & sprites.Flag.Destroyed)) {
+                            const height = randint(15, 30);
+                            const duration = height * 400 / 20;
+                            if (flip) {
+                                animation.runMovementAnimation(crick, `q 2.5 -${height} 5 0`, duration)
+                            }
+                            else {
+                                animation.runMovementAnimation(crick, `q -2.5 -${height} -5 0`, duration)
+                            }
+                            const freq = randint(500, 600);
+                            music.play(music.createSoundEffect(WaveShape.Square, freq, freq * freq / 100, 104, 0, randint(80, 100), SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
+
+                            pause(duration + randint(0, 500));
+
+                            flip = !flip;
+                        }
+                    })
+                }),
+                tower.dialog("You've caught me just before tea!"),
+                tower.dialog("Ah, trying to climb the tower, eh?"),
+                tower.dialog("Well, I'm afraid I cannot allow that."),
+                tower.dialog("Let's have a quick battle, shall we?")
+            ],
+            "Draws squiggly lines all over.",
+            [ tower.dialog("Jolly good! Better luck next time, eh?") ],
+            [ tower.dialog("Well, I say! Smashing!") ],
+            imgs.crick,
+            hourOfAi.algorithms.squiggles
+        ),
+        new Challenger(
+            {
+                colorPalette: [7, 15, 8],
+                legLength: 5,
+                bodyRadius: 5,
+                noseRadius: 2,
+                fillColor: 8
+            },
+            "Hopper",
+            [
+                tower.dialog("You beat that old fool Crick, eh?", context => {
+                    const bg = sprites.create(imgs.apartment2, SpriteKind.DialogSprite);
+                    bg.z = -4
+                    bg.top = 0;
+
+                    const flippedCatImages = imgs.cat.map(img => {
+                        const copy = img.clone();
+                        copy.flipX();
+                        return copy;
+                    });
+
+                    const cat = sprites.create(flippedCatImages[0], SpriteKind.DialogSprite);
+                    cat.left = 118;
+                    cat.top = 8;
+
+                    scene.setBackgroundColor(2);
+                    const lilHopper = sprites.create(imgs.tiny_hopper, SpriteKind.DialogSprite);
+
+                    control.runInBackground(() => {
+                        let flip = false;
+                        while (context.currentStep < 3) {
+                            const height = randint(15, 30);
+                            const duration = height * 400 / 20;
+                            if (flip) {
+                                animation.runMovementAnimation(lilHopper, `q 2.5 -${height} 5 0`, duration)
+                            }
+                            else {
+                                animation.runMovementAnimation(lilHopper, `q -2.5 -${height} -5 0`, duration)
+                            }
+                            const freq = randint(500, 600);
+                            music.play(music.createSoundEffect(WaveShape.Square, freq, freq * freq / 100, 80, 0, randint(80, 100), SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
+
+                            pause(duration + randint(0, 500));
+
+                            flip = !flip;
+                        }
+
+                        cat.setImage(flippedCatImages[1]);
+
+                        music.play(music.createSoundEffect(WaveShape.Noise, 1, 500, 104, 0, 200, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+                        music.play(music.createSoundEffect(WaveShape.Noise, 1, 800, 104, 0, 400, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+                        music.play(music.createSoundEffect(WaveShape.Noise, 1, 2500, 104, 0, 2000, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
+                        const bigHopper = sprites.create(imgs.hopper_small, SpriteKind.DialogSprite);
+                        bigHopper.x = lilHopper.x;
+                        bigHopper.y = lilHopper.y;
+                        bigHopper.scale = 0;
+
+                        const anim = new tower.Animation(2000, tower.easeOutCirc, t => bigHopper.scale = t);
+                        anim.start();
+
+                        anim.pauseUntilDone();
+                        lilHopper.destroy();
+
+                        flip = true;
+                        let catJumped = false;
+
+                        while (!(bigHopper.flags & sprites.Flag.Destroyed)) {
+                            music.play(music.createSoundEffect(WaveShape.Square, 1, 534, 104, 0, 200, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
+                            if (flip) {
+                                animation.runMovementAnimation(bigHopper, `q 8 -50 16 0`, 800);
+                            }
+                            else {
+                                animation.runMovementAnimation(bigHopper, `q -8 -50 -16 0`, 800);
+                            }
+                            pause(800);
+                            music.thump.play();
+                            scene.cameraShake(4, 500);
+
+                            if (!catJumped) {
+                                cat.setImage(flippedCatImages[2]);
+                                pause(400);
+                                animation.runMovementAnimation(cat, "q -15 -30 -30 -30", 500);
+                                catJumped = true;
+                            }
+                            pause(1500);
+                            flip = !flip;
+                        }
+
+                    })
+                }),
+                tower.dialog("Guess I better take this seriously..."),
+                tower.dialog("Let's see how you handle my <wavy>ultimate form!</wavy>"),
+                tower.dialog("<rainbow><wavy>TRANSFORM!", null, null, null, fancyText.bold_sans_7),
+                tower.dialog("Bwahahaha! <shaky>Tremble</shaky> before my might!"),
+                tower.dialog("To battle!")
+            ],
+            "Follows the opponent's bug.",
+            [ tower.dialog("Hahaha! Too easy!") ],
+            [ tower.dialog("Now I'm hopping mad!") ],
+            imgs.hopper,
+            hourOfAi.algorithms.followOpponent
+        ),
+                new Challenger(
+            {
+                colorPalette: [9, 15, 8],
+                legLength: 6,
+                bodyRadius: 6,
+                noseRadius: 2,
+                fillColor: 13
             },
             "Bugsly",
             [
@@ -340,10 +659,11 @@ namespace hourOfAi {
         ),
         new Challenger(
             {
-                colorPalette: [4, 15, 2],
-                legLength: 5,
-                bodyRadius: 5,
-                noseRadius: 2
+                colorPalette: [9, 15, 8],
+                legLength: 4,
+                bodyRadius: 4,
+                noseRadius: 2,
+                fillColor: 13
             },
             "Bugsly Jr.",
             [
@@ -448,323 +768,11 @@ namespace hourOfAi {
         ),
         new Challenger(
             {
-                colorPalette: [4, 15, 2],
+                colorPalette: [15, 11, 2],
                 legLength: 5,
                 bodyRadius: 5,
-                noseRadius: 2
-            },
-            "Bumble",
-            [
-                tower.dialog("Bzzzz.... Bzzzz.... Bzzzz....", context => {
-                    const bg = sprites.create(imgs.honeycomb, SpriteKind.DialogSprite);
-                    bg.z = -4
-                    const bumble = sprites.create(imgs.bumble_small, SpriteKind.DialogSprite);
-
-                    bumble.x = 130;
-                    bumble.y = 40;
-
-                    const snotBubble = sprites.create(imgs.snot_bubble[0], SpriteKind.DialogSprite);
-                    snotBubble.y = bumble.y + 3;
-                    snotBubble.right = bumble.left - 1;
-
-                    scene.setBackgroundColor(4);
-
-                    const bubble1 = [imgs.snot_bubble[3], imgs.snot_bubble[2], imgs.snot_bubble[1], imgs.snot_bubble[0]];
-                    const bubble2 = [imgs.snot_bubble[0], imgs.snot_bubble[1], imgs.snot_bubble[2], imgs.snot_bubble[3]];
-                    game.stats = true;
-
-                    control.runInBackground(() => {
-                        const flippedLilBee = imgs.lil_bee.clone();
-                        flippedLilBee.flipX();
-                        while (!context.isFinished()) {
-                            const lilBee = sprites.create(imgs.lil_bee, SpriteKind.DialogSprite);
-
-                            lilBee.z = -5
-
-                            lilBee.lifespan = 1500;
-
-                            lilBee.y = randint(0, 80);
-
-                            const speed = randint(150, 200);
-                            if (Math.percentChance(50)) {
-                                lilBee.x = -10;
-                                tower.moveSprite(lilBee, 170, randint(0, 80), speed, false);
-                            }
-                            else {
-                                lilBee.x = 170;
-                                lilBee.setImage(flippedLilBee);
-                                tower.moveSprite(lilBee, -10, randint(0, 80), speed, false);
-                            }
-
-                            pause(100)
-                        }
-                    })
-
-                    control.runInBackground(() => {
-                        while (context.currentStep < 1) {
-                            animation.runImageAnimation(snotBubble, bubble1, 100, false);
-                            music.play(music.createSoundEffect(WaveShape.Sine, 675, 2520, 255, 0, 400, SoundExpressionEffect.Vibrato, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
-                            for (let i = 0; i < 5; i++) {
-                                if (context.currentStep < 1) {
-                                    pause(100);
-                                }
-                            }
-
-                            if (context.currentStep < 1) {
-                                animation.runImageAnimation(snotBubble, bubble2, 100, false);
-                                music.play(music.createSoundEffect(WaveShape.Sine, 2520, 675, 255, 0, 500, SoundExpressionEffect.Vibrato, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
-                            }
-
-                            for (let i = 0; i < 10; i++) {
-                                if (context.currentStep < 1) {
-                                    pause(100);
-                                }
-                            }
-                        }
-                        music.play(music.createSoundEffect(WaveShape.Square, 798, 2071, 255, 0, 100, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
-                        snotBubble.destroy();
-                        animation.runMovementAnimation(bumble, "q 0 -30 0 0", 200);
-                        context.pauseUntilNextStep();
-                        const startTime = game.runtime();
-                        while (!context.isFinished()) {
-                            bumble.y = 40 + Math.sin((game.runtime() - startTime) / 200) * 8;
-                            pause(1);
-                        }
-                    })
-                }, imgs.bumble_asleep),
-                tower.dialog("Oh!"),
-                tower.dialog("Hello! Did you need something?"),
-                tower.dialog("What? A battle!?")
-            ],
-            "Bounces around the edge of the arena",
-            [ tower.dialog("Thanks for the bzzzzz-bzzzzz-battle!") ],
-            [ tower.dialog("Awwww... Well, at least I can go back to my nap!") ],
-            imgs.bumble,
-            hourOfAi.algorithms.curveAndBounce
-        ),
-        new Challenger(
-            {
-                colorPalette: [4, 15, 2],
-                legLength: 5,
-                bodyRadius: 5,
-                noseRadius: 2
-            },
-            "Legs-olas",
-            [
-                tower.dialog("Hail and well met!", context => {
-                    const bg = sprites.create(imgs.dungeon, SpriteKind.DialogSprite);
-                    bg.z = -4
-                    bg.top = 0;
-                    scene.setBackgroundColor(14);
-
-                    const legsolas = sprites.create(imgs.legsolas_small[0], SpriteKind.DialogSprite);
-                    legsolas.x = 130;
-                    legsolas.y = 30
-
-                    control.runInBackground(() => {
-                        while (!(legsolas.flags & sprites.Flag.Destroyed)) {
-                            animation.runImageAnimation(legsolas, imgs.legsolas_small, 50, true);
-                            tower.moveSprite(
-                                legsolas,
-                                130 + randint(-20, 20),
-                                30 + randint(-20, 20),
-                                50
-                            )
-                            animation.stopAnimation(animation.AnimationTypes.ImageAnimation, legsolas);
-                            legsolas.setImage(imgs.legsolas_small[0]);
-                            pause(400 + Math.random() * 800);
-                        }
-                    })
-                }),
-                tower.dialog("I am Legs-olas, defender of the Bug Kingdom!"),
-                tower.dialog("You must be the challenger who seeks to climb the tower!"),
-                tower.dialog("A noble quest! You have the bearing of a true knight!"),
-                tower.dialog("But I'm afraid it is my duty to stop you here."),
-                tower.dialog("I will best thee in honorable combat! Ready thy AI!"),
-                tower.dialog("En garde!")
-            ],
-            "Moves in random diagonal lines.",
-            [ tower.dialog("Well fought! You show promise, but you have much to learn!") ],
-            [ tower.dialog("Your sword was true! I shall train harder for our next encounter!") ],
-            imgs.legsolas,
-            hourOfAi.algorithms.diagonals
-        ),
-        new Challenger(
-            {
-                colorPalette: [4, 15, 2],
-                legLength: 5,
-                bodyRadius: 5,
-                noseRadius: 2
-            },
-            "Crick",
-            [
-                tower.dialog("Oh? Why hello there!", context => {
-                    let bgRenderable: scene.Renderable;
-
-                    bgRenderable = scene.createRenderable(-4, () => {
-                        if (context.isFinished()) {
-                            bgRenderable.destroy();
-                            return;
-                        }
-
-                        screen.fill(6);
-                        screen.drawImage(imgs.apartment, 0, 0)
-                    })
-
-                    const crick = sprites.create(imgs.tiny_crick, SpriteKind.DialogSprite);
-                    crick.z = 1;
-                    crick.bottom = 52;
-                    crick.x = 114;
-
-                    const steam = sprites.create(imgs.steam[0], SpriteKind.DialogSprite);
-                    steam.bottom = 48;
-                    steam.x = 104;
-
-                    animation.runImageAnimation(steam, imgs.steam, 150, true);
-
-                    const catClock = sprites.create(imgs.cat_clock[0], SpriteKind.DialogSprite);
-                    catClock.x = 78;
-                    catClock.y = 24;
-                    animation.runImageAnimation(catClock, imgs.cat_clock, 130, true);
-
-                    control.runInBackground(() => {
-                        let flip = false;
-                        while (!(crick.flags & sprites.Flag.Destroyed)) {
-                            const height = randint(15, 30);
-                            const duration = height * 400 / 20;
-                            if (flip) {
-                                animation.runMovementAnimation(crick, `q 2.5 -${height} 5 0`, duration)
-                            }
-                            else {
-                                animation.runMovementAnimation(crick, `q -2.5 -${height} -5 0`, duration)
-                            }
-                            const freq = randint(500, 600);
-                            music.play(music.createSoundEffect(WaveShape.Square, freq, freq * freq / 100, 104, 0, randint(80, 100), SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
-
-                            pause(duration + randint(0, 500));
-
-                            flip = !flip;
-                        }
-                    })
-                }),
-                tower.dialog("You've caught me just before tea!"),
-                tower.dialog("Ah, trying to climb the tower, eh?"),
-                tower.dialog("Well, I'm afraid I cannot allow that."),
-                tower.dialog("Let's have a quick battle, shall we?")
-            ],
-            "Targets the opponent's color.",
-            [ tower.dialog("Jolly good! Better luck next time, eh?") ],
-            [ tower.dialog("Well, I say! Smashing!") ],
-            imgs.crick,
-            hourOfAi.algorithms.followOpponentColor
-        ),
-        new Challenger(
-            {
-                colorPalette: [4, 15, 2],
-                legLength: 5,
-                bodyRadius: 5,
-                noseRadius: 2
-            },
-            "Hopper",
-            [
-                tower.dialog("You beat that old fool Crick, eh?", context => {
-                    const bg = sprites.create(imgs.apartment2, SpriteKind.DialogSprite);
-                    bg.z = -4
-                    bg.top = 0;
-
-                    const flippedCatImages = imgs.cat.map(img => {
-                        const copy = img.clone();
-                        copy.flipX();
-                        return copy;
-                    });
-
-                    const cat = sprites.create(flippedCatImages[0], SpriteKind.DialogSprite);
-                    cat.left = 118;
-                    cat.top = 8;
-
-                    scene.setBackgroundColor(2);
-                    const lilHopper = sprites.create(imgs.tiny_hopper, SpriteKind.DialogSprite);
-
-                    control.runInBackground(() => {
-                        let flip = false;
-                        while (context.currentStep < 3) {
-                            const height = randint(15, 30);
-                            const duration = height * 400 / 20;
-                            if (flip) {
-                                animation.runMovementAnimation(lilHopper, `q 2.5 -${height} 5 0`, duration)
-                            }
-                            else {
-                                animation.runMovementAnimation(lilHopper, `q -2.5 -${height} -5 0`, duration)
-                            }
-                            const freq = randint(500, 600);
-                            music.play(music.createSoundEffect(WaveShape.Square, freq, freq * freq / 100, 80, 0, randint(80, 100), SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
-
-                            pause(duration + randint(0, 500));
-
-                            flip = !flip;
-                        }
-
-                        cat.setImage(flippedCatImages[1]);
-
-                        music.play(music.createSoundEffect(WaveShape.Noise, 1, 500, 104, 0, 200, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
-                        music.play(music.createSoundEffect(WaveShape.Noise, 1, 800, 104, 0, 400, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
-                        music.play(music.createSoundEffect(WaveShape.Noise, 1, 2500, 104, 0, 2000, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
-                        const bigHopper = sprites.create(imgs.hopper_small, SpriteKind.DialogSprite);
-                        bigHopper.x = lilHopper.x;
-                        bigHopper.y = lilHopper.y;
-                        bigHopper.scale = 0;
-
-                        const anim = new tower.Animation(2000, tower.easeOutCirc, t => bigHopper.scale = t);
-                        anim.start();
-
-                        anim.pauseUntilDone();
-                        lilHopper.destroy();
-
-                        flip = true;
-                        let catJumped = false;
-
-                        while (!(bigHopper.flags & sprites.Flag.Destroyed)) {
-                            music.play(music.createSoundEffect(WaveShape.Square, 1, 534, 104, 0, 200, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
-                            if (flip) {
-                                animation.runMovementAnimation(bigHopper, `q 8 -50 16 0`, 800);
-                            }
-                            else {
-                                animation.runMovementAnimation(bigHopper, `q -8 -50 -16 0`, 800);
-                            }
-                            pause(800);
-                            music.thump.play();
-                            scene.cameraShake(4, 500);
-
-                            if (!catJumped) {
-                                cat.setImage(flippedCatImages[2]);
-                                pause(400);
-                                animation.runMovementAnimation(cat, "q -15 -30 -30 -30", 500);
-                                catJumped = true;
-                            }
-                            pause(1500);
-                            flip = !flip;
-                        }
-
-                    })
-                }),
-                tower.dialog("Guess I better take this seriously..."),
-                tower.dialog("Let's see how you handle my <wavy>ultimate form!</wavy>"),
-                tower.dialog("<rainbow><wavy>TRANSFORM!", null, null, null, fancyText.bold_sans_7),
-                tower.dialog("Bwahahaha! <shaky>Tremble</shaky> before my might!"),
-                tower.dialog("To battle!")
-            ],
-            "Draws squiggly lines all over.",
-            [ tower.dialog("Hahaha! Too easy!") ],
-            [ tower.dialog("Now I'm hopping mad!") ],
-            imgs.hopper,
-            hourOfAi.algorithms.squiggles
-        ),
-        new Challenger(
-            {
-                colorPalette: [4, 15, 2],
-                legLength: 5,
-                bodyRadius: 5,
-                noseRadius: 2
+                noseRadius: 2,
+                fillColor: 13
             },
             "Shadow",
             [
@@ -878,14 +886,14 @@ namespace hourOfAi {
                     candleHalos = [];
                 })
         ],
-            "Follows the opponent's bug.",
+            "Follows the opponent's color.",
             [
                 tower.dialog("Ha! A waste of time!"),
                 tower.dialog("You cannot defeat true darkness!")
             ],
             [ tower.dialog("Curses! But I'll have the last laugh, I swear it!") ],
             imgs.shadow,
-            hourOfAi.algorithms.followOpponent
+            hourOfAi.algorithms.followOpponentColor
         ),
         new Challenger(
             {
@@ -918,7 +926,7 @@ namespace hourOfAi {
                     president.setFlag(SpriteFlag.Invisible, true);
                     let phase = 0;
 
-                    scene.createRenderable(-3.4, () => {
+                    const renderable = scene.createRenderable(-3.4, () => {
                         if (phase === 0) return;
                         if (phase === 1) {
                             screen.fill(15);
@@ -961,6 +969,8 @@ namespace hourOfAi {
                             }
                             context.pauseUntilNextStep();
                         }
+
+                        renderable.destroy();
                     })
 
                     // 0 1 2 3 4* 5 6 7* 8 9 10* 11 12 13 14*

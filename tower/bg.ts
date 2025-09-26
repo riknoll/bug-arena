@@ -129,6 +129,9 @@ namespace hourOfAi.tower {
         currentAnimation: Animation;
 
         visible: boolean = true;
+        scrollVelocity: number = 1;
+        maxY = Infinity;
+        lastY = 120;
 
         constructor() {
             this.createRenderable();
@@ -435,6 +438,41 @@ namespace hourOfAi.tower {
             miniSprites = [];
         }
 
+        doOutroAnimation() {
+            scene.setBackgroundColor(15);
+            this.zoomOut();
+
+            let frameHandler: control.FrameCallback;
+            let registeredTimeout = false;
+
+            frameHandler = game.eventContext().registerFrameHandler(scene.UPDATE_PRIORITY, () => {
+                this.scroll += this.scrollVelocity;
+                this.scrollVelocity = Math.min(30, this.scrollVelocity + 0.1);
+
+                if (this.scrollVelocity === 30 && !registeredTimeout) {
+                    registeredTimeout = true;
+                    setTimeout(() => {
+                        this.maxY = Math.abs(this.lastY) + 120;
+                        pause(100);
+
+                        this.renderable.destroy();
+                        this.starFieldRenderable.destroy();
+                        game.eventContext().unregisterFrameHandler(frameHandler);
+                        pause(1000);
+
+                        goodJob();
+
+                        for (let i = 0; i < 120; i++) {
+                            scene.backgroundImage().scroll(0, -1);
+                            pause(1);
+                        }
+
+                        startGameMode(GameMode.MainMenu);
+                    }, 500)
+                }
+            });
+        }
+
         protected drawImageCore(img: Image, x: number, y: number) {
             if (y > 120) return;
 
@@ -455,17 +493,18 @@ namespace hourOfAi.tower {
             let starY2 = 0;
 
             let lastX = 0;
-            let lastY = 120;
             let lastI = 0;
 
             return scene.createRenderable(-0.1, () => {
                 if (!this.visible) return;
                 frameTimer --;
                 let x = lastX;
-                let y = lastY;
+                let y = this.lastY;
                 let i = lastI;
 
                 const scroll = this.scroll >> 1;
+
+                const height = Math.map(this.scrollVelocity, 1, 30, 1, 80);
 
                 while (y + scroll > 0) {
                     x += i * 66
@@ -477,11 +516,14 @@ namespace hourOfAi.tower {
 
                     if (y + scroll > screen.height) {
                         lastX = x;
-                        lastY = y;
+                        this.lastY = y;
                         lastI = i;
                         continue;
                     }
-                    drawStar(x, y + scroll);
+                    if (Math.abs(y) > this.maxY) {
+                        break;
+                    }
+                    drawStar(x, y + scroll, height);
                 }
 
                 if (frameTimer < 0) {
@@ -516,13 +558,14 @@ namespace hourOfAi.tower {
         )
     }
 
-    function drawStar(x: number, y: number) {
-        const i = ((game.runtime() + x * 37 + y * 108) / 500) | 0
-        if (i % 13 !== 0) {
-            screen.setPixel(x, y, 1)
-        }
-        else {
-            screen.setPixel(x, y, 5)
-        }
+    function drawStar(x: number, y: number, height: number) {
+        // const i = ((game.runtime() + x * 37 + y * 108) / 500) | 0
+        // if (i % 13 !== 0) {
+        //     screen.setPixel(x, y, 1)
+        // }
+        // else {
+        //     screen.setPixel(x, y, 5)
+        // }
+        screen.fillRect(x, y, 1, height, 1);
     }
 }
