@@ -119,4 +119,29 @@ namespace hourOfAi {
     export function setSpeedSetting(speed: number){
         settings.writeNumber(SPEED_SETTING_KEY, speed);
     }
+
+    export function setIsChallengerUnlocked(challengerIndex: number, unlocked: boolean) {
+        settings.writeNumber("unlocked" + challengerIndex, unlocked ? 1 : 0);
+    }
+
+    export function isChallengerUnlocked(challengerIndex: number): boolean {
+        if (challengerIndex === 0) {
+            return true;
+        }
+        if (!settings.exists("unlocked" + challengerIndex)) {
+            return false;
+        }
+        return !!(settings.readNumber("unlocked" + challengerIndex));
+    }
+
+    export function setBeatTower(unlocked: boolean) {
+        settings.writeNumber("beatTower", unlocked ? 1 : 0);
+    }
+
+    export function hasBeatenTower(): boolean {
+        if (!settings.exists("beatTower")) {
+            return false;
+        }
+        return !!(settings.readNumber("beatTower"));
+    }
 }

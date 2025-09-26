@@ -32,6 +32,7 @@ namespace hourOfAi.tower {
         //     }
         // }
 
+        setIsChallengerUnlocked(challengerIndex, true);
         const isIntroCutscene = state === TowerState.StartIntroCutscene || state === TowerState.NotStarted;
 
         if (isIntroCutscene) {
@@ -49,6 +50,8 @@ namespace hourOfAi.tower {
         if (isIntroCutscene) {
             // Check if we are continuing from a previous match
             if (challengerIndex === challengers.length) {
+                clearTowerProgress();
+                setBeatTower(true);
                 bg.scrollTo(challengerIndex - 1, true);
                 bg.doOutroAnimation();
                 return;

@@ -403,7 +403,7 @@ namespace hourOfAi {
 
 
         arena.placeCombatants();
-        timeRemaining = opponentDef ? 300 : 0;
+        timeRemaining = timedMatch ? 300 : 0;
 
         const font = fancyText.bold_sans_7;
 
