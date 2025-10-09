@@ -87,9 +87,12 @@ for (const file of fs.readdirSync(assetsDir)) {
             }
         }
 
+
+        const isMono = spriteName.indexOf("_mono") > 0;
+
         const frameImages = []
         for (let frame = 0; frame < frames; frame++) {
-            frameImages.push(encodeData(colorData, width, height, frame, frames));
+            frameImages.push(encodeData(colorData, width, height, frame, frames, isMono));
         }
 
         let outTs = `namespace hourOfAi.imgs {\n`;
@@ -157,14 +160,19 @@ function indentAfterFirstLine(text, spaces) {
     return lines[0] + "\n" + indent(lines.slice(1).join("\n"), spaces);
 }
 
-function encodeData(colorData, width, height, frame, frames) {
-    const encoded = f4EncodeImg(width, height, 4, (x, y) => {
+function encodeData(colorData, width, height, frame, frames, mono = false) {
+    const encoded = f4EncodeImg(width, height, mono ? 1 : 4, (x, y) => {
         const absX = frame * width + x;
         const idx = y * width * frames + absX;
         const color = colorData[idx];
+        if (mono && color) return 1;
+
         return color;
     });
 
+    if (mono) {
+        return `hex\`${encoded}\``;
+    }
     return `image.ofBuffer(hex\`${encoded}\`)`;
 }
 

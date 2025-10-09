@@ -418,8 +418,8 @@ namespace paths {
                     break;
                 case "c": // c dx1 dy1 dx2 dy2 dx3 dy3
                     if (update) {
-                        this.lastControlX = this.args[2];
-                        this.lastControlY = this.args[3];
+                        this.lastControlX = this.args[2] + this.lastX;
+                        this.lastControlY = this.args[3] + this.lastY;
                     }
                     cubicCurveTo(
                         target,

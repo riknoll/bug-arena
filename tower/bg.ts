@@ -286,6 +286,9 @@ namespace hourOfAi.tower {
 
                     screen.fillRect(0, CLOUD_TOP + scroll, 160, 120, 15)
 
+                    // const bushIndex = Math.idiv(game.runtime(), 100) % imgs.bush_wind_mono.length;
+                    // screen.drawIcon(imgs.bush_wind_mono[bushIndex], 0, 61 + scroll, 14);
+
 
                     for (let i = backgroundLayers.length - 1; i >= 0; i--) {
                         backgroundOffsets[i] += (i + 1);
@@ -316,6 +319,9 @@ namespace hourOfAi.tower {
                                 // screen.drawLine(x, 0, x - 60, 90, 1)
                             }
 
+                            drawLeaf(imgs.leaf_2_mono, 0, 90 - 30 + scroll, 50, 5, false);
+                            drawLeaf(imgs.leaf_4_mono, 0, 90 - 25 + scroll, 50, 15, false);
+
                             this.drawTower();
 
                             for (let x = 7; x < 160 + 60; x += 13) {
@@ -330,6 +336,9 @@ namespace hourOfAi.tower {
                     this.drawImageCore(flippedCloud, -(backgroundOffsets[0] % screen.width), CLOUD_TOP + scroll - flippedCloud.height - 10);
                     this.drawImageCore(flippedCloud, screen.width - (backgroundOffsets[0] % screen.width), CLOUD_TOP + scroll - flippedCloud.height - 10);
                     this.fillRectCore(0, CLOUD_TOP + scroll - 10, screen.width, 10, flippedCloud.getPixel(0, flippedCloud.height - 1))
+
+                    drawLeaf(imgs.leaf_1_mono, 0, 90 - 29 + scroll, 50, 0, true);
+                    drawLeaf(imgs.leaf_3_mono, 0, 90 - 16 + scroll, 50, 10, true);
 
                     if (frame === 5 || frame === 8 || frame === 7) {
                         screen.mapRect(0, 0, screen.width, screen.height, buf)
@@ -567,5 +576,16 @@ namespace hourOfAi.tower {
         //     screen.setPixel(x, y, 5)
         // }
         screen.fillRect(x, y, 1, height, 1);
+    }
+
+    function drawLeaf(animation: Buffer[], x: number, y: number, frameTime: number, offset: number, moveY: boolean) {
+        const index = (Math.idiv(game.runtime(), frameTime) + offset);
+        const iteration = Math.idiv(index, animation.length)
+
+        const yOffset = moveY ? Math.sin((iteration + offset) / 2) * 30 : 0
+
+        const colors = [6, 12, 13]
+
+        screen.drawIcon(animation[index % animation.length], x, y + yOffset, colors[(iteration + offset) % colors.length]);
     }
 }

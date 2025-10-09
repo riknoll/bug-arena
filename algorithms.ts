@@ -93,8 +93,33 @@ namespace hourOfAi.algorithms {
     }
 
     export function randomWalk(agent: Agent) {
+        let pauseInterval = 200;
+        let pauseLength = 150;
+        let pauseTimer = pauseInterval;
+
+        let isPausing = false;
+
         agent.every(1000, () => {
             agent.turnBy(Math.randomRange(-90, 90));
+        });
+
+        // occasionally pause and stop moving to make things easier
+        agent.every(1, () => {
+            pauseTimer--;
+
+            if (isPausing) {
+                if (pauseTimer <= 0) {
+                    isPausing = false;
+                    pauseTimer = pauseInterval;
+                }
+                agent.turnTowards(agent.property(Property.Angle) + (((pauseTimer >> 6) & 1) ? -1 : 1));
+            }
+            else {
+                if (pauseTimer <= 0) {
+                    isPausing = true;
+                    pauseTimer = pauseLength;
+                }
+            }
         });
     }
 
@@ -169,5 +194,42 @@ namespace hourOfAi.algorithms {
         agent.onBumpWall(() => {
             agent.turnBy(180)
         })
+    }
+
+    export function svgPathFollower(path: string) {
+        return (agent: Agent) => {
+            const executor = new paths.PathExecutor(path);
+            let targetPoint: paths.Point = new paths.Point(0, 0);
+            let nodeTime = 100;
+            let elapsedTime = 0;
+            let deltaTime = 1;
+            const distanceThreshold = 3;
+
+            agent.onStart(() => {
+                targetPoint = new paths.Point(agent.property(Property.X), agent.property(Property.Y));
+                executor.updatedPathLength(targetPoint.x, targetPoint.y);
+                executor.reset();
+            })
+
+            agent.every(100, () => {
+                agent.turnTowardsPosition(targetPoint.x, targetPoint.y);
+            });
+
+            agent.every(0, () => {
+                while (
+                    Math.sqrt(
+                        (targetPoint.x - agent.property(Property.X)) ** 2 +
+                        (targetPoint.y - agent.property(Property.Y)) ** 2
+                    ) < distanceThreshold
+                ) {
+                    elapsedTime += deltaTime;
+
+                    if (executor.run(nodeTime, targetPoint, elapsedTime)) {
+                        elapsedTime = 0;
+                        executor.reset();
+                    }
+                }
+            })
+        }
     }
 }

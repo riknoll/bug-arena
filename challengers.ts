@@ -375,7 +375,7 @@ namespace hourOfAi {
                     })
                 }),
                 tower.dialog("I am Legs-olas, defender of the Bug Kingdom!"),
-                tower.dialog("You must be the challenger who seeks to climb the tower!"),
+                tower.dialog("You must be the challenger climbing the tower!"),
                 tower.dialog("A noble quest! You have the bearing of a true knight!"),
                 tower.dialog("But I'm afraid it is my duty to stop you here."),
                 tower.dialog("I will best thee in honorable combat! Ready thy AI!"),
@@ -385,6 +385,7 @@ namespace hourOfAi {
             [ tower.dialog("Well fought! You show promise, but you have much to learn!") ],
             [ tower.dialog("Your sword was true! I shall train harder for our next encounter!") ],
             imgs.legsolas,
+            // hourOfAi.algorithms.svgPathFollower("L 56.7 69.8 L 72.9 69.8 L 81 83.57 L 72.9 98.15 L 56.7 98.15 L 48.6 83.57 L 56.7 69.8 L 72.9 69.8 L 81 56.03 L 97.2 56.03 L 105.3 69.8 L 97.2 83.57 L 81 83.57 L 72.9 69.8 L 81 56.03 L 72.9 41.45 L 81 27.68 L 97.2 27.68 L 105.3 41.45 L 97.2 56.03 L 81 56.03 L 72.9 41.45 L 56.7 41.45 L 48.6 27.68 L 56.7 13.91 L 72.9 13.91 L 81 27.68 L 72.9 41.45 L 56.7 41.45 L 48.6 56.03 L 32.4 56.03 L 24.3 41.45 L 32.4 27.68 L 48.6 27.68 L 56.7 41.45 L 48.6 56.03 L 56.7 69.8 L 48.6 83.57 L 32.4 83.57 L 24.3 69.8 L 32.4 56.03 L 48.6 56.03 L 56.7 69.8")
             hourOfAi.algorithms.diagonals
         ),
         new Challenger(

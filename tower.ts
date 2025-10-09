@@ -44,7 +44,7 @@ namespace hourOfAi.tower {
 
         // Pause on the tower scene for a moment before zooming in
         if (state === TowerState.NotStarted) {
-            pause(2000);
+            pause(20000);
         }
 
         if (isIntroCutscene) {
