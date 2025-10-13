@@ -44,7 +44,7 @@ namespace hourOfAi.tower {
 
         // Pause on the tower scene for a moment before zooming in
         if (state === TowerState.NotStarted) {
-            pause(20000);
+            pause(2000);
         }
 
         if (isIntroCutscene) {
@@ -141,6 +141,78 @@ namespace hourOfAi.tower {
     function showDialogChain(challenger: Challenger, dialogParts: DialogPart[]) {
         const context = new tower.DialogContext();
 
+        let skipRenderable: scene.Renderable;
+        const SKIP_HOLD_TIME = 1500;
+        let skipTimer = SKIP_HOLD_TIME;
+
+        let cancelled = false;
+        const isCancelled = () => cancelled;
+
+        skipRenderable = scene.createRenderable(1000, (_, camera) => {
+            const buttonPressed = controller.A.isPressed() || controller.B.isPressed() || browserEvents.MouseLeft.isPressed();
+
+            if (buttonPressed) {
+                const text = "Hold to skip";
+                const font = fancyText.geometric_sans_6;
+
+                const textWidth = fancyText.getTextWidth(font, text);
+                const BAR_WIDTH = 20;
+                const BAR_HEIGHT = 8;
+                const PADDING = 1;
+
+                const totalWidth = textWidth + (PADDING * 3) + BAR_WIDTH;
+                const totalHeight = BAR_HEIGHT + (PADDING * 2);
+
+                const left = screen.width - totalWidth - PADDING - 1;
+                const top = PADDING + 1;
+
+                screen.drawRect(
+                    left - 1,
+                    top - 1,
+                    totalWidth + 2,
+                    totalHeight + 2,
+                    15
+                )
+                screen.fillRect(
+                    left,
+                    top,
+                    totalWidth,
+                    totalHeight,
+                    1
+                )
+
+                fancyText.draw(text, screen, left + PADDING, top, 0, 15, font);
+                const filledWidth = Math.floor(BAR_WIDTH * (1 - (skipTimer / SKIP_HOLD_TIME)));
+
+                screen.fillRect(
+                    left + textWidth + (PADDING * 2),
+                    top + PADDING,
+                    BAR_WIDTH,
+                    BAR_HEIGHT,
+                    4
+                )
+
+                screen.fillRect(
+                    left + textWidth + (PADDING * 2),
+                    top + PADDING,
+                    filledWidth,
+                    BAR_HEIGHT,
+                    15
+                )
+
+                skipTimer -= game.eventContext().deltaTimeMillis;
+
+                if (skipTimer <= 0) {
+                    skipRenderable.destroy();
+                    context.finish();
+                    cancelled = true;
+                }
+            }
+            else {
+                skipTimer = SKIP_HOLD_TIME;
+            }
+        });
+
         for (let i = 0; i < dialogParts.length; i++) {
             const dialog = dialogParts[i];
             let handlerComplete = true;
@@ -159,6 +231,7 @@ namespace hourOfAi.tower {
                 dialog.text,
                 dialog.characterPortrait || challenger.portrait,
                 i === 0,
+                isCancelled,
                 dialog.font
             );
 
@@ -168,6 +241,7 @@ namespace hourOfAi.tower {
 
         context.finish();
         sprites.destroyAllSpritesOfKind(SpriteKind.DialogSprite);
+        skipRenderable.destroy();
     }
 
     export function startMatch(challenger: Challenger) {

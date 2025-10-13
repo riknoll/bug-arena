@@ -255,9 +255,9 @@ namespace hourOfAi.tower {
             this.renderable = scene.createRenderable(0, () => {
                 if (!this.visible) return;
 
-                if (controller.A.isPressed()) {
-                    this.scroll++
-                }
+                // if (controller.A.isPressed()) {
+                //     this.scroll++
+                // }
 
                 frameTimer--;
                 const scroll = this.scroll | 0;

@@ -33,25 +33,10 @@ namespace hourOfAi.tower {
         }
     }
 
-    export function showDialog(context: DialogContext, characterName: string, text: string, portrait: Image, showIntro: boolean, font?: fancyText.BaseFont) {
+    export function showDialog(context: DialogContext, characterName: string, text: string, portrait: Image, showIntro: boolean, isCancelled: () => boolean, font?: fancyText.BaseFont) {
         initColorRamps();
         let yOffset = showIntro ? PORTRAIT_WIDTH : 0
         let xOffset = showIntro ? DIALOG_WIDTH - (FRAME_EDGE_WIDTH << 1) : 0;
-        let cancelledIntro = false;
-        let cancelledText = false;
-
-        const buttonHandler = () => {
-            if (cancelledIntro) {
-                cancelledText = true;
-            }
-            else {
-                cancelledIntro = true;
-            }
-        }
-
-        controller.A.addEventListener(ControllerButtonEvent.Pressed, buttonHandler);
-        controller.B.addEventListener(ControllerButtonEvent.Pressed, buttonHandler);
-        browserEvents.MouseLeft.addEventListener(browserEvents.MouseButtonEvent.Pressed, buttonHandler);
 
         const introRenderable = scene.createRenderable(-2, (_, camera) => {
             fancyText.drawFrame(
@@ -83,7 +68,7 @@ namespace hourOfAi.tower {
         });
 
         if (showIntro) {
-            pauseUntil(() => xOffset === 0 && yOffset === 0 || cancelledIntro);
+            pauseUntil(() => xOffset === 0 && yOffset === 0 || isCancelled());
             xOffset = 0;
             yOffset = 0;
         }
@@ -132,7 +117,7 @@ namespace hourOfAi.tower {
                 }
             })
 
-            pauseUntil(() => timer <= 0 || cancelledIntro);
+            pauseUntil(() => timer <= 0 || isCancelled());
             fadeRender.destroy();
         }
 
@@ -151,23 +136,18 @@ namespace hourOfAi.tower {
         context.isPrinting = true;
         dialog.animateAtSpeed(30)
 
-        pauseUntil(() => dialog.remainingAnimationTime() <= 0 || cancelledIntro);
+        pauseUntil(() => dialog.remainingAnimationTime() <= 0 || isCancelled());
         context.isPrinting = false;
 
         dialog.cancelAnimation();
-        cancelledIntro = true;
 
         const pauseEnd = game.runtime() + 4000;
-        pauseUntil(() => cancelledText || game.runtime() >= pauseEnd);
+        pauseUntil(() => isCancelled() || game.runtime() >= pauseEnd);
 
         dialog.destroy();
         name.destroy();
         introRenderable.destroy();
         characterPortrait.destroy();
-
-        controller.A.removeEventListener(ControllerButtonEvent.Pressed, buttonHandler);
-        controller.B.removeEventListener(ControllerButtonEvent.Pressed, buttonHandler);
-        browserEvents.MouseLeft.removeEventListener(browserEvents.MouseButtonEvent.Pressed, buttonHandler);
     }
 
     export class DialogContext {
@@ -180,15 +160,24 @@ namespace hourOfAi.tower {
 
         finish() {
             this._isFinished = true;
+            this.currentStep = 9999999;
         }
 
         pauseUntilFinished() {
+            if (this._isFinished) return;
             pauseUntil(() => this._isFinished);
         }
 
         pauseUntilNextStep() {
+            if (this._isFinished) return;
             const step = this.currentStep;
             pauseUntil(() => this._isFinished || step != this.currentStep);
+        }
+
+        pause(millis: number) {
+            if (this._isFinished) return;
+            const pauseEnd = game.runtime() + millis;
+            pauseUntil(() => this._isFinished || game.runtime() >= pauseEnd);
         }
 
         isFinished() {

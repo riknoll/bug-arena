@@ -127,7 +127,7 @@ namespace hourOfAi {
                         exclamation_point.setFlag(SpriteFlag.Invisible, true);
                         tower.moveSprite(stinky, dumpster.x + 8, dumpster.top - 5, 100);
 
-                         pauseUntil(() => context.currentStep === 2);
+                        pauseUntil(() => context.currentStep >= 2);
 
                         animation.runMovementAnimation(stinky, "q 0 -20 0 16", 500);
                         pause(500);
@@ -155,7 +155,7 @@ namespace hourOfAi {
                         dumpster.left = 17;
                         pause(500)
 
-                        pauseUntil(() => context.currentStep === 4);
+                        pauseUntil(() => context.currentStep >= 4);
                         tower.moveSprite(stinky, 80, 60, 100);
 
                         exclamation_point.setFlag(SpriteFlag.Invisible, false);
@@ -293,7 +293,7 @@ namespace hourOfAi {
                                 tower.moveSprite(lilBee, -10, randint(0, 80), speed, false);
                             }
 
-                            pause(100)
+                            context.pause(100)
                         }
                     })
 
@@ -303,7 +303,7 @@ namespace hourOfAi {
                             music.play(music.createSoundEffect(WaveShape.Sine, 675, 2520, 255, 0, 400, SoundExpressionEffect.Vibrato, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
                             for (let i = 0; i < 5; i++) {
                                 if (context.currentStep < 1) {
-                                    pause(100);
+                                    context.pause(100);
                                 }
                             }
 
@@ -314,7 +314,7 @@ namespace hourOfAi {
 
                             for (let i = 0; i < 10; i++) {
                                 if (context.currentStep < 1) {
-                                    pause(100);
+                                    context.pause(100);
                                 }
                             }
                         }
@@ -325,7 +325,7 @@ namespace hourOfAi {
                         const startTime = game.runtime();
                         while (!context.isFinished()) {
                             bumble.y = 40 + Math.sin((game.runtime() - startTime) / 200) * 8;
-                            pause(1);
+                            context.pause(1);
                         }
                     })
                 }, imgs.bumble_asleep),
@@ -370,7 +370,7 @@ namespace hourOfAi {
                             )
                             animation.stopAnimation(animation.AnimationTypes.ImageAnimation, legsolas);
                             legsolas.setImage(imgs.legsolas_small[0]);
-                            pause(400 + Math.random() * 800);
+                            context.pause(400 + Math.random() * 800);
                         }
                     })
                 }),
@@ -441,7 +441,7 @@ namespace hourOfAi {
                             const freq = randint(500, 600);
                             music.play(music.createSoundEffect(WaveShape.Square, freq, freq * freq / 100, 104, 0, randint(80, 100), SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
 
-                            pause(duration + randint(0, 500));
+                            context.pause(duration + randint(0, 500));
 
                             flip = !flip;
                         }
@@ -500,7 +500,7 @@ namespace hourOfAi {
                             const freq = randint(500, 600);
                             music.play(music.createSoundEffect(WaveShape.Square, freq, freq * freq / 100, 80, 0, randint(80, 100), SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
 
-                            pause(duration + randint(0, 500));
+                            context.pause(duration + randint(0, 500));
 
                             flip = !flip;
                         }
@@ -532,17 +532,17 @@ namespace hourOfAi {
                             else {
                                 animation.runMovementAnimation(bigHopper, `q -8 -50 -16 0`, 800);
                             }
-                            pause(800);
+                            context.pause(800);
                             music.thump.play();
                             scene.cameraShake(4, 500);
 
                             if (!catJumped) {
                                 cat.setImage(flippedCatImages[2]);
-                                pause(400);
+                                context.pause(400);
                                 animation.runMovementAnimation(cat, "q -15 -30 -30 -30", 500);
                                 catJumped = true;
                             }
-                            pause(1500);
+                            context.pause(1500);
                             flip = !flip;
                         }
 
@@ -619,7 +619,7 @@ namespace hourOfAi {
                                     cy + (Math.random() - 0.5) * 10,
                                     speed
                                 );
-                                pause(500);
+                                context.pause(500);
                             }
                             tower.moveSprite(
                                 bugsly,
@@ -627,7 +627,7 @@ namespace hourOfAi {
                                 cy,
                                 speed
                             );
-                            pause(1000);
+                            context.pause(1000);
                             tower.moveSprite(
                                 bugsly,
                                 cx - 10,
@@ -688,13 +688,13 @@ namespace hourOfAi {
                             let sound = randint(0, 3)
                             if (sound == 0) {
                                 music.play(music.createSoundEffect(WaveShape.Square, 324, 1027, 120, 0, 100, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
-                                pause(randint(180, 210))
+                                context.pause(randint(180, 210))
                             } else if (sound == 1) {
                                 music.play(music.createSoundEffect(WaveShape.Noise, 452, 1, 120, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
-                                pause(randint(180, 210))
+                                context.pause(randint(180, 210))
                             } else {
                                 music.play(music.createSoundEffect(WaveShape.Sawtooth, 2120, 452, 120, 0, 100, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
-                                pause(50)
+                                context.pause(50)
                             }
                         }
                     })
@@ -711,18 +711,18 @@ namespace hourOfAi {
                                 animation.runMovementAnimation(bugslyJr, `q -2.5 -${height} -4 0`, duration)
                             }
                             flip = !flip
-                            pause(duration);
+                            context.pause(duration);
                         }
 
                         while (context.currentStep < 2) {
-                            pause(10);
+                            context.pause(10);
                         }
                         tv.destroy();
                         animation.runImageAnimation(bugslyJr, imgs.tiny_bugsly, 50, true);
                         animation.runMovementAnimation(bugslyJr, `q 0 -30 0 -20`, 500);
 
                         while (context.currentStep < 3) {
-                            pause(10);
+                            context.pause(10);
                         }
 
                         while (!(bugslyJr.flags & sprites.Flag.Destroyed)) {
@@ -732,30 +732,32 @@ namespace hourOfAi {
                                 tv.y - 10,
                                 200
                             );
-                            pause(300);
+                            context.pause(300);
                             tower.moveSprite(
                                 bugslyJr,
                                 tv.x + 14,
                                 tv.y - 6,
                                 200
                             );
-                            pause(300);
+                            context.pause(300);
                             tower.moveSprite(
                                 bugslyJr,
                                 tv.x - 1,
                                 tv.y + 4,
                                 200
                             );
-                            pause(300);
+                            context.pause(300);
                         }
                     })
                 }),
                 tower.dialog("Huh?", context => {
-                    music.play(music.createSoundEffect(WaveShape.Sine, 5000, 0, 255, 0, 2000, SoundExpressionEffect.Warble, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
-                    pause(100)
-                    music.play(music.createSoundEffect(WaveShape.Sine, 101, 1550, 255, 0, 120, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
-                    pause(50)
-                    music.play(music.createSoundEffect(WaveShape.Sine, 1, 1342, 255, 0, 120, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+                    if (context.isFinished()) return;
+                    music.play(music.createSoundEffect(WaveShape.Sine, 5000, 0, 255, 0, 2000, SoundExpressionEffect.Warble, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
+                    context.pause(2100)
+                    music.play(music.createSoundEffect(WaveShape.Sine, 101, 1550, 255, 0, 120, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
+                    context.pause(170)
+                    music.play(music.createSoundEffect(WaveShape.Sine, 1, 1342, 255, 0, 120, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
+                    context.pause(120)
                 }),
                 tower.dialog("Hey! What's the big idea!? You made me game over!"),
                 tower.dialog("I've never made it to level 8 before! You're gonna pay!"),
@@ -786,7 +788,6 @@ namespace hourOfAi {
 
                     const radius = 40;
                     const numCandles = 16;
-                    game.stats = true;
 
                     let candles: tourney.FireSprite[] = [];
 
@@ -817,11 +818,11 @@ namespace hourOfAi {
                         candle.setKind(SpriteKind.DialogSprite);
                         candle.data.haloIndex = candleHalos.length + i;
 
-                        pause(100)
+                        context.pause(100)
                         candle.setStrength(4);
                     }
 
-                    pause(1000);
+                    context.pause(1000);
                     const shadow = sprites.create(imgs.small_shadow[0], SpriteKind.DialogSprite);
                     shadow.bottom = 0;
                     shadow.z = 1;
@@ -841,7 +842,7 @@ namespace hourOfAi {
                                 candle.bottom - (halo.height >> 1) | 0
                             );
                         }
-                        pause(10)
+                        context.pause(10)
                     }
 
 
@@ -882,7 +883,7 @@ namespace hourOfAi {
                                 candle.setStrength(haloIndex);
                             }
                         }
-                        pause(50);
+                        context.pause(50);
                     }
                     candleHalos = [];
                 })
@@ -947,10 +948,10 @@ namespace hourOfAi {
                     const littleShift = "v -1 v 1";
 
                     control.runInBackground(() => {
-                        pauseUntil(() => context.currentStep === 2);
+                        pauseUntil(() => context.currentStep >= 2);
                         phase = 1;
                         playLightSwitchOff();
-                        pause(2000);
+                        context.pause(2000);
                         playLightSwitchOn();
                         president.setFlag(SpriteFlag.Invisible, false);
                         bg.setImage(imgs.press_office_bg_spotlight);
