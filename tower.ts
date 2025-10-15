@@ -6,17 +6,17 @@ namespace hourOfAi.tower {
     const SOFT_RESET = false;
     export const DEBUG = false;
 
-    export function initTower() {
+    export function initTower(bg?: TowerScene) {
         const state = getTowerState();
         const challengerIndex = getCurrentTowerLevel() === -1 ? 0 : getCurrentTowerLevel();
 
         // 0 stinky
-        // 1 bugsly
-        // 2 bugsly jr
-        // 3 bumble
-        // 4 legsolas
-        // 5 crick
-        // 6 hopper
+        // 1 bumble
+        // 2 legsolas
+        // 3 crick
+        // 4 hopper
+        // 5 bugsly
+        // 6 bugsly jr
         // 7 shadow
         // 8 president
 
@@ -39,8 +39,10 @@ namespace hourOfAi.tower {
             setTowerState(TowerState.IntroCutscene);
         }
 
-        const bg = new TowerScene();
-        bg.xOffset = (screen.width >> 1) - (imgs.tower_section.width >> 1);
+        if (!bg) {
+            bg = new TowerScene();
+            bg.xOffset = (screen.width >> 1) - (imgs.tower_section.width >> 1);
+        }
 
         // Pause on the tower scene for a moment before zooming in
         if (state === TowerState.NotStarted) {
@@ -73,14 +75,14 @@ namespace hourOfAi.tower {
         const challenger = challengers[challengerIndex];
 
         if (isIntroCutscene) {
-            bg.visible = false;
+            bg.setVisible(false)
             showIntroScene(challenger);
 
             setTowerState(TowerState.StartMatch);
             reset();
         }
         else if (state === TowerState.WinCutscene) {
-            bg.visible = false;
+            bg.setVisible(false)
             bg.zoomIn(true);
             showWinCutscene(challenger);
 
@@ -90,17 +92,17 @@ namespace hourOfAi.tower {
             reset(true);
         }
         else if (state === TowerState.LoseCutscene) {
-            bg.visible = false;
+            bg.setVisible(false)
             bg.zoomIn(true);
             showLoseCutscene(challenger);
-            bg.visible = true;
+            bg.setVisible(true)
             bg.zoomOut();
 
             startGameMode(GameMode.MainMenu);
         }
         else if (state === TowerState.StartMatch) {
             setTowerState(TowerState.InMatch);
-            bg.visible = false;
+            bg.setVisible(false)
             const player1Won = startMatch(challenger);
 
             if (player1Won) {
@@ -141,6 +143,69 @@ namespace hourOfAi.tower {
     function showDialogChain(challenger: Challenger, dialogParts: DialogPart[]) {
         const context = new tower.DialogContext();
 
+        const { skipRenderable, isCancelled } = createSkipRenderable(context);
+
+        for (let i = 0; i < dialogParts.length; i++) {
+            const dialog = dialogParts[i];
+            let handlerComplete = true;
+
+            if (dialog.onDialogStart) {
+                handlerComplete = false;
+                control.runInBackground(() => {
+                    dialog.onDialogStart(context);
+                    handlerComplete = true;
+                });
+            }
+
+            showDialog(
+                context,
+                dialog.characterName || challenger.name,
+                dialog.text,
+                dialog.characterPortrait || challenger.portrait,
+                i === 0,
+                isCancelled,
+                dialog.font
+            );
+
+            pauseUntil(() => handlerComplete);
+            context.currentStep++;
+        }
+
+        context.finish();
+        sprites.destroyAllSpritesOfKind(SpriteKind.DialogSprite);
+        skipRenderable.destroy();
+    }
+
+    export function startMatch(challenger: Challenger) {
+        return initSingleMatch(true, true, true, challenger);
+    }
+
+    export function runImageAnimationWhileTrue(sprite: Sprite, images: Image[], interval: number, condition: () => boolean) {
+        let frameHandler: control.FrameCallback;
+        let frameTimer = interval;
+        let frame = 0;
+
+        sprite.setImage(images[0]);
+
+
+        frameHandler = game.eventContext().registerFrameHandler(scene.UPDATE_PRIORITY, () => {
+            if (!condition()) {
+                game.eventContext().unregisterFrameHandler(frameHandler);
+                sprite.setImage(images[0]);
+                return;
+            }
+
+            frameTimer -= game.eventContext().deltaTimeMillis;
+
+            while (frameTimer <= 0) {
+                frameTimer += interval;
+                frame = (frame + 1) % images.length;
+                sprite.setImage(images[frame]);
+            }
+        });
+    }
+
+    export function createSkipRenderable(context?: DialogContext) {
         let skipRenderable: scene.Renderable;
         const SKIP_HOLD_TIME = 1500;
         let skipTimer = SKIP_HOLD_TIME;
@@ -204,7 +269,9 @@ namespace hourOfAi.tower {
 
                 if (skipTimer <= 0) {
                     skipRenderable.destroy();
-                    context.finish();
+                    if (context) {
+                        context.finish();
+                    }
                     cancelled = true;
                 }
             }
@@ -213,63 +280,9 @@ namespace hourOfAi.tower {
             }
         });
 
-        for (let i = 0; i < dialogParts.length; i++) {
-            const dialog = dialogParts[i];
-            let handlerComplete = true;
-
-            if (dialog.onDialogStart) {
-                handlerComplete = false;
-                control.runInBackground(() => {
-                    dialog.onDialogStart(context);
-                    handlerComplete = true;
-                });
-            }
-
-            showDialog(
-                context,
-                dialog.characterName || challenger.name,
-                dialog.text,
-                dialog.characterPortrait || challenger.portrait,
-                i === 0,
-                isCancelled,
-                dialog.font
-            );
-
-            pauseUntil(() => handlerComplete);
-            context.currentStep++;
+        return {
+            skipRenderable,
+            isCancelled
         }
-
-        context.finish();
-        sprites.destroyAllSpritesOfKind(SpriteKind.DialogSprite);
-        skipRenderable.destroy();
-    }
-
-    export function startMatch(challenger: Challenger) {
-        return initSingleMatch(true, true, true, challenger);
-    }
-
-    export function runImageAnimationWhileTrue(sprite: Sprite, images: Image[], interval: number, condition: () => boolean) {
-        let frameHandler: control.FrameCallback;
-        let frameTimer = interval;
-        let frame = 0;
-
-        sprite.setImage(images[0]);
-
-
-        frameHandler = game.eventContext().registerFrameHandler(scene.UPDATE_PRIORITY, () => {
-            if (!condition()) {
-                game.eventContext().unregisterFrameHandler(frameHandler);
-                sprite.setImage(images[0]);
-                return;
-            }
-
-            frameTimer -= game.eventContext().deltaTimeMillis;
-
-            while (frameTimer <= 0) {
-                frameTimer += interval;
-                frame = (frame + 1) % images.length;
-                sprite.setImage(images[frame]);
-            }
-        });
     }
 }

@@ -124,7 +124,7 @@ namespace hourOfAi.tower {
         zoom: number = 1;
 
         renderable: scene.Renderable;
-        starFieldRenderable: scene.Renderable;
+        starFieldRenderable: StarFieldSprite
 
         currentAnimation: Animation;
 
@@ -253,6 +253,9 @@ namespace hourOfAi.tower {
             // }
 
             this.renderable = scene.createRenderable(0, () => {
+                this.starFieldRenderable.scroll = this.scroll >> 1;
+                this.starFieldRenderable.starHeight = Math.map(this.scrollVelocity, 1, 30, 1, 80);
+                this.starFieldRenderable.setFlag(SpriteFlag.Invisible, !this.visible);
                 if (!this.visible) return;
 
                 // if (controller.A.isPressed()) {
@@ -384,7 +387,8 @@ namespace hourOfAi.tower {
                 miniSprites = miniSprites.filter(s => !s.done);
             });
 
-            this.starFieldRenderable = this.createStarFieldRenderable();
+            this.starFieldRenderable = new StarFieldSprite();
+            this.starFieldRenderable.z = -0.1;
         }
 
         protected drawTower() {
@@ -482,8 +486,26 @@ namespace hourOfAi.tower {
             });
         }
 
+        doIntroAnimation() {
+            this.scroll = 1700;
+            this.currentAnimation = new Animation(
+                1500,
+                easeOutCirc,
+                t => {
+                    const lastScroll = this.scroll;
+                    this.scroll = (1700 * (1 - t)) | 0;
+                    this.scrollVelocity = (lastScroll - this.scroll);
+                }
+            )
+
+            this.currentAnimation.start();
+            this.currentAnimation.pauseUntilDone();
+            this.scroll = 0;
+            this.scrollVelocity = 1;
+        }
+
         protected drawImageCore(img: Image, x: number, y: number) {
-            if (y > 120) return;
+            if (y > 120 || !img) return;
 
             screen.drawTransparentImage(img, x, y);
         }
@@ -494,60 +516,9 @@ namespace hourOfAi.tower {
             screen.fillRect(x, y, w, h, color);
         }
 
-        protected createStarFieldRenderable() {
-            let frameTimer = 0;
-            let starX = 0;
-            let starY = 0;
-            let starX2 = 0;
-            let starY2 = 0;
-
-            let lastX = 0;
-            let lastI = 0;
-
-            return scene.createRenderable(-0.1, () => {
-                if (!this.visible) return;
-                frameTimer --;
-                let x = lastX;
-                let y = this.lastY;
-                let i = lastI;
-
-                const scroll = this.scroll >> 1;
-
-                const height = Math.map(this.scrollVelocity, 1, 30, 1, 80);
-
-                while (y + scroll > 0) {
-                    x += i * 66
-                    while (x > 160) {
-                        x -= 160;
-                        y--;
-                    }
-                    i = (i + 1) % 15
-
-                    if (y + scroll > screen.height) {
-                        lastX = x;
-                        this.lastY = y;
-                        lastI = i;
-                        continue;
-                    }
-                    if (Math.abs(y) > this.maxY) {
-                        break;
-                    }
-                    drawStar(x, y + scroll, height);
-                }
-
-                if (frameTimer < 0) {
-                    frameTimer = randint(100, 400);
-                    starX = randint(0, screen.width);
-                    starY = randint(0, screen.height) - scroll;
-                    starX2 = starX - randint(20, 30);
-                    starY2 = starY + randint(20, 30);
-                }
-                else if (frameTimer < 10) {
-                    drawPartialLine(
-                        starX, starY + scroll, starX2, starY2 + scroll, 1 - (frameTimer / 10), 0.1, 1
-                    )
-                }
-            })
+        setVisible(visible: boolean) {
+            this.visible = visible;
+            this.starFieldRenderable.setFlag(SpriteFlag.Invisible, !visible);
         }
     }
 
@@ -555,7 +526,7 @@ namespace hourOfAi.tower {
         return new TowerScene();
     }
 
-    function drawPartialLine(
+    export function drawPartialLine(
         startX: number, startY: number, endX: number, endY: number, offset: number, length: number, color: number
     ) {
         screen.drawLine(
@@ -565,17 +536,6 @@ namespace hourOfAi.tower {
             startY + (endY - startY) * (offset + length),
             color
         )
-    }
-
-    function drawStar(x: number, y: number, height: number) {
-        // const i = ((game.runtime() + x * 37 + y * 108) / 500) | 0
-        // if (i % 13 !== 0) {
-        //     screen.setPixel(x, y, 1)
-        // }
-        // else {
-        //     screen.setPixel(x, y, 5)
-        // }
-        screen.fillRect(x, y, 1, height, 1);
     }
 
     function drawLeaf(animation: Buffer[], x: number, y: number, frameTime: number, offset: number, moveY: boolean) {

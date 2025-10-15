@@ -2042,4 +2042,26 @@ fefefcf......................................................fcfefef
         ...........fffffffffff..........
         ................................
     `;
+
+    export const sleep_z = img`
+        . f f f f f f .
+        f 8 8 8 8 8 8 f
+        f 8 8 8 8 8 8 f
+        . f f f 8 8 f .
+        . . f 8 8 f . .
+        . f 8 8 f f f .
+        f 8 8 8 8 8 8 f
+        f 8 8 8 8 8 8 f
+        . f f f f f f .
+    `;
+
+    export const laughing = img`
+        . f f . f f . . f f f . . f f .
+        f 2 2 f 2 2 f f 2 2 2 f f 2 2 f
+        f 2 2 f 2 2 f 2 2 f 2 2 f 2 2 f
+        f 2 2 2 2 2 f 2 2 2 2 2 f 2 2 f
+        f 2 2 f 2 2 f 2 2 f 2 2 f f f .
+        f 2 2 f 2 2 f 2 2 f 2 2 f 2 2 f
+        . f f . f f . f f . f f . f f .
+    `;
 }

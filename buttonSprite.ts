@@ -118,11 +118,32 @@ namespace hourOfAi {
         return sprites.allOfKind(SpriteKind.MenuButton) as ButtonSprite[];
     }
 
-    function drawSilhouette(drawLeft: number, drawTop: number, img: Image) {
-        for (let x = 0; x < img.width; x++) {
-            for (let y = 0; y < img.height; y++) {
-                if (img.getPixel(x, y) !== 0) {
-                    screen.setPixel(drawLeft + x, drawTop + y, 14);
+    export function drawSilhouette(drawLeft: number, drawTop: number, img: Image, target?: Image, color = 14, outline = 0) {
+        target = target || screen;
+        if (color) {
+            for (let x = 0; x < img.width; x++) {
+                for (let y = 0; y < img.height; y++) {
+                    if (img.getPixel(x, y) !== 0) {
+                        target.setPixel(drawLeft + x, drawTop + y, color);
+                    }
+                }
+            }
+        }
+
+        if (outline) {
+            for (let x = 0; x < img.width; x++) {
+                for (let y = 0; y < img.height; y++) {
+                    if (img.getPixel(x, y) !== 0) {
+                        if (
+                            (x > 0 && img.getPixel(x - 1, y) === 0) ||
+                            (x < img.width - 1 && img.getPixel(x + 1, y) === 0) ||
+                            (y > 0 && img.getPixel(x, y - 1) === 0) ||
+                            (y < img.height - 1 && img.getPixel(x, y + 1) === 0)
+                        ) {
+                            target.setPixel(drawLeft + x, drawTop + y, outline);
+                            continue;
+                        }
+                    }
                 }
             }
         }

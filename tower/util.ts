@@ -60,7 +60,7 @@ namespace hourOfAi.tower {
         }
     }
 
-    export function moveSprite(sprite: Sprite, x: number, y: number, speed: number, pauseUntilDone = true) {
+    export function moveSprite(sprite: Sprite, x: number, y: number, speed: number, pauseUntilDone = true, easingFunction?: (x: number) => number) {
         const startX = sprite.x;
         const startY = sprite.y;
         const deltaX = x - startX;
@@ -74,6 +74,9 @@ namespace hourOfAi.tower {
             duration,
             t => t,
             progress => {
+                if (easingFunction) {
+                    progress = easingFunction(progress);
+                }
                 sprite.x = startX + progress * deltaX;
                 sprite.y = startY + progress * deltaY;
             }

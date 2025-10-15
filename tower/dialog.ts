@@ -204,4 +204,27 @@ namespace hourOfAi.tower {
     ) {
         return new DialogPart(text, onDialogStart, characterPortrait, characterName, font);
     }
+
+    export function showIntroCutsceneText(text: string, isCancelled: () => boolean) {
+        if (isCancelled()) return;
+
+        let dialog = fancyText.create(text, 158, 11, fancyText.geometric_sans_6)
+        dialog.setAnimationSound(music.createSoundEffect(WaveShape.Square, 7, 446, 133, 0, 20, SoundExpressionEffect.None, InterpolationCurve.Linear))
+        fancyText.setFrame(dialog, imgs.textFrame)
+        fancyText.setLineHeight(dialog, 10)
+        fancyText.setMinLines(dialog, 3)
+        dialog.setTextFlag(fancyText.Flag.ChangeHeightWhileAnimating, false)
+        dialog.setMaxLines(3)
+        dialog.x = 80
+        dialog.top = DIALOG_TOP
+        dialog.animateAtSpeed(30)
+
+        pauseUntil(() => dialog.remainingAnimationTime() <= 0 || isCancelled());
+
+        dialog.cancelAnimation();
+
+        const pauseEnd = game.runtime() + 4000;
+        pauseUntil(() => isCancelled() || game.runtime() >= pauseEnd);
+        dialog.destroy();
+    }
 }

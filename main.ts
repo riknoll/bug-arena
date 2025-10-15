@@ -20,7 +20,12 @@ function init() {
             break;
         case hourOfAi.GameMode.Tower:
             if (hourOfAi.shouldInitTower()) {
-                hourOfAi.tower.initTower();
+                if (hourOfAi.getTowerState() === hourOfAi.TowerState.NotStarted) {
+                    hourOfAi.tower.showOpeningCutscene();
+                }
+                else {
+                    hourOfAi.tower.initTower();
+                }
             }
             else {
                 hourOfAi.initMainMenu();
