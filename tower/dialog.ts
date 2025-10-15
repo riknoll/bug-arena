@@ -227,4 +227,27 @@ namespace hourOfAi.tower {
         pauseUntil(() => isCancelled() || game.runtime() >= pauseEnd);
         dialog.destroy();
     }
+
+    export function showEndCutsceneText(text: string) {
+        let dialog = fancyText.create(text, 158, 11, fancyText.geometric_sans_6)
+        dialog.setAnimationSound(music.createSoundEffect(WaveShape.Square, 7, 446, 133, 0, 20, SoundExpressionEffect.None, InterpolationCurve.Linear))
+        fancyText.setFrame(dialog, imgs.textFrame)
+        fancyText.setLineHeight(dialog, 10)
+        dialog.setTextFlag(fancyText.Flag.ChangeHeightWhileAnimating, false)
+        dialog.x = 80
+        dialog.y = 60
+        dialog.animateAtSpeed(30)
+
+        pauseUntil(() => dialog.remainingAnimationTime() <= 0);
+
+        dialog.cancelAnimation();
+
+        const pauseEnd = game.runtime() + 4000;
+        pauseUntil(() => game.runtime() >= pauseEnd);
+        const endText = fancyText.create("Press A or B to restart", 158, 1, fancyText.geometric_sans_6);
+        endText.x = 80;
+        endText.bottom = 119;
+        pauseUntil(() => controller.anyButton.isPressed() || browserEvents.A.isPressed() || browserEvents.B.isPressed() || browserEvents.MouseLeft.isPressed());
+        dialog.destroy();
+    }
 }

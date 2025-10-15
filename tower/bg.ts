@@ -289,8 +289,12 @@ namespace hourOfAi.tower {
 
                     screen.fillRect(0, CLOUD_TOP + scroll, 160, 120, 15)
 
-                    // const bushIndex = Math.idiv(game.runtime(), 100) % imgs.bush_wind_mono.length;
-                    // screen.drawIcon(imgs.bush_wind_mono[bushIndex], 0, 61 + scroll, 14);
+                    const bushIndex = Math.idiv(game.runtime(), 100) % imgs.bush_wind_mono.length;
+                    screen.drawIcon(imgs.bush_wind_mono[bushIndex], -5, 74 + scroll, 14);
+                    screen.drawIcon(imgs.bush_wind_mono[bushIndex], 40, 76 + scroll, 14);
+                    screen.drawIcon(imgs.bush_wind_mono[bushIndex], 80, 74 + scroll, 14);
+                    screen.drawIcon(imgs.bush_wind_mono[bushIndex], 120, 78 + scroll, 14);
+                    screen.fillRect(0, 90 + scroll, 160, 30, 6)
 
 
                     for (let i = backgroundLayers.length - 1; i >= 0; i--) {
@@ -478,6 +482,13 @@ namespace hourOfAi.tower {
                         for (let i = 0; i < 120; i++) {
                             scene.backgroundImage().scroll(0, -1);
                             pause(1);
+                        }
+
+                        if (getTowerUsedContinue() || isDebugMode()) {
+                            showEndCutsceneText("Congratulations!\nYou beat the tower!\nNext time try to do it without using a continue!");
+                        }
+                        else {
+                            showEndCutsceneText("Congratulations!\nYou beat the tower without using a continue!\nYou are the\n<wavy><rainbow>ULTIMATE CHAMPION!");
                         }
 
                         startGameMode(GameMode.MainMenu);

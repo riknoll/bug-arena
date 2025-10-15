@@ -151,7 +151,7 @@ namespace hourOfAi {
                         pause(200);
                         animation.stopAnimation(animation.AnimationTypes.MovementAnimation, dumpster);
                         pause(300);
-                        animation.runMovementAnimation(cat, "q 30 -40 60 -10", 1300)
+                        animation.runMovementAnimation(cat, "q 30 -40 60 -10", 1000)
                         dumpster.bottom = 70;
                         dumpster.left = 17;
                         pause(500)
@@ -183,7 +183,7 @@ namespace hourOfAi {
                 tower.dialog("Oh, wait... What's this? Are you climbing the tower?"),
                 tower.dialog("That means you have to fight me, right? <wavy><slow>Right...?"),
                 tower.dialog("If I win, give me all your trash! Give me!"),
-                tower.dialog("No choice! Have to! Gotta win! Gotta win!")
+                tower.dialog("No choice! Have to! Must win! Must win!")
             ],
             "Randomly wanders around the arena",
             [
