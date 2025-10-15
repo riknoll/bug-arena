@@ -4,7 +4,6 @@ namespace SpriteKind {
 
 namespace hourOfAi.tower {
     const SOFT_RESET = false;
-    export const DEBUG = false;
 
     export function initTower(bg?: TowerScene) {
         const state = getTowerState();
@@ -116,7 +115,7 @@ namespace hourOfAi.tower {
         }
     }
 
-    function reset(soft = false) {
+    export function reset(soft = false) {
         if (SOFT_RESET || soft) {
             for (const sprite of (game.currentScene().physicsEngine as any).sprites as Sprite[]) {
                 sprite.destroy();

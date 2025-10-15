@@ -6,6 +6,7 @@ namespace hourOfAi {
     const TOWER_LEVEL_KEY = "towerLevel";
     const TOWER_STATE_KEY = "towerState";
     const TOWER_USED_CONTINUE_KEY = "towerUsedContinue";
+    const DEBUG_KEY = "debugMode";
 
 
     export enum GameMode {
@@ -143,5 +144,16 @@ namespace hourOfAi {
             return false;
         }
         return !!(settings.readNumber("beatTower"));
+    }
+
+    export function isDebugMode(): boolean {
+        if (!settings.exists(DEBUG_KEY)) {
+            return false;
+        }
+        return !!(settings.readNumber(DEBUG_KEY));
+    }
+
+    export function setDebugMode(enabled: boolean) {
+        settings.writeNumber(DEBUG_KEY, enabled ? 1 : 0);
     }
 }

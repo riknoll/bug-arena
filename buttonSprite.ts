@@ -110,6 +110,7 @@ namespace hourOfAi {
         }
 
         isUnlocked(): boolean {
+            if (isDebugMode()) return true;
             return isChallengerUnlocked(this.challengerIndex);
         }
     }

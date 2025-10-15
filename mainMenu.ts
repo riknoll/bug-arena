@@ -4,6 +4,7 @@ namespace SpriteKind {
 
 namespace hourOfAi {
     export function initMainMenu() {
+        initDebug();
         let destroyBg: () => void = createPracticeMenuBackground();
 
         const line1 = "BUG";
@@ -203,6 +204,54 @@ namespace hourOfAi {
                 imgs.infinity_icon
             ),
         );
+
+        if (isDebugMode()) {
+            if (getPracticeChallenger() !== -1) {
+                cards.push(new CardButtonSprite(
+                    () => {
+                        setCurrentTowerLevel(getPracticeChallenger());
+                        setTowerState(TowerState.StartIntroCutscene);
+                        startGameMode(GameMode.Tower);
+                    },
+                    "DEBUG: TOWER",
+                    "Start the tower here",
+                    imgs.shadow_silhouette
+                ));
+                cards.push(new CardButtonSprite(
+                    () => {
+                        setCurrentTowerLevel(getPracticeChallenger());
+                        setTowerState(TowerState.WinCutscene);
+                        destroyPreviousMenu();
+                        tower.reset(true);
+                    },
+                    "DEBUG: WIN",
+                    "Play the win cutscene",
+                    imgs.shadow_silhouette
+                ));
+                cards.push(new CardButtonSprite(
+                    () => {
+                        setCurrentTowerLevel(getPracticeChallenger());
+                        setTowerState(TowerState.LoseCutscene);
+                        destroyPreviousMenu();
+                        tower.reset(true);
+                    },
+                    "DEBUG: LOSE",
+                    "Play the lose cutscene",
+                    imgs.shadow_silhouette
+                ));
+            }
+            else {
+                cards.push(new CardButtonSprite(
+                    () => {
+                        settings.clear();
+                        startGameMode(GameMode.MainMenu);
+                    },
+                    "DEBUG: RESET",
+                    "Reset all progress",
+                    imgs.shadow_silhouette
+                ));
+            }
+        }
 
         initSimpleMenu("Match Type", cards);
     }
@@ -694,5 +743,48 @@ namespace hourOfAi {
         });
 
         return () => r.destroy();
+    }
+
+    function initDebug() {
+        let sequence = 0;
+
+        const advanceSequence = (expected: number) => {
+            return () => {
+                if (sequence === expected) {
+                    sequence++;
+                }
+                else {
+                    sequence = 0;
+                }
+            }
+        }
+
+        browserEvents.D.onEvent(browserEvents.KeyEvent.Pressed, advanceSequence(0));
+        browserEvents.E.onEvent(browserEvents.KeyEvent.Pressed, advanceSequence(1));
+        browserEvents.B.onEvent(browserEvents.KeyEvent.Pressed, advanceSequence(2));
+        browserEvents.U.onEvent(browserEvents.KeyEvent.Pressed, advanceSequence(3));
+        browserEvents.G.onEvent(browserEvents.KeyEvent.Pressed, advanceSequence(4));
+        browserEvents.One.onEvent(browserEvents.KeyEvent.Pressed, () => {
+            if (sequence === 5) {
+                sequence = 0;
+
+                let text: string;
+                if (isDebugMode()) {
+                    setDebugMode(false);
+                    text = "Debug Mode Disabled!"
+                }
+                else {
+                    setDebugMode(true);
+                    text = "Debug Mode Enabled!"
+                }
+
+                const toast = fancyText.create(text, 0, 1, fancyText.bold_sans_7);
+                toast.setFrame(imgs.textFrame);
+                toast.x = 80;
+                toast.bottom = 110;
+                toast.z = 10000;
+                toast.lifespan = 2000;
+            }
+        });
     }
 }
