@@ -12,121 +12,20 @@ namespace hourOfAi.tower {
             },
             "Shadow",
             [
-                tower.dialog("Keh heh heh heh!", context => {
-                    initLightColorBuffer();
-                    initCandleHalos();
-
-                    const cx = 80;
-                    const cy = 40;
-
-                    const radius = 40;
-                    const numCandles = 16;
-
-                    let candles: tourney.FireSprite[] = [];
-
-                    shadeImage = image.create(screen.width, 80);
-                    shadeImage.fill(4);
-
-
-                    const bgRenderable = scene.createRenderable(-3, () => {
-                        screen.fill(15)
-                        helpers.mapImage(
-                            screen,
-                            shadeImage,
-                            0,
-                            0,
-                            lightColorBuffer
-                        )
-                    });
-
-
-                    for (let i = 0; i < numCandles; i++) {
-                        const angle = (i / numCandles) * 2 * Math.PI + 0.2;
-                        const candle = new tourney.FireSprite(4, 16, true);
-                        candle.setStrength(12);
-                        candle.x = cx + Math.cos(angle) * radius,
-                        candle.bottom = cy + Math.sin(angle) * radius / 2
-                        candle.z = 0.5 + (candle.bottom / 200);
-                        candles.push(candle);
-                        candle.setKind(SpriteKind.DialogSprite);
-                        candle.data.haloIndex = candleHalos.length + i;
-
-                        context.pause(100)
-                        candle.setStrength(4);
-                    }
-
-                    context.pause(1000);
-                    const shadow = sprites.create(imgs.small_shadow[0], SpriteKind.DialogSprite);
-                    shadow.bottom = 0;
-                    shadow.z = 1;
-                    animation.runImageAnimation(shadow, imgs.small_shadow, 150, true);
-
-                    animation.runMovementAnimation(shadow, `q 0 35 0 35`, 1000);
-                    for (let i = 0; i < 30; i++) {
-                        shadeImage.fill(4);
-                        const halo = candleHalos[Math.min(i >> 1, candleHalos.length - 1)];
-                        // console.log(halo.height)
-                        for (const candle of candles) {
-                            candle.setStrength(i + 4);
-                            helpers.mergeImage(
-                                shadeImage,
-                                halo,
-                                candle.x - (halo.width >> 1) | 0,
-                                candle.bottom - (halo.height >> 1) | 0
-                            );
-                        }
-                        context.pause(10)
-                    }
-
-
-                    control.runInBackground(() => {
-                        context.pauseUntilFinished();
-                        bgRenderable.destroy();
-                    });
-
-                }, imgs.shadow_silhouette, "?????"),
+                tower.dialog("Keh heh heh heh!", introCutscene, imgs.shadow_silhouette, "?????"),
                 tower.dialog("Well, what do we have here?"),
                 tower.dialog("Another fool climbing the tower!"),
                 tower.dialog("I suppose you expect to defeat me? Not likely."),
-                tower.dialog("Let's see how you fare against true darkness...", context => {
-                    const dialogSprites = sprites.allOfKind(SpriteKind.DialogSprite);
-                    const candles = dialogSprites.filter(s => s instanceof tourney.FireSprite) as tourney.FireSprite[];
-
-                    let stillGoing = true;
-                    animation.runMovementAnimation(dialogSprites.filter(s => !(s instanceof tourney.FireSprite))[0], `q 0 -50 0 -50`, 1000);
-                    while (stillGoing) {
-                        shadeImage.fill(4);
-                        stillGoing = false;
-                        for (const candle of candles) {
-                            const haloIndex = candle.data.haloIndex;
-                            candle.data.haloIndex = haloIndex - 1;
-
-                            if (haloIndex < 0) {
-                                candle.destroy();
-                            }
-                            else {
-                                const halo = candleHalos[Math.min(haloIndex, candleHalos.length - 1)];
-                                helpers.mergeImage(
-                                    shadeImage,
-                                    halo,
-                                    candle.x - (halo.width >> 1) | 0,
-                                    candle.bottom - (halo.height >> 1) | 0
-                                );
-                                stillGoing = true;
-                                candle.setStrength(haloIndex);
-                            }
-                        }
-                        context.pause(50);
-                    }
-                    candleHalos = [];
-                })
-        ],
+                tower.dialog("Let's see how you fare against true darkness...", endIntroCutscene)
+            ],
             "Follows the opponent's color.",
             [
                 tower.dialog("Ha! A waste of time!"),
                 tower.dialog("You cannot defeat true darkness!")
             ],
-            [ tower.dialog("Curses! But I'll have the last laugh, I swear it!") ],
+            [
+                tower.dialog("Curses! But I'll have the last laugh, I swear it!")
+            ],
             imgs.shadow,
             hourOfAi.algorithms.followOpponentColor
         );
@@ -145,7 +44,7 @@ namespace hourOfAi.tower {
         lightColorBuffer = control.createBuffer(16 * (shadeLevels + 1));
 
         for (let x = 0; x < 16; x++) {
-            lightColorBuffer[lightColorBuffer.length  - 16 + x] = x;
+            lightColorBuffer[lightColorBuffer.length - 16 + x] = x;
         }
 
         for (let i = shadeLevels - 1; i > 0; i--) {
@@ -229,5 +128,119 @@ namespace hourOfAi.tower {
                 d2 = d2 + dx - dy + rx2;
             }
         }
+    }
+
+    function introCutscene(context: DialogContext) {
+        initLightColorBuffer();
+        initCandleHalos();
+
+        const cx = 80;
+        const cy = 40;
+
+        const radius = 40;
+        const numCandles = 16;
+
+        let candles: tourney.FireSprite[] = [];
+
+        shadeImage = image.create(screen.width, 80);
+        shadeImage.fill(4);
+
+
+        const bgRenderable = scene.createRenderable(-3, () => {
+            screen.fill(15)
+            helpers.mapImage(
+                screen,
+                shadeImage,
+                0,
+                0,
+                lightColorBuffer
+            )
+        });
+
+
+        for (let i = 0; i < numCandles; i++) {
+            const angle = (i / numCandles) * 2 * Math.PI + 0.2;
+            const candle = new tourney.FireSprite(4, 16, true);
+            candle.setStrength(12);
+            candle.x = cx + Math.cos(angle) * radius,
+                candle.bottom = cy + Math.sin(angle) * radius / 2
+            candle.z = 0.5 + (candle.bottom / 200);
+            candles.push(candle);
+            candle.setKind(SpriteKind.DialogSprite);
+            candle.data.haloIndex = candleHalos.length + i;
+
+            context.pause(100)
+            candle.setStrength(4);
+        }
+
+        context.pause(1000);
+        const shadow = sprites.create(imgs.small_shadow[0], SpriteKind.DialogSprite);
+        shadow.bottom = 0;
+        shadow.z = 1;
+        animation.runImageAnimation(shadow, imgs.small_shadow, 150, true);
+
+        animation.runMovementAnimation(shadow, `q 0 35 0 35`, 1000);
+        for (let i = 0; i < 30; i++) {
+            shadeImage.fill(4);
+            const halo = candleHalos[Math.min(i >> 1, candleHalos.length - 1)];
+            // console.log(halo.height)
+            for (const candle of candles) {
+                candle.setStrength(i + 4);
+                helpers.mergeImage(
+                    shadeImage,
+                    halo,
+                    candle.x - (halo.width >> 1) | 0,
+                    candle.bottom - (halo.height >> 1) | 0
+                );
+            }
+            context.pause(10)
+        }
+
+
+        control.runInBackground(() => {
+            context.pauseUntilFinished();
+            bgRenderable.destroy();
+        });
+    }
+
+    function endIntroCutscene(context: DialogContext) {
+        const dialogSprites = sprites.allOfKind(SpriteKind.DialogSprite);
+        const candles = dialogSprites.filter(s => s instanceof tourney.FireSprite) as tourney.FireSprite[];
+
+        let stillGoing = true;
+        animation.runMovementAnimation(dialogSprites.filter(s => !(s instanceof tourney.FireSprite))[0], `q 0 -50 0 -50`, 1000);
+        while (stillGoing) {
+            shadeImage.fill(4);
+            stillGoing = false;
+            for (const candle of candles) {
+                const haloIndex = candle.data.haloIndex;
+                candle.data.haloIndex = haloIndex - 1;
+
+                if (haloIndex < 0) {
+                    candle.destroy();
+                }
+                else {
+                    const halo = candleHalos[Math.min(haloIndex, candleHalos.length - 1)];
+                    helpers.mergeImage(
+                        shadeImage,
+                        halo,
+                        candle.x - (halo.width >> 1) | 0,
+                        candle.bottom - (halo.height >> 1) | 0
+                    );
+                    stillGoing = true;
+                    candle.setStrength(haloIndex);
+                }
+            }
+            context.pause(50);
+        }
+        candleHalos = [];
+    }
+
+    function playerLoseCutscene(context: DialogContext) {
+
+    }
+
+    function playerWinCutscene(context: DialogContext) {
+
     }
 }

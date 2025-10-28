@@ -9,77 +9,7 @@ namespace hourOfAi.tower {
             },
             "Bug President",
             [
-                tower.dialog("...", context => {
-                    const bg = sprites.create(imgs.press_office_bg, SpriteKind.DialogSprite);
-                    bg.z = -4
-                    bg.top = 0;
-                    scene.setBackgroundColor(14);
-                    initDarkColorBuffer();
-
-
-                    const podium = sprites.create(imgs.podium, SpriteKind.DialogSprite);
-                    podium.bottom = 80;
-                    podium.x = 80;
-                    podium.z = -3.5;
-
-                    const president = sprites.create(imgs.bug_president[0], SpriteKind.DialogSprite);
-                    president.bottom = podium.y - 4;
-                    president.x = podium.x;
-                    president.z = -3.6;
-                    // animation.runImageAnimation(president, imgs.bug_president, 100, true);
-
-                    president.setFlag(SpriteFlag.Invisible, true);
-                    let phase = 0;
-
-                    const renderable = scene.createRenderable(-3.4, () => {
-                        if (phase === 0) return;
-                        if (phase === 1) {
-                            screen.fill(15);
-                            return;
-                        }
-                        else {
-                            helpers.mapImage(
-                                screen,
-                                imgs.spotlight,
-                                0,
-                                0,
-                                darkColorBuffer
-                            )
-                        }
-                    });
-                    const bigShift = "v -2 v 2";
-                    const littleShift = "v -1 v 1";
-
-                    control.runInBackground(() => {
-                        pauseUntil(() => context.currentStep >= 2);
-                        phase = 1;
-                        playLightSwitchOff();
-                        context.pause(2000);
-                        playLightSwitchOn();
-                        president.setFlag(SpriteFlag.Invisible, false);
-                        bg.setImage(imgs.press_office_bg_spotlight);
-                        phase = 2;
-                        podium.z = -3.2;
-                        president.z = -3.3
-                        animation.runMovementAnimation(president, bigShift, 500, false);
-                        context.pauseUntilNextStep();
-                        while (!context.isFinished()) {
-                            if (context.currentStep === 4 || context.currentStep === 7 || context.currentStep === 10 || context.currentStep === 14) {
-                                animation.runMovementAnimation(president, bigShift, 500, false);
-                                tower.runImageAnimationWhileTrue(president, imgs.bug_president.slice(2, 4), 100, () => context.isPrinting);
-                            }
-                            else {
-                                animation.runMovementAnimation(president, littleShift, 500, false);
-                                tower.runImageAnimationWhileTrue(president, imgs.bug_president.slice(0, 2), 100, () => context.isPrinting);
-                            }
-                            context.pauseUntilNextStep();
-                        }
-
-                        renderable.destroy();
-                    })
-
-                    // 0 1 2 3 4* 5 6 7* 8 9 10* 11 12 13 14*
-                }, imgs.shadow_silhouette, "?????"),
+                tower.dialog("...", introCutscene, imgs.shadow_silhouette, "?????"),
                 tower.dialog("...Oh? Is someone there? One moment!", undefined, imgs.shadow_silhouette, "?????"),
                 tower.dialog("Ahem...", undefined, imgs.shadow_silhouette, "?????"),
                 tower.dialog("Congratulations on making it this far, challenger."),
@@ -96,11 +26,92 @@ namespace hourOfAi.tower {
                 tower.dialog("And create the greatest AI!"),
             ],
             "TBD",
-            [tower.dialog("Better luck next time! Now I've got a nation to run!")],
-            [tower.dialog("Well, you won fair and square. I hope I can still count on your vote!")],
+            [
+                tower.dialog("Better luck next time! Now I've got a nation to run!", playerLoseCutscene)
+            ],
+            [
+                tower.dialog("Well, you won fair and square. I hope I can still count on your vote!", playerWinCutscene)
+            ],
             imgs.president,
             hourOfAi.algorithms.zigzag
         );
+    }
+
+    function introCutscene(context: DialogContext) {
+        const bg = sprites.create(imgs.press_office_bg, SpriteKind.DialogSprite);
+        bg.z = -4
+        bg.top = 0;
+        scene.setBackgroundColor(14);
+        initDarkColorBuffer();
+
+        const podium = sprites.create(imgs.podium, SpriteKind.DialogSprite);
+        podium.bottom = 80;
+        podium.x = 80;
+        podium.z = -3.5;
+
+        const president = sprites.create(imgs.bug_president[0], SpriteKind.DialogSprite);
+        president.bottom = podium.y - 4;
+        president.x = podium.x;
+        president.z = -3.6;
+        // animation.runImageAnimation(president, imgs.bug_president, 100, true);
+
+        president.setFlag(SpriteFlag.Invisible, true);
+        let phase = 0;
+
+        const renderable = scene.createRenderable(-3.4, () => {
+            if (phase === 0) return;
+            if (phase === 1) {
+                screen.fill(15);
+                return;
+            }
+            else {
+                helpers.mapImage(
+                    screen,
+                    imgs.spotlight,
+                    0,
+                    0,
+                    darkColorBuffer
+                )
+            }
+        });
+        const bigShift = "v -2 v 2";
+        const littleShift = "v -1 v 1";
+
+        control.runInBackground(() => {
+            pauseUntil(() => context.currentStep >= 2);
+            phase = 1;
+            playLightSwitchOff();
+            context.pause(2000);
+            playLightSwitchOn();
+            president.setFlag(SpriteFlag.Invisible, false);
+            bg.setImage(imgs.press_office_bg_spotlight);
+            phase = 2;
+            podium.z = -3.2;
+            president.z = -3.3
+            animation.runMovementAnimation(president, bigShift, 500, false);
+            context.pauseUntilNextStep();
+            while (!context.isFinished()) {
+                if (context.currentStep === 4 || context.currentStep === 7 || context.currentStep === 10 || context.currentStep === 14) {
+                    animation.runMovementAnimation(president, bigShift, 500, false);
+                    tower.runImageAnimationWhileTrue(president, imgs.bug_president.slice(2, 4), 100, () => context.isPrinting);
+                }
+                else {
+                    animation.runMovementAnimation(president, littleShift, 500, false);
+                    tower.runImageAnimationWhileTrue(president, imgs.bug_president.slice(0, 2), 100, () => context.isPrinting);
+                }
+                context.pauseUntilNextStep();
+            }
+
+            renderable.destroy();
+        });
+    }
+
+    function playerLoseCutscene(context: DialogContext) {
+
+    }
+
+    function playerWinCutscene(context: DialogContext) {
+
     }
 
     function playLightSwitchOn() {
