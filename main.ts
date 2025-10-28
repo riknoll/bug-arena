@@ -1,3 +1,4 @@
+game.stats = true;
 function init() {
     hourOfAi.initChallengers();
 
