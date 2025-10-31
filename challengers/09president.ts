@@ -91,7 +91,7 @@ namespace hourOfAi.tower {
             animation.runMovementAnimation(president, bigShift, 500, false);
             context.pauseUntilNextStep();
             while (!context.isFinished()) {
-                if (context.currentStep === 4 || context.currentStep === 7 || context.currentStep === 10 || context.currentStep === 14) {
+                if (context.currentStep === 7 || context.currentStep === 10 || context.currentStep === 14) {
                     animation.runMovementAnimation(president, bigShift, 500, false);
                     tower.runImageAnimationWhileTrue(president, imgs.bug_president.slice(2, 4), 100, () => context.isPrinting);
                 }

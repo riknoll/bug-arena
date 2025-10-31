@@ -87,7 +87,7 @@ namespace tourney {
             this.setDimensions(width, height);
         }
 
-        draw(left: number, top: number) {
+        update(dt: number) {
             for (let x = 0; x < this.fireData.width; x++) {
                 this.fireData.setPixel(x, this.fireData.height - 1, randint(0, this.strength));
             }
@@ -104,15 +104,24 @@ namespace tourney {
                 }
             }
 
+            if (this.roundBottom) {
+                this.fireData.rendered.setPixel(0, this.fireData.rendered.height - 1, 0);
+                this.fireData.rendered.setPixel(this.fireData.rendered.width - 1, this.fireData.rendered.height - 1, 0);
+            }
+        }
+
+        draw(left: number, top: number) {
+
             // since the fire data is smaller than the width, we're going to loop
             // the middle portion
             const loopStart = 5;
             const loopLength = this.fireData.width - (loopStart << 1);
 
-            if (this.roundBottom) {
-                this.fireData.rendered.setPixel(0, this.fireData.rendered.height - 1, 0);
-                this.fireData.rendered.setPixel(this.fireData.rendered.width - 1, this.fireData.rendered.height - 1, 0);
+            if (this.fireData.width === this.width && this.fireData.height === this.height) {
+                screen.drawTransparentImage(this.fireData.rendered, left, top);
+                return;
             }
+
 
             // left edge of fire
             screen.blit(

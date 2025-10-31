@@ -25,8 +25,10 @@ enum ArenaProperty {
     Height
 }
 
-//% block="Hour of AI"
+//% block="Bug AI"
 //% color="#e88b00"
+//% weight=9999999
+//% icon="\uf188"
 namespace hourOfAi {
     class AsyncAgent {
         agent: Agent;

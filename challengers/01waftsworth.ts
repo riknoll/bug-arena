@@ -10,7 +10,7 @@ namespace hourOfAi.tower {
             },
             "Waftsworth",
             [
-                tower.dialog("Let's see... Let's see... Need trash... Need trash...", introScene),
+                tower.dialog("Let's see... Let's see... Need trash... Need trash...", introCutscene),
                 tower.dialog("Ooohh! <wavy><slow>Oooooohh!</slow></wavy> Maybe in here!?"),
                 tower.dialog("*rummage* *rummage* *rummage*"),
                 tower.dialog("Boring! Boring! Don't want! Don't want!"),
@@ -21,18 +21,18 @@ namespace hourOfAi.tower {
             ],
             "Randomly wanders around the arena",
             [
-                tower.dialog("Bwahaha! Smell ya later! Later!", playerWinScene),
+                tower.dialog("Bwahaha! Smell ya later! Later!", playerLoseCutscene),
                 tower.dialog("Precious trash! All mine! <wavy>All mine!<wavy>")
             ],
             [
-                tower.dialog("Awwwww... Fine! Fine! I didn't want your trash anyway!", playerWinScene)
+                tower.dialog("Awwwww... Fine! Fine! I didn't want your trash anyway!", playerWinCutscene)
             ],
             imgs.stinky,
             hourOfAi.algorithms.randomWalk
         )
     }
 
-    function introScene(context: DialogContext) {
+    function introCutscene(context: DialogContext) {
         const dumpster = initBG();
 
         const cat = sprites.create(imgs.cat[0], SpriteKind.DialogSprite);
@@ -112,7 +112,7 @@ namespace hourOfAi.tower {
         });
     }
 
-    function playerWinScene(context: DialogContext) {
+    function playerLoseCutscene(context: DialogContext) {
         initBG();
 
         const stinky = sprites.create(imgs.tiny_stinky[0], SpriteKind.DialogSprite);
@@ -127,6 +127,10 @@ namespace hourOfAi.tower {
                 pause(1);
             }
         })
+    }
+
+    function playerWinCutscene(context: DialogContext) {
+        playerLoseCutscene(context);
     }
 
     function initBG() {

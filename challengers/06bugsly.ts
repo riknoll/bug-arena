@@ -18,10 +18,14 @@ namespace hourOfAi.tower {
             ],
             "Spirals from the outside in.",
             [
-                tower.dialog("That's how the pros do it!", playerLoseCutscene)
+                tower.dialog("That's how the pros do it!", playerLoseCutscene),
+                tower.dialog("Well, I'll be here if you want to try again.", playerLoseCutscene),
+                tower.dialog("Maybe train a little harder", playerLoseCutscene)
             ],
             [
-                tower.dialog("What....? Well you got me fair and square.", playerWinCutscene)
+                tower.dialog("What....? Well you got me fair and square.", playerWinCutscene),
+                tower.dialog("Keep on going!", playerWinCutscene),
+                tower.dialog("I'll be here if you ever need a sparring partner.", playerWinCutscene)
             ],
             imgs.bugsly,
             hourOfAi.algorithms.spiral

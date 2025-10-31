@@ -20,11 +20,12 @@ namespace hourOfAi.tower {
             ],
             "Follows the opponent's color.",
             [
-                tower.dialog("Ha! A waste of time!"),
+                tower.dialog("Ha! A waste of time!", playerLoseCutscene),
                 tower.dialog("You cannot defeat true darkness!")
             ],
             [
-                tower.dialog("Curses! But I'll have the last laugh, I swear it!")
+                tower.dialog("Curses!", playerWinCutscene),
+                tower.dialog("But I'll have the last laugh, I swear it!")
             ],
             imgs.shadow,
             hourOfAi.algorithms.followOpponentColor
@@ -237,10 +238,70 @@ namespace hourOfAi.tower {
     }
 
     function playerLoseCutscene(context: DialogContext) {
+        scene.setBackgroundColor(12)
+        const shadow = sprites.create(imgs.small_shadow[0], SpriteKind.DialogSprite);
+        shadow.bottom = 55;
+        shadow.z = 1;
+        animation.runImageAnimation(shadow, imgs.small_shadow, 150, true);
 
+        control.runInParallel(() => {
+            context.pauseUntilNextStep();
+            animation.runMovementAnimation(shadow, `q 0 -55 0 -55`, 1000);
+        })
     }
 
     function playerWinCutscene(context: DialogContext) {
+        scene.setBackgroundColor(12)
+        const shadow = sprites.create(imgs.small_shadow[0], SpriteKind.DialogSprite);
+        shadow.bottom = 55;
+        shadow.z = 1;
+        animation.runImageAnimation(shadow, imgs.small_shadow, 150, true);
 
+        control.runInParallel(() => {
+            context.pauseUntilNextStep();
+            animation.runMovementAnimation(shadow, `q 0 -55 0 -55`, 1000);
+        })
     }
+
+    function explosion(context: DialogContext) {
+        control.runInParallel(() => {
+            while (!context.isFinished()) {
+                control.runInParallel(() => {
+                    if (context.isFinished()) return;
+                    const fire = new tourney.FireSprite(6, 24, true);
+                    fire.setKind(SpriteKind.DialogSprite);
+                    fire.lifespan = 400;
+                    const angle = (randint(0, 359) * Math.PI / 180);
+                    const radius = randint(8, 24);
+                    fire.x = 80 + radius * Math.cos(angle);
+                    fire.y = 60 + radius * Math.sin(angle);
+                    fire.z = fire.y / 200;
+                    for (let i = 0; i < 5; i++) {
+                        mirrorFire(fire);
+                    }
+                    pause(200);
+                    fire.extinguish();
+                })
+                // setTimeout(() => fire.extinguish(), 200)
+                pause(100);
+            }
+        })
+    }
+
+    function mirrorFire(fire: tourney.FireSprite) {
+        const angle = (randint(0, 359) * Math.PI / 180);
+        const radius = randint(8, 24);
+        const x = (80 + radius * Math.cos(angle)) - (fire.width >> 1);
+        const y = 60 + radius * Math.sin(angle) - (fire.height >> 1);
+
+        let r: scene.Renderable;
+        r = scene.createRenderable(y / 200, () => {
+            if (fire.flags & sprites.Flag.Destroyed) {
+                r.destroy();
+                return;
+            }
+            fire.draw(x, y);
+        })
+    }
+
 }
