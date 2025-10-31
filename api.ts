@@ -281,6 +281,8 @@ namespace hourOfAi {
      */
     //% blockId=hourofai_turnTowardsPosition
     //% block="face x $x y $y"
+    //% x.shadow="positionPicker"
+    //% y.shadow="positionPicker"
     //% group="Turning"
     //% weight=80
     //% help=github:arcade-bug-arena/docs/turnTowardsPosition
