@@ -84,8 +84,15 @@ namespace hourOfAi {
             }
 
             if (this.bug.targetHeading === undefined) {
-                const dx = Math.cos(this.bug.heading);
-                const dy = Math.sin(this.bug.heading);
+                // get the dx/dy to make sure we're actually heading towards the wall we're supposedly bumping
+                // into. there is a slight dead zone to account for drift from rounding errors
+                const angleDegrees = Math.round(angleutil.clampDegrees(this.bug.heading * 180 / Math.PI))
+                const angle = angleDegrees * Math.PI / 180;
+                let dx = Math.cos(angle)
+                if (Math.abs(dx) < 0.005) dx = 0;
+                let dy = Math.sin(angle)
+                if (Math.abs(dy) < 0.005) dy = 0;
+
 
                 if (this.bug.position.x - AGENT_RADIUS < this.arena.left && dx < 0 ||
                     this.bug.position.x + AGENT_RADIUS > this.arena.right && dx > 0 ||
