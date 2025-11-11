@@ -52,6 +52,46 @@ enum FillColor {
     Checkerboard,
 }
 
+enum Color {
+    //% jres=colors.Red
+    Red = 2,
+    //% jres=colors.Orange
+    Orange = 3,
+    //% jres=colors.LightOrange
+    LightOrange = 4,
+    //% jres=colors.Yellow
+    Yellow = 5,
+    //% jres=colors.Green
+    Green = 7,
+    //% jres=colors.Blue
+    Blue = 8,
+    //% jres=colors.LightBlue
+    LightBlue = 9,
+    //% jres=colors.Purple
+    Purple = 10,
+    //% jres=colors.White
+    White = 11,
+    //% jres=colors.LightGrey
+    LightGrey = 12,
+    //% jres=colors.Grey
+    Grey = 13,
+    //% jres=colors.DarkGrey
+    DarkGrey = 14,
+    //% jres=colors.Black
+    Black = 15
+}
+
+enum ColorTarget {
+    //% block="body"
+    Body = 0,
+    //% block="legs"
+    Legs = 1,
+    //% block="nose"
+    Nose = 2,
+    //% block="eyes"
+    Eyes = 3
+}
+
 //% block="Bug AI"
 //% color="#e88b00"
 //% weight=9999999
@@ -64,6 +104,11 @@ namespace hourOfAi {
         everyHandlers: { millis: number, handler: () => void }[] = []
         onBumpWallHandlers: (() => void)[] = [];
         fillColor: FillColor;
+
+        bodyColor: number;
+        noseColor: number;
+        eyeColor: number;
+        legColor: number;
 
         constructor() {
 
@@ -176,6 +221,26 @@ namespace hourOfAi {
             }
             else {
                 this.fillColor = color;
+            }
+        }
+
+        setBugColor(target: ColorTarget, color: number) {
+            if (this.agent) {
+                this.agent.setBugColor(target, color);
+            }
+            else {
+                if (target === ColorTarget.Body) {
+                    this.bodyColor = color;
+                }
+                else if (target === ColorTarget.Eyes) {
+                    this.eyeColor = color;
+                }
+                else if (target === ColorTarget.Legs) {
+                    this.legColor = color;
+                }
+                else {
+                    this.noseColor = color;
+                }
             }
         }
     }
@@ -414,9 +479,23 @@ namespace hourOfAi {
     //% color.fieldOptions.width="380"
     //% color.fieldOptions.maxRows=4
     //% group="Customize"
+    //% weight=100
     export function setFillColor(color: FillColor) {
         initAPI();
         _agent.setFillColor(color);
+    }
+
+    //% blockId=hourofai_setBugColor
+    //% block="set bug $target color to $color"
+    //% color.fieldEditor="imagedropdown"
+    //% color.fieldOptions.columns="5"
+    //% color.fieldOptions.width="380"
+    //% color.fieldOptions.maxRows=4
+    //% group="Customize"
+    //% weight=90
+    export function setBugColor(target: ColorTarget, color: Color) {
+        initAPI();
+        _agent.setBugColor(target, color);
     }
 
     export let bugDesign: BugDesign = {

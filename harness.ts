@@ -228,6 +228,21 @@ namespace hourOfAi {
             this.fillPatternKind = fillColor;
             this.fillPattern = getColorFillFunction(fillColor);
         }
+
+        setBugColor(target: ColorTarget, color: Color) {
+            if (target === ColorTarget.Body) {
+                this.bug.bodyColor = color;
+            }
+            else if (target === ColorTarget.Eyes) {
+                this.bug.eyeColor = color;
+            }
+            else if (target === ColorTarget.Legs) {
+                this.bug.legColor = color;
+            }
+            else {
+                this.bug.noseColor = color;
+            }
+        }
     }
 
     function degreesToRadians(degrees: number): number {
@@ -402,6 +417,10 @@ namespace hourOfAi {
         }
 
         if (_agent.fillColor) _agent.agent.setFillColor(_agent.fillColor)
+        if (_agent.bodyColor) _agent.agent.setBugColor(ColorTarget.Body, _agent.bodyColor)
+        if (_agent.noseColor) _agent.agent.setBugColor(ColorTarget.Nose, _agent.noseColor)
+        if (_agent.eyeColor) _agent.agent.setBugColor(ColorTarget.Eyes, _agent.eyeColor)
+        if (_agent.legColor) _agent.agent.setBugColor(ColorTarget.Legs, _agent.legColor)
 
         let opponent: Agent;
 

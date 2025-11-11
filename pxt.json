@@ -3,6 +3,7 @@
     "version": "0.0.0",
     "files": [
         "icons.jres",
+        "colors.jres",
         "docs/arenaProperty.md",
         "docs/canSeeColor.md",
         "docs/canSeeOpponent.md",
