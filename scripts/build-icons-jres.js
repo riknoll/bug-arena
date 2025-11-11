@@ -47,15 +47,15 @@ function writeFillPatterns() {
     };
 
     for (const pattern of patterns) {
-        const width = pattern.pixels[0].length;
-        const height = pattern.pixels.length;
+        const width = pattern.pixels[0].length << 1;
+        const height = pattern.pixels.length << 1;
 
         const render = canvas.createCanvas(width, height)
         const context = render.getContext("2d");
 
         for (let x = 0; x < width; x++) {
             for (let y = 0; y < height; y++) {
-                context.fillStyle = palette[pattern.pixels[y][x]];
+                context.fillStyle = palette[pattern.pixels[y >> 1][x >> 1]];
                 context.fillRect(x, y, 1, 1);
             }
         }
