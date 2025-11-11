@@ -2,6 +2,7 @@
     "name": "arcade-bug-arena",
     "version": "0.0.0",
     "files": [
+        "icons.jres",
         "docs/arenaProperty.md",
         "docs/canSeeColor.md",
         "docs/canSeeOpponent.md",
@@ -39,6 +40,7 @@
         "challengers/07bugslyjr.ts",
         "challengers/08shadow.ts",
         "challengers/09president.ts",
+        "fillPatterns.ts",
         "settings.ts",
         "intro.ts",
         "angleutil.ts",

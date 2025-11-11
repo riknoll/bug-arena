@@ -38,6 +38,9 @@ namespace hourOfAi {
 
     export class Agent {
         bug: hourOfAi.BugPresident;
+        fillPatternKind: FillColor;
+        fillPattern: (x: number, y: number) => number;
+
         protected handlers: IntervalHandler[] = [];
         protected onStartHandler: () => void;
         protected onBumpWallHandler: () => void;
@@ -58,7 +61,6 @@ namespace hourOfAi {
         start() {
             if (this.onStartHandler) this.onStartHandler();
         }
-
 
         update(dt: number) {
             this.bug.update(dt);
@@ -183,7 +185,7 @@ namespace hourOfAi {
             else if (type === ColorType.OpponentColor) {
                 if (this.arena.combatants.length < 2) return Infinity;
 
-                color = this.arena.combatants.find(c => c !== this).bug.fillColor || 0;
+                color = this.arena.combatants.indexOf(this) ? 1 : 2;
             }
 
             const edge = this.bug.position.project(this.bug.heading, AGENT_RADIUS + 1);
@@ -220,6 +222,11 @@ namespace hourOfAi {
 
         dispose() {
             this.bug.renderable.destroy();
+        }
+
+        setFillColor(fillColor: FillColor) {
+            this.fillPatternKind = fillColor;
+            this.fillPattern = getColorFillFunction(fillColor);
         }
     }
 
@@ -267,7 +274,6 @@ namespace hourOfAi {
     ) {
         let arena: Arena;
         running = false;
-        game.stats = true;
 
         timeRemaining = matchTime;
         const timeSlice = 1/30;
@@ -285,7 +291,7 @@ namespace hourOfAi {
                 arena.update(timeSlice);
             }
 
-           scores = countColors(arena.background, arena.combatants[0].bug.fillColor, arena.combatants[1].bug.fillColor);
+           scores = countColors(arena.scoreImage, 1, 2);
             // info.player1.setScore(scores[0]);
             // info.player2.setScore(scores[1]);
         });
@@ -350,7 +356,6 @@ namespace hourOfAi {
         opponentDef?: Challenger
     ) {
         let arena: Arena;
-        game.stats = true;
 
         const timeSlice = 1/30;
 
@@ -369,10 +374,10 @@ namespace hourOfAi {
             }
 
             if (opponentDef) {
-                scores = countColors(arena.background, arena.combatants[0].bug.fillColor, arena.combatants[1].bug.fillColor);
+                scores = countColors(arena.scoreImage, 1, 2);
             }
             else {
-                scores[0] = countColors(arena.background, _agent.agent.bug.fillColor, 0)[0];
+                scores[0] = countColors(arena.scoreImage, 1, 2)[0];
             }
         });
 
@@ -395,6 +400,8 @@ namespace hourOfAi {
         for (const handler of _agent.onBumpWallHandlers) {
             _agent.agent.onBumpWall(handler);
         }
+
+        if (_agent.fillColor) _agent.agent.setFillColor(_agent.fillColor)
 
         let opponent: Agent;
 

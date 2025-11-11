@@ -1,3 +1,4 @@
+game.stats = true;
 // const player1 = mrPresident.create();
 // const player2 = mrPresident.create();
 
@@ -331,11 +332,21 @@ hourOfAi.every(100, () => {
         //     flip = !flip;
         // }
 
-        hourOfAi.turnBy(Math.percentChance(50) ? 37 : -37);
+        hourOfAi.turnBy(5);
         turnCount++;
         // hourOfAi.turnBy(45);
     }
 })
+
+hourOfAi.onStart(() => {
+    hourOfAi.turnBy(17)
+    hourOfAi.setFillColor(FillColor.Herringbone)
+})
+
+// hourOfAi.onBumpWall(() => {
+//     console.log("bump " + hourOfAi._agent.agent.bug.heading)
+//     hourOfAi.turnBy(90)
+// })
 
 // hourOfAi.every(5000, () => {
 //     hourOfAi.turnBy(90);
@@ -347,3 +358,62 @@ hourOfAi.every(100, () => {
 // hourOfAi.onBumpWall(() => {
 //     hourOfAi.turnBy(90);
 // })
+
+const fillPatterns = [
+    { color: FillColor.Red, name: "Red" },
+    { color: FillColor.Orange, name: "Orange" },
+    { color: FillColor.Yellow, name: "Yellow" },
+    { color: FillColor.Green, name: "Green" },
+    { color: FillColor.Blue, name: "Blue" },
+    { color: FillColor.Purple, name: "Purple" },
+    { color: FillColor.Rainbow, name: "Rainbow" },
+    { color: FillColor.Wavy, name: "Wavy" },
+    { color: FillColor.Tatami, name: "Tatami" },
+    { color: FillColor.Sparkles, name: "Sparkles" },
+    { color: FillColor.Herringbone, name: "Herringbone" },
+    { color: FillColor.Checkerboard, name: "Checkerboard" },
+];
+let out = "const patterns = [\n";
+for (const pattern of fillPatterns) {
+    console.log(pattern.name);
+    const icon = image.create(16, 16);
+    const getPixel = hourOfAi.getColorFillFunction(pattern.color);
+    for (let x = 0; x < icon.width; x++) {
+        for (let y = 0; y < icon.height; y++) {
+            icon.setPixel(x, y, getPixel(x, y));
+        }
+    }
+    const pixelData = printImage2(icon);
+    out += `    { name: "${pattern.name}", pixels: ${pixelData} },\n`;
+}
+out += "];"
+console.log(out)
+
+function printImage(image: Image) {
+    const hexChars = ".123456789ABCDEF";
+    let out = "img`\n";
+    for (let y = 0; y < image.height; y++) {
+        let row = "    "
+        for (let x = 0; x < image.width; x++) {
+            row += hexChars.charAt(image.getPixel(x, y));
+            if (x < image.width - 1) {
+                row += " "
+            }
+        }
+        out += row + "\n";
+    }
+    out += "`";
+    return out;
+}
+
+function printImage2(image: Image) {
+    let rows: number[][] = [];
+    for (let y = 0; y < image.height; y++) {
+        let row: number[] = []
+        for (let x = 0; x < image.width; x++) {
+            row.push(image.getPixel(x, y))
+        }
+        rows.push(row)
+    }
+    return `[${rows.map(row => `[${row.join(", ")}]`).join(", ")}]`;
+}

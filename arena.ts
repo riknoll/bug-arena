@@ -6,6 +6,7 @@ namespace hourOfAi {
         combatants: Agent[];
         bombs: Position[];
         background: Image;
+        scoreImage: Image;
 
         left: number;
         right: number;
@@ -18,6 +19,7 @@ namespace hourOfAi {
 
         constructor() {
             this.background = image.create(screen.width - 10, screen.height - 20);
+            this.scoreImage = image.create(screen.width - 10, screen.height - 20);
             this.left = 5;
             this.right = this.left + this.background.width;
             this.top = 11;
@@ -44,11 +46,28 @@ namespace hourOfAi {
                 combatant.update(dt);
                 this.constrainPosition(combatant.bug.position, AGENT_RADIUS);
 
-                this.background.fillCircle(
+                if (combatant.fillPattern) {
+                    drawCircle(
+                        this.background,
+                        combatant.bug.position.x - this.left,
+                        combatant.bug.position.y - this.top,
+                        combatant.fillPattern
+                    );
+                }
+                else {
+                    this.background.fillCircle(
+                        combatant.bug.position.x - this.left,
+                        combatant.bug.position.y - this.top,
+                        AGENT_RADIUS,
+                        combatant.bug.fillColor
+                    );
+                }
+
+                this.scoreImage.fillCircle(
                     combatant.bug.position.x - this.left,
                     combatant.bug.position.y - this.top,
                     AGENT_RADIUS,
-                    combatant.bug.fillColor
+                    this.combatants.indexOf(combatant) + 1
                 );
 
                 for (const bomb of this.bombs) {
@@ -73,7 +92,7 @@ namespace hourOfAi {
         }
 
         scanForColor(position: Position, angle: number, color: number): Position | undefined {
-            return this.scanCore(position, angle, pos => this.background.getPixel(pos.x, pos.y) === color);
+            return this.scanCore(position, angle, pos => this.scoreImage.getPixel(pos.x, pos.y) === color);
         }
 
         scanForOpponent(position: Position, angle: number, combatant: Agent): Position | undefined {
@@ -124,6 +143,12 @@ namespace hourOfAi {
             for (const combatant of this.combatants) {
                 combatant.start();
             }
+
+            if (this.combatants.length === 2 && this.combatants[0].fillPattern) {
+                if (colorFillConflictsWith(this.combatants[0].fillPatternKind, this.combatants[1].bug.fillColor)) {
+                    this.combatants[1].bug.fillColor = 1;
+                }
+            }
             this.running = true;
         }
 
@@ -167,12 +192,12 @@ namespace hourOfAi {
                 return true;
             }
 
-            for (let x = 0; x < this.background.width; x++) {
-                for (let y = 0; y < this.background.height; y++) {
-                    const color = this.background.getPixel(x, y);
-                    if (color === this.combatants[0].bug.fillColor) { // Player 1's color
+            for (let x = 0; x < this.scoreImage.width; x++) {
+                for (let y = 0; y < this.scoreImage.height; y++) {
+                    const color = this.scoreImage.getPixel(x, y);
+                    if (color === 1) {
                         p1Score++;
-                    } else if (color === this.combatants[1].bug.fillColor) { // Player 2's color
+                    } else if (color === 2) {
                         p2Score++;
                     }
                 }

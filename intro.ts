@@ -109,7 +109,6 @@ function createFire(top: number) {
             }
         }
     }
-    game.stats = true
     const palette = [0, 1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5].map(index => fireRamp.getPixel(index, 0));
 
     const setPixel = (x: number, y: number, fireX: number, fireY: number) => {

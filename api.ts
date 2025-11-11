@@ -25,6 +25,33 @@ enum ArenaProperty {
     Height
 }
 
+enum FillColor {
+    //% jres=icons.Red
+    Red = 1,
+    //% jres=icons.Orange
+    Orange,
+    //% jres=icons.Yellow
+    Yellow,
+    //% jres=icons.Green
+    Green,
+    //% jres=icons.Blue
+    Blue,
+    //% jres=icons.Purple
+    Purple,
+    //% jres=icons.Rainbow
+    Rainbow,
+    //% jres=icons.Wavy
+    Wavy,
+    //% jres=icons.Tatami
+    Tatami,
+    //% jres=icons.Sparkles
+    Sparkles,
+    //% jres=icons.Herringbone
+    Herringbone,
+    //% jres=icons.Checkerboard
+    Checkerboard,
+}
+
 //% block="Bug AI"
 //% color="#e88b00"
 //% weight=9999999
@@ -36,6 +63,7 @@ namespace hourOfAi {
         onStartHandlers: (() => void)[] = [];
         everyHandlers: { millis: number, handler: () => void }[] = []
         onBumpWallHandlers: (() => void)[] = [];
+        fillColor: FillColor;
 
         constructor() {
 
@@ -140,6 +168,15 @@ namespace hourOfAi {
                 return this.agent.canSeeOpponent();
             }
             return false;
+        }
+
+        setFillColor(color: FillColor) {
+            if (this.agent) {
+                this.agent.setFillColor(color);
+            }
+            else {
+                this.fillColor = color;
+            }
         }
     }
 
@@ -368,6 +405,18 @@ namespace hourOfAi {
     export function canSeeOpponent(): boolean {
         initAPI();
         return _agent.canSeeOpponent();
+    }
+
+    //% blockId=hourofai_setFillColor
+    //% block="set fill color to $color"
+    //% color.fieldEditor="imagedropdown"
+    //% color.fieldOptions.columns="5"
+    //% color.fieldOptions.width="380"
+    //% color.fieldOptions.maxRows=4
+    //% group="Customize"
+    export function setFillColor(color: FillColor) {
+        initAPI();
+        _agent.setFillColor(color);
     }
 
     export let bugDesign: BugDesign = {

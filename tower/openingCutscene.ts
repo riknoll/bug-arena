@@ -1,7 +1,5 @@
 namespace hourOfAi.tower {
     export function showOpeningCutscene() {
-        game.stats = true;
-
         let scrollValue = 120;
 
         const planets = [
