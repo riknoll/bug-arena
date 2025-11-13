@@ -187,6 +187,9 @@ namespace hourOfAi {
 
                 color = this.arena.combatants.indexOf(this) ? 1 : 2;
             }
+            else {
+                color = this.arena.combatants.indexOf(this) ? 2 : 1;
+            }
 
             const edge = this.bug.position.project(this.bug.heading, AGENT_RADIUS + 1);
             const pos = this.arena.scanForColor(edge, this.bug.heading, color);
