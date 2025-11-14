@@ -255,7 +255,7 @@ namespace hourOfAi {
     //% block="bug $property"
     //% group="State"
     //% weight=90
-    //% help=github:arcade-bug-arena/docs/property
+    //% help=github:bug-arena/docs/property
     export function property(property: Property): number {
         initAPI();
         return _agent.property(property);
@@ -271,7 +271,7 @@ namespace hourOfAi {
     //% block="arena $property"
     //% group="State"
     //% weight=80
-    //% help=github:arcade-bug-arena/docs/arenaProperty
+    //% help=github:bug-arena/docs/arenaProperty
     export function arenaProperty(property: ArenaProperty): number {
         initAPI();
         return _agent.arenaProperty(property);
@@ -286,7 +286,7 @@ namespace hourOfAi {
     //% block="on start"
     //% group="Events"
     //% weight=100
-    //% help=github:arcade-bug-arena/docs/onStart
+    //% help=github:bug-arena/docs/onStart
     export function onStart(handler: () => void) {
         initAPI();
         _agent.onStart(handler);
@@ -303,7 +303,7 @@ namespace hourOfAi {
     //% millis.shadow=timePicker
     //% group="Events"
     //% weight=90
-    //% help=github:arcade-bug-arena/docs/every
+    //% help=github:bug-arena/docs/every
     export function every(millis: number, handler: () => void) {
         initAPI();
         _agent.every(millis, handler);
@@ -321,7 +321,7 @@ namespace hourOfAi {
     //% group="Events"
     //% weight=70
     //% handlerStatement=1
-    //% help=github:arcade-bug-arena/docs/every
+    //% help=github:bug-arena/docs/every
     export function doAfter(millis: number, handler: () => void) {
         initAPI();
         _agent.doAfter(millis, handler);
@@ -336,7 +336,7 @@ namespace hourOfAi {
     //% block="on bump wall"
     //% group="Events"
     //% weight=80
-    //% help=github:arcade-bug-arena/docs/onBumpWall
+    //% help=github:bug-arena/docs/onBumpWall
     export function onBumpWall(handler: () => void) {
         initAPI();
         _agent.onBumpWall(handler);
@@ -353,7 +353,7 @@ namespace hourOfAi {
     //% degrees.defl=90
     //% group="Turning"
     //% weight=100
-    //% help=github:arcade-bug-arena/docs/turnBy
+    //% help=github:bug-arena/docs/turnBy
     export function turnBy(degrees: number) {
         initAPI();
         _agent.turnBy(degrees);
@@ -369,7 +369,7 @@ namespace hourOfAi {
     //% degrees.shadow=protractorPicker
     //% group="Turning"
     //% weight=90
-    //% help=github:arcade-bug-arena/docs/turnTowards
+    //% help=github:bug-arena/docs/turnTowards
     export function turnTowards(degrees: number) {
         initAPI();
         _agent.turnTowards(degrees);
@@ -387,7 +387,7 @@ namespace hourOfAi {
     //% y.shadow="positionPicker"
     //% group="Turning"
     //% weight=80
-    //% help=github:arcade-bug-arena/docs/turnTowardsPosition
+    //% help=github:bug-arena/docs/turnTowardsPosition
     export function turnTowardsPosition(x: number, y: number) {
         initAPI();
         _agent.turnTowardsPosition(x, y);
@@ -402,7 +402,7 @@ namespace hourOfAi {
     //% block="distance to wall"
     //% group="Vision"
     //% weight=100
-    //% help=github:arcade-bug-arena/docs/distanceToWall
+    //% help=github:bug-arena/docs/distanceToWall
     export function distanceToWall(): number {
         initAPI();
         return _agent.distanceToWall();
@@ -419,7 +419,7 @@ namespace hourOfAi {
     //% group="Vision"
     //% weight=90
     //% blockGap=8
-    //% help=github:arcade-bug-arena/docs/distanceToColor
+    //% help=github:bug-arena/docs/distanceToColor
     export function distanceToColor(type: ColorType): number {
         initAPI();
         return _agent.distanceToColor(type);
@@ -435,7 +435,7 @@ namespace hourOfAi {
     //% block="can see $type color"
     //% group="Vision"
     //% weight=80
-    //% help=github:arcade-bug-arena/docs/canSeeColor
+    //% help=github:bug-arena/docs/canSeeColor
     export function canSeeColor(type: ColorType): boolean {
         initAPI();
         return _agent.canSeeColor(type);
@@ -451,7 +451,7 @@ namespace hourOfAi {
     //% group="Vision"
     //% weight=50
     //% blockGap=8
-    //% help=github:arcade-bug-arena/docs/distanceToOpponent
+    //% help=github:bug-arena/docs/distanceToOpponent
     export function distanceToOpponent(): number {
         initAPI();
         return _agent.distanceToOpponent();
@@ -466,7 +466,7 @@ namespace hourOfAi {
     //% block="can see opponent"
     //% group="Vision"
     //% weight=40
-    //% help=github:arcade-bug-arena/docs/canSeeOpponent
+    //% help=github:bug-arena/docs/canSeeOpponent
     export function canSeeOpponent(): boolean {
         initAPI();
         return _agent.canSeeOpponent();

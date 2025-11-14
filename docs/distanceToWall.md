@@ -22,5 +22,5 @@ hourOfAi.every(50, () => {
 ```
 
 ```package
-hour-of-ai=github:microsoft/arcade-bug-arena
+hour-of-ai=github:riknoll/bug-arena
 ```
