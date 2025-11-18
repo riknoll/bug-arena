@@ -455,7 +455,7 @@ namespace hourOfAi.tower {
             miniSprites = [];
         }
 
-        doOutroAnimation() {
+        doOutroAnimation(usedContinue: boolean) {
             scene.setBackgroundColor(15);
             this.zoomOut();
 
@@ -484,7 +484,7 @@ namespace hourOfAi.tower {
                             pause(1);
                         }
 
-                        if (getTowerUsedContinue() || isDebugMode()) {
+                        if (usedContinue || isDebugMode()) {
                             showEndCutsceneText("Congratulations!\nYou beat the tower!\nNext time try to do it without using a continue!");
                         }
                         else {

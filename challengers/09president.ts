@@ -25,12 +25,13 @@ namespace hourOfAi.tower {
                 tower.dialog("Become the champion!"),
                 tower.dialog("And create the greatest AI!"),
             ],
-            "TBD",
+            "The leader of the entire Bug Nation",
             [
                 tower.dialog("Better luck next time! Now I've got a nation to run!", playerLoseCutscene)
             ],
             [
-                tower.dialog("Well, you won fair and square. I hope I can still count on your vote!", playerWinCutscene)
+                tower.dialog("Well, you won fair and square.", playerWinCutscene),
+                tower.dialog("I hope I can still count on your vote!")
             ],
             imgs.president,
             hourOfAi.algorithms.zigzag

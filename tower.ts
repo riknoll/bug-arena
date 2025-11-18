@@ -51,10 +51,11 @@ namespace hourOfAi.tower {
         if (isIntroCutscene) {
             // Check if we are continuing from a previous match
             if (challengerIndex === challengers.length) {
+                const usedContinue = getTowerUsedContinue();
                 clearTowerProgress();
                 setBeatTower(true);
                 bg.scrollTo(challengerIndex - 1, true);
-                bg.doOutroAnimation();
+                bg.doOutroAnimation(usedContinue);
                 return;
             }
             if (challengerIndex !== 0) {

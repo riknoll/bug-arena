@@ -471,7 +471,11 @@ namespace hourOfAi {
                 screen.fillRect(24, 2, 39, 7, 1);
                 screen.fillRect(25, 3, 37 * (scores[0] / (scores[0] + scores[1])), 5, arena.combatants[0].bug.fillColor);
                 screen.fillRect(screen.width - 64, 2, 39, 7, 1);
-                screen.fillRect(screen.width - 63, 3, 37 * (scores[1] / (scores[0] + scores[1])), 5, arena.combatants[1].bug.fillColor);
+                let comColor = arena.combatants[1].bug.fillColor;
+                if (comColor === 1) {
+                    comColor = 2;
+                }
+                screen.fillRect(screen.width - 63, 3, 37 * (scores[1] / (scores[0] + scores[1])), 5, comColor);
             })
         }
 
