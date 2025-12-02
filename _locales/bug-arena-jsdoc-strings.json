@@ -1,0 +1,19 @@
+{
+  "hourOfAi.arenaProperty": "Returns a value of a property of the arena your bug is in.\n* @param property The property to get the value of.\n@returns The value of the specified property.",
+  "hourOfAi.canSeeColor": "Returns whether your bug can see a certain color in the direction it is currently facing.\n* @param type The type of color to look for.\n@returns Whether your bug can see the specified color.",
+  "hourOfAi.canSeeOpponent": "Returns whether your bug can see the opponent bug.\n* @returns Whether your bug can see the opponent bug.",
+  "hourOfAi.distanceToColor": "Returns the distance in pixels from your bug to the nearest pixel of a certain color in the direction it is currently facing. Returns -1 if no pixel of that color is seen.\n* @param type The type of color to look for.\n@returns The distance in pixels from your bug to the nearest pixel of the specified color, or -1 if no pixel of that color is seen.",
+  "hourOfAi.distanceToOpponent": "Returns the distance in pixels from your bug to the opponent bug, or -1 if the opponent cannot be seen.\n* @returns The distance in pixels from your bug to the opponent bug, or -1 if the opponent cannot be seen.",
+  "hourOfAi.distanceToWall": "Returns the distance in pixels from your bug to the nearest wall in the direction it is currently facing.\n* @returns The distance in pixels from your bug to the nearest wall.",
+  "hourOfAi.doAfter": "Runs code after a certain number of milliseconds has passed\n* @param millis The number of milliseconds to wait before running the code.",
+  "hourOfAi.doAfter|param|handler": "The code to run.",
+  "hourOfAi.every": "Runs code on a regular interval of time in milliseconds.\n* @param millis The number of milliseconds between each time the code runs.",
+  "hourOfAi.every|param|handler": "The code to run every interval.",
+  "hourOfAi.onBumpWall": "Runs code when your bug bumps into a wall.\n* @param handler The code to run when your bug bumps into a wall.",
+  "hourOfAi.onStart": "Runs code at the start of the match.\n* @param handler The code to run at the start of the match.",
+  "hourOfAi.property": "Returns the value of a property for your bug.\n* @param property The property to get the value of.\n@returns The value of the specified property.",
+  "hourOfAi.turnBy": "Turns your bug by a certain number of degrees.\n* @param degrees The number of degrees to turn, positive is clockwise and negative is counter-clockwise.",
+  "hourOfAi.turnTowards": "Turns your bug to face a specific angle in degrees.\n* @param degrees The angle in degrees to face, where 0 is to the right, 90 is down, 180 is left, and 270 is up.",
+  "hourOfAi.turnTowardsPosition": "Turns your bug to face a specific position in the arena.\n* @param x The x coordinate of the position to face.",
+  "hourOfAi.turnTowardsPosition|param|y": "The y coordinate of the position to face."
+}
