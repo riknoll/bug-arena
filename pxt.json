@@ -107,7 +107,9 @@
         "assets/generated/tower_section.ts",
         "assets/generated/tv.ts",
         "assets/generated/uranus.ts",
-        "assets/generated/wall.ts"
+        "assets/generated/wall.ts",
+        "_locales/he/bug-arena-jsdoc-strings.json",
+        "_locales/he/bug-arena-strings.json"
     ],
     "testFiles": [
         "test.ts"
