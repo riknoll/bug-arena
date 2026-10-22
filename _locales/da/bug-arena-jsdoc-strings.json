@@ -1,0 +1,19 @@
+{
+  "hourOfAi.arenaProperty": "Returnerer værdien af en egenskab ved arenaen, som din bug er i.\n* @param property Den egenskab, du vil have værdien af.\n@returns Værdien af den valgte egenskab.",
+  "hourOfAi.canSeeColor": "Returnerer, om din bug kan se en bestemt farve i den retning, den vender nu.\n* @param type Den type farve, der skal ledes efter.\n@returns Om din bug kan se den valgte farve.",
+  "hourOfAi.canSeeOpponent": "Returnerer, om din bug kan se modstanderens bug.\n* @returns Om din bug kan se modstanderens bug.",
+  "hourOfAi.distanceToColor": "Returnerer afstanden i pixel fra din bug til den nærmeste pixel med en bestemt farve i den retning, den vender nu. Returnerer -1, hvis ingen pixel med den farve kan ses.\n* @param type Den type farve, der skal ledes efter.\n@returns Afstanden i pixel fra din bug til den nærmeste pixel med den valgte farve, eller -1 hvis ingen pixel med den farve kan ses.",
+  "hourOfAi.distanceToOpponent": "Returnerer afstanden i pixel fra din bug til modstanderens bug, eller -1 hvis modstanderen ikke kan ses.\n* @returns Afstanden i pixel fra din bug til modstanderens bug, eller -1 hvis modstanderen ikke kan ses.",
+  "hourOfAi.distanceToWall": "Returnerer afstanden i pixel fra din bug til den nærmeste væg i den retning, den vender nu.\n* @returns Afstanden i pixel fra din bug til den nærmeste væg.",
+  "hourOfAi.doAfter": "Kører kode, når der er gået et bestemt antal millisekunder.\n* @param millis Antallet af millisekunder, der skal ventes, før koden køres.",
+  "hourOfAi.doAfter|param|handler": "Den kode, der skal køres.",
+  "hourOfAi.every": "Kører kode med et fast tidsinterval i millisekunder.\n* @param millis Antallet af millisekunder mellem hver gang koden køres.",
+  "hourOfAi.every|param|handler": "Den kode, der skal køres ved hvert interval.",
+  "hourOfAi.onBumpWall": "Kører kode, når din bug rammer en væg.\n* @param handler Den kode, der skal køres, når din bug rammer en væg.",
+  "hourOfAi.onStart": "Kører kode, når kampen starter.\n* @param handler Den kode, der skal køres, når kampen starter.",
+  "hourOfAi.property": "Returnerer værdien af en egenskab for din bug.\n* @param property Den egenskab, du vil have værdien af.\n@returns Værdien af den valgte egenskab.",
+  "hourOfAi.turnBy": "Drejer din bug et bestemt antal grader.\n* @param degrees Antallet af grader, der skal drejes. Positive tal drejer med uret, og negative tal drejer mod uret.",
+  "hourOfAi.turnTowards": "Drejer din bug, så den vender mod en bestemt vinkel i grader.\n* @param degrees Den vinkel i grader, som den skal vende mod. 0 er til højre, 90 er nedad, 180 er til venstre, og 270 er opad.",
+  "hourOfAi.turnTowardsPosition": "Drejer din bug, så den vender mod en bestemt placering i arenaen.\n* @param x x-koordinaten for den placering, den skal vende mod.",
+  "hourOfAi.turnTowardsPosition|param|y": "y-koordinaten for den placering, den skal vende mod."
+}
